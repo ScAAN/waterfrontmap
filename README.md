@@ -13,12 +13,9 @@ mapping weather, human industry, and social demographics of SMIAs
 
 ## Goals of this project: make a very cool interactive map
 
-I. What information should it show?
-
-Relevant quantities of interest mapped across significant maritime and industrial areas (SMIAs)
-
+I. What information should it show?  
+Relevant quantities of interest mapped across significant maritime and industrial areas (SMIAs)  
 Currently they are showing:
-
 1. weather events
     - storm surges
     - damage from Irene
@@ -40,16 +37,13 @@ II. What cool things should it do (product experience)?
 - clicking to see things
 - time courses if data allows for it?
 
-III. What is the data like?
-
-Aggregated from many public sources but it seems some is private since they say they it “relies, wherever possible, on publicly available data-sets and methodologies that could be reproduced by city planners and EJ communities working in collaboration”
-
+III. What is the data like?  
+Aggregated from many public sources but it seems some is private since they say they it “relies, wherever possible, on publicly available data-sets and methodologies that could be reproduced by city planners and EJ communities working in collaboration” 
 - SMIA boundaries -> New York citys WRP
 - Storm surges -> New York state emergencey management office
 - Land zoning and use -> NYC dept of planning
 - Toxics -> US EPA TRI programme
-- Demographics-> from the US census bureau and NYC-DOMH
-
+- Demographics-> from the US census bureau and NYC-DOMH  
 But we can probably ask them for their downloaded / aggregated copy?
 
 IV. What map making tool is the best for these constraints? 
