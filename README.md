@@ -60,3 +60,7 @@ IV. What map making tool is the best for these constraints?
 - Tableau
 
 
+## Mapbox resources
+
+- [how to add layers](https://www.mapbox.com/mapbox-gl-js/example/toggle-layers/)
+- [how to make a choropleth](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)
