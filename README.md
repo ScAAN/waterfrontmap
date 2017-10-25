@@ -38,13 +38,13 @@ II. What cool things should it do (product experience)?
 - time courses if data allows for it?
 
 III. What is the data like?  
-Aggregated from many public sources but it seems some is private since they say they it “relies, wherever possible, on publicly available data-sets and methodologies that could be reproduced by city planners and EJ communities working in collaboration” 
-- SMIA boundaries -> New York citys WRP
+Aggregated from many public sources but it seems some is private since they say they it “relies, wherever possible, on publicly available data-sets and methodologies that could be reproduced by city planners and EJ communities working in collaboration”. But we can probably ask them for their downloaded / aggregated copy?  
+-  [New York citys Waterfront Revitalization Program](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-wrp.page)- information geodata/ shapefiles about SMIA, CZB and other types of waterfront boundaries
 - Storm surges -> New York state emergencey management office
 - Land zoning and use -> NYC dept of planning
 - Toxics -> US EPA TRI programme
 - Demographics-> from the US census bureau and NYC-DOMH  
-But we can probably ask them for their downloaded / aggregated copy?
+
 
 IV. What map making tool is the best for these constraints? 
 - Brainstorm options / pros / cons (*** recommended by others)
