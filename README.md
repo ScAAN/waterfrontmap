@@ -5,6 +5,10 @@ mapping weather, human industry, and social demographics of SMIAs
 - [General information NYC EJA waterfront justice](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)
 - [Peer reviewed EJA paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true)
 
+## Current Sources
+- [NYC shape files](https://www1.nyc.gov/site/planning/data-maps/open-data.page)
+- [Demographic data from ACS](http://www1.nyc.gov/site/planning/data-maps/nyc-population/american-community-survey.page)
+
 ## Plan!
 1. Someone email to ask for the data
 2. Research / ask friends about map making tools 
