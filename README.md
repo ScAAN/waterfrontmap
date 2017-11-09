@@ -8,6 +8,19 @@ mapping weather, human industry, and social demographics of SMIAs
 ## Current Sources
 - [NYC shape files](https://www1.nyc.gov/site/planning/data-maps/open-data.page)
 - [Demographic data from ACS](http://www1.nyc.gov/site/planning/data-maps/nyc-population/american-community-survey.page)
+- [New York citys Waterfront Revitalization Program](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-wrp.page)-
+  information geodata/ shapefiles about SMIA, CZB and other types of
+  waterfront boundaries
+- [Census TIGER data](https://www.census.gov/geo/maps-data/data/tiger-data.html),
+  we should look into the licensing of this to make sure we can use it
+  freely and publically
+  
+## Resources
+- [pyshp](https://pypi.python.org/pypi/pyshp), python library that
+  looks like it might be able to read shape files and write GeoJSONs.
+- [mapbox](https://www.mapbox.com/), the platform we're using
+- [#BagItNYC map](http://bagitnyc.org/map/), map that partly inspired
+  us
 
 ## Plan!
 1. Someone email to ask for the data
