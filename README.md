@@ -1,6 +1,13 @@
 # waterfrontmap
 mapping weather, human industry, and social demographics of SMIAs
 
+## Current to do
+- get one more data set
+- learn how to make things 1/2 mile away
+- make toggle able layers
+- add some hovering info
+- host it somewhere
+
 ## Information
 - [General information NYC EJA waterfront justice](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)
 - [Peer reviewed EJA paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true)
