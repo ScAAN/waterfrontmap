@@ -1,0 +1,17 @@
+percent uninsured
+format: sas
+http://www1.nyc.gov/site/doh/data/data-sets/community-health-survey-public-use-data.page
+
+race data
+format: shapefile or CSV
+http://census.ire.org/data/bulkdata.html
+format: geojson
+??? don't remember where it is 
+
+low-income people
+format: json
+https://catalog.data.gov/dataset/hud-low-and-moderate-income-areas
+
+percentage flood insurance rate 
+format: geojson (!!!)
+http://data.beta.nyc/dataset/nyc-fema-flood-insurance-rate-map
