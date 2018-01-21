@@ -23,7 +23,7 @@ mapping weather, human industry, and social demographics of SMIAs
 - host it somewhere
 
 ## Current maps
-
+- [Maija's](https://api.mapbox.com/styles/v1/mh3155/cjcp8bg653u402rprz0sf5jl6.html?fresh=true&title=true&access_token=pk.eyJ1IjoibWgzMTU1IiwiYSI6ImNqOXJqNHJ5YTZjd28ycXM0Z2dubTJjaXMifQ.czkeapIuZDbzsydf5oH7wg#9.6/40.724588/-73.998055/0)
 - [Billy's](https://www.mapbox.com/studio/styles/billbrod/cj97ob0wq0s2w2rph9kkdgpck/)
 
 ## Information
