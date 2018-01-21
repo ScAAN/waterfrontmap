@@ -8,6 +8,10 @@ mapping weather, human industry, and social demographics of SMIAs
 - add some hovering info
 - host it somewhere
 
+## Current maps
+
+- [Billy's](https://www.mapbox.com/studio/styles/billbrod/cj97ob0wq0s2w2rph9kkdgpck/)
+
 ## Information
 - [General information NYC EJA waterfront justice](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)
 - [Peer reviewed EJA paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true)
