@@ -28,3 +28,14 @@ percentage flood insurance rate
 format: geojson (!!!)
 
 http://data.beta.nyc/dataset/nyc-fema-flood-insurance-rate-map
+
+not sure if this is correct, since we can't figure out any of the data fields.
+
+
+FEMA preliminary flood map (2015)
+
+format: shapefile. the shapefile download is a zip file that has many
+shapefiles, the metadata.txt file in that directory contains
+information describing what each of them are.
+
+http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/
