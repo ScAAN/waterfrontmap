@@ -25,6 +25,8 @@ mapping weather, human industry, and social demographics of SMIAs
 ## Resources
 - [pyshp](https://pypi.python.org/pypi/pyshp), python library that
   looks like it might be able to read shape files and write GeoJSONs.
+    - [gist](https://gist.github.com/frankrowe/6071443) to read in a
+      shape file and save a GeoJSON
 - [mapbox](https://www.mapbox.com/), the platform we're using
 - [#BagItNYC map](http://bagitnyc.org/map/), map that partly inspired
   us
@@ -33,15 +35,15 @@ mapping weather, human industry, and social demographics of SMIAs
 1. Someone email to ask for the data
 2. Research / ask friends about map making tools 
 3. Optionally... make a simple practice map with your favorite tool and some public data
-3. Regroup next weds or after next scaan meeting to discuss
+4. Regroup next weds or after next scaan meeting to discuss
 
 ## Goals of this project: make a very cool interactive map
 
-I. What information should it show?  
-Relevant quantities of interest mapped across significant maritime and industrial areas (SMIAs)  
+I. What information should it show?
+Relevant quantities of interest mapped across significant maritime and industrial areas (SMIAs)
 Currently they are showing:
 1. weather events
-    - storm surges
+    - storm surges (NYSEMO Hurricane Storm Surge Zones)
     - damage from Irene
 2. land use (is it residential / commercial etc?)
 3. threats to public health and dangerous /toxic businesses 
@@ -61,7 +63,7 @@ II. What cool things should it do (product experience)?
 - clicking to see things
 - time courses if data allows for it?
 
-III. What is the data like?  
+III. What is the data like?
 Aggregated from many public sources but it seems some is private since they say they it “relies, wherever possible, on publicly available data-sets and methodologies that could be reproduced by city planners and EJ communities working in collaboration”. But we can probably ask them for their downloaded / aggregated copy?  
 -  [New York citys Waterfront Revitalization Program](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-wrp.page)- information geodata/ shapefiles about SMIA, CZB and other types of waterfront boundaries
 - Storm surges -> New York state emergencey management office
