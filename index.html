@@ -1,19 +1,61 @@
 <html>
   <head>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
     <link href='stuff.css' rel='stylesheet' />
   </head>
   <body>
     <div id='map'></div>
-    <div class='map-overlay' id='features'><h2>SMIA</h2><div id='pd'><p>SMIA info!</p></div></div>
+    <div class='map-overlay' id='features'><h2>Waterfront justice</h2><div id='pd'><p>For great justice!</p></div></div>
     <div class='map-overlay' id='legend'></div>
     <script>
       mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
       var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/billbrod/cj97ob0wq0s2w2rph9kkdgpck'
+	  container: 'map',
+	  style: 'mapbox://styles/mapbox/light-v9',
+	  center: [-73.9978, 40.7209],
+	  zoom: 10
       });
+      
+      map.on('load', function () {
+	  // this shows how to get the data from the website, but I
+	  // think we should do it direct from the json file, as shown
+	  // below
+	  
+	  // map.addLayer({
+	  //     "id": "SMIA",
+	  //     "type": "line",
+	  //     "source": {
+	  // 	  type: 'vector',
+	  // 	  url: 'mapbox://billbrod.cj97mvtuh092834p9h73rvfh9-6xh5y'
+	  //     },
+	  //     "source-layer": "SMIA",
+	  //     "layout": {
+	  // 	  "line-join": "round",
+	  // 	  "line-cap": "round"
+	  //     },
+	  //     "paint": {
+	  // 	  "line-color": "#000000",
+	  // 	  "line-width": 3
+	  //     }
+	  // });
+	  map.addLayer({
+	      "id": "SMIA",
+	      "type": "line",
+	      "source": {
+		  type: 'geojson',
+		  data: './Data/smia.json'
+	      },
+	      "layout": {
+		  "line-join": "round",
+		  "line-cap": "round"
+	      },
+	      "paint": {
+		  "line-color": "#000000",
+		  "line-width": 3
+	      }
+	  });
+      })
 
 
     </script>
