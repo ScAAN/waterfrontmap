@@ -2,17 +2,18 @@
 mapping weather, human industry, and social demographics of SMIAs
 
 ## MAPS WE HAVE TO RECREATE
-- [x] FEMA flood insurance
-- [ ] % people of color
-- [x] % uninsured  CHS 2009 DOMH
-- [ ] % below 200% of poverty level
+find * ed items first
+- [x] FEMA flood insurance 
+- [x] % people of color *
+- [ ] % uninsured  CHS 2009 DOMH *
+- [ ] % below 200% of poverty level *
+- [ ] land use *
+- [ ] EPA EPCRA toxics release inventory TRI sites *
 - [ ] hurricane storm surge zones
-- [ ] land use 
 - [ ] manufacturing zoning districts
-- [ ] threats to public health and hurricaine strome surge zones
+- [ ] threats to public health and hurricaine storm surge zones
 - [ ] superfund class 2 sites 
-- [ ] active bluk storage facilities
-- [ ] EPA EPCRA toxics release inventory TRI stites 
+- [ ] active bulk storage facilities
 - [ ] post irene flooding
 
 ## Current to do
