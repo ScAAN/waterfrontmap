@@ -24,7 +24,7 @@ mapping weather, human industry, and social demographics of SMIAs
 
 ## Current maps
 
-- [Billy's](https://www.mapbox.com/studio/styles/billbrod/cj97ob0wq0s2w2rph9kkdgpck/)
+- [Billy's](https://api.mapbox.com/styles/v1/billbrod/cj97ob0wq0s2w2rph9kkdgpck.html?fresh=true&title=true&access_token=pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow#10.0/40.675708/-73.891521/0)
 
 ## Information
 - [General information NYC EJA waterfront justice](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)
