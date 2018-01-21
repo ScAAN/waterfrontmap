@@ -24,6 +24,9 @@ find * ed items first
 - host it somewhere
 
 ## Current maps
+
+to view the current map, just open up `index.html`!
+
 - [Billy's](https://api.mapbox.com/styles/v1/billbrod/cj97ob0wq0s2w2rph9kkdgpck.html?fresh=true&title=true&access_token=pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow#10.0/40.675708/-73.891521/0)
 - [Maija's](https://api.mapbox.com/styles/v1/mh3155/cjcp8bg653u402rprz0sf5jl6.html?fresh=true&title=true&access_token=pk.eyJ1IjoibWgzMTU1IiwiYSI6ImNqOXJqNHJ5YTZjd28ycXM0Z2dubTJjaXMifQ.czkeapIuZDbzsydf5oH7wg#9.6/40.724588/-73.998055/0)
 
@@ -109,3 +112,5 @@ IV. What map making tool is the best for these constraints?
 
 - [how to add layers](https://www.mapbox.com/mapbox-gl-js/example/toggle-layers/)
 - [how to make a choropleth](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)
+- [style specs](https://www.mapbox.com/mapbox-gl-js/style-spec/)
+- [choropleth example](https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/)
