@@ -1,17 +1,30 @@
 percent uninsured
+
 format: sas
+
 http://www1.nyc.gov/site/doh/data/data-sets/community-health-survey-public-use-data.page
 
+
 race data
-format: shapefile or CSV
+
+format: shapefile or CSV. the shapefiles here only contain the
+geographic information, not the table you specify. in order to get
+them together, you need to combine them into one file and then save as
+a GeoJSON (the csv GEOID column corresponds to the shapefile GEOID10
+column)
+
 http://census.ire.org/data/bulkdata.html
-format: geojson
-??? don't remember where it is 
+
 
 low-income people
+
 format: json
+
 https://catalog.data.gov/dataset/hud-low-and-moderate-income-areas
 
+
 percentage flood insurance rate 
+
 format: geojson (!!!)
+
 http://data.beta.nyc/dataset/nyc-fema-flood-insurance-rate-map
