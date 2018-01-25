@@ -7,9 +7,14 @@ the
 [paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true) and
 go through their references, they provide links and names for the datasets they use.
 
-- [x] FEMA flood insurance 
+- [x]
+[FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/),
+the shapefile download is a zip file that has many shapefiles, the
+metadata.txt file in that directory contains information describing
+what each of them are.
 - [x] % people of color *
-- [ ] % uninsured  CHS 2009 DOMH *
+- [ ] % uninsured Community Health Survey 2009 Department Of Health
+  and Mental Health *
 - [ ] % below 200% of poverty level *
 - [ ] land use *
 - [ ] EPA EPCRA toxics release inventory TRI sites *
