@@ -2,14 +2,23 @@
 mapping weather, human industry, and social demographics of SMIAs
 
 ## MAPS WE HAVE TO RECREATE
-find * ed items first
-- [x] FEMA flood insurance 
+find * ed items first. good way to do this is go to
+the
+[paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true) and
+go through their references, they provide links and names for the datasets they use.
+
+- [x]
+[FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/),
+the shapefile download is a zip file that has many shapefiles, the
+metadata.txt file in that directory contains information describing
+what each of them are.
 - [x] % people of color *
-- [ ] % uninsured  CHS 2009 DOMH *
+- [ ] % uninsured Community Health Survey 2009 Department Of Health
+  and Mental Health *
 - [ ] % below 200% of poverty level *
 - [ ] land use *
 - [ ] EPA EPCRA toxics release inventory TRI sites *
-- [ ] hurricane storm surge zones
+- [ ] [hurricane storm surge zones](http://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1260)
 - [ ] manufacturing zoning districts
 - [ ] threats to public health and hurricaine storm surge zones
 - [ ] superfund class 2 sites 
@@ -24,6 +33,12 @@ find * ed items first
 - host it somewhere
 
 ## Current maps
+
+to view the current map, go
+to [the project page](https://scaan.github.io/waterfrontmap/). the
+following links are to test maps we're making in mapbox and will
+probably no longer use
+
 - [Billy's](https://api.mapbox.com/styles/v1/billbrod/cj97ob0wq0s2w2rph9kkdgpck.html?fresh=true&title=true&access_token=pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow#10.0/40.675708/-73.891521/0)
 - [Maija's](https://api.mapbox.com/styles/v1/mh3155/cjcp8bg653u402rprz0sf5jl6.html?fresh=true&title=true&access_token=pk.eyJ1IjoibWgzMTU1IiwiYSI6ImNqOXJqNHJ5YTZjd28ycXM0Z2dubTJjaXMifQ.czkeapIuZDbzsydf5oH7wg#9.6/40.724588/-73.998055/0)
 
@@ -109,3 +124,5 @@ IV. What map making tool is the best for these constraints?
 
 - [how to add layers](https://www.mapbox.com/mapbox-gl-js/example/toggle-layers/)
 - [how to make a choropleth](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)
+- [style specs](https://www.mapbox.com/mapbox-gl-js/style-spec/)
+- [choropleth example](https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/)
