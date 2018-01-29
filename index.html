@@ -5,17 +5,55 @@
     <link href='stuff.css' rel='stylesheet' />
   </head>
   <body>
+    <style>
+      
+      .legend {
+      background-color: #fff;
+      border-radius: 3px;
+      bottom: 30px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+      font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      padding: 10px;
+      position: absolute;
+      right: 10px;
+      z-index: 1;
+      }
+      
+      .legend h4 {
+	  margin: 0 0 10px;
+      }
+      
+      .legend div span {
+	  border-radius: 50%;
+	  display: inline-block;
+	  height: 10px;
+	  margin-right: 5px;
+	  width: 10px;
+      }
+      
+    </style>    
     <div id='map'></div>
+    <div id='zoning-legend' class='legend' style='display: block;'>
+      <h4>Land use</h4>
+      <div><span style='background-color: #7fc97f'></span>Residential</div>
+      <div><span style='background-color: #beaed4'></span>NYC Parks</div>
+      <div><span style='background-color: #fdc085'></span>Manufacturing</div>
+      <div><span style='background-color: #ffff99'></span>Commercial</div>
+      <div><span style='background-color: #386cb0'></span>Mixed manufacturing and residential</div>
+    </div>
     <div class='map-overlay' id='features'><h2>Waterfront justice</h2><div id='pd'><p>For great justice!</p></div></div>
-    <div class='map-overlay' id='legend'></div>
     <script>
       mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
       var map = new mapboxgl.Map({
 	  container: 'map',
 	  style: 'mapbox://styles/mapbox/light-v9',
 	  center: [-73.9978, 40.7209],
-	  zoom: 10
+	  zoom: 10,
+	  legendControl: {
+	      position: 'bottomright'
+	  }
       });
+      // map.legendControl.addLegend('zoning-legend')
       
       map.on('load', function () {
 	  // this shows how to get the data from the website, but I
@@ -40,6 +78,49 @@
 	  //     }
 	  // });
 	  map.addLayer({
+	      "id": "Zoning",
+	      "type": "fill",
+	      "source": {
+		  type: 'geojson',
+		  data: './Data/nyczd.geojson'
+	      },
+	      "paint": {
+		  "fill-opacity": .75,
+		  "fill-color": {
+		      'property': 'Human_Readable_Zone',
+		      'type': 'categorical',
+		      "stops": [
+			  ['Residential', '#7fc97f'],
+			  ['New York City Parks', '#beaed4'],
+			  ['Manufacturing', '#fdc086'],
+			  ['Commercial', '#ffff99'],
+			  ['Mixed manufacturing and residential', '#386cb0']
+		      ]
+		  }
+	      }
+	  });
+	  // map.addLayer({
+	  //     "id": "Uninsured",
+	  //     "type": "fill",
+	  //     "source": {
+	  // 	  type: 'geojson',
+	  // 	  data: './Data/NeighborhoodUninsured.geojson'
+	  //     },
+	  //     "paint": {
+	  // 	  "fill-opacity": .75,
+	  // 	  "fill-color": [
+	  // 	      'interpolate',
+	  // 	      ['linear'],
+	  // 	      ['get', 'Uninsured_Perc'],
+	  // 	      0, '#feedde',
+	  // 	      10, '#fdbe85',
+	  // 	      20, '#fd8d3c',
+	  // 	      30, '#e6550d',
+	  // 	      40, '#a63603'
+	  // 	  ]
+	  //     }
+	  // });
+	  map.addLayer({
 	      "id": "SMIA",
 	      "type": "line",
 	      "source": {
@@ -54,7 +135,7 @@
 		  "line-color": "#000000",
 		  "line-width": 3
 	      }
-	  });
+	  });	  
       })
 
 
