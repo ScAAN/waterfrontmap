@@ -16,8 +16,20 @@ what each of them are.
 - [ ] % uninsured Community Health Survey 2009 Department Of Health
   and Mental Health *
 - [ ] % below 200% of poverty level *
-- [ ] land use *
-- [ ] EPA EPCRA toxics release inventory TRI sites *
+- [x] land use
+  *:
+  [NYC zoning data](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-gis-zoning.page),
+  nyzd, and
+  see
+  [here](https://www1.nyc.gov/assets/planning/download/pdf/data-maps/open-data/zoningtaxlotdatabase_datadictionary.pdf?r=1217) for
+  the key to the `ZONEDIST` attribute. I then remapped these in the
+  WFM_datahists notebook into a new property, `Human_Readable_Zone`,
+  because that's easier for me.
+- [ ] EPA EPCRA toxics release inventory Toxics Release Inventory
+  (TRI) sites *
+  ([from EPI website](https://www.epa.gov/enviro/geospatial-data-download-service) and
+  then convert to geojson
+  using [togeojson](https://github.com/mapbox/togeojson))
 - [ ] [hurricane storm surge zones](http://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1260)
 - [ ] manufacturing zoning districts
 - [ ] threats to public health and hurricaine storm surge zones
@@ -126,3 +138,6 @@ IV. What map making tool is the best for these constraints?
 - [how to make a choropleth](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)
 - [style specs](https://www.mapbox.com/mapbox-gl-js/style-spec/)
 - [choropleth example](https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/)
+- [this](https://www.mapbox.com/help/mapbox-gl-js-expressions/) will
+  probably be helpful in drawing a circle with a half mile / mile
+	  radius from the SMIA borders
