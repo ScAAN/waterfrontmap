@@ -61,45 +61,35 @@
 	  // think we should do it direct from the json file, as shown
 	  // below
 	  
+	  map.addSource("race", {
+	      "type": "geojson",
+	      "data": "./Data/reduced_Race.geojson"
+	  }
+	      
+	  )
+	  
 	  // map.addLayer({
-	  //     "id": "SMIA",
-	  //     "type": "line",
+	  //     "id": "Zoning",
+	  //     "type": "fill",
 	  //     "source": {
-	  // 	  type: 'vector',
-	  // 	  url: 'mapbox://billbrod.cj97mvtuh092834p9h73rvfh9-6xh5y'
-	  //     },
-	  //     "source-layer": "SMIA",
-	  //     "layout": {
-	  // 	  "line-join": "round",
-	  // 	  "line-cap": "round"
+	  // 	  type: 'geojson',
+	  // 	  data: './Data/nyczd.geojson'
 	  //     },
 	  //     "paint": {
-	  // 	  "line-color": "#000000",
-	  // 	  "line-width": 3
+	  // 	  "fill-opacity": .75,
+	  // 	  "fill-color": {
+	  // 	      'property': 'Human_Readable_Zone',
+	  // 	      'type': 'categorical',
+	  // 	      "stops": [
+	  // 		  ['Residential', '#7fc97f'],
+	  // 		  ['New York City Parks', '#beaed4'],
+	  // 		  ['Manufacturing', '#fdc086'],
+	  // 		  ['Commercial', '#ffff99'],
+	  // 		  ['Mixed manufacturing and residential', '#386cb0']
+	  // 	      ]
+	  // 	  }
 	  //     }
 	  // });
-	  map.addLayer({
-	      "id": "Zoning",
-	      "type": "fill",
-	      "source": {
-		  type: 'geojson',
-		  data: './Data/nyczd.geojson'
-	      },
-	      "paint": {
-		  "fill-opacity": .75,
-		  "fill-color": {
-		      'property': 'Human_Readable_Zone',
-		      'type': 'categorical',
-		      "stops": [
-			  ['Residential', '#7fc97f'],
-			  ['New York City Parks', '#beaed4'],
-			  ['Manufacturing', '#fdc086'],
-			  ['Commercial', '#ffff99'],
-			  ['Mixed manufacturing and residential', '#386cb0']
-		      ]
-		  }
-	      }
-	  });
 	  // map.addLayer({
 	  //     "id": "Uninsured",
 	  //     "type": "fill",
@@ -121,6 +111,31 @@
 	  // 	  ]
 	  //     }
 	  // });
+	  map.addLayer({
+	      "id": "Race",
+	      "type": "fill",
+	      "source": "race",
+	      "paint": {
+	  	  "fill-opacity": .75,
+	  	  "fill-color": [
+	  	      'interpolate',
+	  	      ['linear'],
+	  	      ['get', 'Perc_POC_P003009'],
+		      -10, 'rgba(255, 255, 255, 0)',
+	  	      0, '#e7f0fa',
+	  	      10, '#d6e6f4',
+	  	      20, '#c6dbef',
+	  	      30, '#abd0e6',
+		      40, '#8dc1dd',
+		      50, '#6aaed6',
+		      60, '#4f9bcb',
+		      70, '#3787c0',
+		      80, '#2070b4',
+		      90, '#105ba4',
+		      100, '#08468b'
+	  	  ]
+	      }
+	  });
 	  map.addLayer({
 	      "id": "SMIA",
 	      "type": "line",
