@@ -14,7 +14,7 @@ metadata.txt file in that directory contains information describing
 what each of them are.
 - [x] % people of color *
 - [ ] % uninsured Community Health Survey 2009 Department Of Health
-  and Mental Health *
+  and Mental Health * (Current Data: https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html & https://www1.nyc.gov/site/doh/data/health-tools/maps-gis-data-files-for-download.page)
 - [ ] % below 200% of poverty level *
 - [x] land use
   *:
