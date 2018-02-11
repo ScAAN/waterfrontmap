@@ -90,6 +90,28 @@
 	  // 	  }
 	  //     }
 	  // });
+	  map.addLayer({
+	      "id": "Zoning",
+	      "type": "fill",
+	      "source": {
+		  type: 'geojson',
+		  data: './Data/nyzd_converted.geojson'
+	      },
+	      "paint": {
+		  "fill-opacity": .75,
+		  "fill-color": {
+		      'property': 'Human_Readable_Zone',
+		      'type': 'categorical',
+		      "stops": [
+			  ['Residential', '#7fc97f'],
+			  ['New York City Parks', '#beaed4'],
+			  ['Manufacturing', '#fdc086'],
+			  ['Commercial', '#ffff99'],
+			  ['Mixed manufacturing and residential', '#386cb0']
+		      ]
+		  }
+	      }
+	  });
 	  // map.addLayer({
 	  //     "id": "Uninsured",
 	  //     "type": "fill",
