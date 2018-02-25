@@ -5,18 +5,14 @@ mapping weather, human industry, and social demographics of SMIAs
 find * ed items first. good way to do this is go to
 the
 [paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true) and
-go through their references, they provide links and names for the datasets they use.
+go through their references, they provide links and names for the datasets they use.  
+first box: downloaded data   
+second box: converted to geojson   
+third box: plotted   
+
 - [x][x][x] SMIA
-- [x][ ][ ]
-[FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/),
-the shapefile download is a zip file that has many shapefiles, the
-metadata.txt file in that directory contains information describing
-what each of them are.
-- [x][ ][ ] % people of color *
-- [x][ ][ ] % uninsured Community Health Survey 2009 Department Of Health
-  and Mental Health * (Current Data: https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html & https://www1.nyc.gov/site/doh/data/health-tools/maps-gis-data-files-for-download.page)
-- [ ][ ][ ] % below 200% of poverty level *
-- [x][ ][ ] land use
+- [x][x][x] % people of color *
+- [x][?][?] land use
   *:
   [NYC zoning data](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-gis-zoning.page),
   nyzd, and
@@ -25,6 +21,15 @@ what each of them are.
   the key to the `ZONEDIST` attribute. I then remapped these in the
   WFM_datahists notebook into a new property, `Human_Readable_Zone`,
   because that's easier for me.
+- [x][ ][ ]
+[FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/),
+the shapefile download is a zip file that has many shapefiles, the
+metadata.txt file in that directory contains information describing
+what each of them are.
+- [x][ ][ ] % uninsured Community Health Survey 2009 Department Of Health
+  and Mental Health * (Current Data: https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html & https://www1.nyc.gov/site/doh/data/health-tools/maps-gis-data-files-for-download.page)
+- [ ][ ][ ] % below 200% of poverty level *
+
 - [x][ ][ ] EPA EPCRA toxics release inventory Toxics Release Inventory
   (TRI) sites *
   ([from EPI website](https://www.epa.gov/enviro/geospatial-data-download-service) and
