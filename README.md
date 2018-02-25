@@ -6,6 +6,9 @@ find * ed items first. good way to do this is go to
 the
 [paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true) and
 go through their references, they provide links and names for the datasets they use.
+first box: downloaded data
+second box: converted to geojson
+third box: plotted
 - [x][x][x] SMIA
 - [x][ ][ ]
 [FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/),
