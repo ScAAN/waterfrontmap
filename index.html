@@ -86,6 +86,7 @@
       <div><span style='background-color: #fdc085'></span>Manufacturing</div>
       <div><span style='background-color: #ffff99'></span>Commercial</div>
       <div><span style='background-color: #386cb0'></span>Mixed manufacturing and residential</div>
+      <div><span style='background-color: #f0027f'></span>Battery Park City</div>
     </div>
     <div id='race-legend' class='legend' style='display: block;'>
       <div><span style='outline-color: #000000;outline-style: solid'></span>Significant Maritime and Industrial Areas</div>
@@ -125,7 +126,7 @@
 	      "type": "fill",
 	      "source": {
 	  	  type: 'geojson',
-	  	  data: './Data/nyczd.geojson'
+	  	  data: './Data/nyzdtest4.geojson'
 	      },
 	      'layout': {
 		  'visibility': 'none'		  
@@ -133,7 +134,7 @@
 	      "paint": {
 	  	  "fill-opacity": .75,
 	  	  "fill-color": {
-	  	      'property': 'Human_Readable_Zone',
+	  	      'property': 'human_readable_zone',
 	  	      'type': 'categorical',
 	  	      "stops": [
 	  		  ['Residential', '#7fc97f'],
@@ -145,7 +146,7 @@
 	  	      ]
 	  	  }
 	      }
-	  });
+	  }, 'water');
 	  // map.addLayer({
 	  //     "id": "Uninsured",
 	  //     "type": "fill",
