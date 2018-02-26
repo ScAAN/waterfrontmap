@@ -146,3 +146,38 @@ IV. What map making tool is the best for these constraints?
 - [this](https://www.mapbox.com/help/mapbox-gl-js-expressions/) will
   probably be helpful in drawing a circle with a half mile / mile
 	  radius from the SMIA borders
+
+## How to add info to map
+
+1. Convert to geojson
+2. Use [mapshaper](http://mapshaper.org/) or similar website to check
+   that the geography info in the geojson is correct.
+3. Use the notebook `WFM_datahists` jupyter notebook in this directory
+   to check the other properties (we should probably re-write the code
+   there to make it a little easier to load in geojson and inspect the
+   various properties).
+4. You may need to add a field that is either a calculation on the
+   existing properties (like `Perc_POC_P003009` in
+   `reduced_Race.geojson`) or a simplification of an existing property
+   (like `Human_Readable_Zone` in `nyczd.geojson`)
+5. Find the field you want to plot and determine its values.
+6. Go to `index.html` and find the various `map.addLayer` commands. If
+   your data is categorical, base it on the `"Zoning"` layer; if it's
+   numerical, base it on the `"Perceptn People of Color"`
+   layer. Use [Color Brewer](http://colorbrewer2.org/) to find colors
+   (python's `seaborn` library also has a very good selection of
+   palettes; you can see an example of how to get hex codes from
+   `seaborn` at the top of the notebook). Make sure to give your layer
+   a descriptive id.
+7. Add a legend near the top with the other legends. This should be
+   very similar to the `fill-color` field in your layer. Make sure
+   your layer has a descriptive id.
+8. Find the `toggleableLayerIds` and `toggleableLegendIds` variables
+   at the bottom of the `index.html` files. Add the layer id to
+   `toggleableLayerIds` and the layer id : legend id pair to
+   `toggleableLegendIds`.
+9. That should be it! But it probably won't be. Your browser developer
+   tools may help determine what's going on. Common issues are issues
+   with the geojson's geography info (but step 2 should've helped you
+   check that) and type issues (if the data is stored as a number and
+   your comparing it to strings, for example).
