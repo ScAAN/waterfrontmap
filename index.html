@@ -72,11 +72,25 @@
       
       #menu a.active:hover {
 	  background: #3074a4;
-      }      
+      }
+      
+      .map-overlay-info {
+      	  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      	  background-color: #fff;
+      	  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+      	  border-radius: 3px;
+      	  position: absolute;
+      	  width: 15%;
+      	  top: 10px;
+      	  left: 10px;
+      	  padding: 10px;
+      	  display: none;
+      }
       
     </style>    
     <nav id="menu"></nav>
     <div id='map'></div>
+    <div id='map-overlay-info' class='map-overlay-info'></div>
     <div id='zoning-legend' class='legend' style='display: none;'>
       <div><span style='outline-color: #000000;outline-style: solid'></span>Significant Maritime and Industrial Areas</div>
       <div><span style='background-color: #ffffff'></span></div>
@@ -103,7 +117,23 @@
       <div><span style='background-color: #2070b4'></span>80%</div>
       <div><span style='background-color: #105ba4'></span>90%</div>
       <div><span style='background-color: #08468b'></span>100%</div>
-    </div>    
+    </div>
+    <div id='poverty-legend' class='legend' style='display: none;'>
+      <div><span style='outline-color: #000000;outline-style: solid'></span>Significant Maritime and Industrial Areas</div>
+      <div><span style='background-color: #ffffff'></span></div>
+      <h4>Percent of Families Below Poverty Line</h4>
+      <div><span style='background-color: #fee7dc'></span>0%</div>
+      <div><span style='background-color: #fdd4c2'></span>10%</div>
+      <div><span style='background-color: #fcbba1'></span>20%</div>
+      <div><span style='background-color: #fca082'></span>30%</div>
+      <div><span style='background-color: #fc8565'></span>40%</div>
+      <div><span style='background-color: #fb694a'></span>50%</div>
+      <div><span style='background-color: #f34a36'></span>60%</div>
+      <div><span style='background-color: #e32f27'></span>70%</div>
+      <div><span style='background-color: #ca181d'></span>80%</div>
+      <div><span style='background-color: #b11218'></span>90%</div>
+      <div><span style='background-color: #900a12'></span>100%</div>
+    </div>
     <div class='map-overlay' id='features'><h2>Waterfront justice</h2><div id='pd'><p>For great justice!</p></div></div>
     <script>
       mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
@@ -117,9 +147,16 @@
 	  }
       });
       
+      var overlay = document.getElementById('map-overlay-info');
+      
       map.on('load', function () {
 
 	  map.moveLayer("water", "road-trunk")
+	  
+	  map.addSource('census-tracts', {
+	      type: 'geojson',
+	      data: './Data/reduced_census.geojson'
+	  })
 
 	  map.addLayer({
 	      "id": "Zoning",
@@ -128,11 +165,8 @@
 	  	  type: 'geojson',
 	  	  data: './Data/nyzd.geojson'
 	      },
-	      'layout': {
-		  'visibility': 'none'		  
-	      },
 	      "paint": {
-	  	  "fill-opacity": .75,
+	  	  "fill-opacity": 0,
 	  	  "fill-color": {
 	  	      'property': 'human_readable_zone',
 	  	      'type': 'categorical',
@@ -171,10 +205,7 @@
 	  map.addLayer({
 	      "id": "Percent People of Color",
 	      "type": "fill",
-	      "source": {
-		  type: 'geojson',
-		  data: "./Data/reduced_Race.geojson"
-	      },
+	      "source": 'census-tracts',
 	      "paint": {
 	  	  "fill-opacity": .75,
 	  	  "fill-color": [
@@ -196,6 +227,33 @@
 	  	  ]
 	      }
 	  }, 'water');
+	  
+	  map.addLayer({
+	      "id": "Percent of Families Below Poverty Line",
+	      "type": "fill",
+	      "source": 'census-tracts',
+	      "paint": {
+	  	  "fill-opacity": 0,
+	  	  "fill-color": [
+	  	      'interpolate',
+	  	      ['linear'],
+	  	      ['get', '% of Families Below Poverty Level'],
+	  	      -10, 'rgba(255, 255, 255, 0)',
+	  	      0, '#fee7dc',
+	  	      10, '#fdd4c2',
+	  	      20, '#fcbba1',
+	  	      30, '#fca082',
+	  	      40, '#fc8565',
+	  	      50, '#fb694a',
+	  	      60, '#f34a36',
+	  	      70, '#e32f27',
+	  	      80, '#ca181d',
+	  	      90, '#b11218',
+	  	      100, '#900a12'
+	  	  ]
+	      }
+	  }, 'water');
+
 	  map.addLayer({
 	      "id": "SMIA",
 	      "type": "line",
@@ -214,9 +272,13 @@
 	  });	  
       });
 
-      var toggleableLayerIds = ['Percent People of Color', 'Zoning'];
+      var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line'];
       var toggleableLegendIds = {'Percent People of Color': 'race-legend',
-				 'Zoning': 'zoning-legend'};
+				 'Zoning': 'zoning-legend',
+				 'Percent of Families Below Poverty Line': 'poverty-legend'};
+      var dataNames = {'human_readable_zone': 'Zone: ',
+		       'Perc_POC_P003009': 'Percent people of color: ',
+		       '% of Families Below Poverty Level': 'Percent of families below poverty line: '};
       
       for (var i = 0; i < toggleableLayerIds.length; i++) {
       	  var id = toggleableLayerIds[i];
@@ -239,12 +301,12 @@
 		  var otherLayerName = toggleableLayerIds[j]
 		  if (otherLayerName != clickedLayer) {
 		      document.getElementById('toggler-' + otherLayerName).className = '';
-		      map.setLayoutProperty(otherLayerName, 'visibility', 'none');
+		      map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
 		      document.getElementById(toggleableLegendIds[otherLayerName]).style.display = 'none';
 		  }
 	      }
       	      this.className = 'active';
-	      map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+	      map.setPaintProperty(clickedLayer, 'fill-opacity', .75);
 	      document.getElementById(toggleableLegendIds[clickedLayer]).style.display = 'block';	      
       	  };
 
@@ -252,6 +314,48 @@
       	  layers.appendChild(link);
 
       };
+      
+      map.on('click', function(e) {
+	  // Change the cursor style as a UI indicator.
+	  map.getCanvas().style.cursor = 'pointer';
+	  
+	  var queried = map.queryRenderedFeatures(e.point)
+	  overlay.innerHTML = '';
+	  var shownData = [];
+	  
+	  for (var j = 0; j < queried.length; j++){
+	      var data = queried[j].properties
+	      debugger;
+	      
+	      for (var i = 0; i < Object.keys(dataNames).length; i++) {
+		  
+		  var dataKey = Object.keys(dataNames)[i];
+		  // if we haven't already found this data
+		  if (shownData.indexOf(dataKey) == -1) {
+		      var dataDisplay = document.createElement('div');
+		      if (typeof(data[dataKey]) == 'number'){
+			  dataDisplay.textContent = dataNames[dataKey] + Math.round(data[dataKey]) + '%';
+			  shownData.push(dataKey)
+		      } else if (typeof(data[dataKey]) == 'string') {
+			  dataDisplay.textContent = dataNames[dataKey] + data[dataKey];
+			  shownData.push(dataKey)
+		      }
+		      
+		      overlay.appendChild(dataDisplay);
+		  }
+	      }}
+	  overlay.style.display = 'block';
+
+      });
+      
+      map.on('mouseenter', 'Percent People of Color', function (e) {
+	  map.getCanvas().style.cursor = 'pointer';
+      });
+      
+      map.on('mouseleave', 'Percent People of Color', function (e) {
+	  map.getCanvas().style.cursor = '';
+	  overlay.style.display = 'none';
+      });
 
     </script>
   </body>

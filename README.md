@@ -12,7 +12,7 @@ third box: plotted
 
 - [x][x][x] SMIA
 - [x][x][x] % people of color *
-- [x][?][?] land use
+- [x][x][x] land use
   *:
   [NYC zoning data](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-gis-zoning.page),
   nyzd, and
@@ -149,7 +149,7 @@ IV. What map making tool is the best for these constraints?
 
 ## How to add info to map
 
-1. Convert to geojson
+1. Convert to geojson (if necessary).
 2. Use [mapshaper](http://mapshaper.org/) or similar website to check
    that the geography info in the geojson is correct.
 3. Use the notebook `WFM_datahists` jupyter notebook in this directory
@@ -158,12 +158,12 @@ IV. What map making tool is the best for these constraints?
    various properties).
 4. You may need to add a field that is either a calculation on the
    existing properties (like `Perc_POC_P003009` in
-   `reduced_Race.geojson`) or a simplification of an existing property
-   (like `Human_Readable_Zone` in `nyczd.geojson`)
+   `reduced_census.geojson`) or a simplification of an existing property
+   (like `Human_Readable_Zone` in `nyzd.geojson`)
 5. Find the field you want to plot and determine its values.
 6. Go to `index.html` and find the various `map.addLayer` commands. If
    your data is categorical, base it on the `"Zoning"` layer; if it's
-   numerical, base it on the `"Perceptn People of Color"`
+   numerical, base it on the `"Percent People of Color"`
    layer. Use [Color Brewer](http://colorbrewer2.org/) to find colors
    (python's `seaborn` library also has a very good selection of
    palettes; you can see an example of how to get hex codes from
@@ -171,11 +171,12 @@ IV. What map making tool is the best for these constraints?
    a descriptive id.
 7. Add a legend near the top with the other legends. This should be
    very similar to the `fill-color` field in your layer. Make sure
-   your layer has a descriptive id.
-8. Find the `toggleableLayerIds` and `toggleableLegendIds` variables
-   at the bottom of the `index.html` files. Add the layer id to
-   `toggleableLayerIds` and the layer id : legend id pair to
-   `toggleableLegendIds`.
+   your legend has a descriptive id.
+8. Find the `toggleableLayerIds`, `toggleableLegendIds`, and
+   `dataNames` variables at the bottom of the `index.html` files. Add
+   the layer id to `toggleableLayerIds`, the layer id : legend id pair
+   to `toggleableLegendIds`, and the property name : some explanatory
+   text pair to `dataNames`..
 9. That should be it! But it probably won't be. Your browser developer
    tools may help determine what's going on. Common issues are issues
    with the geojson's geography info (but step 2 should've helped you
