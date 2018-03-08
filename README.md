@@ -182,3 +182,27 @@ IV. What map making tool is the best for these constraints?
    with the geojson's geography info (but step 2 should've helped you
    check that) and type issues (if the data is stored as a number and
    your comparing it to strings, for example).
+
+## Notes from presentation on Wednesday, March 7
+
+Presented the map we have so far to the broader ScAAN group to try and
+get people's impressions and hear some feedback. People were very
+impressed with the map and thought, if we could make it more general,
+that it would be a powerful framework to try and visualize inequity
+across the city. To that end, people made a bunch of things for other
+data they'd be interested in seeing on the map:
+
+ - air quality index (apparently real estate agents have access to
+   this somehow)
+ - total population
+ - hospital admissions for asthma or other environmental-related
+   issues (though probably too complex?)
+ - what's in the SMIA (both the points shown in the report as well as
+   information on the businesses / plants there)
+ - average income
+ - school funding
+ - distance to / wait at nearest polling place
+ 
+would also be very cool (though fairly difficult) to do a Monte
+Carlo-type approach as used in gerrymandering cases: how do the
+current distributions of SMIAs compare to randomly generated ones?
