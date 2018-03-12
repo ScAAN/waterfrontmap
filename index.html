@@ -146,16 +146,14 @@
       <div><span style='background-color: #ca181d'></span>81% &#8211 90%</div>
       <div><span style='background-color: #b11218'></span>91% &#8211 100%</div>
     </div>
-    <div id='hurricane-legend' class='legend' style='display: none;'>
+    <div id='surge-legend' class='legend' style='display: none;'>
       <div><span style='outline-color: #000000;outline-style: solid'></span>Significant Maritime and Industrial Areas</div>
       <div><span style='background-color: #ffffff'></span></div>
-      <h4>Hurricane Evacuation Zones</h4>
-      <div><span style='background-color: #ffeda0'></span>1</div>
-      <div><span style='background-color: #fed976'></span>2</div>
-      <div><span style='background-color: #feb24c'></span>3</div>
-      <div><span style='background-color: #fd8d3c'></span>4</div>
-      <div><span style='background-color: #f03b20'></span>5</div>
-      <div><span style='background-color: #bd0026'></span>6</div>
+      <h4>Hurricane Storm Surge Zones</h4>
+      <div><span style='background-color: #e31a1c'></span>Category 1, winds of 74 &#8211 95 mph</div>
+      <div><span style='background-color: #fd8d3c'></span>Category 2, winds of 96 &#8211 110 mph</div>
+      <div><span style='background-color: #fecc5c'></span>Category 3, winds of 111 &#8211 130 mph</div>
+      <div><span style='background-color: #ffffb2'></span>Category 4, winds of 131 mph or more</div>
     </div>
     <div class='text-info-box'><h2>NYC-EJA Waterfront Justice Project</h2><div id='pd'><p>Current zoning regulations encourage industrial and maritime development in special areas called Special Maritime and Industrial Areas (SMIAs). The SMIA designations are located in largely low-income communities of color in the South Bronx, Brooklyn, Queens, and Staten Island. Development applications in SMIAs are treated differently and to a lower review standard than other waterfront areas, thereby easing the siting and clustering of polluting infrastructure. Climate change impacts and vulnerable populations were not considered in the zoning regulation that crated SMIAs, and so the NYC-EJA advocates that new regulations promote the safe and responsible use of hazardous materials and toxic chemicals to protect those who work and live around the SMIAs; to support climate change adaptation measures; and to protect industrial jobs in the SMIAs.<br /><br />For more details, please refer to Eddie Bautista, Eva Hanhardt, Juan Camilo Osorio & Natasha Dwyer (2015) New York City Environmental Justice Alliance Waterfront Justice Project, Local
 Environment: The International Journal of Justice and Sustainability, 20:6, 664-682, DOI:
@@ -207,29 +205,22 @@ Environment: The International Journal of Justice and Sustainability, 20:6, 664-
 	      }
 	  }, 'water');
 	  map.addLayer({
-	      "id": "Hurricane Evacuation Zones",
+	      "id": "Hurricane Storm Surge Zones",
 	      "type": "fill",
 	      "source": {
 	  	  type: 'geojson',
-	  	  data: './Data/hurricane_evac_zones.geojson'
+	  	  data: './Data/storm_surge_min.json'
 	      },
 	      "paint": {
 	  	  "fill-opacity": 0,
 	  	  "fill-color": {
-		      'property': 'HURRICANE_',
+		      'property': 'CATEGORY',
 	  	      'type': 'categorical',
 	  	      "stops": [
-			  // 0 represents not an evacuation zone and 7
-			  // is the water, so we don't want to show
-			  // either of those.
-			  ['0', 'rgba(255, 255, 255, 0)'],
-	  		  ['1', '#ffeda0'],
-			  ['2', '#fed976'],
-	  		  ['3', '#feb24c'],
-	  		  ['4', '#fd8d3c'],
-			  ['5', '#f03b20'],
-			  ['6', '#bd0026'],
-			  ['7', 'rgba(255, 255, 255, 0)']
+	  		  [1, '#e31a1c'],
+			  [2, '#fd8d3c'],
+	  		  [3, '#fecc5c'],
+	  		  [4, '#ffffb2']
 	  	      ]
 	  	  }
 	      }
@@ -304,15 +295,15 @@ Environment: The International Journal of Justice and Sustainability, 20:6, 664-
 	  });	  
       });
 
-      var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Evacuation Zones'];
+      var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones'];
       var toggleableLegendIds = {'Percent People of Color': 'race-legend',
 				 'Zoning': 'zoning-legend',
 				 'Percent of Families Below Poverty Line': 'poverty-legend',
-				 'Hurricane Evacuation Zones': 'hurricane-legend'};
+				 'Hurricane Storm Surge Zones': 'surge-legend'};
       var dataNames = {'human_readable_zone': 'Zone: ',
 		       'Perc_POC_P003009': 'Percent people of color: ',
 		       '% of Families Below Poverty Level': 'Percent of families below poverty line: ',
-		       'HURRICANE_': 'Hurricane evacuation zone: '};
+		       'CATEGORY': 'Hurricane storm surge zone: '};
       
       for (var i = 0; i < toggleableLayerIds.length; i++) {
       	  var id = toggleableLayerIds[i];
@@ -367,10 +358,10 @@ Environment: The International Journal of Justice and Sustainability, 20:6, 664-
 		  // if we haven't already found this data
 		  if (shownData.indexOf(dataKey) == -1) {
 		      var dataDisplay = document.createElement('div');
-		      if (typeof(data[dataKey]) == 'number'){
+		      if (dataNames[dataKey].includes('Percent')){
 			  dataDisplay.textContent = dataNames[dataKey] + Math.round(data[dataKey]) + '%';
 			  shownData.push(dataKey)
-		      } else if (typeof(data[dataKey]) == 'string') {
+		      } else if (typeof(data[dataKey]) != 'undefined') {
 			  dataDisplay.textContent = dataNames[dataKey] + data[dataKey];
 			  shownData.push(dataKey)
 		      }
