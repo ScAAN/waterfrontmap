@@ -226,7 +226,29 @@ Environment: The International Journal of Justice and Sustainability, 20:6, 664-
 	      }
 	  }, 'water');	  
 	  map.addLayer({
-	      "id": "Percent People of Color",
+	      "id": "Neighborhood",
+	      "type": "fill",
+	      "source": {
+	  	  type: 'geojson',
+	  	  data: './Data/Neighborhood_Map.geojson'
+	      },
+	      "paint": {
+	  	  "fill-opacity": 0,
+	  	  "fill-color": {
+		      'property': 'borough',
+	  	      'type': 'categorical',
+	  	      "stops": [
+	  		  [1, '#e31a1c'],
+			  [2, '#fd8d3c'],
+	  		  [3, '#fecc5c'],
+	  		  [4, '#ffffb2'],
+			  [5, '#f0027f']
+	  	      ]
+	  	  }
+	      }
+	  }, 'water');	  
+	  map.addLayer({
+	      "id": "Neighborhood",
 	      "type": "fill",
 	      "source": 'census-tracts',
 	      "paint": {
