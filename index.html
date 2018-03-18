@@ -155,6 +155,16 @@
       <div><span style='background-color: #fecc5c'></span>Category 3, winds of 111 &#8211 130 mph</div>
       <div><span style='background-color: #ffffb2'></span>Category 4, winds of 131 mph or more</div>
     </div>
+    <div id='neighborhood-legend' class='legend' style='display: none;'>
+      <div><span style='outline-color: #000000;outline-style: solid'></span>Significant Maritime and Industrial Areas</div>
+      <div><span style='background-color: #ffffff'></span></div>
+      <h4>Land use</h4>
+      <div><span style='background-color: #e31a1c'></span>1</div>
+      <div><span style='background-color: #fd8d3c'></span>2</div>
+      <div><span style='background-color: #fecc5c'></span>3</div>
+      <div><span style='background-color: #ffffb2'></span>4</div>
+      <div><span style='background-color: #f0027f'></span>5</div>
+    </div>
     <div class='text-info-box'><h2>NYC-EJA Waterfront Justice Project</h2><div id='pd'><p>Current zoning regulations encourage industrial and maritime development in special areas called Special Maritime and Industrial Areas (SMIAs). The SMIA designations are located in largely low-income communities of color in the South Bronx, Brooklyn, Queens, and Staten Island. Development applications in SMIAs are treated differently and to a lower review standard than other waterfront areas, thereby easing the siting and clustering of polluting infrastructure. Climate change impacts and vulnerable populations were not considered in the zoning regulation that crated SMIAs, and so the NYC-EJA advocates that new regulations promote the safe and responsible use of hazardous materials and toxic chemicals to protect those who work and live around the SMIAs; to support climate change adaptation measures; and to protect industrial jobs in the SMIAs.<br /><br />For more details, please refer to Eddie Bautista, Eva Hanhardt, Juan Camilo Osorio & Natasha Dwyer (2015) New York City Environmental Justice Alliance Waterfront Justice Project, Local
 Environment: The International Journal of Justice and Sustainability, 20:6, 664-682, DOI:
 10.1080/13549839.2014.949644</p></div></div>
@@ -248,7 +258,7 @@ Environment: The International Journal of Justice and Sustainability, 20:6, 664-
 	      }
 	  }, 'water');	  
 	  map.addLayer({
-	      "id": "Neighborhood",
+	      "id": "Percent People of Color",
 	      "type": "fill",
 	      "source": 'census-tracts',
 	      "paint": {
@@ -317,15 +327,17 @@ Environment: The International Journal of Justice and Sustainability, 20:6, 664-
 	  });	  
       });
 
-      var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones'];
+      var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones','Neighborhood'];
       var toggleableLegendIds = {'Percent People of Color': 'race-legend',
 				 'Zoning': 'zoning-legend',
 				 'Percent of Families Below Poverty Line': 'poverty-legend',
-				 'Hurricane Storm Surge Zones': 'surge-legend'};
+				 'Hurricane Storm Surge Zones': 'surge-legend'
+				'Neighborhood': 'neighborhood-legend'};
       var dataNames = {'human_readable_zone': 'Zone: ',
 		       'Perc_POC_P003009': 'Percent people of color: ',
 		       '% of Families Below Poverty Level': 'Percent of families below poverty line: ',
-		       'CATEGORY': 'Hurricane storm surge zone: '};
+		       'CATEGORY': 'Hurricane storm surge zone: ',
+		       'borough':'NYC Neighborhood Zones'};
       
       for (var i = 0; i < toggleableLayerIds.length; i++) {
       	  var id = toggleableLayerIds[i];
