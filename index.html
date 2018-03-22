@@ -88,15 +88,14 @@
       }
       
       .text-info-box {
+      	  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
 	  overflow: scroll;
       	  background-color: #fff;
-      	  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
       	  position: absolute; 
-      	  width: 20%;
-	  height: 30%;
+      	  width: 25%;
+	  height: 28%;
       	  top: 10px;
       	  left: 10px;
-      	  padding: 10px;
       	  display: block;
       }
 
@@ -165,9 +164,7 @@
       <div><span style='background-color: #ffda8e'></span>Manhattan</div>
       <div><span style='background-color: #f4af1f'></span>Bronx</div>
     </div>
-    <div class='text-info-box'><h2>NYC-EJA Waterfront Justice Project</h2><div id='pd'><p>Current zoning regulations encourage industrial and maritime development in special areas called Special Maritime and Industrial Areas (SMIAs). The SMIA designations are located in largely low-income communities of color in the South Bronx, Brooklyn, Queens, and Staten Island. Development applications in SMIAs are treated differently and to a lower review standard than other waterfront areas, thereby easing the siting and clustering of polluting infrastructure. Climate change impacts and vulnerable populations were not considered in the zoning regulation that crated SMIAs, and so the NYC-EJA advocates that new regulations promote the safe and responsible use of hazardous materials and toxic chemicals to protect those who work and live around the SMIAs; to support climate change adaptation measures; and to protect industrial jobs in the SMIAs.<br /><br />For more details, please refer to Eddie Bautista, Eva Hanhardt, Juan Camilo Osorio & Natasha Dwyer (2015) New York City Environmental Justice Alliance Waterfront Justice Project, Local
-Environment: The International Journal of Justice and Sustainability, 20:6, 664-682, DOI:
-10.1080/13549839.2014.949644</p></div></div>
+    <div class='text-info-box'><h2>NYC-EJA Waterfront Justice Project</h2><div id='pd'><p>Industrial and maritime development is encouraged by zoning regulations that have created Special Maritime and Industrial Areas (SMIAs) – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</p></div></div>
     <script>
       mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
       var map = new mapboxgl.Map({
@@ -188,7 +185,7 @@ Environment: The International Journal of Justice and Sustainability, 20:6, 664-
 	  
 	  map.addSource('census-tracts', {
 	      type: 'geojson',
-	      data: './Data/reduced_census.geojson'
+	      data: './Data/reduced_Race_and_Poverty_2.geojson'
 	  })
 
 	  map.addLayer({
@@ -262,12 +259,11 @@ Environment: The International Journal of Justice and Sustainability, 20:6, 664-
 	      "type": "fill",
 	      "source": 'census-tracts',
 	      "paint": {
-	  	  "fill-opacity": .75,
-	  	  "fill-color": [
+		  "fill-opacity": .75,
+		  "fill-color": [
 	  	      'interpolate',
 	  	      ['linear'],
 	  	      ['get', 'Perc_POC_P003009'],
-	  	      -10, 'rgba(255, 255, 255, 0)',
 	  	      0, '#e7f0fa',
 	  	      11, '#d6e6f4',
 	  	      21, '#c6dbef',
@@ -279,7 +275,7 @@ Environment: The International Journal of Justice and Sustainability, 20:6, 664-
 	  	      81, '#2070b4',
 	  	      91, '#105ba4',
 	  	      100, '#08468b'
-	  	  ]
+		  ]
 	      }
 	  }, 'water');
 	  
@@ -293,7 +289,6 @@ Environment: The International Journal of Justice and Sustainability, 20:6, 664-
 	  	      'interpolate',
 	  	      ['linear'],
 	  	      ['get', '% of Families Below Poverty Level'],
-	  	      -10, 'rgba(255, 255, 255, 0)',
 	  	      0, '#fee7dc',
 	  	      10, '#fdd4c2',
 	  	      20, '#fcbba1',
@@ -327,17 +322,16 @@ Environment: The International Journal of Justice and Sustainability, 20:6, 664-
 	  });	  
       });
 
-      var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones','Neighborhood'];
+      var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones'];
       var toggleableLegendIds = {'Percent People of Color': 'race-legend',
 				 'Zoning': 'zoning-legend',
 				 'Percent of Families Below Poverty Line': 'poverty-legend',
-				 'Hurricane Storm Surge Zones': 'surge-legend',
-				 'Neighborhood': 'neighborhood-legend'};
+				 'Hurricane Storm Surge Zones': 'surge-legend'};
       var dataNames = {'human_readable_zone': 'Zone: ',
 		       'Perc_POC_P003009': 'Percent people of color: ',
 		       '% of Families Below Poverty Level': 'Percent of families below poverty line: ',
 		       'CATEGORY': 'Hurricane storm surge zone: ',
-		       'borough':'NYC Neighborhood Zones: '};
+		       'borough':'NYC Borough: '};
       
       for (var i = 0; i < toggleableLayerIds.length; i++) {
       	  var id = toggleableLayerIds[i];
