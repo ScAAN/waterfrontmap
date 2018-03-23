@@ -80,7 +80,7 @@
       	  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
       	  border-radius: 3px;
       	  position: absolute;
-      	  width: 15%;
+      	  width: 17%;
       	  top: 10px;
       	  right: 10px;
       	  padding: 10px;
@@ -183,7 +183,7 @@
 	  
 	  map.addSource('census-tracts', {
 	      type: 'geojson',
-	      data: './Data/reduced_Race_and_Poverty_2.geojson'
+	      data: './Data/reduced_census.geojson'
 	  })
 
 	  map.addLayer({
@@ -262,6 +262,7 @@
 	  	      'interpolate',
 	  	      ['linear'],
 	  	      ['get', 'Perc_POC_P003009'],
+		      -10, 'rgba(0, 0, 0, 0)',
 	  	      0, '#e7f0fa',
 	  	      11, '#d6e6f4',
 	  	      21, '#c6dbef',
@@ -287,6 +288,7 @@
 	  	      'interpolate',
 	  	      ['linear'],
 	  	      ['get', '% of Families Below Poverty Level'],
+		      -10, 'rgba(0, 0, 0, 0)',
 	  	      0, '#fee7dc',
 	  	      10, '#fdd4c2',
 	  	      20, '#fcbba1',
@@ -385,7 +387,11 @@
 		  if (shownData.indexOf(dataKey) == -1) {
 		      var dataDisplay = document.createElement('div');
 		      if (dataNames[dataKey].includes('Percent')){
-			  dataDisplay.textContent = dataNames[dataKey] + Math.round(data[dataKey]) + '%';
+			  if (data[dataKey] > 0) {
+			      dataDisplay.textContent = dataNames[dataKey] + Math.round(data[dataKey]) + '%';
+			  } else {
+			      dataDisplay.textContent = dataNames[dataKey] + 'Not enough data';
+			  }
 			  shownData.push(dataKey)
 		      } else if (typeof(data[dataKey]) != 'undefined') {
 			  dataDisplay.textContent = dataNames[dataKey] + data[dataKey];
