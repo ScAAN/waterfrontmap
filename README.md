@@ -20,7 +20,7 @@ http://scaan.net/waterfrontmap/
 -  % of Families Below People Of Color
 
 
-# Potential New Data...
+# Potential New Data
 - [FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/),
 the shapefile download is a zip file that has many shapefiles, the
 metadata.txt file in that directory contains information describing
