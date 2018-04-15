@@ -1,16 +1,17 @@
 # waterfrontmap
 mapping weather, human industry, and social demographics of SMIAs
 
-## MAPS WE HAVE TO RECREATE
-find * ed items first. good way to do this is go to
-the
-[paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true) and
-go through their references, they provide links and names for the datasets they use.  
-first box: downloaded data   
-second box: converted to geojson   
-third box: plotted   
 
-# Plotted 
+## Current Plan!
+1. Meet EJA in early May to get feedback
+2. Fix minor NA issues when clicking through the map
+
+
+## Current map 
+http://scaan.net/waterfrontmap/
+
+
+# Plotted Already
 -  NYC Basic Geography
 -  SMIA
 -  % people of color *
@@ -19,14 +20,7 @@ third box: plotted
 -  % of Families Below People Of Color
 
 
-  *:
-  [NYC zoning data](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-gis-zoning.page),
-  nyzd, and
-  see
-  [here](https://www1.nyc.gov/assets/planning/download/pdf/data-maps/open-data/zoningtaxlotdatabase_datadictionary.pdf?r=1217) for
-  the key to the `ZONEDIST` attribute. I then remapped these in the
-  WFM_datahists notebook into a new property, `Human_Readable_Zone`,
-  because that's easier for me.
+# Potential New Data
 - [x][ ][ ]
 [FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/),
 the shapefile download is a zip file that has many shapefiles, the
@@ -41,111 +35,18 @@ what each of them are.
   ([from EPI website](https://www.epa.gov/enviro/geospatial-data-download-service) and
   then convert to geojson
   using [togeojson](https://github.com/mapbox/togeojson))
-- [ ][ ][ ] [hurricane storm surge zones](http://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1260)
-- [ ][ ][ ] manufacturing zoning districts
 - [ ][ ][ ] superfund class 2 sites 
 - [ ][ ][ ] active bulk storage facilities
 - [ ][ ][ ] post irene flooding
 
+
 ## Current to do
-- get one more data set
-- learn how to make things 1/2 mile away
-- make toggle able layers
+- Add Toggle Abilities
 - Add Hovering Capability
+- Add Address Hone-in Capability
+- Continue To Add New Data
 
-## Current map 
-
-http://scaan.net/waterfrontmap/
-
-
-- [Billy's](https://api.mapbox.com/styles/v1/billbrod/cj97ob0wq0s2w2rph9kkdgpck.html?fresh=true&title=true&access_token=pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow#10.0/40.675708/-73.891521/0)
-- [Maija's](https://api.mapbox.com/styles/v1/mh3155/cjcp8bg653u402rprz0sf5jl6.html?fresh=true&title=true&access_token=pk.eyJ1IjoibWgzMTU1IiwiYSI6ImNqOXJqNHJ5YTZjd28ycXM0Z2dubTJjaXMifQ.czkeapIuZDbzsydf5oH7wg#9.6/40.724588/-73.998055/0)
-
-## Information
-- [General information NYC EJA waterfront justice](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)
-- [Peer reviewed EJA paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true)
-
-## Current Sources
-- [NYC shape files](https://www1.nyc.gov/site/planning/data-maps/open-data.page)
-- [Demographic data from ACS](http://www1.nyc.gov/site/planning/data-maps/nyc-population/american-community-survey.page)
-- [New York citys Waterfront Revitalization Program](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-wrp.page)-
-  information geodata/ shapefiles about SMIA, CZB and other types of
-  waterfront boundaries
-- [Census TIGER data](https://www.census.gov/geo/maps-data/data/tiger-data.html),
-  we should look into the licensing of this to make sure we can use it
-  freely and publically
-  
-## Coding Sources
-- [pyshp](https://pypi.python.org/pypi/pyshp), python library that
-  looks like it might be able to read shape files and write GeoJSONs.
-    - [gist](https://gist.github.com/frankrowe/6071443) to read in a
-      shape file and save a GeoJSON
-- [mapbox](https://www.mapbox.com/), the platform we're using
-- [#BagItNYC map](http://bagitnyc.org/map/), map that partly inspired
-  us
-
-## Plan!
-1. Meet EJA in early May to get feedback
-2. Fix minor NA issues when clicking through the map
-
-## Goals of this project: make a very cool interactive map
-
-I. What information should it show?
-Relevant quantities of interest mapped across significant maritime and industrial areas (SMIAs)
-Currently they are showing:
-1. weather events
-    - storm surges (NYSEMO Hurricane Storm Surge Zones)
-    - damage from Irene
-2. land use (is it residential / commercial etc?)
-3. threats to public health and dangerous /toxic businesses 
-    - manufacturing zoning districts
-    - Class 2 superfund sites
-    - DEC active bulk storage facilities
-    - EPCRA toxic release inventory sites
-4. all contrasted against social issues
-    - how many POC live in the area
-    - population below 200% poverty
-    - percent population uninsured
-    
-II. What cool things should it do (product experience)?
-- switch layers
-- scroll
-- zoom
-- clicking to see things
-- time courses if data allows for it?
-
-III. What is the data like?
-Aggregated from many public sources but it seems some is private since they say they it “relies, wherever possible, on publicly available data-sets and methodologies that could be reproduced by city planners and EJ communities working in collaboration”. But we can probably ask them for their downloaded / aggregated copy?  
--  [New York citys Waterfront Revitalization Program](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-wrp.page)- information geodata/ shapefiles about SMIA, CZB and other types of waterfront boundaries
-- Storm surges -> New York state emergencey management office
-- Land zoning and use -> NYC dept of planning
-- Toxics -> US EPA TRI programme
-- Demographics-> from the US census bureau and NYC-DOMH  
-
-
-IV. What map making tool is the best for these constraints? 
-- Brainstorm options / pros / cons (*** recommended by others)
-- Openlayers ***
-- Leaflet 
-- MapBox ***
-- SVG
-- Google fusion tables
-- Google maps API
-- CartoDB
-- QGIS
-- D3
-- Tableau
-
-
-## Mapbox resources
-
-- [how to add layers](https://www.mapbox.com/mapbox-gl-js/example/toggle-layers/)
-- [how to make a choropleth](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)
-- [style specs](https://www.mapbox.com/mapbox-gl-js/style-spec/)
-- [choropleth example](https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/)
-- [this](https://www.mapbox.com/help/mapbox-gl-js-expressions/) will
-  probably be helpful in drawing a circle with a half mile / mile
-	  radius from the SMIA borders
+# Recent Notes From Project
 
 ## How to add info to map (Billy's Guide)
 
@@ -206,3 +107,94 @@ data they'd be interested in seeing on the map:
 would also be very cool (though fairly difficult) to do a Monte
 Carlo-type approach as used in gerrymandering cases: how do the
 current distributions of SMIAs compare to randomly generated ones?
+
+## Older Versions
+
+- [Billy's](https://api.mapbox.com/styles/v1/billbrod/cj97ob0wq0s2w2rph9kkdgpck.html?fresh=true&title=true&access_token=pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow#10.0/40.675708/-73.891521/0)
+- [Maija's](https://api.mapbox.com/styles/v1/mh3155/cjcp8bg653u402rprz0sf5jl6.html?fresh=true&title=true&access_token=pk.eyJ1IjoibWgzMTU1IiwiYSI6ImNqOXJqNHJ5YTZjd28ycXM0Z2dubTJjaXMifQ.czkeapIuZDbzsydf5oH7wg#9.6/40.724588/-73.998055/0)
+
+## Information
+- [General information NYC EJA waterfront justice](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)
+- [Peer reviewed EJA paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true)
+
+## Current Sources
+- [NYC shape files](https://www1.nyc.gov/site/planning/data-maps/open-data.page)
+- [Demographic data from ACS](http://www1.nyc.gov/site/planning/data-maps/nyc-population/american-community-survey.page)
+- [New York citys Waterfront Revitalization Program](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-wrp.page)-
+  information geodata/ shapefiles about SMIA, CZB and other types of
+  waterfront boundaries
+- [Census TIGER data](https://www.census.gov/geo/maps-data/data/tiger-data.html),
+  we should look into the licensing of this to make sure we can use it
+  freely and publically
+  
+## Coding Sources
+- [pyshp](https://pypi.python.org/pypi/pyshp), python library that
+  looks like it might be able to read shape files and write GeoJSONs.
+    - [gist](https://gist.github.com/frankrowe/6071443) to read in a
+      shape file and save a GeoJSON
+- [mapbox](https://www.mapbox.com/), the platform we're using
+- [#BagItNYC map](http://bagitnyc.org/map/), map that partly inspired
+  us
+
+
+## Brainstorm Goals of this project: make a very cool interactive map
+
+
+I. What information should it show?
+Relevant quantities of interest mapped across significant maritime and industrial areas (SMIAs)
+Currently they are showing:
+1. weather events
+    - storm surges (NYSEMO Hurricane Storm Surge Zones)
+    - damage from Irene
+2. land use (is it residential / commercial etc?)
+3. threats to public health and dangerous /toxic businesses 
+    - manufacturing zoning districts
+    - Class 2 superfund sites
+    - DEC active bulk storage facilities
+    - EPCRA toxic release inventory sites
+4. all contrasted against social issues
+    - how many POC live in the area
+    - population below 200% poverty
+    - percent population uninsured
+    
+II. What cool things should it do (product experience)?
+- switch layers
+- scroll
+- zoom
+- clicking to see things
+- time courses if data allows for it?
+
+III. What is the data like?
+Aggregated from many public sources but it seems some is private since they say they it “relies, wherever possible, on publicly available data-sets and methodologies that could be reproduced by city planners and EJ communities working in collaboration”. But we can probably ask them for their downloaded / aggregated copy?  
+-  [New York citys Waterfront Revitalization Program](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-wrp.page)- information geodata/ shapefiles about SMIA, CZB and other types of waterfront boundaries
+- Storm surges -> New York state emergencey management office
+- Land zoning and use -> NYC dept of planning
+- Toxics -> US EPA TRI programme
+- Demographics-> from the US census bureau and NYC-DOMH  
+
+
+IV. What map making tool is the best for these constraints? 
+- Brainstorm options / pros / cons (*** recommended by others)
+- Openlayers ***
+- Leaflet 
+- MapBox ***
+- SVG
+- Google fusion tables
+- Google maps API
+- CartoDB
+- QGIS
+- D3
+- Tableau
+
+
+## Mapbox resources
+
+- [how to add layers](https://www.mapbox.com/mapbox-gl-js/example/toggle-layers/)
+- [how to make a choropleth](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)
+- [style specs](https://www.mapbox.com/mapbox-gl-js/style-spec/)
+- [choropleth example](https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/)
+- [this](https://www.mapbox.com/help/mapbox-gl-js-expressions/) will
+  probably be helpful in drawing a circle with a half mile / mile
+	  radius from the SMIA borders
+
+
