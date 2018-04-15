@@ -11,7 +11,7 @@ mapping weather, human industry, and social demographics of SMIAs
 http://scaan.net/waterfrontmap/
 
 
-# Plotted Already!!
+# Plotted Already
 -  NYC Basic Geography
 -  SMIA
 -  % people of color *
