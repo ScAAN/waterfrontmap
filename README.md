@@ -10,9 +10,15 @@ first box: downloaded data
 second box: converted to geojson   
 third box: plotted   
 
-- [x][x][x] SMIA
-- [x][x][x] % people of color *
-- [x][x][x] land use
+# Plotted 
+-  NYC Basic Geography
+-  SMIA
+-  % people of color *
+-  Zoning
+-  Hurricane Storm Surge
+-  % of Families Below People Of Color
+
+
   *:
   [NYC zoning data](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-gis-zoning.page),
   nyzd, and
@@ -37,7 +43,6 @@ what each of them are.
   using [togeojson](https://github.com/mapbox/togeojson))
 - [ ][ ][ ] [hurricane storm surge zones](http://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1260)
 - [ ][ ][ ] manufacturing zoning districts
-- [ ][ ][ ] threats to public health and hurricaine storm surge zones
 - [ ][ ][ ] superfund class 2 sites 
 - [ ][ ][ ] active bulk storage facilities
 - [ ][ ][ ] post irene flooding
@@ -46,15 +51,12 @@ what each of them are.
 - get one more data set
 - learn how to make things 1/2 mile away
 - make toggle able layers
-- add some hovering info
-- host it somewhere
+- Add Hovering Capability
 
-## Current maps
+## Current map 
 
-to view the current map, go
-to [the project page](https://scaan.github.io/waterfrontmap/). the
-following links are to test maps we're making in mapbox and will
-probably no longer use
+http://scaan.net/waterfrontmap/
+
 
 - [Billy's](https://api.mapbox.com/styles/v1/billbrod/cj97ob0wq0s2w2rph9kkdgpck.html?fresh=true&title=true&access_token=pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow#10.0/40.675708/-73.891521/0)
 - [Maija's](https://api.mapbox.com/styles/v1/mh3155/cjcp8bg653u402rprz0sf5jl6.html?fresh=true&title=true&access_token=pk.eyJ1IjoibWgzMTU1IiwiYSI6ImNqOXJqNHJ5YTZjd28ycXM0Z2dubTJjaXMifQ.czkeapIuZDbzsydf5oH7wg#9.6/40.724588/-73.998055/0)
@@ -73,7 +75,7 @@ probably no longer use
   we should look into the licensing of this to make sure we can use it
   freely and publically
   
-## Resources
+## Coding Sources
 - [pyshp](https://pypi.python.org/pypi/pyshp), python library that
   looks like it might be able to read shape files and write GeoJSONs.
     - [gist](https://gist.github.com/frankrowe/6071443) to read in a
@@ -83,10 +85,8 @@ probably no longer use
   us
 
 ## Plan!
-1. Someone email to ask for the data
-2. Research / ask friends about map making tools 
-3. Optionally... make a simple practice map with your favorite tool and some public data
-4. Regroup next weds or after next scaan meeting to discuss
+1. Meet EJA in early May to get feedback
+2. Fix minor NA issues when clicking through the map
 
 ## Goals of this project: make a very cool interactive map
 
@@ -147,7 +147,7 @@ IV. What map making tool is the best for these constraints?
   probably be helpful in drawing a circle with a half mile / mile
 	  radius from the SMIA borders
 
-## How to add info to map
+## How to add info to map (Billy's Guide)
 
 1. Convert to geojson (if necessary).
 2. Use [mapshaper](http://mapshaper.org/) or similar website to check
@@ -183,7 +183,7 @@ IV. What map making tool is the best for these constraints?
    check that) and type issues (if the data is stored as a number and
    your comparing it to strings, for example).
 
-## Notes from presentation on Wednesday, March 7
+## Feedback/Notes from presentation on Wednesday, March 7
 
 Presented the map we have so far to the broader ScAAN group to try and
 get people's impressions and hear some feedback. People were very
