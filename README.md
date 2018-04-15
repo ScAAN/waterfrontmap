@@ -43,6 +43,7 @@ what each of them are.
 - Add Hovering Capability
 - Add Address Hone-in Capability
 - Continue To Add New Data
+- (Any extra idea's, comment them here: https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
 
 # Recent Notes For Project
 
