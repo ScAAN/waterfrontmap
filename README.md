@@ -44,7 +44,7 @@ what each of them are.
 - Add Address Hone-in Capability
 - Continue To Add New Data
 
-# Recent Notes From Project
+# Recent Notes For Project
 
 ## How to add info to map (Billy's Guide)
 
