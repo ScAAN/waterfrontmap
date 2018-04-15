@@ -21,23 +21,21 @@ http://scaan.net/waterfrontmap/
 
 
 # Potential New Data
-- [x][ ][ ]
-[FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/),
+- [FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/),
 the shapefile download is a zip file that has many shapefiles, the
 metadata.txt file in that directory contains information describing
 what each of them are.
-- [x][ ][ ] % uninsured Community Health Survey 2009 Department Of Health
+- % uninsured Community Health Survey 2009 Department Of Health
   and Mental Health * (Current Data: https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html & https://www1.nyc.gov/site/doh/data/health-tools/maps-gis-data-files-for-download.page)
-- [ ][ ][ ] % below 200% of poverty level *
-
-- [x][ ][ ] EPA EPCRA toxics release inventory Toxics Release Inventory
+- % below 200% of poverty level *
+- EPA EPCRA toxics release inventory Toxics Release Inventory
   (TRI) sites *
   ([from EPI website](https://www.epa.gov/enviro/geospatial-data-download-service) and
   then convert to geojson
   using [togeojson](https://github.com/mapbox/togeojson))
-- [ ][ ][ ] superfund class 2 sites 
-- [ ][ ][ ] active bulk storage facilities
-- [ ][ ][ ] post irene flooding
+- superfund class 2 sites 
+- active bulk storage facilities
+- post irene flooding
 
 
 ## Current to do
@@ -108,14 +106,16 @@ would also be very cool (though fairly difficult) to do a Monte
 Carlo-type approach as used in gerrymandering cases: how do the
 current distributions of SMIAs compare to randomly generated ones?
 
-## Older Versions
+## Older Version Maps
 
 - [Billy's](https://api.mapbox.com/styles/v1/billbrod/cj97ob0wq0s2w2rph9kkdgpck.html?fresh=true&title=true&access_token=pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow#10.0/40.675708/-73.891521/0)
 - [Maija's](https://api.mapbox.com/styles/v1/mh3155/cjcp8bg653u402rprz0sf5jl6.html?fresh=true&title=true&access_token=pk.eyJ1IjoibWgzMTU1IiwiYSI6ImNqOXJqNHJ5YTZjd28ycXM0Z2dubTJjaXMifQ.czkeapIuZDbzsydf5oH7wg#9.6/40.724588/-73.998055/0)
 
-## Information
+
+## General Information
 - [General information NYC EJA waterfront justice](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)
 - [Peer reviewed EJA paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true)
+
 
 ## Current Sources
 - [NYC shape files](https://www1.nyc.gov/site/planning/data-maps/open-data.page)
@@ -126,6 +126,9 @@ current distributions of SMIAs compare to randomly generated ones?
 - [Census TIGER data](https://www.census.gov/geo/maps-data/data/tiger-data.html),
   we should look into the licensing of this to make sure we can use it
   freely and publically
+- [Zoning Data] (http://data.beta.nyc//dataset/635e26b3-2acf-4f55-8780-2619660fdf66/resource/e5528464-9a00-40a7-8b85-21e9b25d6c24/download/d52d598c77484806876b8f897d51f805nyczoning.geojson)
+- [Neighborhood Data] (http://data.beta.nyc/dataset/pediacities-nyc-neighborhoods)
+- [Poverty Data] (https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk)
   
 ## Coding Sources
 - [pyshp](https://pypi.python.org/pypi/pyshp), python library that
