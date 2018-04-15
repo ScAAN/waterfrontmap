@@ -1,4 +1,4 @@
-# waterfrontmap
+# EJA Waterfront Justice Map Project
 mapping weather, human industry, and social demographics of SMIAs
 
 
