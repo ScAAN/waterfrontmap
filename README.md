@@ -130,6 +130,7 @@ current distributions of SMIAs compare to randomly generated ones?
 - [Neighborhood Data] (http://data.beta.nyc/dataset/pediacities-nyc-neighborhoods)
 - [Poverty Data] (https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk)
   
+  
 ## Coding Sources
 - [pyshp](https://pypi.python.org/pypi/pyshp), python library that
   looks like it might be able to read shape files and write GeoJSONs.
@@ -138,6 +139,20 @@ current distributions of SMIAs compare to randomly generated ones?
 - [mapbox](https://www.mapbox.com/), the platform we're using
 - [#BagItNYC map](http://bagitnyc.org/map/), map that partly inspired
   us
+
+
+## Mapbox resources
+
+- [how to add layers](https://www.mapbox.com/mapbox-gl-js/example/toggle-layers/)
+- [how to make a choropleth](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)
+- [style specs](https://www.mapbox.com/mapbox-gl-js/style-spec/)
+- [choropleth example](https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/)
+- [this](https://www.mapbox.com/help/mapbox-gl-js-expressions/) will
+  probably be helpful in drawing a circle with a half mile / mile
+	  radius from the SMIA borders
+
+
+# Extra Notes
 
 
 ## Brainstorm Goals of this project: make a very cool interactive map
@@ -189,15 +204,5 @@ IV. What map making tool is the best for these constraints?
 - D3
 - Tableau
 
-
-## Mapbox resources
-
-- [how to add layers](https://www.mapbox.com/mapbox-gl-js/example/toggle-layers/)
-- [how to make a choropleth](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)
-- [style specs](https://www.mapbox.com/mapbox-gl-js/style-spec/)
-- [choropleth example](https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/)
-- [this](https://www.mapbox.com/help/mapbox-gl-js-expressions/) will
-  probably be helpful in drawing a circle with a half mile / mile
-	  radius from the SMIA borders
 
 
