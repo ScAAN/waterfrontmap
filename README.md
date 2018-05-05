@@ -49,6 +49,7 @@ mapping weather, human industry, and social demographics of SMIAs
 - [superfund class 2 sites](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3) (needs to be geocoded)
 - [active bulk storage facilities (PBS and MOSF)](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4) (needs to be geocoded)
 - post irene flooding
+- manufacturing zoning districts (1-3)
 
 ## Recent Notes 
 <details><summary>How to add info to map (Billy's Guide)</summary>
