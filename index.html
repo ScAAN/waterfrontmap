@@ -235,7 +235,7 @@
 	
 	<div id='clickbox' class='text-info-box' style="cursor: pointer; z-index: 1;" onclick='showinfobox()'>
       <h2>NYC-EJA Waterfront Justice Project</h2>
-	  <div id='pleaseclicktext'> <p>(Click here for more information or hover over a SMIA!) </p> </div>
+	  <div id='pleaseclicktext'> <p>(Click here for more information, or hover over a SMIA) </p> </div>
 	</div>
 	
     <div id='infobox' class='text-info-box' style='display: none; cursor: pointer; z-index: 10;' onclick='hideinfobox()'>
@@ -608,7 +608,7 @@
 		if (whichsmia.length > 0) {
 		document.getElementById('pleaseclicktext').innerHTML = '<h3>SMIA # ' + whichsmia[0].properties.OBJECTID + ' : ' + whichsmia[0].properties.SMIA_Name + '</strong></h3>';
 		} else {
-		document.getElementById('pleaseclicktext').innerHTML = '<p> Click here for more information or hover over a SMIA!</p>';
+		document.getElementById('pleaseclicktext').innerHTML = '<p> Click here for more information, or hover over a SMIA</p>';
 		}
 	  });
 
