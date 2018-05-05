@@ -6,7 +6,7 @@ mapping weather, human industry, and social demographics of SMIAs
 **PLAN**: Meet EJA in early May (?) + fix minor NA issues when clicking through the map
 
 ### Changes to the whole code 
-- Layers now turn on and off via `format->visibility instead` of `paint->opacity`, as a consequence of this, there are now some invisible layers for hovering 
+- Layers now turn on and off via `format->visibility` instead of `paint->opacity`, as a consequence of this, there are now some invisible layers for hovering 
 - Removed `float:center` and a bunch of style properties that I don't think were doing anything. I hope that didn't break anything?
 - I got two line legend text to work with a kind of ugly solution: a div floated right containing a div with two lines of text and a span with the legend item. 
 
@@ -29,7 +29,7 @@ mapping weather, human industry, and social demographics of SMIAs
 -  Percent below poverty line (needs source! Is it from the ACS 2016 downloaded from the [census fact finder?](https://factfinder.census.gov/faces/nav/jsf/pages/download_center.xhtml))
 -  Zoning ([from somewhere inside NYC data portal](http://data.beta.nyc//dataset/635e26b3-2acf-4f55-8780-2619660fdf66/resource/e5528464-9a00-40a7-8b85-21e9b25d6c24/download/d52d598c77484806876b8f897d51f805nyczoning.geojson))
 -  Hurricane Storm Surge (needs source!)
--  EPA EPCRA Toxics Release Inventory (TRI) sites ([from EPA](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016) and converted with [OGRE](http://ogre.adc4gis.com/))
+-  EPA EPCRA Toxics Release Inventory (TRI) sites ([from EPA](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016), converted with [OGRE](http://ogre.adc4gis.com/))
 
 ### Unused data sources?
 <details><summary>Are we using these? We should probably keep track,</summary>   
@@ -50,9 +50,8 @@ mapping weather, human industry, and social demographics of SMIAs
 - [active bulk storage facilities (PBS and MOSF)](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4) (needs to be geocoded)
 - post irene flooding
 
-## Recent Notes
-### How to add info to map (Billy's Guide) 
-<details><summary> </summary>
+## Recent Notes 
+<details><summary>How to add info to map (Billy's Guide)</summary>
 	
 1. Convert to geojson (if necessary).
 2. Use [mapshaper](http://mapshaper.org/) or similar website to check
@@ -90,9 +89,7 @@ mapping weather, human industry, and social demographics of SMIAs
    
 </details>
 
-### Feedback/Notes from presentation on Wednesday, March 7
-
-<details><summary> </summary>  
+<details><summary>Feedback/Notes from presentation on Wednesday, March 7</summary>  
 	
 Presented the map we have so far to the broader ScAAN group to try and
 get people's impressions and hear some feedback. 
