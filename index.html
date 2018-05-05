@@ -11,13 +11,16 @@
       .legend {
       background-color: #fff;
       border-radius: 3px;
-      top: 54%;
+      bottom: 30px;
       box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+	  border: 1px solid rgba(0,0,0,0.4);
       font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
       padding: 10px;
       position: absolute;
-      right: 10px;
+      left: 170px;
       z-index: 1;
+	  width:140px; 
+	  height:270px;
       }
       
       .legend h4 {
@@ -36,7 +39,7 @@
 	  background: #fff;
 	  position: absolute;
 	  z-index: 1;
-	  bottom: 30px;
+	  bottom: 113px;
 	  left: 30px;
 	  border-radius: 3px;
 	  width: 120px;
@@ -173,20 +176,20 @@
 	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
 	  <h4 style="text-align:right;line-height:100%">Hurricane Storm Surge Zones</h4>
       <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Category 1<br/>winds of 74 &#8211 95 mph</div>
-		<span style='vertical-align:middle;background-color: #e31a1c;margin-left:10px;margin-bottom:10px;'></span>
+		<div style="display:inline-block;line-height:100%">Category 1<br/>winds 74-95 mph</div>
+		<span style='vertical-align:middle;background-color: #7a0177;margin-left:10px;margin-bottom:10px;'></span>
 	  </div>
 	  <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Category 2<br/>winds of 96 &#8211 110 mph</div>
-		<span style='vertical-align:middle;background-color: #fd8d3c;margin-left:10px;margin-bottom:10px;'></span>
+		<div style="display:inline-block;line-height:100%">Category 2<br/>winds 96-110 mph</div>
+		<span style='vertical-align:middle;background-color: #c51b8a;margin-left:10px;margin-bottom:10px;'></span>
 	  </div>
 	  <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Category 3<br/>winds of 111 &#8211 130 mph</div>
-		<span style='vertical-align:middle;background-color: #fecc5c;margin-left:10px;margin-bottom:10px;'></span>
+		<div style="display:inline-block;line-height:100%">Category 3<br/>winds 111-130 mph</div>
+		<span style='vertical-align:middle;background-color: #f768a1;margin-left:10px;margin-bottom:10px;'></span>
 	  </div>
 	  <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Category 4<br/>winds of 131 mph or more</div>
-		<span style='vertical-align:middle;background-color: #ffffb2;margin-left:10px;margin-bottom:10px;'></span>
+		<div style="display:inline-block;line-height:100%">Category 4<br/>winds 131+ mph</div>
+		<span style='vertical-align:middle;background-color: #fbb4b9;margin-left:10px;margin-bottom:10px;'></span>
 	  </div>
     </div>
     <div id='neighborhood-legend' class='legend' style='display: none;'>
@@ -202,13 +205,20 @@
       <div style="text-align:right">Manhattan<span style='background-color: #ffda8e;margin-left:10px;'></span></div>
       <div style="text-align:right">Bronx<span style='background-color: #f4af1f;margin-left:10px;'></span></div>
     </div>
-    <div class='text-info-box'>
+	
+	<div class='text-info-box' style="cursor: pointer;" onclick='showinfobox()'>
       <h2>NYC-EJA Waterfront Justice Project</h2>
+	  <div id='pleaseclicktext'> <p>(click for more information!) </p> </div>
+	</div>
+	
+    <div id='infobox' class='text-info-box' style='display: none; cursor: pointer;' onclick='hideinfobox()'>
+      <h2>NYC-EJA Waterfront Justice Project </h2>
       <div id='pd'>
         <p>Industrial and maritime development is encouraged by zoning regulations that have created Special Maritime and Industrial Areas (SMIAs) – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</p>
       </div>
         <p style="font-size: 0.7em; color: #777777"><a href="http://www.nyc-eja.org/">NYC-EJA</a> and <a href="http://scaan.net">ScAAN</a>, 2018</p>
     </div>
+	
     <script>
       mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
       var map = new mapboxgl.Map({
@@ -232,6 +242,7 @@
 	      data: './Data/reduced_census.geojson'
 	  })
 
+	  
 	  map.addLayer({
 	      "id": "Zoning",
 	      "type": "fill",
@@ -268,10 +279,10 @@
 		      'property': 'CATEGORY',
 	  	      'type': 'categorical',
 	  	      "stops": [
-	  		  [1, '#e31a1c'],
-			  [2, '#fd8d3c'],
-	  		  [3, '#fecc5c'],
-	  		  [4, '#ffffb2']
+	  		  [1, '#7a0177'],
+			  [2, '#c51b8a'],
+	  		  [3, '#f768a1'],
+	  		  [4, '#fbb4b9']
 	  	      ]
 	  	  }
 	      }
@@ -366,6 +377,36 @@
 		  "line-width": 3
 	      }
 	  });	  
+	  
+	  
+	   map.addLayer({
+	      "id": "SMIAfill",
+	      "type": "fill",
+	      "source": {
+		  type: 'geojson',
+		  data: './Data/smia.json'
+	      },
+	      "paint": {
+		  "fill-color": "#000000",
+		  "fill-opacity": 0
+	      }
+	  });	  
+	  
+	  map.addLayer({
+	      "id": "SMIAhover",
+	      "type": "fill",
+	      "source": {
+		  type: 'geojson',
+		  data: './Data/smia.json'
+	      },
+	      "paint": {
+		  "fill-color": "#000000",
+		  "fill-opacity": .5
+	      },
+		  "filter": ["==", "OBJECTID", ""]
+	  });	  
+	  
+	  
       });
 
       var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones'];
@@ -458,7 +499,41 @@
       map.on('mouseleave', 'Percent People of Color', function (e) {
 	  map.getCanvas().style.cursor = '';
       });
+	  
+	  
+	  map.on('mousemove', function(e) {
+		var whichsmia = map.queryRenderedFeatures(e.point, {
+		layers: ['SMIAfill']
+		});
 
+		if (whichsmia.length > 0) {
+		document.getElementById('pleaseclicktext').innerHTML = '<h3>SMIA # ' + whichsmia[0].properties.OBJECTID + ' : ' + whichsmia[0].properties.SMIA_Name + '</strong></h3>';
+		} else {
+		document.getElementById('pleaseclicktext').innerHTML = '<p> Click here for more information or hover over a SMIA!</p>';
+		}
+	  });
+
+		  // MH SMIA FILL CODE
+	  // When the user moves their mouse over the states-fill layer, we'll update the filter in
+    // the state-fills-hover layer to only show the matching state, thus making a hover effect.
+      map.on("mousemove", "SMIAfill", function(e) {
+        map.setFilter("SMIAhover", ["==", "OBJECTID", e.features[0].properties.OBJECTID]);
+      });
+
+    // Reset the state-fills-hover layer's filter when the mouse leaves the layer.
+      map.on("mouseleave", "SMIAfill", function() {
+        map.setFilter("SMIAhover", ["==", "OBJECTID", ""]);
+      });
+	  
+	  
+	  // MH: sloppy way of showing and hiding infobox 
+	  function showinfobox(){
+		document.getElementById('infobox').style.display = 'block';
+	  }
+	  function hideinfobox(){
+		document.getElementById('infobox').style.display = 'none';
+	  }
+	  
     </script>
   </body>
 </html>

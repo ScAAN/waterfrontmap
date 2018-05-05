@@ -1,0 +1,9 @@
+# Directories I want to ignore
+Style/**
+old/**
+figs/**
+output/**
+# Windows default autosave extension
+*.asv
+*.mat
+*.jpg
