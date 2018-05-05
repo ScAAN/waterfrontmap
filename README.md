@@ -1,56 +1,57 @@
 # EJA Waterfront Justice Map Project
 mapping weather, human industry, and social demographics of SMIAs  
   
-**CURRENT MAP**: (http://scaan.net/waterfrontmap/)  
-**INFORMATION**: [General information from EJA](http://www.nyc-eja.org/campaigns/waterfront-justice-project/), [Peer reviewed EJA paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true)  
+**CURRENT MAP**: http://scaan.net/waterfrontmap/  
+**INFORMATION**: [general information from EJA](http://www.nyc-eja.org/campaigns/waterfront-justice-project/), [peer reviewed EJA paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true)  
 **PLAN**: Meet EJA in early May (?) + fix minor NA issues when clicking through the map
 
-## To do!
+### Changes to the whole code 
+- Layers now turn on and off via `format->visibility instead` of `paint->opacity`, as a consequence of this, there are now some invisible layers for hovering 
+- Removed `float:center` and a bunch of style properties that I don't think were doing anything. I hope that didn't break anything?
+- I got two line legend text to work with a kind of ugly solution: a div floated right containing a div with two lines of text and a span with the legend item. 
+
+### To do!
  
 - [x] Add toggle abilities 
 - [x] Add hovering capability
+- [ ] Clean the code 
+- [ ] Make no data spaces hatched 
 - [ ] Add address hone-in capability
-- [ ] continue to add new data
+- [ ] Continue to add new data
 - [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
 
 ## Data 
 
 ### Currently plotted
--  NYC Basic Geography (needs source!)
+-  NYC Basic Geography ([mapbox-streets-v7](https://www.mapbox.com/vector-tiles/mapbox-streets-v7/))
 -  SMIA ([from NYC planning](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-wrp.page))
 -  Percent people of color (needs source!)
 -  Percent below poverty line (needs source! Is it from the ACS 2016 downloaded from the [census fact finder?](https://factfinder.census.gov/faces/nav/jsf/pages/download_center.xhtml))
--  Zoning ([from NYC data portal](http://data.beta.nyc//dataset/635e26b3-2acf-4f55-8780-2619660fdf66/resource/e5528464-9a00-40a7-8b85-21e9b25d6c24/download/d52d598c77484806876b8f897d51f805nyczoning.geojson))
+-  Zoning ([from somewhere inside NYC data portal](http://data.beta.nyc//dataset/635e26b3-2acf-4f55-8780-2619660fdf66/resource/e5528464-9a00-40a7-8b85-21e9b25d6c24/download/d52d598c77484806876b8f897d51f805nyczoning.geojson))
 -  Hurricane Storm Surge (needs source!)
 -  EPA EPCRA Toxics Release Inventory (TRI) sites ([from EPA](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016) and converted with [OGRE](http://ogre.adc4gis.com/))
 
-### Current Sources
-<details><summary>Are these actually where we got the current data from? We should probably keep track,</summary>   
+### Unused data sources?
+<details><summary>Are we using these? We should probably keep track,</summary>   
 
-- [NYC shape files](https://www1.nyc.gov/site/planning/data-maps/open-data.page)
-- [Demographic data from ACS](http://www1.nyc.gov/site/planning/data-maps/nyc-population/american-community-survey.page)
-- [New York citys Waterfront Revitalization Program](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-wrp.page)-
-  information geodata/ shapefiles about SMIA, CZB and other types of
-  waterfront boundaries
-- [Census TIGER data](https://www.census.gov/geo/maps-data/data/tiger-data.html),
-  we should look into the licensing of this to make sure we can use it
-  freely and publically
-- [Zoning Data](http://data.beta.nyc//dataset/635e26b3-2acf-4f55-8780-2619660fdf66/resource/e5528464-9a00-40a7-8b85-21e9b25d6c24/download/d52d598c77484806876b8f897d51f805nyczoning.geojson)
-- [Neighborhood Data](http://data.beta.nyc/dataset/pediacities-nyc-neighborhoods)
-- [Poverty Data](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk)
+- [NYC shape files](https://www1.nyc.gov/site/planning/data-maps/open-data.page) (I don't think we're using this?)
+- [Demographic data from ACS](http://www1.nyc.gov/site/planning/data-maps/nyc-population/american-community-survey.page) (How are we downloading this, and is it for race or poverty or both?)
+- [Census TIGER data](https://www.census.gov/geo/maps-data/data/tiger-data.html) (I don't think we're using this?)
+- [Neighborhood Data](http://data.beta.nyc/dataset/pediacities-nyc-neighborhoods) (I don't think we're using this?)
+- [Poverty Data](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk) (But the link is broken)
   
 </details>
 
-### To plot!
+### To plot in the future
 - [FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/) (make sure to look at the metadata)
-- % uninsured Community Health Survey 2009 Department Of Health
-  and Mental Health * ([current data](https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html) & [also current data?](https://www1.nyc.gov/site/doh/data/health-tools/maps-gis-data-files-for-download.page))
+- Percent uninsured (From the Community Health Survey 2009 at the Department Of Health
+  and Mental Health) ([current data](https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html) & [also current data?](https://www1.nyc.gov/site/doh/data/health-tools/maps-gis-data-files-for-download.page))
 - [superfund class 2 sites](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3) (needs to be geocoded)
 - [active bulk storage facilities (PBS and MOSF)](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4) (needs to be geocoded)
 - post irene flooding
 
-# Recent Notes For Project
-## How to add info to map (Billy's Guide) 
+## Recent Notes
+### How to add info to map (Billy's Guide) 
 <details><summary> </summary>
 	
 1. Convert to geojson (if necessary).
@@ -89,7 +90,7 @@ mapping weather, human industry, and social demographics of SMIAs
    
 </details>
 
-## Feedback/Notes from presentation on Wednesday, March 7
+### Feedback/Notes from presentation on Wednesday, March 7
 
 <details><summary> </summary>  
 	
@@ -98,10 +99,10 @@ get people's impressions and hear some feedback.
 People were very
 impressed with the map and thought, if we could make it more general,
 that it would be a powerful framework to try and visualize inequity
-across the city. To that end, people made a bunch of things for other
-data they'd be interested in seeing on the map: Would also be very cool (though fairly difficult) to do a Monte
+across the city. Would also be very cool (though fairly difficult) to do a Monte
 Carlo-type approach as used in gerrymandering cases: how do the
-current distributions of SMIAs compare to randomly generated ones?  
+current distributions of SMIAs compare to randomly generated ones? People made a bunch of things for other
+data they'd be interested in seeing on the map:  
 
  - air quality index (apparently real estate agents have access to
    this somehow)
@@ -118,10 +119,10 @@ current distributions of SMIAs compare to randomly generated ones?
 
 
 
-# Extras
+## Extras
 <details><summary> Coding resources </summary>  
 	
-## Coding Sources
+### Coding Sources
 - [pyshp](https://pypi.python.org/pypi/pyshp), python library that
   looks like it might be able to read shape files and write GeoJSONs.
     - [gist](https://gist.github.com/frankrowe/6071443) to read in a
@@ -130,7 +131,7 @@ current distributions of SMIAs compare to randomly generated ones?
 - [#BagItNYC map](http://bagitnyc.org/map/), map that partly inspired
   us
 
-## Mapbox resources
+### Mapbox resources
 - [how to add layers](https://www.mapbox.com/mapbox-gl-js/example/toggle-layers/)
 - [how to make a choropleth](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)
 - [style specs](https://www.mapbox.com/mapbox-gl-js/style-spec/)
@@ -142,15 +143,14 @@ current distributions of SMIAs compare to randomly generated ones?
 
 
 <details><summary> Older version Maps </summary>
-	
-## Older Version Maps
+
 - [Billy's](https://api.mapbox.com/styles/v1/billbrod/cj97ob0wq0s2w2rph9kkdgpck.html?fresh=true&title=true&access_token=pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow#10.0/40.675708/-73.891521/0)
 - [Maija's](https://api.mapbox.com/styles/v1/mh3155/cjcp8bg653u402rprz0sf5jl6.html?fresh=true&title=true&access_token=pk.eyJ1IjoibWgzMTU1IiwiYSI6ImNqOXJqNHJ5YTZjd28ycXM0Z2dubTJjaXMifQ.czkeapIuZDbzsydf5oH7wg#9.6/40.724588/-73.998055/0)
 </details>
 
 <details><summary> Old notes </summary>
 	
-## Brainstorm Goals of this project: make a very cool interactive map
+### Brainstorm Goals of this project: make a very cool interactive map
 I. What information should it show?
 Relevant quantities of interest mapped across significant maritime and industrial areas (SMIAs)
 Currently they are showing:
