@@ -92,7 +92,6 @@
       }
       
       .text-info-box {
-		  z-index: 10;
 		  position: absolute;
       	  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
       	  background-color: #fff;
@@ -106,7 +105,7 @@
           padding: 10px;
       }
 
-      @media screen and (max-height: 535px) {
+      @media screen and (max-height: 200px) {
           #pd {
               display: none;
           }
@@ -208,12 +207,12 @@
       <div style="text-align:right">Bronx<span style='background-color: #f4af1f;margin-left:10px;'></span></div>
     </div>
 	
-	<div class='text-info-box' style="cursor: pointer;" onclick='showinfobox()'>
+	<div id='clickbox' class='text-info-box' style="cursor: pointer; z-index: 1;" onclick='showinfobox()'>
       <h2>NYC-EJA Waterfront Justice Project</h2>
 	  <div id='pleaseclicktext'> <p>(click for more information!) </p> </div>
 	</div>
 	
-    <div id='infobox' class='text-info-box' style='display: none; cursor: pointer;' onclick='hideinfobox()'>
+    <div id='infobox' class='text-info-box' style='display: none; cursor: pointer; z-index: 10;' onclick='hideinfobox()'>
       <h2>NYC-EJA Waterfront Justice Project </h2>
       <div id='pd'>
         <p>Industrial and maritime development is encouraged by zoning regulations that have created Special Maritime and Industrial Areas (SMIAs) – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</p>
@@ -531,9 +530,11 @@
 	  // MH: sloppy way of showing and hiding infobox 
 	  function showinfobox(){
 		document.getElementById('infobox').style.display = 'block';
+		document.getElementById('clickbox').style.display = 'none';
 	  }
 	  function hideinfobox(){
 		document.getElementById('infobox').style.display = 'none';
+		document.getElementById('clickbox').style.display = 'block';
 	  }
 	  
     </script>
