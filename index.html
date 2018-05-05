@@ -11,7 +11,7 @@
       .legend {
       background-color: #fff;
       border-radius: 3px;
-      bottom: 30px;
+      top: 54%;
       box-shadow: 0 1px 2px rgba(0,0,0,0.10);
       font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
       padding: 10px;
@@ -113,69 +113,94 @@
     <div id='map'></div>
     <div id='map-overlay-info' class='map-overlay-info'></div>
     <div id='zoning-legend' class='legend' style='display: none;'>
-      <div style="text-align:right">Significant Maritime<br/>and Industrial Areas<span style='outline-color: #000000;outline-style: solid;margin-bottom:10px;margin-left:10px;float:center;></span></div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <h4 style="text-align:right">Land use</h4>
-      <div style="text-align:right">Residential<span style='background-color: #7fc97f;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">NYC Parks<span style='background-color: #beaed4;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">Manufacturing<span style='background-color: #fdc085;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">Commercial<span style='background-color: #ffff99;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">Mixed manufacturing and residential<span style='background-color: #386cb0;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">Battery Park City<span style='background-color: #f0027f;margin-left:10px;float:center;'></span></div>
+      <div style="text-align:right">
+		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+		<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	  </div>
+	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+	  <h4 style="text-align:right;line-height:100%">Land Use <br/> (from NYC zoning)</h4>
+      <div style="text-align:right">Residential <span style='background-color: #80b1d3;margin-left:10px;'></span></div>
+      <div style="text-align:right">NYC Parks <span style='background-color: #b3de69;margin-left:10px;'></span></div>
+      <div style="text-align:right">Manufacturing <span style='background-color: #fb8072;margin-left:10px;'></span></div>
+      <div style="text-align:right">Commercial <span style='background-color: #fdb462;margin-left:10px;'></span></div>
+      <div style="text-align:right">
+		<div style="display:inline-block;line-height:100%">Mixed manufacturing<br/>and residential</div>
+		<span style='vertical-align:middle;background-color: #bebada;margin-left:10px;margin-bottom:10px;'></span>
+	  </div>
+      <div style="text-align:right;">Battery Park City <span style='background-color: #ffffb3;margin-left:10px;'></span></div>
     </div>
     <div id='race-legend' class='legend' style='display: block;'>
-      <div style="text-align:right">Significant Maritime<br/>and Industrial Areas<span style='outline-color: #000000;outline-style: solid;margin-bottom:10px;margin-left:10px;float:center;></span></div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <h4 style="text-align:right">Percent People of Color</h4>
-      <div style="text-align:right">0% &#8211 10%<span style='background-color: #e7f0fa;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">11% &#8211 20%<span style='background-color: #d6e6f4;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">21% &#8211 30%<span style='background-color: #c6dbef;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">31% &#8211 40%<span style='background-color: #abd0e6;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">41% &#8211 50%<span style='background-color: #8dc1dd;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">51% &#8211 60%<span style='background-color: #6aaed6;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">61% &#8211 70%<span style='background-color: #4f9bcb;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">71% &#8211 80%<span style='background-color: #3787c0;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">81% &#8211 90%<span style='background-color: #2070b4;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">91% &#8211 100%<span style='background-color: #105ba4;margin-left:10px;float:center;'></span></div>
+      <div style="text-align:right">
+		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+		<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	  </div>
+	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+	  <h4 style="text-align:right">Percent People of Color</h4>
+      <div style="text-align:right">0% &#8211 10%<span style='background-color: #e7f0fa;margin-left:10px;'></span></div>
+      <div style="text-align:right">11% &#8211 20%<span style='background-color: #d6e6f4;margin-left:10px;'></span></div>
+      <div style="text-align:right">21% &#8211 30%<span style='background-color: #c6dbef;margin-left:10px;'></span></div>
+      <div style="text-align:right">31% &#8211 40%<span style='background-color: #abd0e6;margin-left:10px;'></span></div>
+      <div style="text-align:right">41% &#8211 50%<span style='background-color: #8dc1dd;margin-left:10px;'></span></div>
+      <div style="text-align:right">51% &#8211 60%<span style='background-color: #6aaed6;margin-left:10px;'></span></div>
+      <div style="text-align:right">61% &#8211 70%<span style='background-color: #4f9bcb;margin-left:10px;'></span></div>
+      <div style="text-align:right">71% &#8211 80%<span style='background-color: #3787c0;margin-left:10px;'></span></div>
+      <div style="text-align:right">81% &#8211 90%<span style='background-color: #2070b4;margin-left:10px;'></span></div>
+      <div style="text-align:right">91% &#8211 100%<span style='background-color: #105ba4;margin-left:10px;'></span></div>
     </div>
     <div id='poverty-legend' class='legend' style='display: none;'>
-      <div style="text-align:right">Significant Maritime<br/>and Industrial Areas<span style='outline-color: #000000;outline-style: solid;margin-bottom:10px;margin-left:10px;float:center;></span></div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <h4 style="text-align:right">Percent of Families Below Poverty Line</h4>
-      <div style="text-align:right">0% &#8211 10%<span style='background-color: #fee7dc;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">11% &#8211 20%<span style='background-color: #fdd4c2;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">21% &#8211 30%<span style='background-color: #fcbba1;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">31% &#8211 40%<span style='background-color: #fca082;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">41% &#8211 50%<span style='background-color: #fc8565;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">51% &#8211 60%<span style='background-color: #fb694a;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">61% &#8211 70%<span style='background-color: #f34a36;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">71% &#8211 80%<span style='background-color: #e32f27;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">81% &#8211 90%<span style='background-color: #ca181d;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">91% &#8211 100%<span style='background-color: #b11218;margin-left:10px;float:center;'></span></div>
+      <div style="text-align:right">
+		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+		<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	  </div>
+	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+	  <h4 style="text-align:right;line-height:100%">Percent of Families<br/>Below Poverty Line</h4>
+      <div style="text-align:right">0% &#8211 10%<span style='background-color: #fee7dc;margin-left:10px;'></span></div>
+      <div style="text-align:right">11% &#8211 20%<span style='background-color: #fcbba1;margin-left:10px;'></span></div>
+      <div style="text-align:right">21% &#8211 30%<span style='background-color: #fca082;margin-left:10px;'></span></div>
+      <div style="text-align:right">31% &#8211 40%<span style='background-color: #fc8565;margin-left:10px;'></span></div>
+      <div style="text-align:right">41% &#8211 50%<span style='background-color: #f34a36;margin-left:10px;'></span></div>
+      <div style="text-align:right">51% &#8211 60%<span style='background-color: #ca181d;margin-left:10px;'></span></div>
+      <div style="text-align:right">61% &#8211 70%<span style='background-color: #900a12;margin-left:10px;'></span></div>
+      <div style="text-align:right">71% &#8211 80%<span style='background-color: #7d0913;margin-left:10px;'></span></div>
+      <div style="text-align:right">81% &#8211 90%<span style='background-color: #6c0713;margin-left:10px;'></span></div>
+      <div style="text-align:right">91% &#8211 100%<span style='background-color: #5c0613;margin-left:10px;'></span></div>
     </div>
     <div id='surge-legend' class='legend' style='display: none;'>
-      <div style="text-align:right">Significant Maritime<br/>and Industrial Areas<span style='outline-color: #000000;outline-style: solid;margin-bottom:10px;margin-left:10px;float:center;></span></div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <h4 style="text-align:right">Hurricane Storm Surge Zones</h4>
-      <div style="text-align:right">Category 1, winds of 74 &#8211 95 mph<span style='background-color: #e31a1c;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">Category 2, winds of 96 &#8211 110 mph<span style='background-color: #fd8d3c;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">Category 3, winds of 111 &#8211 130 mph<span style='background-color: #fecc5c;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">Category 4, winds of 131 mph or more<span style='background-color: #ffffb2;margin-left:10px;float:center;'></span></div>
+	  <div style="text-align:right">
+		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+		<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	  </div>
+	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+	  <h4 style="text-align:right;line-height:100%">Hurricane Storm Surge Zones</h4>
+      <div style="text-align:right">
+		<div style="display:inline-block;line-height:100%">Category 1<br/>winds of 74 &#8211 95 mph</div>
+		<span style='vertical-align:middle;background-color: #e31a1c;margin-left:10px;margin-bottom:10px;'></span>
+	  </div>
+	  <div style="text-align:right">
+		<div style="display:inline-block;line-height:100%">Category 2<br/>winds of 96 &#8211 110 mph</div>
+		<span style='vertical-align:middle;background-color: #fd8d3c;margin-left:10px;margin-bottom:10px;'></span>
+	  </div>
+	  <div style="text-align:right">
+		<div style="display:inline-block;line-height:100%">Category 3<br/>winds of 111 &#8211 130 mph</div>
+		<span style='vertical-align:middle;background-color: #fecc5c;margin-left:10px;margin-bottom:10px;'></span>
+	  </div>
+	  <div style="text-align:right">
+		<div style="display:inline-block;line-height:100%">Category 4<br/>winds of 131 mph or more</div>
+		<span style='vertical-align:middle;background-color: #ffffb2;margin-left:10px;margin-bottom:10px;'></span>
+	  </div>
     </div>
     <div id='neighborhood-legend' class='legend' style='display: none;'>
-      <div style="text-align:right">Significant Maritime<br/>and Industrial Areas<span style='outline-color: #000000;outline-style: solid;margin-bottom:10px;margin-left:10px;float:center;></span></div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <h4 style="text-align:right">Borough</h4>
-      <div style="text-align:right">Brooklyn<span style='background-color: #aeffd1;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">Staten Island<span style='background-color: #233c95;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">Queens<span style='background-color: #a7d6eb;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">Manhattan<span style='background-color: #ffda8e;margin-left:10px;float:center;'></span></div>
-      <div style="text-align:right">Bronx<span style='background-color: #f4af1f;margin-left:10px;float:center;'></span></div>
+      <div style='float:right'>
+		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+		<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	  </div>
+	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+	  <h4 style="text-align:right">Borough</h4>
+      <div style="text-align:right">Brooklyn<span style='background-color: #aeffd1;margin-left:10px;'></span></div>
+      <div style="text-align:right">Staten Island<span style='background-color: #233c95;margin-left:10px;'></span></div>
+      <div style="text-align:right">Queens<span style='background-color: #a7d6eb;margin-left:10px;'></span></div>
+      <div style="text-align:right">Manhattan<span style='background-color: #ffda8e;margin-left:10px;'></span></div>
+      <div style="text-align:right">Bronx<span style='background-color: #f4af1f;margin-left:10px;'></span></div>
     </div>
     <div class='text-info-box'>
       <h2>NYC-EJA Waterfront Justice Project</h2>
@@ -220,12 +245,12 @@
 	  	      'property': 'human_readable_zone',
 	  	      'type': 'categorical',
 	  	      "stops": [
-	  		  ['Residential', '#7fc97f'],
-	  		  ['New York City Parks', '#beaed4'],
-	  		  ['Manufacturing', '#fdc086'],
-	  		  ['Commercial', '#ffff99'],
-	  		  ['Mixed manufacturing and residential', '#386cb0'],
-	  		  ['Battery Park City', '#f0027f']
+	  		  ['Residential', '#80b1d3'],
+	  		  ['New York City Parks', '#b3de69'],
+	  		  ['Manufacturing', '#fb8072'],
+	  		  ['Commercial', '#fdb462'],
+	  		  ['Mixed manufacturing and residential', '#bebada'],
+	  		  ['Battery Park City', '#ffffb3']
 	  	      ]
 	  	  }
 	      }
@@ -311,16 +336,16 @@
 	  	      ['get', '% of Families Below Poverty Level'],
 		      -10, 'rgba(0, 0, 0, 0)',
 	  	      0, '#fee7dc',
-	  	      10, '#fdd4c2',
-	  	      20, '#fcbba1',
-	  	      30, '#fca082',
-	  	      40, '#fc8565',
-	  	      50, '#fb694a',
-	  	      60, '#f34a36',
-	  	      70, '#e32f27',
-	  	      80, '#ca181d',
-	  	      90, '#b11218',
-	  	      100, '#900a12'
+	  	      10, '#fcbba1',
+	  	      20, '#fca082',
+	  	      30, '#fc8565',
+	  	      40, '#f34a36',
+	  	      50, '#ca181d',
+	  	      60, '#900a12',
+	  	      70, '#7d0913',
+	  	      80, '#6c0713',
+	  	      90, '#5c0613',
+	  	      100, '#4c0513'
 	  	  ]
 	      }
 	  }, 'water');
