@@ -3,6 +3,7 @@ Style/**
 old/**
 figs/**
 output/**
+NotYetConverted/**
 # Windows default autosave extension
 *.asv
 *.mat

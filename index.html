@@ -8,6 +8,15 @@
   <body>
     <style>
       
+	  .marker{
+	  border-radius: 50%;
+	  display: inline-block;
+	  height: 30px;
+	  width: 30px;
+	  position: absolute;
+	  right: 4px;
+	  }
+	  
       .legend {
       background-color: #fff;
       border-radius: 3px;
@@ -84,7 +93,7 @@
       	  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
       	  border-radius: 3px;
       	  position: absolute;
-      	  width: 270px;
+      	  width: 225px;
       	  bottom: 20px;
       	  left: 10px;
       	  padding: 10px;
@@ -193,6 +202,7 @@
 		<span style='vertical-align:middle;background-color: #fbb4b9;margin-left:10px;margin-bottom:10px;'></span>
 	  </div>
     </div>
+	
     <div id='neighborhood-legend' class='legend' style='display: none;'>
       <div style='float:right'>
 		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
@@ -206,6 +216,22 @@
       <div style="text-align:right">Manhattan<span style='background-color: #ffda8e;margin-left:10px;'></span></div>
       <div style="text-align:right">Bronx<span style='background-color: #f4af1f;margin-left:10px;'></span></div>
     </div>
+	
+	 <div id='TRIsite-legend' class='legend' style='display: none;'>
+      <div style='float:right'>
+		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+		<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	  </div>
+	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+	  
+	  <div style='float:right'>
+		<div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
+		<span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="fuel-11.svg"></img></span>
+	  </div>
+	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+    </div>
+	
+	
 	
 	<div id='clickbox' class='text-info-box' style="cursor: pointer; z-index: 1;" onclick='showinfobox()'>
       <h2>NYC-EJA Waterfront Justice Project</h2>
@@ -251,6 +277,32 @@
 	  	  type: 'geojson',
 	  	  data: './Data/nyzd.geojson'
 	      },
+		  "layout": {"visibility":'none'},
+	      "paint": {
+	  	  "fill-opacity": 1,
+	  	  "fill-color": {
+	  	      'property': 'human_readable_zone',
+	  	      'type': 'categorical',
+	  	      "stops": [
+	  		  ['Residential', '#80b1d3'],
+	  		  ['New York City Parks', '#b3de69'],
+	  		  ['Manufacturing', '#fb8072'],
+	  		  ['Commercial', '#fdb462'],
+	  		  ['Mixed manufacturing and residential', '#bebada'],
+	  		  ['Battery Park City', '#ffffb3']
+	  	      ]
+	  	  }
+	      }
+	  }, 'water');
+	  
+	  map.addLayer({
+	      "id": "InvisibleZone",
+	      "type": "fill",
+	      "source": {
+	  	  type: 'geojson',
+	  	  data: './Data/nyzd.geojson'
+	      },
+		  "layout": {"visibility":'visible'},
 	      "paint": {
 	  	  "fill-opacity": 0,
 	  	  "fill-color": {
@@ -267,6 +319,7 @@
 	  	  }
 	      }
 	  }, 'water');
+	  
 	  map.addLayer({
 	      "id": "Hurricane Storm Surge Zones",
 	      "type": "fill",
@@ -274,6 +327,30 @@
 	  	  type: 'geojson',
 	  	  data: './Data/storm_surge_min.json'
 	      },
+		  "layout": {"visibility":'none'},
+	      "paint": {
+	  	  "fill-opacity": 1,
+	  	  "fill-color": {
+		      'property': 'CATEGORY',
+	  	      'type': 'categorical',
+	  	      "stops": [
+	  		  [1, '#7a0177'],
+			  [2, '#c51b8a'],
+	  		  [3, '#f768a1'],
+	  		  [4, '#fbb4b9']
+	  	      ]
+	  	  }
+	      }
+	  }, 'water');	
+	  
+	  map.addLayer({
+	      "id": "InvisibleHurr",
+	      "type": "fill",
+	      "source": {
+	  	  type: 'geojson',
+	  	  data: './Data/storm_surge_min.json'
+	      },
+		  "layout": {"visibility":'visible'},
 	      "paint": {
 	  	  "fill-opacity": 0,
 	  	  "fill-color": {
@@ -287,7 +364,9 @@
 	  	      ]
 	  	  }
 	      }
-	  }, 'water');	  
+	  }, 'water');	
+	  
+	  
 	  map.addLayer({
 	      "id": "Neighborhood",
 	      "type": "fill",
@@ -295,6 +374,7 @@
 	  	  type: 'geojson',
 	  	  data: './Data/Neighborhood_Map.geojson'
 	      },
+		  "layout": {"visibility":'none'},
 	      "paint": {
 	  	  "fill-opacity": 0,
 	  	  "fill-color": {
@@ -309,13 +389,15 @@
 	  	      ]
 	  	  }
 	      }
-	  }, 'water');	  
+	  }, 'water');	 
+	  
 	  map.addLayer({
 	      "id": "Percent People of Color",
 	      "type": "fill",
 	      "source": 'census-tracts',
+		  "layout": {"visibility":'visible'},
 	      "paint": {
-		  "fill-opacity": .75,
+		  "fill-opacity": 1,
 		  "fill-color": [
 	  	      'interpolate',
 	  	      ['linear'],
@@ -340,8 +422,9 @@
 	      "id": "Percent of Families Below Poverty Line",
 	      "type": "fill",
 	      "source": 'census-tracts',
+		  "layout": {"visibility":'none'},
 	      "paint": {
-	  	  "fill-opacity": 0,
+	  	  "fill-opacity": 1,
 	  	  "fill-color": [
 	  	      'interpolate',
 	  	      ['linear'],
@@ -361,7 +444,22 @@
 	  	  ]
 	      }
 	  }, 'water');
-
+	  
+	  map.addLayer({
+	      "id": "Toxic Release Inventory Sites",
+	      "type": "symbol",
+	      "source": {
+	  	  type: 'geojson',
+	  	  data: './Data/TRI_converted.json'
+	      },
+	      "layout": {
+            "icon-image": "fuel-11",
+			"icon-allow-overlap": true,
+			"visibility": 'none',
+			//"icon-size":10,
+          }
+	  });	 
+	  
 	  map.addLayer({
 	      "id": "SMIA",
 	      "type": "line",
@@ -377,7 +475,7 @@
 		  "line-color": "#000000",
 		  "line-width": 3
 	      }
-	  });	  
+	  },'Toxic Release Inventory Sites');	  
 	  
 	  
 	   map.addLayer({
@@ -391,7 +489,7 @@
 		  "fill-color": "#000000",
 		  "fill-opacity": 0
 	      }
-	  });	  
+	  },'Toxic Release Inventory Sites');	  
 	  
 	  map.addLayer({
 	      "id": "SMIAhover",
@@ -402,57 +500,59 @@
 	      },
 	      "paint": {
 		  "fill-color": "#000000",
-		  "fill-opacity": .5
+		  "fill-opacity": .5,
 	      },
 		  "filter": ["==", "OBJECTID", ""]
-	  });	  
+	  },'Toxic Release Inventory Sites');	  
+	  
 	  
 	  
       });
 
-      var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones'];
+      var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones','Toxic Release Inventory Sites'];
       var toggleableLegendIds = {'Percent People of Color': 'race-legend',
 				 'Zoning': 'zoning-legend',
 				 'Percent of Families Below Poverty Line': 'poverty-legend',
-				 'Hurricane Storm Surge Zones': 'surge-legend'};
-      var dataNames = {'human_readable_zone': 'Zone: ',
+				 'Hurricane Storm Surge Zones': 'surge-legend',
+				 'Toxic Release Inventory Sites': 'TRIsite-legend'};
+      var dataNames = {'human_readable_zone': 'Land use: ',
 		       'Perc_POC_P003009': '% people of color: ',
-		       '% of Families Below Poverty Level': '% families below poverty line: ',
-		       'CATEGORY': 'Hurricane storm surge zone: '};
+		       '% of Families Below Poverty Level': '% below poverty level: ',
+		       'CATEGORY': 'Hurricane zone: '};
 	  //       'borough':'NYC Borough: '};
       
+	  
+	  // MH: this now happens with VISIBILITY instead of opacity (to support markers)
       for (var i = 0; i < toggleableLayerIds.length; i++) {
-      	  var id = toggleableLayerIds[i];
-	  
-      	  var link = document.createElement('a');
-      	  link.href = '#';
-      	  link.textContent = id;
-	  if (id === 'Percent People of Color') {
-	      link.className = 'active';
-	  } else {
-	      link.className = '';
-	  }
-	  link.id = 'toggler-' + id
-	  
-      	  link.onclick = function(e) {
-      	      var clickedLayer = this.textContent;
-      	      e.preventDefault();
-	      e.stopPropagation();
-	      for (var j = 0; j < toggleableLayerIds.length; j++) {
-		  var otherLayerName = toggleableLayerIds[j]
-		  if (otherLayerName != clickedLayer) {
-		      document.getElementById('toggler-' + otherLayerName).className = '';
-		      map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
-		      document.getElementById(toggleableLegendIds[otherLayerName]).style.display = 'none';
-		  }
-	      }
-      	      this.className = 'active';
-	      map.setPaintProperty(clickedLayer, 'fill-opacity', .75);
-	      document.getElementById(toggleableLegendIds[clickedLayer]).style.display = 'block';	      
+      	var id = toggleableLayerIds[i];
+      	var link = document.createElement('a');
+		link.href = '#';
+		link.textContent = id;
+		if (id === 'Percent People of Color') {
+			link.className = 'active';
+		} else {
+			link.className = '';
+		}
+		link.id = 'toggler-' + id
+      	link.onclick = function(e) {
+      	    var clickedLayer = this.textContent;
+      	    e.preventDefault();
+			e.stopPropagation();
+			for (var j = 0; j < toggleableLayerIds.length; j++) {
+				var otherLayerName = toggleableLayerIds[j]
+				if (otherLayerName != clickedLayer) {
+					document.getElementById('toggler-' + otherLayerName).className = '';
+					map.setLayoutProperty(otherLayerName, 'visibility', 'none');
+					document.getElementById(toggleableLegendIds[otherLayerName]).style.display = 'none';
+				}
+			}
+      	    this.className = 'active';
+			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+			document.getElementById(toggleableLegendIds[clickedLayer]).style.display = 'block';	      
       	  };
 
-      	  var layers = document.getElementById('menu');
-      	  layers.appendChild(link);
+      	var layers = document.getElementById('menu');
+      	layers.appendChild(link);
 
       };
       
@@ -465,32 +565,30 @@
 	  var shownData = [];
 	  
 	  for (var j = 0; j < queried.length; j++){
-	      var data = queried[j].properties
-	      debugger;
-	      
-	      for (var i = 0; i < Object.keys(dataNames).length; i++) {
-		  
+	    var data = queried[j].properties
+	    debugger;
+		
+	    for (var i = 0; i < Object.keys(dataNames).length; i++) {
 		  var dataKey = Object.keys(dataNames)[i];
 		  // if we haven't already found this data
 		  if (shownData.indexOf(dataKey) == -1) {
 		      var dataDisplay = document.createElement('div');
 		      if (dataNames[dataKey].includes('%')){
-			  if (data[dataKey] > 0) {
-			      dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]);
-			  } else {
-			      dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + 'not enough data';
-			  }
-			  shownData.push(dataKey)
+				if (data[dataKey] > 0) {
+					dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]) + ' %';
+				} else {
+					dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + 'Not enough data';
+				}
 		      } else if (typeof(data[dataKey]) != 'undefined') {
 				dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + data[dataKey];
-				shownData.push(dataKey)
-		      }
-		      
+		      } else {
+				dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + 'None';
+			  }
+		      shownData.push(dataKey)
 		      overlay.appendChild(dataDisplay);
-		  }
-	      }}
+		}
+	    }}
 	  overlay.style.display = 'block';
-
       });
       
       map.on('mouseenter', 'Percent People of Color', function (e) {
@@ -514,8 +612,8 @@
 		}
 	  });
 
-		  // MH SMIA FILL CODE
-	  // When the user moves their mouse over the states-fill layer, we'll update the filter in
+	// MH SMIA FILL CODE
+	// When the user moves their mouse over the states-fill layer, we'll update the filter in
     // the state-fills-hover layer to only show the matching state, thus making a hover effect.
       map.on("mousemove", "SMIAfill", function(e) {
         map.setFilter("SMIAhover", ["==", "OBJECTID", e.features[0].properties.OBJECTID]);
