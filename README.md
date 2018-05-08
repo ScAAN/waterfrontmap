@@ -90,7 +90,7 @@ mapping weather, human industry, and social demographics of SMIAs
    
 </details>
 
-<details><summary>Feedback/Notes from presentation on Wednesday, March 7</summary>  
+<details><summary>Feedback/Notes from presentation on Wednesday, March 7</summary>
 	
 Presented the map we have so far to the broader ScAAN group to try and
 get people's impressions and hear some feedback. 
@@ -115,10 +115,50 @@ data they'd be interested in seeing on the map:
 
 </details>
 
+<details><summary>Notes from meeting with EJA on May 7</summary>
 
+Had a phone call with the EJA to get their thoughts on the map so far
+and what else they'd like to see on it. They're very happy with the
+progress we've made and would like to host the map on their website
+once it's complete. They also said that they can look into finding any
+data that we have difficulty with.
+
+ - add half-mile buffer around SMIA -- they said they can look into
+   this (they probably have the shape files from earlier maps they've
+   made), since we're not really sure how to do this easily
+ - add more info about some of the maps. they have blurbs in the links
+   they sent us to help explain some of the maps, would be nice to get
+   these on the map. unsure how best to do it without making the map
+   seem too busy, maybe either in the top-left box or another
+   clickable box
+ - for % POC: use same breakdown and color scheme as in their maps
+ - for % below poverty line: same, also ideally below 200%
+   poverty. we've had trouble finding this; if we can't find it, then
+   we'll ask them to see if they have that data lying around
+ - add median household income. pretty sure this is in the census data
+ - add Emergency Management Evacuation Zones, which are probably from
+   the city office of emergency management
+ - add FEMA flood plain zones, which I believe we've already found
+ - add Sandy Inspected Zones, they said New York Times had a map
+   showing this. I
+   found
+   [this](https://archive.nytimes.com/www.nytimes.com/packages/html/newsgraphics/2012/1029-hurricane-updates/ipad.html) and
+   [this](http://www.nytimes.com/newsgraphics/2012/1120-sandy/survey-of-the-flooding-in-new-york-after-the-hurricane.html),
+   will double-check if either of them is what they were thinking of
+ - add ability to search an address, find where it is, if it's in an
+   evacuation zone, other details
+ - add ability to print pdf or send link with current view
+ - add ability to overlay current weather data, possibly to replay
+   historical weather data. no idea if this is possible
+ - include NYC's heat vulnerability index (HVI), from the city's
+   environmental health portal
+ - various other pollution data, superfund sites, etc., as included in
+   their various reports.
+
+</details>
 
 ## Extras
-<details><summary> Coding resources </summary>  
+<details><summary> Coding resources </summary>
 	
 ### Coding Sources
 - [pyshp](https://pypi.python.org/pypi/pyshp), python library that
