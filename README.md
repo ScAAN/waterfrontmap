@@ -154,6 +154,16 @@ data that we have difficulty with.
    environmental health portal
  - various other pollution data, superfund sites, etc., as included in
    their various reports.
+ - Include land use, not just zoning, and use the standard color
+   scheme that the City uses for the land use and zoning map
+   (see
+   [ZoLa](https://zola.planning.nyc.gov/lot/1/390/5?building-footprints=false&commercial-overlays=false&subway=false#14.4/40.7264/-73.9831);
+   you'll have to zoom pretty far in to see land use by tax lot).
+ - for map layers such as percent people of color and percent family
+   below poverty line, the unit of analysis needs to be clarified. for
+   example, if it's census tract that you are using either specify in
+   the key or when you scroll over or click on the map, the pop-up
+   window should identify the feature with the corresponding ID data.
 
 </details>
 
