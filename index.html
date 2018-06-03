@@ -103,23 +103,23 @@
       .text-info-box {
 		  position: absolute;
       	  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
-      	  background-color: #fff;
-      	  position: absolute;
-      	  width: 22em;
-      	  top: 10px;
-      	  left: 10px;
-      	  display: block;
-          border-radius: 3px;
-          box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-          padding: 10px;
+	  background-color: #fff;
+	  position: absolute;
+	  width: 22em;
+	  top: 10px;
+	  left: 10px;
+	  display: block;
+	  border-radius: 3px;
+	  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+	  padding: 10px;
       }
-
+      
       @media screen and (max-height: 200px) {
-          #pd {
-              display: none;
-          }
+	  #pd {
+	      display: none;
+	  }
       }
-
+      
     </style>    
     <nav id="menu"></nav>
     <title>Waterfront Justice Project</title>
@@ -127,117 +127,137 @@
     <div id='map-overlay-info' class='map-overlay-info'></div>
     <div id='zoning-legend' class='legend' style='display: none;'>
       <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-		<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	  </div>
-	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-	  <h4 style="text-align:right;line-height:100%">Land Use <br/> (from NYC zoning)</h4>
+	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+      </div>
+      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+      <h4 style="text-align:right;line-height:100%">Land Use <br/> (from NYC zoning)</h4>
       <div style="text-align:right">Residential <span style='background-color: #80b1d3;margin-left:10px;'></span></div>
       <div style="text-align:right">NYC Parks <span style='background-color: #b3de69;margin-left:10px;'></span></div>
       <div style="text-align:right">Manufacturing <span style='background-color: #fb8072;margin-left:10px;'></span></div>
       <div style="text-align:right">Commercial <span style='background-color: #fdb462;margin-left:10px;'></span></div>
       <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Mixed manufacturing<br/>and residential</div>
-		<span style='vertical-align:middle;background-color: #bebada;margin-left:10px;margin-bottom:10px;'></span>
-	  </div>
+	<div style="display:inline-block;line-height:100%">Mixed manufacturing<br/>and residential</div>
+	<span style='vertical-align:middle;background-color: #bebada;margin-left:10px;margin-bottom:10px;'></span>
+	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+      </div>
       <div style="text-align:right;">Battery Park City <span style='background-color: #ffffb3;margin-left:10px;'></span></div>
     </div>
     <div id='race-legend' class='legend' style='display: block;'>
       <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-		<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	  </div>
-	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-	  <h4 style="text-align:right">Percent People of Color</h4>
-      <div style="text-align:right">0% &#8211 10%<span style='background-color: #e7f0fa;margin-left:10px;'></span></div>
-      <div style="text-align:right">11% &#8211 20%<span style='background-color: #d6e6f4;margin-left:10px;'></span></div>
-      <div style="text-align:right">21% &#8211 30%<span style='background-color: #c6dbef;margin-left:10px;'></span></div>
-      <div style="text-align:right">31% &#8211 40%<span style='background-color: #abd0e6;margin-left:10px;'></span></div>
-      <div style="text-align:right">41% &#8211 50%<span style='background-color: #8dc1dd;margin-left:10px;'></span></div>
-      <div style="text-align:right">51% &#8211 60%<span style='background-color: #6aaed6;margin-left:10px;'></span></div>
-      <div style="text-align:right">61% &#8211 70%<span style='background-color: #4f9bcb;margin-left:10px;'></span></div>
-      <div style="text-align:right">71% &#8211 80%<span style='background-color: #3787c0;margin-left:10px;'></span></div>
-      <div style="text-align:right">81% &#8211 90%<span style='background-color: #2070b4;margin-left:10px;'></span></div>
-      <div style="text-align:right">91% &#8211 100%<span style='background-color: #105ba4;margin-left:10px;'></span></div>
+	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+      </div>
+      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+      <h4 style="text-align:right">Percent People of Color</h4>
+      <div style="text-align:right">0% &#8211 20%<span style='background-color: #feebe2;margin-left:10px;'></span></div>
+      <div style="text-align:right">21% &#8211 40%<span style='background-color: #fbb4b9;margin-left:10px;'></span></div>
+      <div style="text-align:right">41% &#8211 65%<span style='background-color: #f768a1;margin-left:10px;'></span></div>
+      <div style="text-align:right">66% &#8211 90%<span style='background-color: #c51b8a;margin-left:10px;'></span></div>
+      <div style="text-align:right">91% &#8211 100%<span style='background-color: #7a0177;margin-left:10px;'></span></div>
     </div>
     <div id='poverty-legend' class='legend' style='display: none;'>
       <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-		<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	  </div>
-	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-	  <h4 style="text-align:right;line-height:100%">Percent of Families<br/>Below Poverty Line</h4>
-      <div style="text-align:right">0% &#8211 10%<span style='background-color: #fee7dc;margin-left:10px;'></span></div>
-      <div style="text-align:right">11% &#8211 20%<span style='background-color: #fcbba1;margin-left:10px;'></span></div>
-      <div style="text-align:right">21% &#8211 30%<span style='background-color: #fca082;margin-left:10px;'></span></div>
-      <div style="text-align:right">31% &#8211 40%<span style='background-color: #fc8565;margin-left:10px;'></span></div>
-      <div style="text-align:right">41% &#8211 50%<span style='background-color: #f34a36;margin-left:10px;'></span></div>
-      <div style="text-align:right">51% &#8211 60%<span style='background-color: #ca181d;margin-left:10px;'></span></div>
-      <div style="text-align:right">61% &#8211 70%<span style='background-color: #900a12;margin-left:10px;'></span></div>
-      <div style="text-align:right">71% &#8211 80%<span style='background-color: #7d0913;margin-left:10px;'></span></div>
-      <div style="text-align:right">81% &#8211 90%<span style='background-color: #6c0713;margin-left:10px;'></span></div>
-      <div style="text-align:right">91% &#8211 100%<span style='background-color: #5c0613;margin-left:10px;'></span></div>
+	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+      </div>
+      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+      <h4 style="text-align:right;line-height:100%">Percent of Families<br/>Below Poverty Line</h4>
+      <div style="text-align:right">0% &#8211 20%<span style='background-color: #fee5d9;margin-left:10px;'></span></div>
+      <div style="text-align:right">21% &#8211 35%<span style='background-color: #fcae91;margin-left:10px;'></span></div>
+      <div style="text-align:right">36% &#8211 50%<span style='background-color: #fb6a4a;margin-left:10px;'></span></div>
+      <div style="text-align:right">51% &#8211 65%<span style='background-color: #de2d26;margin-left:10px;'></span></div>
+      <div style="text-align:right">66% &#8211 100%<span style='background-color: #a50f15';margin-left:10px;'></span></div>
+    </div>
+    <div id='income-legend' class='legend' style='display: none;'>
+      <div style="text-align:right">
+	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+      </div>
+      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+      <h4 style="text-align:right;line-height:100%">Median Household Income</h4>
+      <div style="text-align:right">$0 &#8211 $18000 (0 &#8211 20th Percentile)<span style='background-color: #ffffcc;margin-left:10px;'></span></div>
+      <div style="text-align:right">$18001 &#8211 $39300 (20th &#8211 40th Percentile)<span style='background-color: #d9f0a3;margin-left:10px;'></span></div>
+      <div style="text-align:right">$39301 &#8211 52300 (40th &#8211 to 50th Percentile)<span style='background-color: #addd8e';margin-left:10px;'></span></div>
+      <div style="text-align:right">$52301 &#8211 67600 (50th &#8211 60th Percentile)<span style='background-color: #78c679;margin-left:10px;'></span></div>      
+      <div style="text-align:right">$67601 &#8211 115300 (60th &#8211 80th Percentile)<span style='background-color: #31a354;margin-left:10px;'></span></div>
+      <div style="text-align:right">$115301 and up (80th Percentile and up)<span style='background-color: #006837;margin-left:10px;'></span></div>
     </div>
     <div id='surge-legend' class='legend' style='display: none;'>
-	  <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-		<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	  </div>
-	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-	  <h4 style="text-align:right;line-height:100%">Hurricane Storm Surge Zones</h4>
       <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Category 1<br/>winds 74-95 mph</div>
-		<span style='vertical-align:middle;background-color: #7a0177;margin-left:10px;margin-bottom:10px;'></span>
-	  </div>
-	  <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Category 2<br/>winds 96-110 mph</div>
-		<span style='vertical-align:middle;background-color: #c51b8a;margin-left:10px;margin-bottom:10px;'></span>
-	  </div>
-	  <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Category 3<br/>winds 111-130 mph</div>
-		<span style='vertical-align:middle;background-color: #f768a1;margin-left:10px;margin-bottom:10px;'></span>
-	  </div>
-	  <div style="text-align:right">
-		<div style="display:inline-block;line-height:100%">Category 4<br/>winds 131+ mph</div>
-		<span style='vertical-align:middle;background-color: #fbb4b9;margin-left:10px;margin-bottom:10px;'></span>
-	  </div>
+	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+      </div>
+      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+      <h4 style="text-align:right;line-height:100%">Hurricane Storm Surge Zones</h4>
+      <div style="text-align:right">
+	<div style="display:inline-block;line-height:100%">Category 1<br/>winds 74-95 mph</div>
+	<span style='vertical-align:middle;background-color: #d7301f;margin-left:10px;margin-bottom:10px;'></span>
+      </div>
+      <div style="text-align:right">
+	<div style="display:inline-block;line-height:100%">Category 2<br/>winds 96-110 mph</div>
+	<span style='vertical-align:middle;background-color: #fc8d59;margin-left:10px;margin-bottom:10px;'></span>
+      </div>
+      <div style="text-align:right">
+	<div style="display:inline-block;line-height:100%">Category 3<br/>winds 111-130 mph</div>
+	<span style='vertical-align:middle;background-color: #fdcc8a;margin-left:10px;margin-bottom:10px;'></span>
+      </div>
+      <div style="text-align:right">
+	<div style="display:inline-block;line-height:100%">Category 4<br/>winds 131+ mph</div>
+	<span style='vertical-align:middle;background-color: #fef0d9;margin-left:10px;margin-bottom:10px;'></span>
+      </div>
     </div>
-	
+    
     <div id='neighborhood-legend' class='legend' style='display: none;'>
       <div style='float:right'>
-		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-		<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	  </div>
-	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-	  <h4 style="text-align:right">Borough</h4>
+	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>	
+      </div>
+      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+      <h4 style="text-align:right">Borough</h4>
       <div style="text-align:right">Brooklyn<span style='background-color: #aeffd1;margin-left:10px;'></span></div>
       <div style="text-align:right">Staten Island<span style='background-color: #233c95;margin-left:10px;'></span></div>
       <div style="text-align:right">Queens<span style='background-color: #a7d6eb;margin-left:10px;'></span></div>
       <div style="text-align:right">Manhattan<span style='background-color: #ffda8e;margin-left:10px;'></span></div>
       <div style="text-align:right">Bronx<span style='background-color: #f4af1f;margin-left:10px;'></span></div>
     </div>
-	
-	 <div id='TRIsite-legend' class='legend' style='display: none;'>
+    
+    <div id='TRIsite-legend' class='legend' style='display: none;'>
       <div style='float:right'>
-		<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-		<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	  </div>
-	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-	  
-	  <div style='float:right'>
-		<div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
-		<span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="fuel-11.svg"></img></span>
-	  </div>
-	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+      </div>
+      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+      
+      <div style='float:right'>
+	<div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
+	<span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="fuel-11.svg"></img></span>
+      </div>
+      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
     </div>
-	
-	
-	
-	<div id='clickbox' class='text-info-box' style="cursor: pointer; z-index: 1;" onclick='showinfobox()'>
+    
+    
+    
+    <div id='clickbox' class='text-info-box' style="cursor: pointer; z-index: 1;" onclick='showinfobox()'>
       <h2>NYC-EJA Waterfront Justice Project</h2>
-	  <div id='pleaseclicktext'> <p>(Click here for more information, or hover over a SMIA) </p> </div>
-	</div>
-	
+      <div id='pleaseclicktext'> <p>(Click here for more information, or hover over a SMIA) </p> </div>
+    </div>
+    
     <div id='infobox' class='text-info-box' style='display: none; cursor: pointer; z-index: 10;' onclick='hideinfobox()'>
       <h2>NYC-EJA Waterfront Justice Project </h2>
       <div id='pd'>
@@ -334,10 +354,10 @@
 		      'property': 'CATEGORY',
 	  	      'type': 'categorical',
 	  	      "stops": [
-	  		  [1, '#7a0177'],
-			  [2, '#c51b8a'],
-	  		  [3, '#f768a1'],
-	  		  [4, '#fbb4b9']
+	  		  [1, '#d7301f'],
+			  [2, '#fc8d59'],
+	  		  [3, '#fdcc8a'],
+	  		  [4, '#fef0d9']
 	  	      ]
 	  	  }
 	      }
@@ -395,53 +415,63 @@
 	      "id": "Percent People of Color",
 	      "type": "fill",
 	      "source": 'census-tracts',
-		  "layout": {"visibility":'visible'},
+	      "layout": {"visibility":'visible'},
 	      "paint": {
 		  "fill-opacity": 1,
-		  "fill-color": [
-	  	      'interpolate',
-	  	      ['linear'],
-	  	      ['get', 'Perc_POC_P003009'],
-		      -10, 'rgba(0, 0, 0, 0)',
-	  	      0, '#e7f0fa',
-	  	      11, '#d6e6f4',
-	  	      21, '#c6dbef',
-	  	      31, '#abd0e6',
-	  	      41, '#8dc1dd',
-	  	      51, '#6aaed6',
-	  	      61, '#4f9bcb',
-	  	      71, '#3787c0',
-	  	      81, '#2070b4',
-	  	      91, '#105ba4',
-	  	      100, '#08468b'
-		  ]
+		  "fill-color": {
+		      'property': 'Perc_POC_P003009',
+		      'type': 'interval',
+		      'stops': [
+			  [0, '#feebe2'],
+			  [21, '#fbb4b9'],
+			  [41, '#f768a1'],
+			  [66, '#c51b8a'],
+			  [91, '#7a0177']
+		      ]
+		  }
 	      }
 	  }, 'water');
 	  
 	  map.addLayer({
+	      "id": "Median Household Income",
+	      "type": "fill",
+	      "source": 'census-tracts',
+	      "layout": {"visibility":'visible'},
+	      "paint": {
+	  	  "fill-opacity": 1,
+		  "fill-color": {
+		      'property': 'Median Household Income',
+		      'type': 'interval',
+		      'stops': [
+			  [0, '#ffffcc'],
+			  [18001, '#d9f0a3'],
+			  [39301, '#addd8e'],
+			  [52301, '#78c679'],
+			  [67601, '#31a354'],
+			  [115301, '#006837']
+		      ]
+		  }
+	      }
+	  }, 'water');
+
+	  map.addLayer({
 	      "id": "Percent of Families Below Poverty Line",
 	      "type": "fill",
 	      "source": 'census-tracts',
-		  "layout": {"visibility":'none'},
+	      "layout": {"visibility":'visible'},
 	      "paint": {
 	  	  "fill-opacity": 1,
-	  	  "fill-color": [
-	  	      'interpolate',
-	  	      ['linear'],
-	  	      ['get', '% of Families Below Poverty Level'],
-		      -10, 'rgba(0, 0, 0, 0)',
-	  	      0, '#fee7dc',
-	  	      10, '#fcbba1',
-	  	      20, '#fca082',
-	  	      30, '#fc8565',
-	  	      40, '#f34a36',
-	  	      50, '#ca181d',
-	  	      60, '#900a12',
-	  	      70, '#7d0913',
-	  	      80, '#6c0713',
-	  	      90, '#5c0613',
-	  	      100, '#4c0513'
-	  	  ]
+		  "fill-color": {
+		      'property': '% of Families Below Poverty Level',
+		      'type': 'interval',
+		      'stops': [
+			  [0, '#fee5d9'],
+			  [21, '#fcae91'],
+			  [36, '#fb6a4a'],
+			  [51, '#de2d26'],
+			  [66, '#a50f15']
+		      ]
+		  }
 	      }
 	  }, 'water');
 	  
@@ -476,9 +506,26 @@
 		  "line-width": 3
 	      }
 	  },'Toxic Release Inventory Sites');	  
+
+	  map.addLayer({
+	      "id": "SMIA-buffer",
+	      "type": "line",
+	      "source": {
+		  type: 'geojson',
+		  data: './Data/SMIA_halfmilebuffer_full.geojson'
+	      },
+	      "layout": {
+		  "line-join": "round",
+		  "line-cap": "round"
+	      },
+	      "paint": {
+		  "line-color": "#000000",
+		  "line-width": 2,
+		  "line-dasharray": [1, 3]
+	      }
+	  },'Toxic Release Inventory Sites');	  
 	  
-	  
-	   map.addLayer({
+	  map.addLayer({
 	      "id": "SMIAfill",
 	      "type": "fill",
 	      "source": {
@@ -503,22 +550,25 @@
 		  "fill-opacity": .5,
 	      },
 		  "filter": ["==", "OBJECTID", ""]
-	  },'Toxic Release Inventory Sites');	  
+	  },'Toxic Release Inventory Sites');
 	  
 	  
 	  
       });
 
-      var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones','Toxic Release Inventory Sites'];
+      var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones',
+				'Toxic Release Inventory Sites', 'Median Household Income'];
       var toggleableLegendIds = {'Percent People of Color': 'race-legend',
 				 'Zoning': 'zoning-legend',
 				 'Percent of Families Below Poverty Line': 'poverty-legend',
 				 'Hurricane Storm Surge Zones': 'surge-legend',
-				 'Toxic Release Inventory Sites': 'TRIsite-legend'};
+				 'Toxic Release Inventory Sites': 'TRIsite-legend',
+				 'Median Household Income': 'income-legend'};
       var dataNames = {'human_readable_zone': 'Land use: ',
 		       'Perc_POC_P003009': '% people of color: ',
 		       '% of Families Below Poverty Level': '% below poverty level: ',
-		       'CATEGORY': 'Hurricane zone: '};
+		       'CATEGORY': 'Hurricane zone: ',
+		       'Median Household Income': 'Median household income: '};
 	  //       'borough':'NYC Borough: '};
       
 	  
@@ -566,7 +616,6 @@
 	  
 	  for (var j = 0; j < queried.length; j++){
 	    var data = queried[j].properties
-	    debugger;
 		
 	    for (var i = 0; i < Object.keys(dataNames).length; i++) {
 		  var dataKey = Object.keys(dataNames)[i];
@@ -576,6 +625,12 @@
 		      if (dataNames[dataKey].includes('%')){
 				if (data[dataKey] > 0) {
 					dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]) + ' %';
+				} else {
+					dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + 'Not enough data';
+				}
+		      } else if (dataNames[dataKey].includes('Median')) {
+				if (data[dataKey] > 0) {
+					dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]);
 				} else {
 					dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + 'Not enough data';
 				}

@@ -123,7 +123,7 @@ progress we've made and would like to host the map on their website
 once it's complete. They also said that they can look into finding any
 data that we have difficulty with.
 
- - [ ] add half-mile buffer around SMIA -- they said they can look
+ - [x] add half-mile buffer around SMIA -- they said they can look
    into this (they probably have the shape files from earlier maps
    they've made), since we're not really sure how to do this easily
  - [ ] add more info about some of the maps. they have blurbs in the
@@ -131,17 +131,17 @@ data that we have difficulty with.
    to get these on the map. unsure how best to do it without making
    the map seem too busy, maybe either in the top-left box or another
    clickable box
- - [ ] for % POC: use same breakdown and color scheme as in their maps
+ - [x] for % POC: use same breakdown and color scheme as in their maps
  - [ ] for % below poverty line: same, also ideally below 200%
    poverty. we've had trouble finding this; if we can't find it, then
    we'll ask them to see if they have that data lying around
- - [ ] add median household income. pretty sure this is in the census
+ - [x] add median household income. pretty sure this is in the census
    data
  - [ ] add Emergency Management Evacuation Zones, which are probably
    from the city office of emergency management (Colin is looking into
    this)
  - [ ] add FEMA flood plain zones, which I believe we've already found
- - [ ] add Sandy Inspected Zones, they said New York Times had a map
+ - [ ] add Sandy Impacted Zones, they said New York Times had a map
    showing this. I
    found
    [this](https://archive.nytimes.com/www.nytimes.com/packages/html/newsgraphics/2012/1029-hurricane-updates/ipad.html) and
