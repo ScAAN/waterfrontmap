@@ -25,8 +25,8 @@ mapping weather, human industry, and social demographics of SMIAs
 ### Currently plotted
 -  NYC Basic Geography ([mapbox-streets-v7](https://www.mapbox.com/vector-tiles/mapbox-streets-v7/))
 -  SMIA ([from NYC planning](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-wrp.page))
--  Percent people of color (needs source!)
--  Percent below poverty line (needs source! Is it from the ACS 2016 downloaded from the [census fact finder?](https://factfinder.census.gov/faces/nav/jsf/pages/download_center.xhtml))
+-  Percent people of color ([Census Bulk Download](http://census.ire.org/data/bulkdata.html))
+-  Percent below poverty line ([Census fact finder](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml))
 -  Zoning ([from somewhere inside NYC data portal](http://data.beta.nyc//dataset/635e26b3-2acf-4f55-8780-2619660fdf66/resource/e5528464-9a00-40a7-8b85-21e9b25d6c24/download/d52d598c77484806876b8f897d51f805nyczoning.geojson))
 -  Hurricane Storm Surge (needs source!)
 -  EPA EPCRA Toxics Release Inventory (TRI) sites ([from EPA](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016), converted with [OGRE](http://ogre.adc4gis.com/))
