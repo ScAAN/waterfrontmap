@@ -290,7 +290,7 @@
       mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
       var map = new mapboxgl.Map({
 	  container: 'map',
-	  style: 'mapbox://styles/mapbox/light-v9',
+	  style: 'mapbox://styles/mapbox/light-v9?optimize=true',
 	  center: [-73.9978, 40.7209],
 	  zoom: 10,
 	  legendControl: {
@@ -304,20 +304,28 @@
 
 	  map.moveLayer("water", "road-trunk")
 	  
-	  map.addSource('census-tracts', {
-	      type: 'geojson',
-	      data: './Data/reduced_census.geojson'
+	  map.addSource('vector_data', {
+	      type: 'vector',
+	      url: 'mapbox://billbrod.7693fb16'
 	  })
 
-	  
+	  // from
+	  // https://github.com/mapbox/mapbox-gl-js/issues/5040#issuecomment-321688603;
+	  // apparently duplicating the source to have a separate
+	  // source for the hover effect improves performance. not
+	  // sure why that works, but whatever
+	  map.addSource('vector_data-hover', {
+	      type: 'vector',
+	      url: 'mapbox://billbrod.7693fb16'
+	  })
+
+
 	  map.addLayer({
 	      "id": "Zoning",
 	      "type": "fill",
-	      "source": {
-	  	  type: 'geojson',
-	  	  data: './Data/nyzd.geojson'
-	      },
-		  "layout": {"visibility":'visible'},
+	      "source": 'vector_data',
+	      "source-layer": 'nyzd',
+	      "layout": {"visibility":'visible'},
 	      "paint": {
 	  	  "fill-opacity": 0,
 	  	  "fill-color": {
@@ -338,11 +346,9 @@
 	  map.addLayer({
 	      "id": "Hurricane Storm Surge Zones",
 	      "type": "fill",
-	      "source": {
-	  	  type: 'geojson',
-	  	  data: './Data/storm_surge_min.json'
-	      },
-		  "layout": {"visibility":'visible'},
+	      "source": "vector_data",
+	      "source-layer": 'storm_surge_min',
+	      "layout": {"visibility":'visible'},
 	      "paint": {
 	  	  "fill-opacity": 0,
 	  	  "fill-color": {
@@ -358,34 +364,33 @@
 	      }
 	  }, 'water');	
 	  
-	  map.addLayer({
-	      "id": "Neighborhood",
-	      "type": "fill",
-	      "source": {
-	  	  type: 'geojson',
-	  	  data: './Data/Neighborhood_Map.geojson'
-	      },
-		  "layout": {"visibility":'none'},
-	      "paint": {
-	  	  "fill-opacity": 0,
-	  	  "fill-color": {
-		      'property': 'borough',
-	  	      'type': 'categorical',
-	  	      "stops": [
-	  		  ['Brooklyn', '#aeffd1'],
-			  ['Staten Island', '#233c95'],
-	  		  ['Queens', '#a7d6eb'],
-	  		  ['Manhattan', '#ffda8e'],
-			  ['Bronx', '#f4af1f']
-	  	      ]
-	  	  }
-	      }
-	  }, 'water');	 
+	  // map.addLayer({
+	  //     "id": "Neighborhood",
+	  //     "type": "fill",
+	  //     "source": "vector_data",
+	  //     "source-layer": 'Neighborhood_Map',
+	  //     "layout": {"visibility":'none'},
+	  //     "paint": {
+	  // 	  "fill-opacity": 0,
+	  // 	  "fill-color": {
+	  // 	      'property': 'borough',
+	  // 	      'type': 'categorical',
+	  // 	      "stops": [
+	  // 		  ['Brooklyn', '#aeffd1'],
+	  // 		  ['Staten Island', '#233c95'],
+	  // 		  ['Queens', '#a7d6eb'],
+	  // 		  ['Manhattan', '#ffda8e'],
+	  // 		  ['Bronx', '#f4af1f']
+	  // 	      ]
+	  // 	  }
+	  //     }
+	  // }, 'water');	 
 	  
 	  map.addLayer({
 	      "id": "Percent People of Color",
 	      "type": "fill",
-	      "source": 'census-tracts',
+	      "source": 'vector_data',
+	      "source-layer": "reduced_census",
 	      "layout": {"visibility":'visible'},
 	      "paint": {
 		  "fill-opacity": 1,
@@ -407,7 +412,8 @@
 	  map.addLayer({
 	      "id": "Median Household Income",
 	      "type": "fill",
-	      "source": 'census-tracts',
+	      "source": 'vector_data',
+	      "source-layer": "reduced_census",
 	      "layout": {"visibility":'visible'},
 	      "paint": {
 	  	  "fill-opacity": 0,
@@ -430,7 +436,8 @@
 	  map.addLayer({
 	      "id": "Percent of Families Below Poverty Line",
 	      "type": "fill",
-	      "source": 'census-tracts',
+	      "source": 'vector_data',
+	      "source-layer": "reduced_census",
 	      "layout": {"visibility":'visible'},
 	      "paint": {
 	  	  "fill-opacity": 0,
@@ -452,25 +459,21 @@
 	  map.addLayer({
 	      "id": "Toxic Release Inventory Sites",
 	      "type": "symbol",
-	      "source": {
-	  	  type: 'geojson',
-	  	  data: './Data/TRI_converted.json'
-	      },
+	      "source": "vector_data",
+	      "source-layer": 'TRI_converted',
 	      "layout": {
-            "icon-image": "fuel-11",
-			"icon-allow-overlap": true,
-			"visibility": 'none',
-			//"icon-size":10,
-          }
+		  "icon-image": "fuel-11",
+		  "icon-allow-overlap": true,
+		  "visibility": 'none',
+		  //"icon-size":10,
+	      }
 	  });	 
 	  
 	  map.addLayer({
 	      "id": "SMIA",
 	      "type": "line",
-	      "source": {
-		  type: 'geojson',
-		  data: './Data/smia.json'
-	      },
+	      "source": "vector_data",
+	      "source-layer": 'smia',
 	      "layout": {
 		  "line-join": "round",
 		  "line-cap": "round"
@@ -484,10 +487,8 @@
 	  map.addLayer({
 	      "id": "SMIA-buffer",
 	      "type": "line",
-	      "source": {
-		  type: 'geojson',
-		  data: './Data/SMIA_halfmilebuffer_full.geojson'
-	      },
+	      "source": "vector_data",
+	      "source-layer": 'SMIA_halfmilebuffer_full',
 	      "layout": {
 		  "line-join": "round",
 		  "line-cap": "round"
@@ -502,10 +503,8 @@
 	  map.addLayer({
 	      "id": "SMIAfill",
 	      "type": "fill",
-	      "source": {
-		  type: 'geojson',
-		  data: './Data/SMIA_halfmilebuffer_full.geojson'
-	      },
+	      "source": "vector_data",
+	      "source-layer": 'SMIA_halfmilebuffer_full',
 	      "paint": {
 		  "fill-color": "#000000",
 		  "fill-opacity": 0
@@ -515,15 +514,13 @@
 	  map.addLayer({
 	      "id": "SMIAhover",
 	      "type": "fill",
-	      "source": {
-		  type: 'geojson',
-		  data: './Data/SMIA_halfmilebuffer_full.geojson'
-	      },
+	      "source": "vector_data-hover",
+	      "source-layer": 'SMIA_halfmilebuffer_full',
 	      "paint": {
-		  "fill-color": "#000000",
-		  "fill-opacity": .25,
+	  	  "fill-color": "#000000",
+	  	  "fill-opacity": .25,
 	      },
-		  "filter": ["==", "SMIA_Name", ""]
+	      "filter": ["==", "SMIA_Name", ""]
 	  },'Toxic Release Inventory Sites');
 	  
 	  
@@ -543,7 +540,7 @@
 		       '% of Families Below Poverty Level': 'Percent below poverty level: ',
 		       'CATEGORY': 'Hurricane zone: ',
 		       'Median Household Income': 'Median household income: '};
-      //       'borough':'NYC Borough: '};
+		       // 'neighborhood':'NYC Neighborhood: '};
       var smiaNumbers = {'Brooklyn Navy Yard':'1',
 			 'Newtown Creek':'2',
 			 'Staten Island West Shore':'3',
@@ -614,11 +611,10 @@
 	      var data = queried[j].properties
 	      for (var i = 0; i < Object.keys(dataNames).length; i++) {
 		  var dataKey = Object.keys(dataNames)[i];
-		  // if we haven't already found this data
-		  if (shownData.indexOf(dataKey) == -1) {
+		  // if we haven't already found this data and it's not undefined
+		  if (shownData.indexOf(dataKey) == -1 && typeof(data[dataKey]) != 'undefined') {
 		      var dataDisplay = document.createElement('div');
 		      if (dataNames[dataKey].includes('Percent')){
-			  console.log(data[dataKey])
 			  if (data[dataKey] > 0) {
 			      dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]) + ' %';
 			  } else {
@@ -632,11 +628,10 @@
 			      dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + '<small>not enough data</small>';
 			  }
 			  shownData.push(dataKey)
-		      } else if (typeof(data[dataKey]) != 'undefined') {
+		      } else {
 			  dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + data[dataKey];
 			  shownData.push(dataKey)
 		      }
-		      
 		      overlay.appendChild(dataDisplay);
 		  }
 	      }}
@@ -676,12 +671,12 @@
       // When the user moves their mouse over the states-fill layer, we'll update the filter in
       // the state-fills-hover layer to only show the matching state, thus making a hover effect.
       map.on("mousemove", "SMIAfill", function(e) {
-	  map.setFilter("SMIAhover", ["==", "SMIA_Name", e.features[0].properties.SMIA_Name]);
+      	  map.setFilter("SMIAhover", ["==", "SMIA_Name", e.features[0].properties.SMIA_Name]);
       });
       
       // Reset the state-fills-hover layer's filter when the mouse leaves the layer.
       map.on("mouseleave", "SMIAfill", function() {
-	  map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
+      	  map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
       });
       
       

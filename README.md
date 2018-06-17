@@ -88,6 +88,25 @@ mapping weather, human industry, and social demographics of SMIAs
    check that) and type issues (if the data is stored as a number and
    your comparing it to strings, for example).
    
+Unfortunately, as of June 17, 2018, that's no longer how we're doing
+this. In order
+to
+[improve performance](https://www.mapbox.com/help/mapbox-gl-js-performance/),
+we're making all our data vector tilesets and combining them into one
+source (both steps
+use [tippecanoe](https://github.com/mapbox/tippecanoe)). They then
+have to be uploaded to billbrod's mapbox account. We probably want it
+to either be a ScAAN mapbox account or a project-specific one (rather
+than a personal one), eventually, but this will do for now. 
+
+The tileset we use is `data.mbtiles` in the Data directory (it can be
+viewed using [mbview](https://github.com/mapbox/mbview), but we cannot
+load data from a local tileset for some reason).
+
+The above steps will still get data on the map and should be used for
+testing and as a stop-gap, but eventually we'll want to make sure the
+data is folded into the tileset we're using.
+   
 </details>
 
 <details><summary>Feedback/Notes from presentation on Wednesday, March 7</summary>
