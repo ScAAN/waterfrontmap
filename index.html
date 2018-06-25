@@ -4,6 +4,8 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
     <link href='stuff.css' rel='stylesheet' />
+	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
+	<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
   </head>
   <body>
     <style>
@@ -47,8 +49,8 @@
       #menu {
 	  background: #fff;
 	  position: absolute;
-	  z-index: 5;
-	  top: 10px;
+	  z-index: 1;
+	  top: 65px;
 	  right: 10px;
 	  border-radius: 3px;
 	  width: 160px;
@@ -297,7 +299,7 @@
 	      position: 'bottomright'
 	  }
       });
-      
+	  
       var overlay = document.getElementById('map-overlay-info');
       
       map.on('load', function () {
@@ -319,7 +321,19 @@
 	      url: 'mapbox://billbrod.7693fb16'
 	  })
 
-
+	 // Code which adds a background pattern 
+	 // - don't use this without a custom sprite sheet or it looks awkward 
+	 // WIP- maija, need really tiny custom sprite (dashed lines - make with SVG!)
+	// map.addLayer({
+	//	"id": "BKG",
+	//	"type": "background",
+	//	"paint":{
+	//	"background-pattern": "triangle-11"
+	//	}	  
+	//  },'water','Zoning')
+	  
+	  
+	  
 	  map.addLayer({
 	      "id": "Zoning",
 	      "type": "fill",
@@ -528,13 +542,14 @@
       });
       
       var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones',
-				'Toxic Release Inventory Sites', 'Median Household Income'];
+				 'Median Household Income','Toxic Release Inventory Sites'];
       var toggleableLegendIds = {'Percent People of Color': 'race-legend',
 				 'Zoning': 'zoning-legend',
 				 'Percent of Families Below Poverty Line': 'poverty-legend',
 				 'Hurricane Storm Surge Zones': 'surge-legend',
-				 'Toxic Release Inventory Sites': 'TRIsite-legend',
-				 'Median Household Income': 'income-legend'};
+				 'Median Household Income': 'income-legend',
+				 'Toxic Release Inventory Sites': 'TRIsite-legend'
+				 };
       var dataNames = {'human_readable_zone': 'Land use: ',
 		       'Perc_POC_P003009': 'Percent people of color: ',
 		       '% of Families Below Poverty Level': 'Percent below poverty level: ',
@@ -690,6 +705,64 @@
 	  document.getElementById('clickbox').style.display = 'block';
       }
       
+	   
+	// ---------------------------
+    // |  ** G E O C O D E R  ** |
+	// ---------------------------
+	   
+	 // geocoder code! adds a geocoder and marker 
+	  var geocoder = new MapboxGeocoder({
+		accessToken: mapboxgl.accessToken,
+		// geocoder zoom level
+		zoom: 11,
+		// bound geocoder results
+		bbox: [-74.274300, 40.487423, -73.693891, 40.858796], 
+			// apply a client side filter to further limit results to those strictly within NYC
+		filter: function (item) {
+        // returns true if item contains New South Wales region
+        return item.context.map(function (i) {
+            // id is in the form {index}.{id} per https://github.com/mapbox/carmen/blob/master/carmen-geojson.md
+            // this example attempts to find the `region` named `New York`
+            return (i.id.split('.').shift() === 'region' && i.text === 'New York');
+        }).reduce(function (acc, cur) {
+            return acc || cur;
+        });
+		}
+	  });
+
+	map.addControl(geocoder);
+
+	// After the map style has loaded on the page, add a source layer and default
+	// styling for a single point.
+	map.on('load', function() {
+		map.addSource('single-point', {
+			"type": "geojson",
+			"data": {
+				"type": "FeatureCollection",
+				"features": []
+			}
+		});
+		
+		// display marker for geocoder, this is a symbol (marker-15) 
+		map.addLayer({
+			"id": "point",
+			"source": "single-point",
+			"type": "symbol",
+			"layout": {
+				"icon-image": "marker-15",
+				"icon-allow-overlap": true,
+				"icon-size":1.5,
+			}
+		});
+
+		// Listen for the `geocoder.input` event that is triggered when a user
+		// makes a selection and add a symbol that matches the result.
+		geocoder.on('result', function(ev) {
+			map.getSource('single-point').setData(ev.result.geometry);
+		});
+	});
+	  
+	  
     </script>
   </body>
 </html>
