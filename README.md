@@ -2,23 +2,23 @@
 mapping weather, human industry, and social demographics of SMIAs  
   
 **CURRENT MAP**: http://scaan.net/waterfrontmap/  
-**OLD MAPS**:[peer reviewed EJA paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true)   
-**INFORMATION**:[general information from EJA](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)  
+**PEER REVIEWED EJA PAPER**: http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true   
+**GENERAL INFORMATION FROM EJA**: http://www.nyc-eja.org/campaigns/waterfront-justice-project/
 
 ### Latest changes 
+- (6/25) Search bar -Maija
 - (6/18) Performance improvements -Billy 
-- (6/26) Search bar -Maija
+- (6/17) Legend fixes -Maija
 
 ### Upcoming changes 
- 
 - [ ] Code deep clean 
 - [ ] Make null spaces hatched 
-- [ ] Continue to add new data
+- [ ] New data
 - [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
 
 ## Data 
-
-### Currently plotted
+<details><summary>Currently plotted</summary>   
+	
 -  NYC Basic Geography ([mapbox-streets-v7](https://www.mapbox.com/vector-tiles/mapbox-streets-v7/))
 -  SMIA ([from NYC planning](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-wrp.page))
 -  Percent people of color ([Census Bulk Download](http://census.ire.org/data/bulkdata.html))
@@ -27,18 +27,10 @@ mapping weather, human industry, and social demographics of SMIAs
 -  Hurricane Storm Surge (needs source!)
 -  EPA EPCRA Toxics Release Inventory (TRI) sites ([from EPA](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016), converted with [OGRE](http://ogre.adc4gis.com/))
 
-### Unused data sources
-<details><summary>Currently unused data</summary>   
-
-- [NYC shape files](https://www1.nyc.gov/site/planning/data-maps/open-data.page)
-- [Demographic data from ACS](http://www1.nyc.gov/site/planning/data-maps/nyc-population/american-community-survey.page) (How are we downloading this, and is it for race or poverty or both?)
-- [Census TIGER data](https://www.census.gov/geo/maps-data/data/tiger-data.html)
-- [Neighborhood Data](http://data.beta.nyc/dataset/pediacities-nyc-neighborhoods)
-- [Poverty Data](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk) (But the link is broken)
-  
 </details>
 
-### To plot in the future
+<details><summary>Will plot in future</summary>   
+	
 - [FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/) (make sure to look at the metadata)
 - Percent uninsured (From the Community Health Survey 2009 at the Department Of Health
   and Mental Health) ([current data](https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html) & [also current data?](https://www1.nyc.gov/site/doh/data/health-tools/maps-gis-data-files-for-download.page))
@@ -47,7 +39,9 @@ mapping weather, human industry, and social demographics of SMIAs
 - post irene flooding
 - manufacturing zoning districts (1-3)
 
-## Recent Notes 
+</details>
+
+## User guide
 <details><summary>How to add info to map (Billy's Guide)</summary>
 	
 1. Convert to geojson (if necessary).
@@ -105,10 +99,21 @@ data is folded into the tileset we're using.
    
 </details>
 
-## Extras
-<details><summary> Coding resources </summary>
 
-### Mapbox resources
+
+## Extras
+<details><summary>Misc. data sources</summary>   
+
+- [NYC shape files](https://www1.nyc.gov/site/planning/data-maps/open-data.page)
+- [Demographic data from ACS](http://www1.nyc.gov/site/planning/data-maps/nyc-population/american-community-survey.page) (How are we downloading this, and is it for race or poverty or both?)
+- [Census TIGER data](https://www.census.gov/geo/maps-data/data/tiger-data.html)
+- [Neighborhood Data](http://data.beta.nyc/dataset/pediacities-nyc-neighborhoods)
+- [Poverty Data](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk) (But the link is broken)
+  
+</details>
+
+<details><summary> Coding resources </summary>
+	
 - [mapbox-gl sprites](https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites)
 - [mapbox-gl geocoder control](https://github.com/mapbox/mapbox-gl-geocoder)
 - [style specs](https://www.mapbox.com/mapbox-gl-js/style-spec/)
