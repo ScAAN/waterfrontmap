@@ -1,7 +1,6 @@
 # EJA Waterfront Justice Map Project
-A collaborative project between the [NYC-EJA](http://www.nyc-eja.org/) and [ScAAN](http://scaan.net/). Mapping weather, human industry, and social demographics of SMIAs.     
-  
-Industrial and maritime development is encouraged by zoning regulations that have created Special Maritime and Industrial Areas (SMIAs) -- areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures. 
+A collaboration between [NYC-EJA](http://www.nyc-eja.org/) and [ScAAN](http://scaan.net/).   
+Mapping weather, human industry, and social demographics of SMIAs.    
   
 **CURRENT MAP**: http://scaan.net/waterfrontmap/  
 **OLD MAPS**: [EJA peer reviewed paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true)   
