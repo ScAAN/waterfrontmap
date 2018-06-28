@@ -5,15 +5,22 @@ mapping weather, human industry, and social demographics of SMIAs
 **OLD MAPS**: [EJA peer reviewed paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true)   
 **INFORMATION**: [EJA-WJP website](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)
 
-### Latest changes 
+### Changes 
+<details><summary>Latest</summary>  
+	
 - [x] (6/25) Search bar -Maija
 - [x] (6/18) Performance improvements -Billy
+- [x] (6/17) Legend fix -Maija
 
-### Upcoming changes 
+</details>
+<details><summary>Upcoming</summary>  
+	
 - [ ] Deep clean of code
 - [ ] Make no data areas hatched 
 - [ ] New data
 - [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
+
+</details>
 
 ### Data 
 <details><summary>Currently plotted</summary>   
@@ -29,7 +36,7 @@ mapping weather, human industry, and social demographics of SMIAs
 
 </details>
 
-<details><summary>Will plot in future</summary>   
+<details><summary>Future plotting</summary>   
 	
 - [FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/) (make sure to look at the metadata)
 - Percent uninsured (From CHS 2009 @ DOMH) ([source 1](https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html) & [source 2](https://www1.nyc.gov/site/doh/data/health-tools/maps-gis-data-files-for-download.page))
