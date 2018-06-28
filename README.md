@@ -6,12 +6,12 @@ mapping weather, human industry, and social demographics of SMIAs
 **INFORMATION**: [EJA-WJP website](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)
 
 ### Latest changes 
-- (6/25) Search bar -Maija
-- (6/18) Performance improvements -Billy
+- [x] (6/25) Search bar -Maija
+- [x] (6/18) Performance improvements -Billy
 
 ### Upcoming changes 
-- [ ] Code deep clean 
-- [ ] Make null spaces hatched 
+- [ ] Deep clean of code
+- [ ] Make no data areas hatched 
 - [ ] New data
 - [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
 
