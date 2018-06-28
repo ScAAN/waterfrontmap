@@ -2,11 +2,14 @@
 A collaboration between [NYC-EJA](http://www.nyc-eja.org/) and [ScAAN](http://scaan.net/).   
 Mapping weather, human industry, and social demographics of SMIAs.    
   
-**CURRENT MAP**: http://scaan.net/waterfrontmap/  
-**OLD MAPS**: [EJA peer reviewed paper](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true)   
-**INFORMATION**: [EJA-WJP website](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)
+[**CURRENT MAP**](http://scaan.net/waterfrontmap/) // 
+[**OLD MAPS**](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true) // 
+[**INFORMATION**](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)
 
-### Changes 
+
+<img src="https://github.com/ScAAN/waterfrontmap/blob/master/demo.gif" width="350" height="350">
+
+#### Changes 
 <details><summary>Latest</summary>  
 	
 - [x] (6/25) Search bar -Maija
@@ -23,7 +26,7 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 </details>
 
-### Data 
+#### Data 
 <details><summary>Currently plotted</summary>   
 	
 -  NYC Basic Geography ([mapbox-streets-v7](https://www.mapbox.com/vector-tiles/mapbox-streets-v7/))
@@ -48,7 +51,7 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 </details>
 
-### User guide
+#### Resources
 <details><summary>How to add info to map (Billy's Guide)</summary>
 	
 <details><summary>Old/Basic guide</summary>
@@ -109,9 +112,6 @@ data is folded into the tileset we're using.
    
 </details>
 
-
-
-### Extras
 <details><summary>Misc. data sources</summary>   
 
 - [NYC shape files](https://www1.nyc.gov/site/planning/data-maps/open-data.page)
