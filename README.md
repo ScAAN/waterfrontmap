@@ -18,6 +18,7 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 </details>
 <details><summary>Upcoming</summary>  
+   
 - [ ] Zooming bug makes things vanish 
 - [ ] Zooming control (plus/minus)
 - [ ] Search bar marker 
