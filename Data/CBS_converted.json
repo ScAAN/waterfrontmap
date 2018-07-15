@@ -1,0 +1,135 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  801 EAST 14TH STREET New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97382999999999,
+          40.7281379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  7 WARDS ISLAND New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92128579999999,
+          40.7932271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  725 WEST 135TH STREET New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95772889999999,
+          40.8213289
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  4065 TENTH AVENUE New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9136959,
+          40.8706879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1552 LEXINGTON AVENUE New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9495597,
+          40.7880324
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  666 WEST 133RD ST. New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9576171,
+          40.8193636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  721 LENOX AVENUE New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9358628,
+          40.8215918
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  525 11 AVENUE New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0004359,
+          40.760454
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  850 TWELTH AVE. New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9933724,
+          40.7723211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  506 E. 75TH ST. New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9511445,
+          40.7679216
+        ]
+      }
+    }
+  ]
+}
