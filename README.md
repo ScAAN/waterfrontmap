@@ -18,8 +18,13 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 </details>
 <details><summary>Upcoming</summary>  
-
+- [ ] Zooming bug makes things vanish 
+- [ ] Zooming control (plus/minus)
+- [ ] Search bar marker 
 - [ ] Deep clean of code
+- [ ] Separate files 
+- [ ] Indenting 
+- [ ] Automate data conversion to vector 
 - [ ] Make no data areas hatched
 - [ ] New data
 - [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
@@ -130,5 +135,6 @@ data is folded into the tileset we're using.
 - [chloropleth tutorial](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)
 - [choropleth example](https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/)
 - [toggle layers example](https://www.mapbox.com/mapbox-gl-js/example/toggle-layers/)
+- [static map API](https://www.mapbox.com/help/how-static-maps-work/) 
 
 </details>
