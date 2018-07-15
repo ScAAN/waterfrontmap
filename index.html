@@ -97,7 +97,7 @@
       	  position: absolute;
       	  width: 240px;
       	  bottom: 20px;
-      	  left: 10px;
+      	  left: 50px;
       	  padding: 10px;
       	  display: none;
       }
@@ -304,6 +304,8 @@
 
       var overlay = document.getElementById('map-overlay-info');
 
+      var nav = new mapboxgl.NavigationControl();
+      map.addControl(nav, 'bottom-left');
       map.on('load', function () {
 
 	  map.moveLayer("water", "road-trunk")
