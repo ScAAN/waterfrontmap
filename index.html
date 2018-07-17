@@ -270,6 +270,14 @@
       <div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
       <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="Assets/fuel-11.svg"></img></span>
     </div>
+    <div style='float:right'>
+      <div style="display:inline-block;line-height:100%">Major Oil Storage<br/> Facilities</div>
+      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="Assets/rocket-11.svg"></img></span>
+    </div>
+    <div style='float:right'>
+      <div style="display:inline-block;line-height:100%">Chemical Bulk  <br/>Storage</div>
+      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="Assets/fire-station-11.svg"></img></span>
+    </div>
     <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
   </div>
 
@@ -496,17 +504,48 @@
     }, 'water');
 
     map.addLayer({
-      "id": "Toxic Release Inventory Sites",
+      "id": "Bulk Storage Sites",
       "type": "symbol",
       "source": "vector_data",
       "source-layer": 'TRI_converted',
       "layout": {
-        "icon-image": "fuel-11",
+        "icon-image": "fuel-15",
         "icon-allow-overlap": true,
         "visibility": 'none',
         //"icon-size":10,
       }
     });
+
+    map.addLayer({
+	      "id": "MOSF",
+	      "type": "symbol",
+	      "source": {
+	  	  type: 'geojson',
+	  	  data: './Data/MOSF_converted.json'
+	      },
+	      "layout": {
+            "icon-image": "rocket-15",
+			"icon-allow-overlap": true,
+			"visibility": 'none',
+			//"icon-size":10,
+          }
+	  });
+
+    map.addLayer({
+	      "id": "CBS",
+	      "type": "symbol",
+	      "source": {
+	  	  type: 'geojson',
+	  	  data: './Data/CBS_converted.json'
+	      },
+	      "layout": {
+            "icon-image": "fire-station-15",
+			"icon-allow-overlap": true,
+			"visibility": 'none',
+			//"icon-size":10,
+          }
+	  });
+
 
     map.addLayer({
       "id": "SMIA",
@@ -521,7 +560,7 @@
         "line-color": "#000000",
         "line-width": 3
       }
-    },'Toxic Release Inventory Sites');
+    },'Bulk Storage Sites');
 
     map.addLayer({
       "id": "SMIA-buffer",
@@ -537,7 +576,7 @@
         "line-width": 2,
         "line-dasharray": [1, 3]
       }
-    },'Toxic Release Inventory Sites');
+    },'Bulk Storage Sites');
 
     map.addLayer({
       "id": "SMIAfill",
@@ -548,7 +587,7 @@
         "fill-color": "#000000",
         "fill-opacity": 0
       }
-    },'Toxic Release Inventory Sites');
+    },'Bulk Storage Sites');
 
     map.addLayer({
       "id": "SMIAhover",
@@ -560,20 +599,20 @@
         "fill-opacity": .25,
       },
       "filter": ["==", "SMIA_Name", ""]
-    },'Toxic Release Inventory Sites');
+    },'Bulk Storage Sites');
 
 
 
   });
 
   var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones',
-  'Median Household Income','Toxic Release Inventory Sites'];
+  'Median Household Income','Bulk Storage Sites'];
   var toggleableLegendIds = {'Percent People of Color': 'race-legend',
   'Zoning': 'zoning-legend',
   'Percent of Families Below Poverty Line': 'poverty-legend',
   'Hurricane Storm Surge Zones': 'surge-legend',
   'Median Household Income': 'income-legend',
-  'Toxic Release Inventory Sites': 'TRIsite-legend'
+  'Bulk Storage Sites': 'TRIsite-legend'
 };
 var dataNames = {'human_readable_zone': 'Land use: ',
 'Perc_POC_P003009': 'Percent people of color: ',
@@ -621,8 +660,10 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
       var otherLayerName = toggleableLayerIds[j]
       if (otherLayerName != clickedLayer) {
         document.getElementById('toggler-' + otherLayerName).className = '';
-        if (otherLayerName == 'Toxic Release Inventory Sites') {
+        if (otherLayerName == 'Bulk Storage Sites') {
           map.setLayoutProperty(otherLayerName, 'visibility', 'none');
+          map.setLayoutProperty('MOSF', 'visibility', 'none');
+          map.setLayoutProperty('CBS', 'visibility', 'none');
         } else {
           map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
         }
@@ -630,8 +671,10 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
       }
     }
     this.className = 'active';
-    if (clickedLayer == 'Toxic Release Inventory Sites') {
+    if (clickedLayer == 'Bulk Storage Sites') {
       map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+      map.setLayoutProperty('MOSF', 'visibility', 'visible');
+      map.setLayoutProperty('CBS', 'visibility', 'visible');
     } else {
       map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
     }
