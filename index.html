@@ -50,7 +50,7 @@
     background: #fff;
     position: absolute;
     z-index: 1;
-    top: 65px;
+    top: 10px;
     right: 10px;
     border-radius: 3px;
     width: 160px;
@@ -75,29 +75,22 @@
   }
 
   #menu a:hover {
-    background-color: #f8f8f8;
+    background-color:   #f2f3f4;
     color: #404040;
   }
 
   #menu a.active {
-    background-color: #3887be;
+    background-color:  #34495e;
     color: #ffffff;
   }
 
   #menu a.active:hover {
-    background: #3074a4;
+    background:   #283747;
   }
 
   .map-overlay-info {
     z-index: 1;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    background-color: #fff;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-    border-radius: 3px;
-    position: absolute;
-    width: 240px;
-    bottom: 20px;
-    left: 50px;
     padding: 10px;
     display: none;
   }
@@ -127,10 +120,62 @@
     width: 30px;
     height: 30px;
     top: 10px;
-    right: 260px;
+    left: 390px;
     padding: 5px;
     display: block;
 }
+
+.button-box {
+    width: 30%;
+    display: inline-block;
+}
+
+.mode-button {
+  z-index: 1;
+  text-align: center;
+  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  border-radius: 3px;
+  margin: 2%;
+  padding: 7px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.4);
+}
+
+.box-content {
+  display: none;
+  cursor: pointer;
+}
+
+.mode-button.active {
+  z-index: 1;
+  text-align: center;
+  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  background-color:  #34495e;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  border-radius: 3px;
+  margin: 2%;
+  padding: 7px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.4);
+  color: #ffffff;
+}
+
+.mode-button.active:hover{background-color: #404040;}
+
+.mode-button:hover { background-color:    #f2f3f4 ; }
+
+.geocoder {
+      position:absolute;
+      z-index:1;
+      width:90%;
+      left:2.5%;
+      top:20px;
+      margin-top:30%;
+      padding: 10px;
+      }
+.mapboxgl-ctrl-geocoder { min-width:100%; }
 
   @media screen and (max-height: 200px) {
     #pd {
@@ -142,7 +187,6 @@
   <nav id="menu"></nav>
   <title>Waterfront Justice Project</title>
   <div id='map'></div>
-  <div id='map-overlay-info' class='map-overlay-info'></div>
   <div id='zoning-legend' class='legend' style='display: none;'>
     <div style="text-align:right">
       <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
@@ -299,18 +343,36 @@
 
 
 
-  <div id='clickbox' class='text-info-box' style="cursor: pointer; z-index: 1;" onclick='showinfobox()'>
-    <h2>NYC-EJA Waterfront Justice Project</h2>
-    <div id='pleaseclicktext'> <p>(Click here for more information, or hover over a SMIA) </p> </div>
+  <div id='clickbox' class='text-info-box' style="cursor: pointer; z-index: 1;">
+    <div style: style='margin:auto;text-align:center'>
+      <h2>NYC-EJA Waterfront Justice Project</h2>
+      <div class="button-box">
+        <div id='storybutton' class='mode-button' onclick="showinfobox(event,'smiabox')"> <b>SMIA INFO</b> </div>
+      </div>
+      <div class="button-box">
+        <div id='explorebutton' class='mode-button'   onclick="showinfobox(event,'explorebox')"> <b>EXPLORE</b> </div>
+      </div>
+      <div class="button-box">
+        <div id='infobutton' class='mode-button'  onclick="showinfobox(event,'infotextbox')"> <b>INFO</b> </div>
+      </div>
+    </div>
+
+    <div id='infotextbox' class='box-content'>
+        <div id='pd'>
+        <p>Industrial and maritime development is encouraged by zoning regulations that have created Special Maritime and Industrial Areas (SMIAs) – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</p>
+      </div>
+      <p style="font-size: 0.7em; color: #777777"><a href="http://www.nyc-eja.org/">NYC-EJA</a> and <a href="http://scaan.net">ScAAN</a>, 2018</p>
+    </div>
+    <div id='explorebox' class='box-content'>
+      <div> <p>Click the map to explore a neighborhood, or search with the bar below. </p></div>
+      <div style='margin-top:60px'></div>
+      <div id='geocoder' class='geocoder'></div>
+      <div id='map-overlay-info' class='map-overlay-info'></div>
+    </div>
+    <div id='smiabox' class='box-content'></div>
   </div>
 
-  <div id='infobox' class='text-info-box' style='display: none; cursor: pointer; z-index: 10;' onclick='hideinfobox()'>
-    <h2>NYC-EJA Waterfront Justice Project </h2>
-    <div id='pd'>
-      <p>Industrial and maritime development is encouraged by zoning regulations that have created Special Maritime and Industrial Areas (SMIAs) – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</p>
-    </div>
-    <p style="font-size: 0.7em; color: #777777"><a href="http://www.nyc-eja.org/">NYC-EJA</a> and <a href="http://scaan.net">ScAAN</a>, 2018</p>
-  </div>
+
 
   <div id='printbutton' class='print-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='window.print()'>
     <span style='vertical-align:middle;'><img class="marker" src="Assets/attraction-15.svg"></img></span>
@@ -703,13 +765,11 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
 
   var layers = document.getElementById('menu');
   layers.appendChild(link);
-
 };
 
 // ---------------------------
 // |  ** DATA DISPLAY  ** |
 // ---------------------------
-
 
 map.on('click', function(e) {
   // Change the cursor style as a UI indicator.
@@ -778,16 +838,15 @@ map.on('click', function(e) {
   // |  ** SMIA FILL  ** |
   // ---------------------------
 
-
   map.on('mousemove', function(e) {
     var whichsmia = map.queryRenderedFeatures(e.point, {
       layers: ['SMIAfill']
     });
 
     if (whichsmia.length > 0) {
-      document.getElementById('pleaseclicktext').innerHTML = '<p><strong><big>SMIA # ' + smiaNumbers[whichsmia[0].properties.SMIA_Name] + ' : ' + whichsmia[0].properties.SMIA_Name + '</big></strong>' + '<small></br></br>' + smiaText[whichsmia[0].properties.SMIA_Name] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
+      document.getElementById('smiabox').innerHTML = '<p><strong><big>SMIA # ' + smiaNumbers[whichsmia[0].properties.SMIA_Name] + ' : ' + whichsmia[0].properties.SMIA_Name + '</big></strong>' + '<small></br></br>' + smiaText[whichsmia[0].properties.SMIA_Name] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
     } else {
-      document.getElementById('pleaseclicktext').innerHTML = '<p> Click here for more information, or hover over a SMIA </p> ';
+      document.getElementById('smiabox').innerHTML = '<p> Click here for more information, or hover over a SMIA </p> ';
     }
   });
 
@@ -806,16 +865,47 @@ map.on('click', function(e) {
     map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
   });
 
+// ------------------------------------------
+// |-------    I N F O    B O X     --------|
+// ------------------------------------------
 
   // MH: sloppy way of showing and hiding infobox
-  function showinfobox(){
-    document.getElementById('infobox').style.display = 'block';
-    document.getElementById('clickbox').style.display = 'none';
+  //https://www.w3schools.com/howto/howto_js_tabs.asp
+  function showinfobox(evt,boxname){
+    //variables
+    var i, boxcontent, boxlinks, killallboxes;
+
+    // hide everything named box-content
+    boxcontent = document.getElementsByClassName("box-content");
+    for (i=0; i<boxcontent.length; i++){
+        boxcontent[i].style.display = "none";
+    }
+
+    // check if clicked box was alread active, if so then kill all boxes
+    if (evt.currentTarget.className.includes("active")) {
+      killallboxes = 1;
+    }
+
+    // deactivate anything named mode-button
+    boxlinks= document.getElementsByClassName("mode-button");
+    for (i=0; i<boxlinks.length; i++){
+      boxlinks[i].className = boxlinks[i].className.replace(" active","");
+    }
+
+    if (killallboxes!=1) {
+      // show the current box and make it active!
+      document.getElementById(boxname).style.display = "block";
+      evt.currentTarget.className += " active";
+      console.log(evt.currentTarget.id)
+      if (evt.currentTarget.id.includes("story")) {
+        //smiaclick();
+      } else if (evt.currentTarget.id.includes("explore")) {
+        //exploreclick();
+      }
+    }
   }
-  function hideinfobox(){
-    document.getElementById('infobox').style.display = 'none';
-    document.getElementById('clickbox').style.display = 'block';
-  }
+
+
 
 
   // ---------------------------
@@ -842,13 +932,14 @@ map.on('click', function(e) {
     }
   });
 
-  map.addControl(geocoder);
-
+  //map.addControl(geocoder);
+  document.getElementById('geocoder').appendChild(geocoder.onAdd(map))
   // Listen for the `geocoder.input` event that is triggered when a user
   // makes a selection and add a symbol that matches the result.
   geocoder.on('result', function(ev) {
     map.getSource('single-point').setData(ev.result.geometry);
   });
+
 
   </script>
 </body>
