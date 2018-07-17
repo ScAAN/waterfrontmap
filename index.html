@@ -359,17 +359,32 @@
 
     <div id='infotextbox' class='box-content'>
         <div id='pd'>
-        <p>Industrial and maritime development is encouraged by zoning regulations that have created Special Maritime and Industrial Areas (SMIAs) – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</p>
+        <p>This map is a collaborative effort between NYC-EJA and ScAAN, furthering the work of NYC-EJA’s Waterfront Justice Project visualizing Special Maritime and Industrial Areas (SMIAs).
+        <br/><br/>Industrial and maritime development is encouraged by zoning regulations that have created SMIAs – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</p>
       </div>
-      <p style="font-size: 0.7em; color: #777777"><a href="http://www.nyc-eja.org/">NYC-EJA</a> and <a href="http://scaan.net">ScAAN</a>, 2018</p>
+      <div style="text-align:center;">
+        <div style= 'display:inline-block;width:45%;margin:auto;text-align:center;'>
+          <img src="Assets/nycejalliance.png" alt="ScAAN" style="height:60px;margin-left:auto;margin-right:auto;display:block;vertical-align:middle">
+          <p style="font-size: 0.7em;"><a href="http://www.nyc-eja.org/">NYC-EJA</a> is a nonprofit citywide network founded in 1991, linking grassroots organizations from low-income communities of color in their struggle for environmental justice.</p>
+        </div>
+        <div style= 'display:inline-block;width:45%;margin:auto;text-align:center;'>
+          <img src="Assets/scaan.png" alt="ScAAN" style="height:30px;margin-left:auto;margin-right:auto;display:block;vertical-align:middle">
+          <p style="font-size: 0.7em;"><a href="http://scaan.net">ScAAN</a> is a New York-based group of scientists who use their expertise in partnership with organizations that are creating positive social change.
+          </p>
+        </div>
+      </div>
+      <p style="font-size: 0.7em; color: #777777;text-align:center;"><a href="http://www.nyc-eja.org/">NYC-EJA</a> and <a href="http://scaan.net">ScAAN</a>, 2018</p>
     </div>
+
     <div id='explorebox' class='box-content'>
       <div> <p>Click the map to explore a neighborhood, or search with the bar below. </p></div>
       <div style='margin-top:60px'></div>
       <div id='geocoder' class='geocoder'></div>
       <div id='map-overlay-info' class='map-overlay-info'></div>
     </div>
+
     <div id='smiabox' class='box-content'></div>
+
   </div>
 
 
@@ -772,13 +787,20 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
 // ---------------------------
 
 map.on('click', function(e) {
-  // Change the cursor style as a UI indicator.
+  // on click query point, display info, and draw marker
   map.getCanvas().style.cursor = 'pointer';
-
   var queried = map.queryRenderedFeatures(e.point)
+  show_explore_info(queried)
+  var coords = e.lngLat;
+  queried[0].geometry.coordinates = [coords.lng, coords.lat];
+  queried[0].geometry.type = "Point";
+  map.getSource('single-point').setData(queried[0].geometry);
+});
+
+function show_explore_info(queried){
+  // show info from points queried by marker
   overlay.innerHTML = '';
   var shownData = [];
-
   for (var j = 0; j < queried.length; j++){
     var data = queried[j].properties
     for (var i = 0; i < Object.keys(dataNames).length; i++) {
@@ -807,32 +829,26 @@ map.on('click', function(e) {
         overlay.appendChild(dataDisplay);
       } else {
         if (shownData.indexOf(dataKey) == -1 && dataNames[dataKey].includes('Hurricane') && typeof(data[Object.keys(dataNames)[0]]) != 'undefined'){
-        if (data[dataKey] > 0) {
-          dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]);
-        } else {
-          dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + 'none';
-        }
-        shownData.push(dataKey)
-        overlay.appendChild(dataDisplay);
+          if (data[dataKey] > 0) {
+            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]);
+          } else {
+            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + 'none';
+          }
+          shownData.push(dataKey)
+          overlay.appendChild(dataDisplay);
         }
       }
     }}
     overlay.style.display = 'block';
+  }
 
-    var coords = e.lngLat;
-    queried[0].geometry.coordinates = [coords.lng, coords.lat];
-    queried[0].geometry.type = "Point";
-    map.getSource('single-point').setData(queried[0].geometry);
-  });
+//  map.on('mouseenter', 'Percent People of Color', function (e) {
+//    map.getCanvas().style.cursor = 'pointer';
+//  });
 
-
-  map.on('mouseenter', 'Percent People of Color', function (e) {
-    map.getCanvas().style.cursor = 'pointer';
-  });
-
-  map.on('mouseleave', 'Percent People of Color', function (e) {
-    map.getCanvas().style.cursor = '';
-  });
+//  map.on('mouseleave', 'Percent People of Color', function (e) {
+//    map.getCanvas().style.cursor = '';
+//  });
 
   // ---------------------------
   // |  ** SMIA FILL  ** |
@@ -896,7 +912,6 @@ map.on('click', function(e) {
       // show the current box and make it active!
       document.getElementById(boxname).style.display = "block";
       evt.currentTarget.className += " active";
-      console.log(evt.currentTarget.id)
       if (evt.currentTarget.id.includes("story")) {
         //smiaclick();
       } else if (evt.currentTarget.id.includes("explore")) {
@@ -936,10 +951,16 @@ map.on('click', function(e) {
   document.getElementById('geocoder').appendChild(geocoder.onAdd(map))
   // Listen for the `geocoder.input` event that is triggered when a user
   // makes a selection and add a symbol that matches the result.
-  geocoder.on('result', function(ev) {
-    map.getSource('single-point').setData(ev.result.geometry);
+  geocoder.on('result', function(e) {
+    // project geocoder result to "point"
+    var point = map.project([e.result.center[0], e.result.center[1]]);
+    // query rendered features at point
+    var queried = map.queryRenderedFeatures(point);
+    // show the point box
+    show_explore_info(queried)
+    // draw the marker
+    map.getSource('single-point').setData(e.result.geometry);
   });
-
 
   </script>
 </body>
