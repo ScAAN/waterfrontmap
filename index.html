@@ -1,780 +1,792 @@
 <html>
-  <meta charset="UTF-8">
-  <head>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
-    <link href='stuff.css' rel='stylesheet' />
-	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
-	<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
-  </head>
-  <body>
-    <style>
+<meta charset="UTF-8">
+<head>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
+  <link href='stuff.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
+</head>
+<body>
+  <style>
 
-	  .marker{
-	  border-radius: 50%;
-	  display: inline-block;
-	  height: 30px;
-	  width: 30px;
-	  position: absolute;
-	  right: 4px;
-	  }
+  .marker{
+    border-radius: 50%;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    right: 4px;
+  }
 
-      .legend {
-      background-color: #fff;
-      border-radius: 3px;
-      bottom: 20px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-	  border: 1px solid rgba(0,0,0,0.4);
-      font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-      padding: 10px;
-      position: absolute;
-      right: 10px;
-      z-index: 1;
-	  width:140px;
-	  height:270px;
-      }
+  .legend {
+    background-color: #fff;
+    border-radius: 3px;
+    bottom: 20px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+    border: 1px solid rgba(0,0,0,0.4);
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    z-index: 1;
+    width:140px;
+    height:270px;
+  }
 
-      .legend h4 {
-	  margin: 0 0 10px;
-      }
+  .legend h4 {
+    margin: 0 0 10px;
+  }
 
-      .legend div span {
-	  border-radius: 50%;
-	  display: inline-block;
-	  height: 10px;
-	  margin-right: 5px;
-	  width: 10px;
-      }
+  .legend div span {
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    margin-right: 5px;
+    width: 10px;
+  }
 
-      #menu {
-	  background: #fff;
-	  position: absolute;
-	  z-index: 1;
-	  top: 65px;
-	  right: 10px;
-	  border-radius: 3px;
-	  width: 160px;
-	  border: 1px solid rgba(0,0,0,0.4);
-	  font-family: 'Open Sans', sans-serif;
-      }
+  #menu {
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 65px;
+    right: 10px;
+    border-radius: 3px;
+    width: 160px;
+    border: 1px solid rgba(0,0,0,0.4);
+    font-family: 'Open Sans', sans-serif;
+  }
 
-      #menu a {
-	  font-size: 13px;
-	  color: #404040;
-	  display: block;
-	  margin: 0;
-	  padding: 0;
-	  padding: 10px;
-	  text-decoration: none;
-	  border-bottom: 1px solid rgba(0,0,0,0.25);
-	  text-align: center;
-      }
+  #menu a {
+    font-size: 13px;
+    color: #404040;
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    text-align: center;
+  }
 
-      #menu a:last-child {
-	  border: none;
-      }
+  #menu a:last-child {
+    border: none;
+  }
 
-      #menu a:hover {
-	  background-color: #f8f8f8;
-	  color: #404040;
-      }
+  #menu a:hover {
+    background-color: #f8f8f8;
+    color: #404040;
+  }
 
-      #menu a.active {
-	  background-color: #3887be;
-	  color: #ffffff;
-      }
+  #menu a.active {
+    background-color: #3887be;
+    color: #ffffff;
+  }
 
-      #menu a.active:hover {
-	  background: #3074a4;
-      }
+  #menu a.active:hover {
+    background: #3074a4;
+  }
 
-      .map-overlay-info {
-		  z-index: 1;
-      	  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-      	  background-color: #fff;
-      	  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-      	  border-radius: 3px;
-      	  position: absolute;
-      	  width: 240px;
-      	  bottom: 20px;
-      	  left: 50px;
-      	  padding: 10px;
-      	  display: none;
-      }
+  .map-overlay-info {
+    z-index: 1;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+    border-radius: 3px;
+    position: absolute;
+    width: 240px;
+    bottom: 20px;
+    left: 50px;
+    padding: 10px;
+    display: none;
+  }
 
-      .text-info-box {
-		  position: absolute;
-      	  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
-	  background-color: #fff;
-	  position: absolute;
-	  width: 22em;
-	  top: 10px;
-	  left: 10px;
-	  display: block;
-	  border-radius: 3px;
-	  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-	  padding: 10px;
-      }
+  .text-info-box {
+    position: absolute;
+    font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+    background-color: #fff;
+    position: absolute;
+    width: 22em;
+    top: 10px;
+    left: 10px;
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+    padding: 10px;
+  }
 
-      @media screen and (max-height: 200px) {
-	  #pd {
-	      display: none;
-	  }
-      }
+  @media screen and (max-height: 200px) {
+    #pd {
+      display: none;
+    }
+  }
 
-    </style>
-    <nav id="menu"></nav>
-    <title>Waterfront Justice Project</title>
-    <div id='map'></div>
-    <div id='map-overlay-info' class='map-overlay-info'></div>
-    <div id='zoning-legend' class='legend' style='display: none;'>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-      </div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <h4 style="text-align:right;line-height:100%">Land Use <br/> (from NYC zoning)</h4>
-      <div style="text-align:right">Residential <span style='background-color: #80b1d3;margin-left:10px;'></span></div>
-      <div style="text-align:right">NYC Parks <span style='background-color: #b3de69;margin-left:10px;'></span></div>
-      <div style="text-align:right">Manufacturing <span style='background-color: #fb8072;margin-left:10px;'></span></div>
-      <div style="text-align:right">Commercial <span style='background-color: #fdb462;margin-left:10px;'></span></div>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">Mixed manufacturing<br/>and residential</div>
-	<span style='vertical-align:middle;background-color: #bebada;margin-left:10px;margin-bottom:10px;'></span>
-	  </div>
-      <div style="text-align:right;">Battery Park City <span style='background-color: #ffffb3;margin-left:10px;'></span></div>
+  </style>
+  <nav id="menu"></nav>
+  <title>Waterfront Justice Project</title>
+  <div id='map'></div>
+  <div id='map-overlay-info' class='map-overlay-info'></div>
+  <div id='zoning-legend' class='legend' style='display: none;'>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
     </div>
-    <div id='race-legend' class='legend' style='display: block;'>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-      </div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <h4 style="text-align:right">Percent People of Color</h4>
-      <div style="text-align:right">0% &#8211 20%<span style='background-color: #feebe2;margin-left:10px;'></span></div>
-      <div style="text-align:right">21% &#8211 40%<span style='background-color: #fbb4b9;margin-left:10px;'></span></div>
-      <div style="text-align:right">41% &#8211 65%<span style='background-color: #f768a1;margin-left:10px;'></span></div>
-      <div style="text-align:right">66% &#8211 90%<span style='background-color: #c51b8a;margin-left:10px;'></span></div>
-      <div style="text-align:right">91% &#8211 100%<span style='background-color: #7a0177;margin-left:10px;'></span></div>
+    <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+    <h4 style="text-align:right;line-height:100%">Land Use <br/> (from NYC zoning)</h4>
+    <div style="text-align:right">Residential <span style='background-color: #80b1d3;margin-left:10px;'></span></div>
+    <div style="text-align:right">NYC Parks <span style='background-color: #b3de69;margin-left:10px;'></span></div>
+    <div style="text-align:right">Manufacturing <span style='background-color: #fb8072;margin-left:10px;'></span></div>
+    <div style="text-align:right">Commercial <span style='background-color: #fdb462;margin-left:10px;'></span></div>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Mixed manufacturing<br/>and residential</div>
+      <span style='vertical-align:middle;background-color: #bebada;margin-left:10px;margin-bottom:10px;'></span>
     </div>
-
-    <div id='poverty-legend' class='legend' style='display: none;'>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-      </div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <h4 style="text-align:right;line-height:100%">Percent of Families<br/>Below Poverty Line</h4>
-      <div style="text-align:right">0% &#8211 20%<span style='background-color: #fee5d9;margin-left:10px;'></span></div>
-      <div style="text-align:right">21% &#8211 35%<span style='background-color: #fcae91;margin-left:10px;'></span></div>
-      <div style="text-align:right">36% &#8211 50%<span style='background-color: #fb6a4a;margin-left:10px;'></span></div>
-      <div style="text-align:right">51% &#8211 65%<span style='background-color: #de2d26;margin-left:10px;'></span></div>
-      <div style="text-align:right">66% &#8211 100%<span style='background-color: #a50f15;margin-left:10px;'></span></div>
+    <div style="text-align:right;">Battery Park City <span style='background-color: #ffffb3;margin-left:10px;'></span></div>
+  </div>
+  <div id='race-legend' class='legend' style='display: block;'>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
     </div>
+    <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+    <h4 style="text-align:right">Percent People of Color</h4>
+    <div style="text-align:right">0% &#8211 20%<span style='background-color: #feebe2;margin-left:10px;'></span></div>
+    <div style="text-align:right">21% &#8211 40%<span style='background-color: #fbb4b9;margin-left:10px;'></span></div>
+    <div style="text-align:right">41% &#8211 65%<span style='background-color: #f768a1;margin-left:10px;'></span></div>
+    <div style="text-align:right">66% &#8211 90%<span style='background-color: #c51b8a;margin-left:10px;'></span></div>
+    <div style="text-align:right">91% &#8211 100%<span style='background-color: #7a0177;margin-left:10px;'></span></div>
+  </div>
 
-    <div id='income-legend' class='legend' style='display: none;'>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-      </div>
+  <div id='poverty-legend' class='legend' style='display: none;'>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+    </div>
+    <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+    <h4 style="text-align:right;line-height:100%">Percent of Families<br/>Below Poverty Line</h4>
+    <div style="text-align:right">0% &#8211 20%<span style='background-color: #fee5d9;margin-left:10px;'></span></div>
+    <div style="text-align:right">21% &#8211 35%<span style='background-color: #fcae91;margin-left:10px;'></span></div>
+    <div style="text-align:right">36% &#8211 50%<span style='background-color: #fb6a4a;margin-left:10px;'></span></div>
+    <div style="text-align:right">51% &#8211 65%<span style='background-color: #de2d26;margin-left:10px;'></span></div>
+    <div style="text-align:right">66% &#8211 100%<span style='background-color: #a50f15;margin-left:10px;'></span></div>
+  </div>
 
-	  <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <h4 style="text-align:right;line-height:100%">Median Household Income</h4>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">$0 &#8211 $18000 <br/>(0 &#8211 20 percentile)</div>
-	<span style='vertical-align:middle;background-color: #ffffcc;margin-left:10px;margin-bottom:10px;'></span>
-      </div>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">$18001 &#8211 $39300 <br/>(20 &#8211 40 percentile)</div>
-	<span style='vertical-align:middle;background-color: #d9f0a3;margin-left:10px;margin-bottom:10px;'></span>
-      </div>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">$39301 &#8211 $52300 <br/>(40 &#8211 50 percentile)</div>
-	<span style='vertical-align:middle;background-color: #addd8e;margin-left:10px;margin-bottom:10px;'></span>
-      </div>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">$52301 &#8211 $67600 <br/>(50 &#8211 60 percentile)</div>
-	<span style='vertical-align:middle;background-color: #78c679;margin-left:10px;margin-bottom:10px;'></span>
-      </div>
-	  <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">$67601 &#8211 $115300 <br/>(60 &#8211 80 percentile)</div>
-	<span style='vertical-align:middle;background-color: #31a354;margin-left:10px;margin-bottom:10px;'></span>
-      </div>
-	  <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">$115301 and up <br/>(80 &#8211 99 percentile)</div>
-	<span style='vertical-align:middle;background-color: #006837;margin-left:10px;margin-bottom:10px;'></span>
-      </div>
-	</div>
-
-    <div id='surge-legend' class='legend' style='display: none;'>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-      </div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <h4 style="text-align:right;line-height:100%">Hurricane Storm Surge Zones</h4>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">Category 1<br/>winds 74-95 mph</div>
-	<span style='vertical-align:middle;background-color: #d7301f;margin-left:10px;margin-bottom:10px;'></span>
-      </div>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">Category 2<br/>winds 96-110 mph</div>
-	<span style='vertical-align:middle;background-color: #fc8d59;margin-left:10px;margin-bottom:10px;'></span>
-      </div>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">Category 3<br/>winds 111-130 mph</div>
-	<span style='vertical-align:middle;background-color: #fdcc8a;margin-left:10px;margin-bottom:10px;'></span>
-      </div>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">Category 4<br/>winds 131+ mph</div>
-	<span style='vertical-align:middle;background-color: #fef0d9;margin-left:10px;margin-bottom:10px;'></span>
-      </div>
+  <div id='income-legend' class='legend' style='display: none;'>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
     </div>
 
-    <div id='neighborhood-legend' class='legend' style='display: none;'>
-      <div style='float:right'>
-	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-      </div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <h4 style="text-align:right">Borough</h4>
-      <div style="text-align:right">Brooklyn<span style='background-color: #aeffd1;margin-left:10px;'></span></div>
-      <div style="text-align:right">Staten Island<span style='background-color: #233c95;margin-left:10px;'></span></div>
-      <div style="text-align:right">Queens<span style='background-color: #a7d6eb;margin-left:10px;'></span></div>
-      <div style="text-align:right">Manhattan<span style='background-color: #ffda8e;margin-left:10px;'></span></div>
-      <div style="text-align:right">Bronx<span style='background-color: #f4af1f;margin-left:10px;'></span></div>
+    <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+    <h4 style="text-align:right;line-height:100%">Median Household Income</h4>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">$0 &#8211 $18000 <br/>(0 &#8211 20 percentile)</div>
+      <span style='vertical-align:middle;background-color: #ffffcc;margin-left:10px;margin-bottom:10px;'></span>
     </div>
-
-    <div id='TRIsite-legend' class='legend' style='display: none;'>
-      <div style="text-align:right">
-	<div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-	<div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-	<span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-      </div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-      <h4 style="text-align:right;line-height:100%">Markers</h4>
-      <div style='float:right'>
-	<div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
-	<span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="Assets/fuel-11.svg"></img></span>
-      </div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">$18001 &#8211 $39300 <br/>(20 &#8211 40 percentile)</div>
+      <span style='vertical-align:middle;background-color: #d9f0a3;margin-left:10px;margin-bottom:10px;'></span>
     </div>
-
-
-
-    <div id='clickbox' class='text-info-box' style="cursor: pointer; z-index: 1;" onclick='showinfobox()'>
-      <h2>NYC-EJA Waterfront Justice Project</h2>
-      <div id='pleaseclicktext'> <p>(Click here for more information, or hover over a SMIA) </p> </div>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">$39301 &#8211 $52300 <br/>(40 &#8211 50 percentile)</div>
+      <span style='vertical-align:middle;background-color: #addd8e;margin-left:10px;margin-bottom:10px;'></span>
     </div>
-
-    <div id='infobox' class='text-info-box' style='display: none; cursor: pointer; z-index: 10;' onclick='hideinfobox()'>
-      <h2>NYC-EJA Waterfront Justice Project </h2>
-      <div id='pd'>
-        <p>Industrial and maritime development is encouraged by zoning regulations that have created Special Maritime and Industrial Areas (SMIAs) – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</p>
-      </div>
-        <p style="font-size: 0.7em; color: #777777"><a href="http://www.nyc-eja.org/">NYC-EJA</a> and <a href="http://scaan.net">ScAAN</a>, 2018</p>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">$52301 &#8211 $67600 <br/>(50 &#8211 60 percentile)</div>
+      <span style='vertical-align:middle;background-color: #78c679;margin-left:10px;margin-bottom:10px;'></span>
     </div>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">$67601 &#8211 $115300 <br/>(60 &#8211 80 percentile)</div>
+      <span style='vertical-align:middle;background-color: #31a354;margin-left:10px;margin-bottom:10px;'></span>
+    </div>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">$115301 and up <br/>(80 &#8211 99 percentile)</div>
+      <span style='vertical-align:middle;background-color: #006837;margin-left:10px;margin-bottom:10px;'></span>
+    </div>
+  </div>
 
-    <script>
-      mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
-      var map = new mapboxgl.Map({
-	  container: 'map',
-	  style: 'mapbox://styles/mapbox/light-v9?optimize=true',
-	  center: [-73.9978, 40.7209],
-	  zoom: 10,
-	  legendControl: {
-	      position: 'bottomright'
-	  },
-	  minZoom: 10,
-	  maxZoom: 13
-      });
+  <div id='surge-legend' class='legend' style='display: none;'>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+    </div>
+    <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+    <h4 style="text-align:right;line-height:100%">Hurricane Storm Surge Zones</h4>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Category 1<br/>winds 74-95 mph</div>
+      <span style='vertical-align:middle;background-color: #d7301f;margin-left:10px;margin-bottom:10px;'></span>
+    </div>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Category 2<br/>winds 96-110 mph</div>
+      <span style='vertical-align:middle;background-color: #fc8d59;margin-left:10px;margin-bottom:10px;'></span>
+    </div>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Category 3<br/>winds 111-130 mph</div>
+      <span style='vertical-align:middle;background-color: #fdcc8a;margin-left:10px;margin-bottom:10px;'></span>
+    </div>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Category 4<br/>winds 131+ mph</div>
+      <span style='vertical-align:middle;background-color: #fef0d9;margin-left:10px;margin-bottom:10px;'></span>
+    </div>
+  </div>
 
-      var overlay = document.getElementById('map-overlay-info');
+  <div id='neighborhood-legend' class='legend' style='display: none;'>
+    <div style='float:right'>
+      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+    </div>
+    <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+    <h4 style="text-align:right">Borough</h4>
+    <div style="text-align:right">Brooklyn<span style='background-color: #aeffd1;margin-left:10px;'></span></div>
+    <div style="text-align:right">Staten Island<span style='background-color: #233c95;margin-left:10px;'></span></div>
+    <div style="text-align:right">Queens<span style='background-color: #a7d6eb;margin-left:10px;'></span></div>
+    <div style="text-align:right">Manhattan<span style='background-color: #ffda8e;margin-left:10px;'></span></div>
+    <div style="text-align:right">Bronx<span style='background-color: #f4af1f;margin-left:10px;'></span></div>
+  </div>
 
-      var nav = new mapboxgl.NavigationControl();
-      map.addControl(nav, 'bottom-left');
-      map.on('load', function () {
-
-	  map.moveLayer("water", "road-trunk")
-
-	  map.addSource('vector_data', {
-	      type: 'vector',
-	      url: 'mapbox://billbrod.7693fb16'
-	  })
-
-	  // from
-	  // https://github.com/mapbox/mapbox-gl-js/issues/5040#issuecomment-321688603;
-	  // apparently duplicating the source to have a separate
-	  // source for the hover effect improves performance. not
-	  // sure why that works, but whatever
-	  map.addSource('vector_data-hover', {
-	      type: 'vector',
-	      url: 'mapbox://billbrod.7693fb16'
-	  })
-
-	 // Code which adds a background pattern
-	 // - don't use this without a custom sprite sheet or it looks awkward
-	 // WIP- maija, need really tiny custom sprite (dashed lines - make with SVG!)
-	// map.addLayer({
-	//	"id": "BKG",
-	//	"type": "background",
-	//	"paint":{
-	//	"background-pattern": "triangle-11"
-	//	}
-	//  },'water','Zoning')
-
-
-
-	  map.addLayer({
-	      "id": "Zoning",
-	      "type": "fill",
-	      "source": 'vector_data',
-	      "source-layer": 'nyzd',
-	      "layout": {"visibility":'visible'},
-	      "paint": {
-	  	  "fill-opacity": 0,
-	  	  "fill-color": {
-	  	      'property': 'human_readable_zone',
-	  	      'type': 'categorical',
-	  	      "stops": [
-	  		  ['Residential', '#80b1d3'],
-	  		  ['New York City Parks', '#b3de69'],
-	  		  ['Manufacturing', '#fb8072'],
-	  		  ['Commercial', '#fdb462'],
-	  		  ['Mixed manufacturing and residential', '#bebada'],
-	  		  ['Battery Park City', '#ffffb3']
-	  	      ]
-	  	  }
-	      }
-	  }, 'water');
-
-	  map.addLayer({
-	      "id": "Hurricane Storm Surge Zones",
-	      "type": "fill",
-	      "source": "vector_data",
-	      "source-layer": 'storm_surge_min',
-	      "layout": {"visibility":'visible'},
-	      "paint": {
-	  	  "fill-opacity": 0,
-	  	  "fill-color": {
-		      'property': 'CATEGORY',
-	  	      'type': 'categorical',
-	  	      "stops": [
-	  		  [1, '#d7301f'],
-			  [2, '#fc8d59'],
-	  		  [3, '#fdcc8a'],
-	  		  [4, '#fef0d9']
-	  	      ]
-	  	  }
-	      }
-	  }, 'water');
-
-	  // map.addLayer({
-	  //     "id": "Neighborhood",
-	  //     "type": "fill",
-	  //     "source": "vector_data",
-	  //     "source-layer": 'Neighborhood_Map',
-	  //     "layout": {"visibility":'none'},
-	  //     "paint": {
-	  // 	  "fill-opacity": 0,
-	  // 	  "fill-color": {
-	  // 	      'property': 'borough',
-	  // 	      'type': 'categorical',
-	  // 	      "stops": [
-	  // 		  ['Brooklyn', '#aeffd1'],
-	  // 		  ['Staten Island', '#233c95'],
-	  // 		  ['Queens', '#a7d6eb'],
-	  // 		  ['Manhattan', '#ffda8e'],
-	  // 		  ['Bronx', '#f4af1f']
-	  // 	      ]
-	  // 	  }
-	  //     }
-	  // }, 'water');
-
-	  map.addLayer({
-	      "id": "Percent People of Color",
-	      "type": "fill",
-	      "source": 'vector_data',
-	      "source-layer": "reduced_census",
-	      "layout": {"visibility":'visible'},
-	      "paint": {
-		  "fill-opacity": 1,
-		  "fill-color": {
-		      'property': 'Perc_POC_P003009',
-		      'type': 'interval',
-		      'stops': [
-			  [-10, 'rgba(0, 0, 0, 0)'],
-			  [0, '#feebe2'],
-			  [21, '#fbb4b9'],
-			  [41, '#f768a1'],
-			  [66, '#c51b8a'],
-			  [91, '#7a0177']
-		      ]
-		  }
-	      }
-	  }, 'water');
-
-	  map.addLayer({
-	      "id": "Median Household Income",
-	      "type": "fill",
-	      "source": 'vector_data',
-	      "source-layer": "reduced_census",
-	      "layout": {"visibility":'visible'},
-	      "paint": {
-	  	  "fill-opacity": 0,
-		  "fill-color": {
-		      'property': 'Median Household Income',
-		      'type': 'interval',
-		      'stops': [
-			  [-10, 'rgba(0, 0, 0, 0)'],
-			  [0, '#ffffcc'],
-			  [18001, '#d9f0a3'],
-			  [39301, '#addd8e'],
-			  [52301, '#78c679'],
-			  [67601, '#31a354'],
-			  [115301, '#006837']
-		      ]
-		  }
-	      }
-	  }, 'water');
-
-	  map.addLayer({
-	      "id": "Percent of Families Below Poverty Line",
-	      "type": "fill",
-	      "source": 'vector_data',
-	      "source-layer": "reduced_census",
-	      "layout": {"visibility":'visible'},
-	      "paint": {
-	  	  "fill-opacity": 0,
-		  "fill-color": {
-		      'property': '% of Families Below Poverty Level',
-		      'type': 'interval',
-		      'stops': [
-			  [-10, 'rgba(0, 0, 0, 0)'],
-			  [0, '#fee5d9'],
-			  [21, '#fcae91'],
-			  [36, '#fb6a4a'],
-			  [51, '#de2d26'],
-			  [66, '#a50f15']
-		      ]
-		  }
-	      }
-	  }, 'water');
-
-	  map.addLayer({
-	      "id": "Toxic Release Inventory Sites",
-	      "type": "symbol",
-	      "source": "vector_data",
-	      "source-layer": 'TRI_converted',
-	      "layout": {
-		  "icon-image": "fuel-11",
-		  "icon-allow-overlap": true,
-		  "visibility": 'none',
-		  //"icon-size":10,
-	      }
-	  });
-
-	  map.addLayer({
-	      "id": "SMIA",
-	      "type": "line",
-	      "source": "vector_data",
-	      "source-layer": 'smia',
-	      "layout": {
-		  "line-join": "round",
-		  "line-cap": "round"
-	      },
-	      "paint": {
-		  "line-color": "#000000",
-		  "line-width": 3
-	      }
-	  },'Toxic Release Inventory Sites');
-
-	  map.addLayer({
-	      "id": "SMIA-buffer",
-	      "type": "line",
-	      "source": "vector_data",
-	      "source-layer": 'SMIA_halfmilebuffer_full',
-	      "layout": {
-		  "line-join": "round",
-		  "line-cap": "round"
-	      },
-	      "paint": {
-		  "line-color": "#000000",
-		  "line-width": 2,
-		  "line-dasharray": [1, 3]
-	      }
-	  },'Toxic Release Inventory Sites');
-
-	  map.addLayer({
-	      "id": "SMIAfill",
-	      "type": "fill",
-	      "source": "vector_data",
-	      "source-layer": 'SMIA_halfmilebuffer_full',
-	      "paint": {
-		  "fill-color": "#000000",
-		  "fill-opacity": 0
-	      }
-	  },'Toxic Release Inventory Sites');
-
-	  map.addLayer({
-	      "id": "SMIAhover",
-	      "type": "fill",
-	      "source": "vector_data-hover",
-	      "source-layer": 'SMIA_halfmilebuffer_full',
-	      "paint": {
-	  	  "fill-color": "#000000",
-	  	  "fill-opacity": .25,
-	      },
-	      "filter": ["==", "SMIA_Name", ""]
-	  },'Toxic Release Inventory Sites');
+  <div id='TRIsite-legend' class='legend' style='display: none;'>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+    </div>
+    <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+    <h4 style="text-align:right;line-height:100%">Markers</h4>
+    <div style='float:right'>
+      <div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
+      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="Assets/fuel-11.svg"></img></span>
+    </div>
+    <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+  </div>
 
 
 
-      });
+  <div id='clickbox' class='text-info-box' style="cursor: pointer; z-index: 1;" onclick='showinfobox()'>
+    <h2>NYC-EJA Waterfront Justice Project</h2>
+    <div id='pleaseclicktext'> <p>(Click here for more information, or hover over a SMIA) </p> </div>
+  </div>
 
-      var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones',
-				 'Median Household Income','Toxic Release Inventory Sites'];
-      var toggleableLegendIds = {'Percent People of Color': 'race-legend',
-				 'Zoning': 'zoning-legend',
-				 'Percent of Families Below Poverty Line': 'poverty-legend',
-				 'Hurricane Storm Surge Zones': 'surge-legend',
-				 'Median Household Income': 'income-legend',
-				 'Toxic Release Inventory Sites': 'TRIsite-legend'
-				 };
-      var dataNames = {'human_readable_zone': 'Land use: ',
-		       'Perc_POC_P003009': 'Percent people of color: ',
-		       '% of Families Below Poverty Level': 'Percent below poverty level: ',
-		       'CATEGORY': 'Hurricane zone: ',
-		       'Median Household Income': 'Median household income: '};
-		       // 'neighborhood':'NYC Neighborhood: '};
-      var smiaNumbers = {'Brooklyn Navy Yard':'1',
-			 'Newtown Creek':'2',
-			 'Staten Island West Shore':'3',
-			 'Red Hook':'4',
-			 'South Bronx':'5',
-			 'Sunset Park':'6',
-			 'Kill Van Kull':'7'};
-      var smiaText = {'Brooklyn Navy Yard':'The Brooklyn Navy Yard is a 227-acre publicly owned industrial park characterized by a diversity of small buisnesses. The Navy Yard has more than 2,000 permanent jobs on site, and provides an estimated 3,000 temporary jobs to crews of film and telivision shoots at Steiner Studios. The robust increase in buisness activity between 200 and 2008 is attributed to a dramatic redevlopment effort, harnessing more than $500 million in public and private investment.',
-		      'Newtown Creek':'Newtown Creek, at over 780 acres the city’s largest SMIA, abuts portions of the Greenpoint, Williamsburg, Long Island City, and Maspeth industrial areas. The waterfront area is characterized by heavy industry and municipal facilities, many of which are water-dependent.',
-		      'Staten Island West Shore':'No information about this SMIA yet.',
-		      'Red Hook':'The Red Hook SMIA is approximately 120 acres and is more than 90 percent publicly owned. The SMIA is home to the Red Hook Container Terminal and Brooklyn Piers Port Authority Marine Terminal.',
-		      'South Bronx':'The South Bronx SMIA is more than 850 acres in size, stretching from Port Morris on the Harlem River to Hunts Point on the East river. Wholesale trade is the dominant industry. The SMIA is home to the citys produce distribution center at Hunts Point, the Fulton Fish market, and other food distributors.',
-		      'Sunset Park':'Nearly 600 acres, the Sunset Park SMIA extends from Erie Basin to Owls Head, an area characterized by water-dependent facilities, concentrations  of  industrial  activity,  well-buffered  manufacturing  districts,  and  vacant  sites  and  brownfields  of  significant  size.  A  small portion of the SMIA abuts the Gowanus Canal, a waterway that was designated a Superfund Site in 2010.',
-		      'Kill Van Kull':'The Kill Van Kull SMIA stretches from Howland Hook to Snug harbor. It contains a concentration of maritime uses including a marine terminal and dry docks for ship repair. The SMIA is approximately 665 acres and zoned to permit a broad range of commercial and industrial uses. In 2008, there were more than 70 firms emplying more than 3,300 people in the SMIA. The overwhelming number of jobs - more than 70 percent - were in transportation and warehousing.'};
+  <div id='infobox' class='text-info-box' style='display: none; cursor: pointer; z-index: 10;' onclick='hideinfobox()'>
+    <h2>NYC-EJA Waterfront Justice Project </h2>
+    <div id='pd'>
+      <p>Industrial and maritime development is encouraged by zoning regulations that have created Special Maritime and Industrial Areas (SMIAs) – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</p>
+    </div>
+    <p style="font-size: 0.7em; color: #777777"><a href="http://www.nyc-eja.org/">NYC-EJA</a> and <a href="http://scaan.net">ScAAN</a>, 2018</p>
+  </div>
 
+  <script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v9?optimize=true',
+    center: [-73.9978, 40.7209],
+    zoom: 10,
+    legendControl: {
+      position: 'bottomright'
+    },
+    minZoom: 10,
+    maxZoom: 13
+  });
 
-          // ---------------------------
-          // |  ** LAYER SWITCHING  ** |
-        	// ---------------------------
+  var overlay = document.getElementById('map-overlay-info');
 
-      // MH: this now happens with VISIBILITY instead of opacity (to support markers)
-      for (var i = 0; i < toggleableLayerIds.length; i++) {
-	  var id = toggleableLayerIds[i];
-	  var link = document.createElement('a');
-	  link.href = '#';
-	  link.textContent = id;
-	  if (id === 'Percent People of Color') {
-	      link.className = 'active';
-	  } else {
-	      link.className = '';
-	  }
-	  link.id = 'toggler-' + id
-	  link.onclick = function(e) {
-	      var clickedLayer = this.textContent;
-	      e.preventDefault();
-	      e.stopPropagation();
-	      for (var j = 0; j < toggleableLayerIds.length; j++) {
-		  var otherLayerName = toggleableLayerIds[j]
-		  if (otherLayerName != clickedLayer) {
-		      document.getElementById('toggler-' + otherLayerName).className = '';
-		      if (otherLayerName == 'Toxic Release Inventory Sites') {
-			  map.setLayoutProperty(otherLayerName, 'visibility', 'none');
-		      } else {
-			  map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
-		      }
-		      document.getElementById(toggleableLegendIds[otherLayerName]).style.display = 'none';
-		  }
-	      }
-	      this.className = 'active';
-	      if (clickedLayer == 'Toxic Release Inventory Sites') {
-		  map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-	      } else {
-		  map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
-	      }
-	      document.getElementById(toggleableLegendIds[clickedLayer]).style.display = 'block';
-	  };
-
-	  var layers = document.getElementById('menu');
-	  layers.appendChild(link);
-
-      };
-
-      // ---------------------------
-      // |  ** DATA DISPLAY  ** |
-      // ---------------------------
-
-
-      map.on('click', function(e) {
-	  // Change the cursor style as a UI indicator.
-	  map.getCanvas().style.cursor = 'pointer';
-
-	  var queried = map.queryRenderedFeatures(e.point)
-	  overlay.innerHTML = '';
-	  var shownData = [];
-
-	  for (var j = 0; j < queried.length; j++){
-	      var data = queried[j].properties
-	      for (var i = 0; i < Object.keys(dataNames).length; i++) {
-		  var dataKey = Object.keys(dataNames)[i];
-		  // if we haven't already found this data and it's not undefined
-		  if (shownData.indexOf(dataKey) == -1 && typeof(data[dataKey]) != 'undefined') {
-		      var dataDisplay = document.createElement('div');
-		      if (dataNames[dataKey].includes('Percent')){
-			  if (data[dataKey] > 0) {
-			      dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]) + ' %';
-			  } else {
-			      dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + '<small>not enough data</small>';
-			  }
-			  shownData.push(dataKey)
-		      } else if (dataNames[dataKey].includes('income')){
-			  if (data[dataKey] > 0) {
-			      dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + '$ ' + Math.round(data[dataKey]);
-			  } else {
-			      dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + '<small>not enough data</small>';
-			  }
-			  shownData.push(dataKey)
-		      } else {
-			  dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + data[dataKey];
-			  shownData.push(dataKey)
-		      }
-		      overlay.appendChild(dataDisplay);
-		  }
-	      }}
-	  overlay.style.display = 'block';
-      });
-
-
-      map.on('mouseenter', 'Percent People of Color', function (e) {
-	       map.getCanvas().style.cursor = 'pointer';
-      });
-
-      map.on('mouseleave', 'Percent People of Color', function (e) {
-	       map.getCanvas().style.cursor = '';
-      });
-
-      // ---------------------------
-      // |  ** SMIA FILL  ** |
-      // ---------------------------
-
-
-      map.on('mousemove', function(e) {
-	  var whichsmia = map.queryRenderedFeatures(e.point, {
-	      layers: ['SMIAfill']
-	  });
-
-	  if (whichsmia.length > 0) {
-	      document.getElementById('pleaseclicktext').innerHTML = '<p><strong><big>SMIA # ' + smiaNumbers[whichsmia[0].properties.SMIA_Name] + ' : ' + whichsmia[0].properties.SMIA_Name + '</big></strong>' + '<small></br></br>' + smiaText[whichsmia[0].properties.SMIA_Name] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
-	  } else {
-	      document.getElementById('pleaseclicktext').innerHTML = '<p> Click here for more information, or hover over a SMIA </p> ';
-	  }
-      });
-
-      // MH SMIA FILL CODE
-      // -SMIA file uses OBJECTID / SMIA_Name but SMIA buffer file uses SMIA_Name only
-      // -Currently all with SMIA_Name + manual ID numbers
-
-      // When the user moves their mouse over the SMIA buffer layer, we'll update the filter in
-      // the state-fills-hover layer to only show the matching state, thus making a hover effect.
-      map.on("mousemove", "SMIAfill", function(e) {
-      	  map.setFilter("SMIAhover", ["==", "SMIA_Name", e.features[0].properties.SMIA_Name]);
-      });
-
-      // Reset the state-fills-hover layer's filter when the mouse leaves the layer.
-      map.on("mouseleave", "SMIAfill", function() {
-      	  map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
-      });
-
-
-      // MH: sloppy way of showing and hiding infobox
-      function showinfobox(){
-	  document.getElementById('infobox').style.display = 'block';
-	  document.getElementById('clickbox').style.display = 'none';
+  var nav = new mapboxgl.NavigationControl();
+  map.addControl(nav, 'bottom-left');
+  map.on('load', function () {
+    // add a source layer and default styling for a single point.
+    map.addSource('single-point', {
+      "type": "geojson",
+      "data": {
+        "type": "FeatureCollection",
+        "features": []
       }
-      function hideinfobox(){
-	  document.getElementById('infobox').style.display = 'none';
-	  document.getElementById('clickbox').style.display = 'block';
-      }
-
-
-	// ---------------------------
-  // |  ** G E O C O D E R  ** |
-	// ---------------------------
-
-	 // geocoder code! adds a geocoder and marker
-	  var geocoder = new MapboxGeocoder({
-		accessToken: mapboxgl.accessToken,
-		// geocoder zoom level
-		zoom: 11,
-		// bound geocoder results
-		bbox: [-74.274300, 40.487423, -73.693891, 40.858796],
-			// apply a client side filter to further limit results to those strictly within NYC
-		filter: function (item) {
-        // returns true if item contains New South Wales region
-        return item.context.map(function (i) {
-            // id is in the form {index}.{id} per https://github.com/mapbox/carmen/blob/master/carmen-geojson.md
-            // this example attempts to find the `region` named `New York`
-            return (i.id.split('.').shift() === 'region' && i.text === 'New York');
-        }).reduce(function (acc, cur) {
-            return acc || cur;
-        });
-		}
-	  });
-
-	map.addControl(geocoder);
-	// add a source layer and default styling for a single point.
-		map.addSource('single-point', {
-			"type": "geojson",
-			"data": {
-				"type": "FeatureCollection",
-				"features": []
-			}
-		});
-
-		// display marker for geocoder, this is a symbol (marker-15)
-		map.addLayer({
-			"id": "point",
-			"source": "single-point",
-			"type": "symbol",
-			"layout": {
-				"icon-image": "marker-15",
-				"icon-allow-overlap": true,
-				"icon-size":1.5,
-			}
-		});
-
-		// Listen for the `geocoder.input` event that is triggered when a user
-		// makes a selection and add a symbol that matches the result.
-		geocoder.on('result', function(ev) {
-			map.getSource('single-point').setData(ev.result.geometry);
-		});
-
-    map.on('click', function(ev) {
-      map.getSource('single-point').setData(ev.point);
     });
 
-    </script>
-  </body>
+    // display marker for geocoder, this is a symbol (marker-15)
+    map.addLayer({
+      "id": "point",
+      "source": "single-point",
+      "type": "symbol",
+      "layout": {
+        "icon-image": "marker-15",
+        "icon-allow-overlap": true,
+        "icon-size":1.5,
+      }
+    });
+
+
+    map.moveLayer("water", "road-trunk")
+
+    map.addSource('vector_data', {
+      type: 'vector',
+      url: 'mapbox://billbrod.7693fb16'
+    })
+
+    // from
+    // https://github.com/mapbox/mapbox-gl-js/issues/5040#issuecomment-321688603;
+    // apparently duplicating the source to have a separate
+    // source for the hover effect improves performance. not
+    // sure why that works, but whatever
+    map.addSource('vector_data-hover', {
+      type: 'vector',
+      url: 'mapbox://billbrod.7693fb16'
+    })
+
+    // Code which adds a background pattern
+    // - don't use this without a custom sprite sheet or it looks awkward
+    // WIP- maija, need really tiny custom sprite (dashed lines - make with SVG!)
+    // map.addLayer({
+    //	"id": "BKG",
+    //	"type": "background",
+    //	"paint":{
+    //	"background-pattern": "triangle-11"
+    //	}
+    //  },'water','Zoning')
+
+
+
+    map.addLayer({
+      "id": "Zoning",
+      "type": "fill",
+      "source": 'vector_data',
+      "source-layer": 'nyzd',
+      "layout": {"visibility":'visible'},
+      "paint": {
+        "fill-opacity": 0,
+        "fill-color": {
+          'property': 'human_readable_zone',
+          'type': 'categorical',
+          "stops": [
+            ['Residential', '#80b1d3'],
+            ['New York City Parks', '#b3de69'],
+            ['Manufacturing', '#fb8072'],
+            ['Commercial', '#fdb462'],
+            ['Mixed manufacturing and residential', '#bebada'],
+            ['Battery Park City', '#ffffb3']
+          ]
+        }
+      }
+    }, 'water');
+
+    map.addLayer({
+      "id": "Hurricane Storm Surge Zones",
+      "type": "fill",
+      "source": "vector_data",
+      "source-layer": 'storm_surge_min',
+      "layout": {"visibility":'visible'},
+      "paint": {
+        "fill-opacity": 0,
+        "fill-color": {
+          'property': 'CATEGORY',
+          'type': 'categorical',
+          "stops": [
+            [1, '#d7301f'],
+            [2, '#fc8d59'],
+            [3, '#fdcc8a'],
+            [4, '#fef0d9']
+          ]
+        }
+      }
+    }, 'water');
+
+    // map.addLayer({
+    //     "id": "Neighborhood",
+    //     "type": "fill",
+    //     "source": "vector_data",
+    //     "source-layer": 'Neighborhood_Map',
+    //     "layout": {"visibility":'none'},
+    //     "paint": {
+    // 	  "fill-opacity": 0,
+    // 	  "fill-color": {
+    // 	      'property': 'borough',
+    // 	      'type': 'categorical',
+    // 	      "stops": [
+    // 		  ['Brooklyn', '#aeffd1'],
+    // 		  ['Staten Island', '#233c95'],
+    // 		  ['Queens', '#a7d6eb'],
+    // 		  ['Manhattan', '#ffda8e'],
+    // 		  ['Bronx', '#f4af1f']
+    // 	      ]
+    // 	  }
+    //     }
+    // }, 'water');
+
+    map.addLayer({
+      "id": "Percent People of Color",
+      "type": "fill",
+      "source": 'vector_data',
+      "source-layer": "reduced_census",
+      "layout": {"visibility":'visible'},
+      "paint": {
+        "fill-opacity": 1,
+        "fill-color": {
+          'property': 'Perc_POC_P003009',
+          'type': 'interval',
+          'stops': [
+            [-10, 'rgba(0, 0, 0, 0)'],
+            [0, '#feebe2'],
+            [21, '#fbb4b9'],
+            [41, '#f768a1'],
+            [66, '#c51b8a'],
+            [91, '#7a0177']
+          ]
+        }
+      }
+    }, 'water');
+
+    map.addLayer({
+      "id": "Median Household Income",
+      "type": "fill",
+      "source": 'vector_data',
+      "source-layer": "reduced_census",
+      "layout": {"visibility":'visible'},
+      "paint": {
+        "fill-opacity": 0,
+        "fill-color": {
+          'property': 'Median Household Income',
+          'type': 'interval',
+          'stops': [
+            [-10, 'rgba(0, 0, 0, 0)'],
+            [0, '#ffffcc'],
+            [18001, '#d9f0a3'],
+            [39301, '#addd8e'],
+            [52301, '#78c679'],
+            [67601, '#31a354'],
+            [115301, '#006837']
+          ]
+        }
+      }
+    }, 'water');
+
+    map.addLayer({
+      "id": "Percent of Families Below Poverty Line",
+      "type": "fill",
+      "source": 'vector_data',
+      "source-layer": "reduced_census",
+      "layout": {"visibility":'visible'},
+      "paint": {
+        "fill-opacity": 0,
+        "fill-color": {
+          'property': '% of Families Below Poverty Level',
+          'type': 'interval',
+          'stops': [
+            [-10, 'rgba(0, 0, 0, 0)'],
+            [0, '#fee5d9'],
+            [21, '#fcae91'],
+            [36, '#fb6a4a'],
+            [51, '#de2d26'],
+            [66, '#a50f15']
+          ]
+        }
+      }
+    }, 'water');
+
+    map.addLayer({
+      "id": "Toxic Release Inventory Sites",
+      "type": "symbol",
+      "source": "vector_data",
+      "source-layer": 'TRI_converted',
+      "layout": {
+        "icon-image": "fuel-11",
+        "icon-allow-overlap": true,
+        "visibility": 'none',
+        //"icon-size":10,
+      }
+    });
+
+    map.addLayer({
+      "id": "SMIA",
+      "type": "line",
+      "source": "vector_data",
+      "source-layer": 'smia',
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      "paint": {
+        "line-color": "#000000",
+        "line-width": 3
+      }
+    },'Toxic Release Inventory Sites');
+
+    map.addLayer({
+      "id": "SMIA-buffer",
+      "type": "line",
+      "source": "vector_data",
+      "source-layer": 'SMIA_halfmilebuffer_full',
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      "paint": {
+        "line-color": "#000000",
+        "line-width": 2,
+        "line-dasharray": [1, 3]
+      }
+    },'Toxic Release Inventory Sites');
+
+    map.addLayer({
+      "id": "SMIAfill",
+      "type": "fill",
+      "source": "vector_data",
+      "source-layer": 'SMIA_halfmilebuffer_full',
+      "paint": {
+        "fill-color": "#000000",
+        "fill-opacity": 0
+      }
+    },'Toxic Release Inventory Sites');
+
+    map.addLayer({
+      "id": "SMIAhover",
+      "type": "fill",
+      "source": "vector_data-hover",
+      "source-layer": 'SMIA_halfmilebuffer_full',
+      "paint": {
+        "fill-color": "#000000",
+        "fill-opacity": .25,
+      },
+      "filter": ["==", "SMIA_Name", ""]
+    },'Toxic Release Inventory Sites');
+
+
+
+  });
+
+  var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Hurricane Storm Surge Zones',
+  'Median Household Income','Toxic Release Inventory Sites'];
+  var toggleableLegendIds = {'Percent People of Color': 'race-legend',
+  'Zoning': 'zoning-legend',
+  'Percent of Families Below Poverty Line': 'poverty-legend',
+  'Hurricane Storm Surge Zones': 'surge-legend',
+  'Median Household Income': 'income-legend',
+  'Toxic Release Inventory Sites': 'TRIsite-legend'
+};
+var dataNames = {'human_readable_zone': 'Land use: ',
+'Perc_POC_P003009': 'Percent people of color: ',
+'% of Families Below Poverty Level': 'Percent below poverty level: ',
+'CATEGORY': 'Hurricane zone: ',
+'Median Household Income': 'Median household income: '};
+// 'neighborhood':'NYC Neighborhood: '};
+var smiaNumbers = {'Brooklyn Navy Yard':'1',
+'Newtown Creek':'2',
+'Staten Island West Shore':'3',
+'Red Hook':'4',
+'South Bronx':'5',
+'Sunset Park':'6',
+'Kill Van Kull':'7'};
+var smiaText = {'Brooklyn Navy Yard':'The Brooklyn Navy Yard is a 227-acre publicly owned industrial park characterized by a diversity of small buisnesses. The Navy Yard has more than 2,000 permanent jobs on site, and provides an estimated 3,000 temporary jobs to crews of film and telivision shoots at Steiner Studios. The robust increase in buisness activity between 200 and 2008 is attributed to a dramatic redevlopment effort, harnessing more than $500 million in public and private investment.',
+'Newtown Creek':'Newtown Creek, at over 780 acres the city’s largest SMIA, abuts portions of the Greenpoint, Williamsburg, Long Island City, and Maspeth industrial areas. The waterfront area is characterized by heavy industry and municipal facilities, many of which are water-dependent.',
+'Staten Island West Shore':'No information about this SMIA yet.',
+'Red Hook':'The Red Hook SMIA is approximately 120 acres and is more than 90 percent publicly owned. The SMIA is home to the Red Hook Container Terminal and Brooklyn Piers Port Authority Marine Terminal.',
+'South Bronx':'The South Bronx SMIA is more than 850 acres in size, stretching from Port Morris on the Harlem River to Hunts Point on the East river. Wholesale trade is the dominant industry. The SMIA is home to the citys produce distribution center at Hunts Point, the Fulton Fish market, and other food distributors.',
+'Sunset Park':'Nearly 600 acres, the Sunset Park SMIA extends from Erie Basin to Owls Head, an area characterized by water-dependent facilities, concentrations  of  industrial  activity,  well-buffered  manufacturing  districts,  and  vacant  sites  and  brownfields  of  significant  size.  A  small portion of the SMIA abuts the Gowanus Canal, a waterway that was designated a Superfund Site in 2010.',
+'Kill Van Kull':'The Kill Van Kull SMIA stretches from Howland Hook to Snug harbor. It contains a concentration of maritime uses including a marine terminal and dry docks for ship repair. The SMIA is approximately 665 acres and zoned to permit a broad range of commercial and industrial uses. In 2008, there were more than 70 firms emplying more than 3,300 people in the SMIA. The overwhelming number of jobs - more than 70 percent - were in transportation and warehousing.'};
+
+
+// ---------------------------
+// |  ** LAYER SWITCHING  ** |
+// ---------------------------
+
+// MH: this now happens with VISIBILITY instead of opacity (to support markers)
+for (var i = 0; i < toggleableLayerIds.length; i++) {
+  var id = toggleableLayerIds[i];
+  var link = document.createElement('a');
+  link.href = '#';
+  link.textContent = id;
+  if (id === 'Percent People of Color') {
+    link.className = 'active';
+  } else {
+    link.className = '';
+  }
+  link.id = 'toggler-' + id
+  link.onclick = function(e) {
+    var clickedLayer = this.textContent;
+    e.preventDefault();
+    e.stopPropagation();
+    for (var j = 0; j < toggleableLayerIds.length; j++) {
+      var otherLayerName = toggleableLayerIds[j]
+      if (otherLayerName != clickedLayer) {
+        document.getElementById('toggler-' + otherLayerName).className = '';
+        if (otherLayerName == 'Toxic Release Inventory Sites') {
+          map.setLayoutProperty(otherLayerName, 'visibility', 'none');
+        } else {
+          map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
+        }
+        document.getElementById(toggleableLegendIds[otherLayerName]).style.display = 'none';
+      }
+    }
+    this.className = 'active';
+    if (clickedLayer == 'Toxic Release Inventory Sites') {
+      map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+    } else {
+      map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
+    }
+    document.getElementById(toggleableLegendIds[clickedLayer]).style.display = 'block';
+  };
+
+  var layers = document.getElementById('menu');
+  layers.appendChild(link);
+
+};
+
+// ---------------------------
+// |  ** DATA DISPLAY  ** |
+// ---------------------------
+
+
+map.on('click', function(e) {
+  // Change the cursor style as a UI indicator.
+  map.getCanvas().style.cursor = 'pointer';
+
+  var queried = map.queryRenderedFeatures(e.point)
+  overlay.innerHTML = '';
+  var shownData = [];
+
+  for (var j = 0; j < queried.length; j++){
+    var data = queried[j].properties
+    for (var i = 0; i < Object.keys(dataNames).length; i++) {
+      var dataKey = Object.keys(dataNames)[i];
+      // if we haven't already found this data and it's not undefined
+      var dataDisplay = document.createElement('div');
+      if (shownData.indexOf(dataKey) == -1 && typeof(data[dataKey]) != 'undefined') {
+        if (dataNames[dataKey].includes('Percent')){
+          if (data[dataKey] > 0) {
+            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]) + ' %';
+          } else {
+            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + '<small>not enough data</small>';
+          }
+          shownData.push(dataKey)
+        } else if (dataNames[dataKey].includes('income')){
+          if (data[dataKey] > 0) {
+            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + '$ ' + Math.round(data[dataKey]);
+          } else {
+            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + '<small>not enough data</small>';
+          }
+          shownData.push(dataKey)
+        } else {
+          dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + data[dataKey];
+          shownData.push(dataKey)
+        }
+        overlay.appendChild(dataDisplay);
+      } else {
+        if (shownData.indexOf(dataKey) == -1 && dataNames[dataKey].includes('Hurricane') && typeof(data[Object.keys(dataNames)[0]]) != 'undefined'){
+        if (data[dataKey] > 0) {
+          dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]);
+        } else {
+          dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + 'none';
+        }
+        shownData.push(dataKey)
+        overlay.appendChild(dataDisplay);
+        }
+      }
+    }}
+    overlay.style.display = 'block';
+
+    var coords = e.lngLat;
+    queried[0].geometry.coordinates = [coords.lng, coords.lat];
+    queried[0].geometry.type = "Point";
+    map.getSource('single-point').setData(queried[0].geometry);
+  });
+
+
+  map.on('mouseenter', 'Percent People of Color', function (e) {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+
+  map.on('mouseleave', 'Percent People of Color', function (e) {
+    map.getCanvas().style.cursor = '';
+  });
+
+  // ---------------------------
+  // |  ** SMIA FILL  ** |
+  // ---------------------------
+
+
+  map.on('mousemove', function(e) {
+    var whichsmia = map.queryRenderedFeatures(e.point, {
+      layers: ['SMIAfill']
+    });
+
+    if (whichsmia.length > 0) {
+      document.getElementById('pleaseclicktext').innerHTML = '<p><strong><big>SMIA # ' + smiaNumbers[whichsmia[0].properties.SMIA_Name] + ' : ' + whichsmia[0].properties.SMIA_Name + '</big></strong>' + '<small></br></br>' + smiaText[whichsmia[0].properties.SMIA_Name] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
+    } else {
+      document.getElementById('pleaseclicktext').innerHTML = '<p> Click here for more information, or hover over a SMIA </p> ';
+    }
+  });
+
+  // MH SMIA FILL CODE
+  // -SMIA file uses OBJECTID / SMIA_Name but SMIA buffer file uses SMIA_Name only
+  // -Currently all with SMIA_Name + manual ID numbers
+
+  // When the user moves their mouse over the SMIA buffer layer, we'll update the filter in
+  // the state-fills-hover layer to only show the matching state, thus making a hover effect.
+  map.on("mousemove", "SMIAfill", function(e) {
+    map.setFilter("SMIAhover", ["==", "SMIA_Name", e.features[0].properties.SMIA_Name]);
+  });
+
+  // Reset the state-fills-hover layer's filter when the mouse leaves the layer.
+  map.on("mouseleave", "SMIAfill", function() {
+    map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
+  });
+
+
+  // MH: sloppy way of showing and hiding infobox
+  function showinfobox(){
+    document.getElementById('infobox').style.display = 'block';
+    document.getElementById('clickbox').style.display = 'none';
+  }
+  function hideinfobox(){
+    document.getElementById('infobox').style.display = 'none';
+    document.getElementById('clickbox').style.display = 'block';
+  }
+
+
+  // ---------------------------
+  // |  ** G E O C O D E R  ** |
+  // ---------------------------
+
+  // geocoder code! adds a geocoder and marker
+  var geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    // geocoder zoom level
+    zoom: 11,
+    // bound geocoder results
+    bbox: [-74.274300, 40.487423, -73.693891, 40.858796],
+    // apply a client side filter to further limit results to those strictly within NYC
+    filter: function (item) {
+      // returns true if item contains New South Wales region
+      return item.context.map(function (i) {
+        // id is in the form {index}.{id} per https://github.com/mapbox/carmen/blob/master/carmen-geojson.md
+        // this example attempts to find the `region` named `New York`
+        return (i.id.split('.').shift() === 'region' && i.text === 'New York');
+      }).reduce(function (acc, cur) {
+        return acc || cur;
+      });
+    }
+  });
+
+  map.addControl(geocoder);
+
+  // Listen for the `geocoder.input` event that is triggered when a user
+  // makes a selection and add a symbol that matches the result.
+  geocoder.on('result', function(ev) {
+    map.getSource('single-point').setData(ev.result.geometry);
+  });
+
+  </script>
+</body>
 </html>
