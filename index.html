@@ -31,11 +31,13 @@
     right: 10px;
     z-index: 1;
     width:140px;
-    height:270px;
+    height:275px;
   }
 
   .legend h4 {
+    font: 16px 'Helvetica Neue', sans-serif;
     margin: 0 0 10px;
+
   }
 
   .legend div span {
@@ -44,6 +46,43 @@
     height: 10px;
     margin-right: 5px;
     width: 10px;
+  }
+
+  .legend-info h4 {
+    font: 16px 'Helvetica Neue', sans-serif;
+    margin: 0 0 10px;
+  }
+
+  .legend-info {
+    background-color: #fff;
+    border-radius: 3px;
+    bottom: 20px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+    border: 1px solid rgba(0,0,0,0.4);
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    position: absolute;
+    right: 170px;
+    z-index: 1;
+    width:140px;
+    height:195px;
+    display:none;
+    line-height: normal;
+  }
+
+  .legend-seam {
+    background-color: #fff;
+    bottom: 21.5px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    position: absolute;
+    right: 165px;
+    z-index: 20;
+    width:.2px;
+    height:194px;
+    display:none;
+    border-right-style: none;
+    margin-top:-50px;
   }
 
   #menu {
@@ -166,10 +205,18 @@
     position: absolute;
     width: 30px;
     height: 35px;
-    top: 57px;
-    left: 390px;
     padding: 5px;
     display: block;
+  }
+
+  .reset-button {
+      top: 57px;
+      left: 390px;
+    }
+
+  .legend-button {
+    bottom:325px;
+    right: 10px;
   }
 
   .full-button:hover { background-color:    #f2f3f4 ; }
@@ -378,7 +425,7 @@
       <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
     </div>
     <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-    <h4 style="text-align:right;line-height:100%">Markers</h4>
+    <h4 style="text-align:right;line-height:100%">Bulk Storage Sites</h4>
     <div style='float:right'>
       <div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
       <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="Assets/fuel-11.svg"></img></span>
@@ -446,15 +493,22 @@
 
     </div>
 
-    <div id='fullbutton' class='full-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='reset_map_view()'>
+    <div id='fullbutton' class='full-button reset-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='reset_map_view()'>
       <span style='top: 5%;left:97%;position:absolute'><img class="marker" src="Assets/art-gallery-15.svg"></img></span>
       <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: -4px;display:block">RESET</p></span>
+    </div>
+
+    <div id='legendbutton' class='full-button legend-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
+      <span style='top: 5%;left:97%;position:absolute'><img class="marker" src="Assets/information-15.svg"></img></span>
+      <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: 2px;display:block">INFO</p></span>
     </div>
 
     <div id='printbutton' class='print-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='window.print()'>
       <span style='vertical-align:middle;'><img class="marker" src="Assets/attraction-15.svg"></img></span>
     </div>
 
+    <div id='legendinfo' class='legend-info'></div>
+    <div id='legendseam' class='legend-seam'></div>
 
     <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
@@ -813,7 +867,18 @@
     -74.00743616089453,-73.8939875925258,-74.01499944630518,-74.13713363755667];
     var smiaLng = [40.70337539892057, 40.73043814252142, 40.5505517824447
     , 40.68650785503232, 40.80730643781723, 40.658442081047724, 40.64057887695694];
-
+    var legendText = {'Percent People of Color': 'blah 1',
+    'Zoning': 'blah 2',
+    'Percent of Families Below Poverty Line': 'blah 3',
+    'Hurricane Storm Surge Zones': 'blah 4',
+    'Median Household Income': 'blah 5',
+    'Bulk Storage Sites': 'blah 6'};
+    var legendSource = {'Percent People of Color': 'US Census 2010, divided by census tract, downloaded from <a href="http://census.ire.org/data/bulkdata.html">CENSUS.IRE.ORG</a>',
+    'Zoning': 'NYC Zoning designations, last updated 2015(?), downloaded from <a href="http://data.beta.nyc//dataset/635e26b3-2acf-4f55-8780-2619660fdf66/resource/e5528464-9a00-40a7-8b85-21e9b25d6c24/download/d52d598c77484806876b8f897d51f805nyczoning.geojson">data.Beta.NYC</a>',
+    'Percent of Families Below Poverty Line': 'US Census 2010, divided by census tract, downloaded from <a href="https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml">US Census Bureau</a>',
+    'Hurricane Storm Surge Zones': '(?) 2016 Hurricane evacuation Zones from the <a href="https://geo.nyu.edu/catalog/nyu_2451_34571">NYC-DEM</a>.',
+    'Median Household Income': '(?) US Census 2010, divided by census tract, downloaded from <a href="https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml">US Census Bureau</a>',
+    'Bulk Storage Sites': '2016 TRI sites downloaded from the <a href="https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016">US EPA</a>, active MOSF and CBS sites (7/16/2018) downloaded from <a href="https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4">CENSUS.IRE.ORG</a>'};
     // ----------------------------------------
     // |  ** MENU / LAYER SWITCHING  ** |
     // ----------------------------------
@@ -826,6 +891,7 @@
       link.textContent = id;
       if (id === 'Percent People of Color') {
         link.className = 'active';
+        legend_info('Percent People of Color')
       } else {
         link.className = '';
       }
@@ -857,12 +923,39 @@
           map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
         }
         document.getElementById(toggleableLegendIds[clickedLayer]).style.display = 'block';
+        legend_info(clickedLayer)
       };
 
       var layers = document.getElementById('menu');
       layers.appendChild(link);
+
     };
 
+    function legend_info(clickedLayer){
+      //for (var j = 0; j < toggleableLayerIds.length; j++) {
+      //  var jlayer = 'toggler-' + toggleableLayerIds[j];
+      //  if(document.getElementById(jlayer).className.includes("active")){
+      //    var clickedLayer = toggleableLayerIds[j];
+      //  }
+      //}
+      //document.getElementById('legendinfo').innerHTML = '<p><strong><big>' + clickedLayer + '</big></strong>' + '<small></br></br>' + legendText[clickedLayer] + '</small></p>';
+      document.getElementById('legendinfo').innerHTML ='<div style="margin-top:-15px;">'
+      +'<p><h4>Source</h4>'
+      +'<small>'+legendSource[clickedLayer]+'</br></br></small>'
+      +'<h4>Description</h4>'
+      +'<small>' + legendText[clickedLayer] + '</small></p>'
+      +'</div>';
+    }
+
+    function show_legend_info(){
+      if (document.getElementById('legendinfo').style.display.includes("block")){
+        document.getElementById('legendinfo').style.display='none';
+        document.getElementById('legendseam').style.display='none';
+      } else {
+        document.getElementById('legendinfo').style.display='block';
+        document.getElementById('legendseam').style.display='block';
+      }
+    }
 
     // reset map view
     function reset_map_view(){
