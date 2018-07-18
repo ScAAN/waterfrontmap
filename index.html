@@ -154,6 +154,31 @@
     color: #ffffff;
   }
 
+
+
+  .full-button {
+    position: absolute;
+    z-index: 1;
+    font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+    border-radius: 3px;
+    position: absolute;
+    width: 30px;
+    height: 35px;
+    top: 57px;
+    left: 390px;
+    padding: 5px;
+    display: block;
+  }
+
+  .full-button:hover { background-color:    #f2f3f4 ; }
+
+  .full-button:active {
+    background-color:  #34495e;
+    color: #ffffff;
+  }
+
   .button-box {
     width: 30%;
     display: inline-block;
@@ -169,7 +194,6 @@
     margin: 2%;
     padding: 7px;
     cursor: pointer;
-    border: 1px solid rgba(0,0,0,0.4);
   }
 
   .box-content {
@@ -376,7 +400,7 @@
     <div style: style='margin:auto;text-align:center'>
       <h2>NYC-EJA Waterfront Justice Project</h2>
       <div class="button-box">
-        <div id='storybutton' class='mode-button' onclick="showinfobox(event,'smiabox')"> <b>SMIA INFO</b> </div>
+        <div id='storybutton' class='mode-button' onclick="showinfobox(event,'smiabox')"> <b>STORY</b> </div>
       </div>
       <div class="button-box">
         <div id='explorebutton' class='mode-button'   onclick="showinfobox(event,'explorebox')"> <b>EXPLORE</b> </div>
@@ -415,14 +439,17 @@
       <div id='smiabox' class='box-content'></div>
       <div id='zoombutton' class='zoom-button'>
         <span style='top: 30%;left:15%;position:absolute'>
-          <p style="font-size: 0.7em;margin:0;text-align:center;">next<br/>SMIA</p>
-          <img class="marker" style="left:0%;" src="Assets/swimming-15.svg"></img>
+          <img class="marker" style="left:0%;transform:rotate(90deg);" src="Assets/triangle-15.svg"></img>
         </span>
+        <span style='top: 50%;left:15%;position:absolute' ><p style="font-size: 0.7em;margin:0;text-align:center;">NEXT</p></span>
       </div>
 
     </div>
 
-
+    <div id='fullbutton' class='full-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='reset_map_view()'>
+      <span style='top: 5%;left:97%;position:absolute'><img class="marker" src="Assets/art-gallery-15.svg"></img></span>
+      <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: -4px;display:block">RESET</p></span>
+    </div>
 
     <div id='printbutton' class='print-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='window.print()'>
       <span style='vertical-align:middle;'><img class="marker" src="Assets/attraction-15.svg"></img></span>
@@ -837,6 +864,16 @@
     };
 
 
+    // reset map view
+    function reset_map_view(){
+      var flyopts = {
+        zoom: 10,
+        center: [-73.9978, 40.7209]
+      }
+      map.flyTo(flyopts)
+      showinfobox(event,"none")
+    }
+
     // turn on / off explore and story listeners
     // listeners 101: map.on makes it listen, map.off makes it stop
     // map.on/off("event",("layer"),"Listerner function")
@@ -860,6 +897,7 @@
         map.on('mouseenter',"SMIAfill",smia_hover_on);
         map.on('mouseleave',"SMIAfill",smia_hover_off);
         map.on('click',smia_click)
+        fly_to_smia(-1)
       }
       if (active_listener.includes("explore")){
         map.on('click',query_point);
@@ -994,15 +1032,16 @@
       // When the user moves their mouse over the SMIA buffer layer, we'll update the filter in
       // the state-fills-hover layer to only show the matching state, thus making a hover effect.
 
+      var smiaIntro = "As the threats of climate change increase, destructive storms like Superstorm Sandy, Hurricane Katrina, and Hurricane Harvey will expose the vulnerabilities of costal communities overburdened by industrial and chemical facilities. Of interest are NYC’s Significant Maritime and Industrial Areas (SMIAs), clusters of industry and polluting infrastructure along the waterfront. SMIAs are located in classic environmental justice communities- predominantly low-income communities of color - in the south Bronx, Brooklyn, Queens and Staten Island, which are also hurricane storm surge zones. The WJP is a research and advocacy campaign focusing on community resiliency that seeks to reduce potential toxic exposures and public health risks associated with climate change and storm surge in the City’s industrial waterfront.";
+
       function which_smia(e){
         var whichsmia = map.queryRenderedFeatures(e.point, {
           layers: ['SMIAfill']
         });
-
         if (whichsmia.length > 0) {
           document.getElementById('smiabox').innerHTML = '<p><strong><big>SMIA # ' + smiaNumbers[whichsmia[0].properties.SMIA_Name] + ' : ' + whichsmia[0].properties.SMIA_Name + '</big></strong>' + '<small></br></br>' + smiaText[whichsmia[0].properties.SMIA_Name] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
         } else {
-          document.getElementById('smiabox').innerHTML = '<p> Click on a SMIA for more information. </p> ';
+          document.getElementById('smiabox').innerHTML = '<p><small> ' + smiaIntro + '</small><br/><br/>Click next to start learning about SMIAs, or click on any SMIA for more information. </p> ';
         }
       }
 
@@ -1021,7 +1060,6 @@
 
       function smia_click(e){
         // zoom into smia on click
-        // get rid of highlight
         map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
         var whichsmia = map.queryRenderedFeatures(e.point, {
           layers: ['SMIAfill']
@@ -1034,17 +1072,21 @@
       }
 
       function fly_to_smia(smiaNum){
+        // fly to smia
         if (smiaNum>6){smiaNum=0}
+        document.getElementById('zoombutton').style.display = "block";
+        document.getElementById('zoombutton').addEventListener('click',function(){fly_to_smia(smiaNum+1)})
+
+        if (smiaNum<0){document.getElementById('smiabox').innerHTML = '<p><small> ' + smiaIntro + '</small><br/><br/>Click next to start learning about SMIAs, or click on any SMIA for more information. </p> '; return;}
         var flyopts = {
           zoom: 12,
           center: [smiaLat[smiaNum],smiaLng[smiaNum]]
         }
+
         map.flyTo(flyopts)
         manage_listeners("smiazoom")
         document.getElementById('smiabox').innerHTML = '<p><strong><big>' + smiaTitle[smiaNum] + '</big></strong>' + '<small></br></br>' + smiaDescription[smiaNum] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
-        document.getElementById('zoombutton').style.display = "block";
-        document.getElementById('zoombutton').addEventListener('click',function(){fly_to_smia(smiaNum+1)})
-      }
+        }
 
       // ------------------------------------------
       // |-------    I N F O    B O X     --------|
@@ -1063,7 +1105,7 @@
         }
 
         // check if clicked box was alread active, if so then kill all boxes
-        if (evt.currentTarget.className.includes("active")) {
+        if (evt.currentTarget.className.includes("active") || boxname.includes("none")) {
           killallboxes = 1;
         }
 
@@ -1085,7 +1127,7 @@
           } else if (evt.currentTarget.id.includes("explore")) {
             manage_listeners("explore")
           }
-        }
+        } else {manage_listeners("none")}
       }
 
       </script>
