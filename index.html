@@ -488,7 +488,8 @@
       </div>
 
       <div id='smiabox' class='box-content'></div>
-      <div id='zoombutton' class='zoom-button'>
+
+      <div id='zoombutton' class='zoom-button' onclick='fly_to_smia()'>
         <span style='top: 30%;left:15%;position:absolute'>
           <img class="marker" style="left:0%;transform:rotate(90deg);" src="Assets/triangle-15.svg"></img>
         </span>
@@ -991,6 +992,9 @@
     // turn on / off explore and story listeners
     // listeners 101: map.on makes it listen, map.off makes it stop
     // map.on/off("event",("layer"),"Listerner function")
+
+    var global_current_SMIA = -1;
+
     function manage_listeners(active_listener){
 
       var blankgeojson = {
@@ -1011,7 +1015,8 @@
         map.on('mouseenter',"SMIAfill",smia_hover_on);
         map.on('mouseleave',"SMIAfill",smia_hover_off);
         map.on('click',smia_click)
-        fly_to_smia(-1)
+        global_current_SMIA = -1;
+        fly_to_smia()
       }
       if (active_listener.includes("explore")){
         map.on('click',query_point);
@@ -1181,15 +1186,20 @@
         if (whichsmia.length > 0){
           // fly now!
           var smiaNum = smiaNumbers[whichsmia[0].properties.SMIA_Name]-1;
-          fly_to_smia(smiaNum)
+          global_current_SMIA = smiaNum;
+          fly_to_smia()
         }
       }
 
-      function fly_to_smia(smiaNum){
+      function fly_to_smia(){
         // fly to smia
-        if (smiaNum>6){smiaNum=0}
+        console.log(global_current_SMIA)
+        var smiaNum = global_current_SMIA;
+        global_current_SMIA = global_current_SMIA+1;
+        if (global_current_SMIA>6){global_current_SMIA=-1}
+
         document.getElementById('zoombutton').style.display = "block";
-        document.getElementById('zoombutton').addEventListener('click',function(){fly_to_smia(smiaNum+1)})
+        //document.getElementById('zoombutton').addEventListener('click',function(){fly_to_smia(smiaNum+1)})
 
         if (smiaNum<0){document.getElementById('smiabox').innerHTML = '<p><small> ' + smiaIntro + '</small><br/><br/>Click next to start learning about SMIAs, or click on any SMIA for more information. </p> '; return;}
         var flyopts = {
