@@ -158,7 +158,7 @@
     position: absolute;
     width: 30px;
     height: 125px;
-    top: 100px;
+    top: 120px;
     left: 380px;
     padding: 5px;
     display: none;
@@ -210,7 +210,7 @@
   }
 
   .reset-button {
-      top: 57px;
+      top: 65px;
       left: 390px;
     }
 
@@ -243,6 +243,12 @@
     cursor: pointer;
   }
 
+  .mode-button h4 {
+      font: 16px 'Helvetica Neue', sans-serif;
+      margin: 0 0 0px;
+      padding: 0px;
+      font-weight:bold;
+    }
   .box-content {
     display: none;
     cursor: pointer;
@@ -451,13 +457,13 @@
     <div style: style='margin:auto;text-align:center'>
       <h2>NYC-EJA Waterfront Justice Project</h2>
       <div class="button-box">
-        <div id='storybutton' class='mode-button' onclick="showinfobox(event,'smiabox')"> <b>STORY</b> </div>
+        <div id='storybutton' class='mode-button' onclick="showinfobox(event,'smiabox')"> <h4>STORY</h4> </div>
       </div>
       <div class="button-box">
-        <div id='explorebutton' class='mode-button'   onclick="showinfobox(event,'explorebox')"> <b>EXPLORE</b> </div>
+        <div id='explorebutton' class='mode-button'   onclick="showinfobox(event,'explorebox')"> <h4>EXPLORE</h4> </div>
       </div>
       <div class="button-box">
-        <div id='infobutton' class='mode-button'  onclick="showinfobox(event,'infotextbox')"> <b>INFO</b> </div>
+        <div id='infobutton' class='mode-button'  onclick="showinfobox(event,'infotextbox')"> <h4>INFO</h4> </div>
       </div>
     </div>
 
@@ -1201,7 +1207,16 @@
         document.getElementById('zoombutton').style.display = "block";
         //document.getElementById('zoombutton').addEventListener('click',function(){fly_to_smia(smiaNum+1)})
 
-        if (smiaNum<0){document.getElementById('smiabox').innerHTML = '<p><small> ' + smiaIntro + '</small><br/><br/>Click next to start learning about SMIAs, or click on any SMIA for more information. </p> '; return;}
+        if (smiaNum<0){
+          document.getElementById('smiabox').innerHTML = '<p><small> ' + smiaIntro + '</small><br/><br/>Click next to start learning about SMIAs, or click on any SMIA for more information. </p> ';
+          var flyopts = {
+            zoom: 10,
+            center: [-73.9978, 40.7209]
+          }
+          map.flyTo(flyopts)
+          map.on('mousemove',which_smia);
+          return;
+      }
         var flyopts = {
           zoom: 12,
           center: [smiaLat[smiaNum],smiaLng[smiaNum]]
