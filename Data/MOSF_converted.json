@@ -4,7 +4,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  3245 RICHMOND TERRACE New York City, NY"
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
       },
       "geometry": {
         "type": "Point",
@@ -17,7 +17,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  3245 RICHMOND TERRACE New York City, NY"
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
       },
       "geometry": {
         "type": "Point",
@@ -30,7 +30,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  3245 RICHMOND TERRACE New York City, NY"
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
       },
       "geometry": {
         "type": "Point",
@@ -43,7 +43,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  3245 RICHMOND TERRACE New York City, NY"
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
       },
       "geometry": {
         "type": "Point",
@@ -56,7 +56,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  3245 RICHMOND TERRACE New York City, NY"
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
       },
       "geometry": {
         "type": "Point",
@@ -69,7 +69,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  3245 RICHMOND TERRACE New York City, NY"
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
       },
       "geometry": {
         "type": "Point",
@@ -82,13 +82,1469 @@
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  14TH STREET & EAST RIVER New York City, NY"
+        "Full Address": "  14TH STREET & EAST RIVER NEW YORK , New York City, NY"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.9825664,
-          40.7313474
+          -73.974581,
+          40.72749007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1400 FERRIS PLACE BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.84026208,
+          40.83882364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  939 EAST 138TH STREET BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90677717,
+          40.80209476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1040 EAST 149TH STREET BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90411763,
+          40.80380949
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  98 CO-OP CITY BOULEVARD BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.82401224,
+          40.87018311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  MARINE TANK BARGE OPERATING OUT OF STATE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9441579,
+          40.6781784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  MARINE TANK BARGE OPERATING OUT OF STATE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9441579,
+          40.6781784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  MARINE TANK BARGE OPERATING OUT OF STATE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9441579,
+          40.6781784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  MARINE TANK BARGE OPERATING OUT OF STATE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9441579,
+          40.6781784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  MARINE TANK BARGE OPERATING OUT OF STATE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9441579,
+          40.6781784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  MARINE TANK BARGE OPERATING OUT OF STATE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9441579,
+          40.6781784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  MARINE TANK BARGE OPERATING OUT OF STATE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9441579,
+          40.6781784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  MARINE TANK BARGE OPERATING OUT OF STATE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9441579,
+          40.6781784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  420 SECOND AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9801789,
+          40.7385834
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  125 APOLLO STREET BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93878788,
+          40.72961684
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  537 SMITH STREET BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99758103,
+          40.67349567
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1100 GRAND STREET BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93211661,
+          40.71357342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1-11 HUDSON AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98076124,
+          40.70443625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  498 KINGSLAND AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94209756,
+          40.73458011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  53 STREET & FIRST AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.02195068,
+          40.64887115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  722 COURT STREET BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00438271,
+          40.66812144
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  25 PAIDGE AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95117905,
+          40.73823555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1776 Shore Parkway Brooklyn , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99704324,
+          40.59009516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  165 ELMIRA LOOP BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.87953023,
+          40.64966099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  18-01 20TH AVENUE ASTORIA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90096467,
+          40.78718561
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  17-10 STEINWAY STREET ASTORIA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.89835287,
+          40.78135375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  38-54 Vernon Boulevard Long Island City , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94508186,
+          40.76046612
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  119-02 23RD AVENUE COLLEGE POINT , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.84907629,
+          40.77841276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  31-70 COLLEGE POINT BOULEVARD FLUSHING , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.84233689,
+          40.76643798
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  31-03 20TH AVENUE ASTORIA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90489346,
+          40.78913374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  BLDG. # 90; JFK INTERNATIONAL AIRPORT JAMAICA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.80122399,
+          40.64518584
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  BLDG. # 42; FUEL FARM FACILITY FLUSHING , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.88817992,
+          40.77301165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  31-01 20TH AVENUE ASTORIA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90414443,
+          40.78711137
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3249 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1662458,
+          40.6409444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3249 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1662458,
+          40.6409444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  STAPLETON ANCHORAGE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0784785,
+          40.6288778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3249 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1662458,
+          40.6409444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  C/O CADDELL DRY DOCK & REPAIR STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1181683,
+          40.6414413
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3249 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1662458,
+          40.6409444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2015 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.130006,
+          40.64034669999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3245 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1649844,
+          40.6403614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  C/O CADDELL DRYDOCK & REPAIR STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1181683,
+          40.6414413
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  C/O CADDELL DRYDOCK & REPAIR STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1181683,
+          40.6414413
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  ST. GEORGE FERRY TERMINAL STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0725489,
+          40.64409819999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  ST GEORGE FERRY TERMINAL STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0725489,
+          40.64409819999999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1983 RICHMOND TERRACE NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1288132,
+          40.6396375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3425 RICHMOND TERRACE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1725285,
+          40.640587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  C/O CADDELL DRYDOCK & REPAIR STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1181683,
+          40.6414413
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  REINAUER TRANSPORTATION STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.12878719999999,
+          40.6396248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  4101 Arthur Kill Road Staten Island , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.24234476,
+          40.54460418
         ]
       }
     }

@@ -4,130 +4,1118 @@
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  801 EAST 14TH STREET New York City, NY"
+        "Full Address": "  801 EAST 14TH STREET NEW YORK , New York City, NY"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.97382999999999,
-          40.7281379
+          -73.97274564,
+          40.72765208
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  7 WARDS ISLAND New York City, NY"
+        "Full Address": "  7 WARDS ISLAND NEW YORK , New York City, NY"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.92128579999999,
-          40.7932271
+          -73.92287439,
+          40.78751756
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  725 WEST 135TH STREET New York City, NY"
+        "Full Address": "  725 WEST 135TH STREET NEW YORK , New York City, NY"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.95772889999999,
-          40.8213289
+          -73.95686289,
+          40.82558371
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  4065 TENTH AVENUE New York City, NY"
+        "Full Address": "  4065 TENTH AVENUE NEW YORK , New York City, NY"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.9136959,
-          40.8706879
+          -73.91588901,
+          40.86686655
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  1552 LEXINGTON AVENUE New York City, NY"
+        "Full Address": "  1552 LEXINGTON AVENUE NEW YORK , New York City, NY"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.9495597,
-          40.7880324
+          -73.949353,
+          40.78812799
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  666 WEST 133RD ST. New York City, NY"
+        "Full Address": "  666 WEST 133RD ST. NEW YORK , New York City, NY"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.9576171,
-          40.8193636
+          -73.95721868,
+          40.81899306
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  721 LENOX AVENUE New York City, NY"
+        "Full Address": "  721 LENOX AVENUE NEW YORK , New York City, NY"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.9358628,
-          40.8215918
+          -73.93661321,
+          40.82190309
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  525 11 AVENUE New York City, NY"
+        "Full Address": "  525 11 AVENUE NEW YORK , New York City, NY"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.0004359,
-          40.760454
+          -74.00019186,
+          40.760370200000004
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  850 TWELTH AVE. New York City, NY"
+        "Full Address": "  850 TWELTH AVE. NEW YORK , New York City, NY"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.9933724,
-          40.7723211
+          -73.99351673,
+          40.77223949
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "Full Address": "  506 E. 75TH ST. New York City, NY"
+        "Full Address": "  506 E. 75TH ST. NEW YORK , New York City, NY"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.9511445,
-          40.7679216
+          -73.95213404,
+          40.76866012
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  98 COOP CITY BOULEVARD BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.82479173,
+          40.87026611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1270 RYAWA AVENUE BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8852301,
+          40.80404641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1900 BARTOW AVENUE BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.83336801,
+          40.86653304
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  750-770 ZEREGA AVENUE BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.84160025,
+          40.82283417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  300 FEET SOUTH OF EAST 132ND ST BETWEEN BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9121707,
+          40.79835870000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  SOUTH CORNER OF LOCUST AVE BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90936172,
+          40.79897029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1100 EAST 177TH ST. BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.87768367,
+          40.83908639
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3320 HUTCHINSON AVE BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.82305799999999,
+          40.886215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1040 EAST 149TH ST BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90242785,
+          40.80518243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  3701 JEROME AVENUE BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.879397,
+          40.886390999999996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  939 EAST 138TH STREET BRONX , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9069478,
+          40.80210734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  SURF AVENUE & WEST 8TH STREET BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97480609,
+          40.57444587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  465 LOGAN ST BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.87587801,
+          40.67459376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  6700 SHORE ROAD BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.03296619,
+          40.64243297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  25 PAIDGE AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9511843,
+          40.73763461
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1540 VAN SICLEN AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.87795499,
+          40.64749537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  125 APOLLO STREET BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93900491,
+          40.72905463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  329 GREENPOINT AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94839175,
+          40.73110999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  122-66 FLATLANDS AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.87826395,
+          40.65065097
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2591 KNAPP STREET BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93363929,
+          40.59151594
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  127-20 FLATLANDS AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.86643389,
+          40.65986824
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  165 ELMIRA LOOP BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.88097676,
+          40.64977847
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  498 KINGSLAND AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94187417,
+          40.73460728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  4901 FILLMORE AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92701651,
+          40.61515802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  845 5TH AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00235002,
+          40.65223122
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2449 HARWAY AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99214266,
+          40.59364981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  63 FLUSHING AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96958252,
+          40.70010302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  722 COURT STREET BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00294687,
+          40.668243100000005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  63 FLUSHING AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97879032,
+          40.70389425
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  NORTHWEST CORNER OF NORTH 1ST & RIVER BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96634373,
+          40.71705602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  730 3RD AVE AND 23RD ST BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99980108,
+          40.66254134
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  12755 FLATLANDS AVENUE BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.864806,
+          40.66084
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1787 DEAN ST BROOKLYN , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.92854799999999,
+          40.675775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  70-30 79TH PLACE GLENDALE , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.87233737,
+          40.70721115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  20-45 128TH ST. COLLEGE POINT , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.84038979,
+          40.78115599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  38-54 Vernon Boulevard Long Island City , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94604691,
+          40.75967049
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  8501 24TH AVENUE EAST ELMHURST , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.88358448,
+          40.766298799999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  WELL STATION NO.36 ROSEDALE , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.72712509,
+          40.67922585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  WELL STATION NO. 39 QUEENS VILLAGE , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.74075159,
+          40.72571425
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  WELL STATION NO. 56 SPRINGFIELD GARDENS , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.74695057,
+          40.67760617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  WELL STATION NO. 59 SPRINGFIELD GARDENS , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.75191515,
+          40.68299848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  127-01 POWELL COVE BLVD. COLLEGE POINT , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.84040691,
+          40.79642597
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  150-24 134TH STREET JAMAICA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.80858929,
+          40.66279076
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  106-21 BEACH CHANNEL DRIVE ROCKAWAY , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.82914695,
+          40.58361841
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  43-01 BERRIAN BOULEVARD ASTORIA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.89259162,
+          40.77854686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  JFK AIRPORT JAMAICA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.81118287,
+          40.65163733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  66-99 FRESH POND ROAD RIDGEWOOD , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.89611843,
+          40.70640170000001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  222-22 97 AVENUE QUEENS VILLAGE , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.73106973,
+          40.71785966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  165-18 SOUTH ROAD JAMAICA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.79063359,
+          40.70051395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  WELL STATION #10 CAMBRIA HEIGHTS , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.73642719,
+          40.69493781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  WELL STATION NO. 23 CAMBRIA HEIGHTS , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7337532,
+          40.70002178
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  18-01 20 AVENUE ASTORIA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.90862248,
+          40.78643646
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  BUILDING #42; LAGUARDIA AIRPORT FLUSHING , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.87199572,
+          40.77463755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  NORTH CORNER OF VERNON BLVD. & 43RD ST. LONG ISLAND CITY , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95062395,
+          40.75344358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  14-25 BAY 24TH ST FAR ROCKAWAY , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.76094739,
+          40.61074134
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1425 BAY 24TH STREET FAR ROCKAWAY , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.76147092,
+          40.60857705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  31-03 20TH AVENUE ASTORIA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.906183,
+          40.77972099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  128-15 28TH AVE. FLUSHING , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.844324,
+          40.77308999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  48-05 GRAND AVENUE MASPETH , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.920762,
+          40.71705599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  47-01 KISSENA BLVD. FLUSHING , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.817696,
+          40.74937099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  120-01 SUTPHIN BOULEVARD JAMAICA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.79111,
+          40.67793999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  165-25 147TH AVENUE JAMAICA , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.773933,
+          40.660354999999996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  130-50 91ST AVE. RICHMOND HILL , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.81938000000001,
+          40.698476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  4401 Victory Boulevard Staten Island , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.20029986,
+          40.59136864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2 MURRAY HULBERT AVE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.07414866,
+          40.63600208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1801 RICHMOND TERRACE ($ BODINE ST.) STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.12586405,
+          40.63824875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  751 MILL ROAD STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.11674201,
+          40.55140837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  1390 CASTLETON AVENUE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.12917773,
+          40.63341007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  40 YUKON AVENUE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.16583909,
+          40.57438603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  4101 Arthur Kill Road Staten Island , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.24041305,
+          40.54500088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  310 WEST SERVICE ROAD (NY440) STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.19377023,
+          40.56820608
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  SOUTH CORNER OF LYNHURST AVENUE & EDGEWATER ST STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.06850701,
+          40.61822551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  4700 ARTHUR KILL RD NEW YORK , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.23836761,
+          40.53119564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  2975 RICHMOND AVE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.169777,
+          40.572612
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  4352 VICTORY BLVD. STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.19653194,
+          40.58774125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Full Address": "  229 ARLINGTON AVENUE STATEN ISLAND , New York City, NY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.16738189,
+          40.63416164
         ]
       }
     }

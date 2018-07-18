@@ -65,21 +65,21 @@
     right: 170px;
     z-index: 1;
     width:140px;
-    height:195px;
+    height:200px;
     display:none;
     line-height: normal;
   }
 
   .legend-seam {
     background-color: #fff;
-    bottom: 21.5px;
+    bottom: 21px;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     padding: 10px;
     position: absolute;
-    right: 165px;
+    right: 162px;
     z-index: 20;
     width:.2px;
-    height:194px;
+    height:199.5px;
     display:none;
     border-right-style: none;
     margin-top:-50px;
@@ -428,15 +428,19 @@
     <h4 style="text-align:right;line-height:100%">Bulk Storage Sites</h4>
     <div style='float:right'>
       <div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
-      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="Assets/fuel-11.svg"></img></span>
+      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="vertical-align:middle" src="Assets/fuel-11.svg"></img></span>
     </div>
     <div style='float:right'>
-      <div style="display:inline-block;line-height:100%">Major Oil Storage<br/> Facilities</div>
+      <div style="display:inline-block;line-height:100%">Major Oil Storage<br/>Facilities</div>
       <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="Assets/rocket-11.svg"></img></span>
     </div>
     <div style='float:right'>
-      <div style="display:inline-block;line-height:100%">Chemical Bulk  <br/>Storage</div>
+      <div style="display:inline-block;line-height:100%">Chemical Bulk<br/>Storage</div>
       <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="Assets/fire-station-11.svg"></img></span>
+    </div>
+    <div style='float:right'>
+      <div style="display:inline-block;line-height:100%">Superfund<br/>Class 2 Sites</div>
+      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" src="Assets/volcano-11.svg"></img></span>
     </div>
     <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
   </div>
@@ -760,6 +764,21 @@
         }
       });
 
+      map.addLayer({
+        "id": "SUPERFUND2",
+        "type": "symbol",
+        "source": {
+          type: 'geojson',
+          data: './Data/SUPERFUND2_converted.json'
+        },
+        "layout": {
+          "icon-image": "volcano-15",
+          "icon-allow-overlap": true,
+          "visibility": 'none',
+          //"icon-size":10,
+        }
+      });
+
 
       map.addLayer({
         "id": "SMIA",
@@ -867,18 +886,18 @@
     -74.00743616089453,-73.8939875925258,-74.01499944630518,-74.13713363755667];
     var smiaLng = [40.70337539892057, 40.73043814252142, 40.5505517824447
     , 40.68650785503232, 40.80730643781723, 40.658442081047724, 40.64057887695694];
-    var legendText = {'Percent People of Color': 'blah 1',
-    'Zoning': 'blah 2',
-    'Percent of Families Below Poverty Line': 'blah 3',
-    'Hurricane Storm Surge Zones': 'blah 4',
-    'Median Household Income': 'blah 5',
-    'Bulk Storage Sites': 'blah 6'};
+    var legendText = {'Percent People of Color': 'From the US census 2016. SMIAs tend to have higher proportions of people of color.',
+    'Zoning': 'NYC zoning districts are designated by NYC DOB (?). Though SMIAs are predominately in designated manufacturing zones, they are surrounded by largely residential areas.',
+    'Percent of Families Below Poverty Line': 'From the US census 2016. The population within and around SMIAs is frequently below poverty level, especially in #1, Brooklyn Navy Yard and #5, South Bronx',
+    'Hurricane Storm Surge Zones': 'Hurricane storm storm surge zones are determined by NYC Emergency Management (?). All SMIAs are in hurricane storm surge zones.',
+    'Median Household Income': 'From the US census 2016. The population within and around SMIAs has low household income, especially in #1, Brooklyn Navy Yard and #5, South Bronx',
+    'Bulk Storage Sites': 'Bulk storage sites from EPCRA (TRI) and DEC (MOSF, CBS, Superfund). Bulk storage sites are concentrated in SMIAs, especially #2, Newtown Park and #6, Sunset Park'};
     var legendSource = {'Percent People of Color': 'US Census 2010, divided by census tract, downloaded from <a href="http://census.ire.org/data/bulkdata.html">CENSUS.IRE.ORG</a>',
     'Zoning': 'NYC Zoning designations, last updated 2015(?), downloaded from <a href="http://data.beta.nyc//dataset/635e26b3-2acf-4f55-8780-2619660fdf66/resource/e5528464-9a00-40a7-8b85-21e9b25d6c24/download/d52d598c77484806876b8f897d51f805nyczoning.geojson">data.Beta.NYC</a>',
     'Percent of Families Below Poverty Line': 'US Census 2010, divided by census tract, downloaded from <a href="https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml">US Census Bureau</a>',
     'Hurricane Storm Surge Zones': '(?) 2016 Hurricane evacuation Zones from the <a href="https://geo.nyu.edu/catalog/nyu_2451_34571">NYC-DEM</a>.',
     'Median Household Income': '(?) US Census 2010, divided by census tract, downloaded from <a href="https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml">US Census Bureau</a>',
-    'Bulk Storage Sites': '2016 TRI sites downloaded from the <a href="https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016">US EPA</a>, active MOSF and CBS sites (7/16/2018) downloaded from <a href="https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4">CENSUS.IRE.ORG</a>'};
+    'Bulk Storage Sites': '2016 EPCRA TRI sites from <a href="https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016">US EPA</a>. DEC active  MOSF, CBS and superfund class 2 sites (7/18/2018) from <a href="https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4">NYS DEC</a> and <a href="https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3">NYS DEC</a>'};
     // ----------------------------------------
     // |  ** MENU / LAYER SWITCHING  ** |
     // ----------------------------------
@@ -908,6 +927,7 @@
               map.setLayoutProperty(otherLayerName, 'visibility', 'none');
               map.setLayoutProperty('MOSF', 'visibility', 'none');
               map.setLayoutProperty('CBS', 'visibility', 'none');
+              map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
             } else {
               map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
             }
@@ -919,6 +939,7 @@
           map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
           map.setLayoutProperty('MOSF', 'visibility', 'visible');
           map.setLayoutProperty('CBS', 'visibility', 'visible');
+          map.setLayoutProperty('SUPERFUND2', 'visibility', 'visible');
         } else {
           map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
         }
@@ -939,7 +960,7 @@
       //  }
       //}
       //document.getElementById('legendinfo').innerHTML = '<p><strong><big>' + clickedLayer + '</big></strong>' + '<small></br></br>' + legendText[clickedLayer] + '</small></p>';
-      document.getElementById('legendinfo').innerHTML ='<div style="margin-top:-15px;">'
+      document.getElementById('legendinfo').innerHTML ='<div style="margin-top:-10px;">'
       +'<p><h4>Source</h4>'
       +'<small>'+legendSource[clickedLayer]+'</br></br></small>'
       +'<h4>Description</h4>'
