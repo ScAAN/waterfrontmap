@@ -1,0 +1,348 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h2,
+h3 {
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+p {
+  font-size: 0.85em;
+  margin: 10px;
+  text-align: left;
+}
+
+/**
+* Create a position for the map
+* on the page */
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/**
+* Set rules for how the map overlays
+* (info box and legend) will be displayed
+* on the page. */
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+
+#features {
+  top: 0;
+  height: 100px;
+  margin-top: 20px;
+  width: 250px;
+}
+
+#legend {
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  height: 150px;
+  margin-bottom: 40px;
+  width: 100px;
+}
+
+.legend-key {
+  display: inline-block;
+  border-radius: 20%;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.marker{
+  border-radius: 50%;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 4px;
+}
+
+.legend {
+  background-color: #fff;
+  border-radius: 3px;
+  bottom: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  border: 1px solid rgba(0,0,0,0.4);
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 10px;
+  position: absolute;
+  right: 10px;
+  z-index: 1;
+  width:140px;
+  height:275px;
+}
+
+.legend h4 {
+  font: 16px 'Helvetica Neue', sans-serif;
+  margin: 0 0 10px;
+
+}
+
+.legend div span {
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  margin-right: 5px;
+  width: 10px;
+}
+
+.legend-info h4 {
+  font: 16px 'Helvetica Neue', sans-serif;
+  margin: 0 0 10px;
+}
+
+.legend-info {
+  background-color: #fff;
+  border-radius: 3px;
+  bottom: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  border: 1px solid rgba(0,0,0,0.4);
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 10px;
+  position: absolute;
+  right: 170px;
+  z-index: 1;
+  width:140px;
+  height:200px;
+  display:none;
+  line-height: normal;
+}
+
+.legend-seam {
+  background-color: #fff;
+  bottom: 21px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 10px;
+  position: absolute;
+  right: 162px;
+  z-index: 20;
+  width:.2px;
+  height:199.5px;
+  display:none;
+  border-right-style: none;
+  margin-top:-50px;
+}
+
+#menu {
+  background: #fff;
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  border-radius: 3px;
+  width: 160px;
+  border: 1px solid rgba(0,0,0,0.4);
+  font-family: 'Open Sans', sans-serif;
+}
+
+#menu a {
+  font-size: 13px;
+  color: #404040;
+  display: block;
+  margin: 0;
+  padding: 0;
+  padding: 10px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+#menu a:last-child {
+  border: none;
+}
+
+#menu a:hover {
+  background-color:   #f2f3f4;
+  color: #404040;
+}
+
+#menu a.active {
+  background-color:  #34495e;
+  color: #ffffff;
+}
+
+#menu a.active:hover {
+  background:   #283747;
+}
+
+.map-overlay-info {
+  z-index: 1;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 10px;
+  display: none;
+}
+
+.text-info-box {
+  position: absolute;
+  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #fff;
+  position: absolute;
+  width: 22em;
+  top: 10px;
+  left: 10px;
+  display: block;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  padding: 10px;
+}
+
+.zoom-button {
+  position: absolute;
+  z-index: 1;
+  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  border-radius: 3px;
+  position: absolute;
+  width: 30px;
+  height: 125px;
+  top: 120px;
+  left: 380px;
+  padding: 5px;
+  display: none;
+}
+
+.zoom-button:hover { background-color:    #f2f3f4 ; }
+.zoom-button:active {
+  background-color:  #34495e;
+  color: #ffffff;
+  }
+
+.print-button {
+  position: absolute;
+  z-index: 1;
+  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  border-radius: 3px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 10px;
+  left: 390px;
+  padding: 5px;
+  display: block;
+}
+
+.print-button:hover { background-color:    #f2f3f4 ; }
+
+.print-button:active {
+  background-color:  #34495e;
+  color: #ffffff;
+}
+
+
+
+.full-button {
+  position: absolute;
+  z-index: 1;
+  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  border-radius: 3px;
+  position: absolute;
+  width: 30px;
+  height: 35px;
+  padding: 5px;
+  display: block;
+}
+
+.reset-button {
+    top: 65px;
+    left: 390px;
+  }
+
+.legend-button {
+  bottom:325px;
+  right: 10px;
+}
+
+.full-button:hover { background-color:    #f2f3f4 ; }
+
+.full-button:active {
+  background-color:  #34495e;
+  color: #ffffff;
+}
+
+.button-box {
+  width: 30%;
+  display: inline-block;
+}
+
+.mode-button {
+  z-index: 1;
+  text-align: center;
+  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  border-radius: 3px;
+  margin: 2%;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.mode-button h4 {
+    font: 16px 'Helvetica Neue', sans-serif;
+    margin: 0 0 0px;
+    padding: 0px;
+    font-weight:bold;
+  }
+.box-content {
+  display: none;
+  cursor: pointer;
+}
+
+.mode-button.active {
+  z-index: 1;
+  text-align: center;
+  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  background-color:  #34495e;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  border-radius: 3px;
+  margin: 2%;
+  padding: 7px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.4);
+  color: #ffffff;
+}
+
+.mode-button.active:hover{background-color: #404040;}
+
+.mode-button:hover { background-color:    #f2f3f4 ; }
+
+.geocoder {
+  position:absolute;
+  z-index:1;
+  width:90%;
+  left:2.5%;
+  top:20px;
+  margin-top:30%;
+  padding: 10px;
+}
+.mapboxgl-ctrl-geocoder { min-width:100%; }
+
+@media screen and (max-height: 200px) {
+  #pd {
+    display: none;
+  }
+}
