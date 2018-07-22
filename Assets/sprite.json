@@ -1,30 +1,58 @@
 {
-  "noun_Oil_1848855": {
-    "height": 70,
+  "oil-11": {
+    "height": 17,
     "pixelRatio": 1,
-    "width": 40,
-    "x": 1086,
+    "width": 17,
+    "x": 42,
     "y": 0
   },
-  "noun_Pollution_745698": {
-    "height": 1280,
+  "oil-15": {
+    "height": 21,
     "pixelRatio": 1,
-    "width": 1024,
+    "width": 21,
     "x": 0,
     "y": 0
   },
-  "noun_toxic_583596": {
-    "height": 37,
+  "pollution-11": {
+    "height": 17,
     "pixelRatio": 1,
-    "width": 29,
-    "x": 1126,
+    "width": 17,
+    "x": 59,
     "y": 0
   },
-  "noun_trash bag_903698": {
-    "height": 75,
+  "pollution-15": {
+    "height": 21,
     "pixelRatio": 1,
-    "width": 62,
-    "x": 1024,
+    "width": 21,
+    "x": 21,
     "y": 0
+  },
+  "toxic-11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 42,
+    "y": 21
+  },
+  "toxic-15": {
+    "height": 21,
+    "pixelRatio": 1,
+    "width": 21,
+    "x": 0,
+    "y": 21
+  },
+  "trash-bag-11": {
+    "height": 17,
+    "pixelRatio": 1,
+    "width": 17,
+    "x": 59,
+    "y": 21
+  },
+  "trash-bag-15": {
+    "height": 21,
+    "pixelRatio": 1,
+    "width": 21,
+    "x": 21,
+    "y": 21
   }
 }
