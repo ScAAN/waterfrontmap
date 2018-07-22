@@ -11,20 +11,18 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 #### Changes 
 <details><summary>Latest</summary>  
-
+   
+- [x] (7/18) Story mode, legend info, bulk storage + bugfixes
 - [x] (6/25) Search bar -Maija
 - [x] (6/18) Performance improvements -Billy
-- [x] (6/17) Legend fix -Maija
 
 </details>
 <details><summary>Upcoming</summary>  
    
 - [x] Zooming bug makes things vanish 
 - [x] Zooming control (plus/minus)
-- [ ] Search bar marker 
-- [ ] Deep clean of code
-- [ ] Separate files 
-- [ ] Indenting 
+- [x] Search bar marker 
+- [ ] Deep clean of code (i.e. Separate files) 
 - [ ] Automate data conversion to vector 
 - [ ] Make no data areas hatched
 - [ ] New data
@@ -43,17 +41,21 @@ Mapping weather, human industry, and social demographics of SMIAs.
 -  Hurricane Storm Surge ([SOURCE???](placeholder))
 -  Median household income ([SOURCE???](placeholder))
 -  EPA EPCRA Toxics Release Inventory (TRI) sites ([from EPA](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016), converted with [OGRE](http://ogre.adc4gis.com/))
+- [superfund class 2 sites](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3) 
+- [active bulk storage facilities (PBS and MOSF)](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4) 
 
 </details>
 
 <details><summary>Future plotting</summary>   
 
-- [FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/) (make sure to look at the metadata)
+- [Future High Tide With sea level rise?](https://www1.nyc.gov/site/planning/data-maps/open-data.page#waterfront)
 - Percent uninsured (From CHS 2009 @ DOMH) ([source 1](https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html) & [source 2](https://www1.nyc.gov/site/doh/data/health-tools/maps-gis-data-files-for-download.page))
-- [superfund class 2 sites](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3) (needs geocoding)
-- [active bulk storage facilities (PBS and MOSF)](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4) (needs geocoding)
+- [FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/) (make sure to look at the metadata)
 - post irene flooding
+- Sandy Impacted zones
 - manufacturing zoning districts (1-3)
+- total population 
+- evacuation zone
 
 </details>
 
@@ -133,9 +135,13 @@ data is folded into the tileset we're using.
 - [mapbox-gl sprites](https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites)
 - [mapbox-gl geocoder control](https://github.com/mapbox/mapbox-gl-geocoder)
 - [mapbox-gl-js style spec](https://www.mapbox.com/mapbox-gl-js/style-spec/)
+- [mapbox-gl-js guide](https://www.mapbox.com/mapbox-gl-js/api/)
 - [chloropleth tutorial](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)
 - [choropleth example](https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/)
 - [toggle layers example](https://www.mapbox.com/mapbox-gl-js/example/toggle-layers/)
 - [static map API](https://www.mapbox.com/help/how-static-maps-work/) 
+- [making geojsons with python](http://geoffboeing.com/2015/10/exporting-python-data-geojson/)
+- [tabbed browsing with CSS and js](https://www.w3schools.com/howto/howto_js_tabs.asp)
+- [removing mapbox labels](https://stackoverflow.com/questions/43841144/remove-all-labels-on-mapbox-gl-js) 
 
 </details>
