@@ -23,6 +23,7 @@ Mapping weather, human industry, and social demographics of SMIAs.
 - [x] Zooming control (plus/minus)
 - [x] Search bar marker 
 - [ ] Deep clean of code (i.e. Separate files) 
+- [ ] Add about info for icons
 - [ ] Automate data conversion to vector 
 - [ ] Make no data areas hatched
 - [ ] New data
@@ -117,6 +118,40 @@ load data from a local tileset for some reason).
 The above steps (Old/Basic guide) will still get data on the map and should be used for
 testing and as a stop-gap, but eventually we'll want to make sure the
 data is folded into the tileset we're using.
+
+</details>
+
+<detials><summary>How to dad new sprites</summary>
+
+Adding new sprites is annoying. In order to do this, you need to:
+create a custom sprite sheet
+(using [spritezero](https://github.com/mapbox/spritezero)), put that
+sprite sheet somewhere on the internet, and use a custom style.json to
+point to it in
+the
+[sprite property](https://www.mapbox.com/mapbox-gl-js/style-spec/#sprite). Currently,
+we do this using
+the
+[light v8 style.json](https://github.com/jingsam/mapbox-gl-styles/blob/master/Light.json),
+which was the best one I could find. This is slightly different than
+the light v9 we were using earlier.
+
+A variety of Creative Commons-licensed icons can be found
+at [the Noun Project](Porjechttps://thenounproject.com/), we then just
+need to add about info appropriately (see about.txt in this
+directory).
+
+Once you download icons from there, open them up
+using [Inkscape](https://inkscape.org/en/) and resize / recolor them
+as needed. The `-15` icons in the default mapbox sprite sheet are 21 x
+21 pixels, the `-11` ones are 17 by 17. Save these out appropriately,
+then run `spritezero` in the directory containing (they must be svgs
+and remember move all files you don't want in the sprite sheet) them
+like so: `spritezero sprite .` This will create `sprite.png` and
+`sprite.json`, which you shold move to the Assets directory in the
+project. Then, after pushing to github, the line `"sprite":
+"https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Assets/sprite",`
+in your style.json will correctly load in the sprites.
 
 </details>
 
