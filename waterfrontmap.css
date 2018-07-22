@@ -1,3 +1,8 @@
+
+/*-------------------*
+*  Body and headings *
+* -------------------*/
+
 body {
   margin: 0;
   padding: 0;
@@ -12,6 +17,11 @@ h3 {
 h3 {
   font-size: 1em;
 }
+h4{
+  font: 16px 'Helvetica Neue', sans-serif;
+  margin: 0 0 10px;
+  line-height: 1em;
+}
 
 p {
   font-size: 0.85em;
@@ -19,9 +29,12 @@ p {
   text-align: left;
 }
 
-/**
-* Create a position for the map
-* on the page */
+
+/*-------------------*
+*  Map-related *
+* -------------------*/
+
+/** Create a position for the map on the page */
 #map {
   position: absolute;
   top: 0;
@@ -29,10 +42,20 @@ p {
   width: 100%;
 }
 
-/**
-* Set rules for how the map overlays
-* (info box and legend) will be displayed
-* on the page. */
+/** Set rules for how the map overlays (info box
+* and legend) will be displayed. */
+.overlay-box{
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  border: 1px solid rgba(0,0,0,0.4);
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+}
+
+
 .map-overlay {
   position: absolute;
   bottom: 0;
@@ -42,6 +65,7 @@ p {
   font-family: Arial, sans-serif;
   overflow: auto;
   border-radius: 3px;
+  line-height: 1em;
 }
 
 #features {
@@ -92,10 +116,13 @@ p {
   height:275px;
 }
 
-.legend h4 {
-  font: 16px 'Helvetica Neue', sans-serif;
-  margin: 0 0 10px;
+.legend p {
+  line-height:1em;
+}
 
+.legend h4 {
+  line-height:100%;
+  text-align:right;
 }
 
 .legend div span {
@@ -104,11 +131,6 @@ p {
   height: 10px;
   margin-right: 5px;
   width: 10px;
-}
-
-.legend-info h4 {
-  font: 16px 'Helvetica Neue', sans-serif;
-  margin: 0 0 10px;
 }
 
 .legend-info {
@@ -125,7 +147,7 @@ p {
   width:140px;
   height:200px;
   display:none;
-  line-height: normal;
+  line-height:1em;
 }
 
 .legend-seam {
@@ -141,6 +163,10 @@ p {
   display:none;
   border-right-style: none;
   margin-top:-50px;
+}
+
+.spacer {
+  padding-bottom:0px;
 }
 
 #menu {
@@ -206,140 +232,97 @@ p {
   padding: 10px;
 }
 
-.zoom-button {
+
+/*-------------------*
+*    Buttons         *
+* -------------------*/
+
+.general-button {
   position: absolute;
   z-index: 1;
   font: 16px 'Helvetica Neue', Helvetica, sans-serif;
   background-color: #fff;
   box-shadow: 0 1px 2px rgba(0,0,0,0.10);
   border-radius: 3px;
-  position: absolute;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.4);
+}
+.general-button:hover { background-color:    #f2f3f4 ; }
+.general-button:active {
+  background-color:  #34495e;
+  color: #ffffff;
+}
+
+.next-button {
   width: 30px;
   height: 125px;
   top: 120px;
-  left: 380px;
-  padding: 5px;
+  left: 390px;
   display: none;
 }
-
-.zoom-button:hover { background-color:    #f2f3f4 ; }
-.zoom-button:active {
-  background-color:  #34495e;
-  color: #ffffff;
-  }
-
 .print-button {
-  position: absolute;
-  z-index: 1;
-  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
-  background-color: #fff;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-  border-radius: 3px;
-  position: absolute;
-  width: 30px;
-  height: 30px;
   top: 10px;
   left: 390px;
-  padding: 5px;
   display: block;
 }
-
-.print-button:hover { background-color:    #f2f3f4 ; }
-
-.print-button:active {
-  background-color:  #34495e;
-  color: #ffffff;
-}
-
-
-
-.full-button {
-  position: absolute;
-  z-index: 1;
-  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
-  background-color: #fff;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-  border-radius: 3px;
-  position: absolute;
+.small-button {
   width: 30px;
   height: 35px;
-  padding: 5px;
+}
+.reset-button {
+  top: 65px;
+  left: 390px;
   display: block;
 }
-
-.reset-button {
-    top: 65px;
-    left: 390px;
-  }
-
 .legend-button {
-  bottom:325px;
+  bottom: 325px;
   right: 10px;
-}
-
-.full-button:hover { background-color:    #f2f3f4 ; }
-
-.full-button:active {
-  background-color:  #34495e;
-  color: #ffffff;
-}
-
-.button-box {
-  width: 30%;
-  display: inline-block;
 }
 
 .mode-button {
   z-index: 1;
-  text-align: center;
   font: 16px 'Helvetica Neue', Helvetica, sans-serif;
-  background-color: #fff;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+  background-color: #F2F3F4;
+  /*box-shadow: 0 1px 2px rgba(0,0,0,0.10);*/
   border-radius: 3px;
   margin: 2%;
-  padding: 7px;
+  height:25px;
+  line-height: 25px;
   cursor: pointer;
+  text-align:center;
+  vertical-align: middle;
+  width: 28%;
+  display: inline-block;
+  font-weight:bold;
 }
-
-.mode-button h4 {
-    font: 16px 'Helvetica Neue', sans-serif;
-    margin: 0 0 0px;
-    padding: 0px;
-    font-weight:bold;
-  }
-.box-content {
-  display: none;
-  cursor: pointer;
-}
-
-.mode-button.active {
-  z-index: 1;
-  text-align: center;
-  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+.mode-button:hover { background-color:    #CACFD2 ; }
+.mode-button:active {
   background-color:  #34495e;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-  border-radius: 3px;
-  margin: 2%;
-  padding: 7px;
-  cursor: pointer;
-  border: 1px solid rgba(0,0,0,0.4);
   color: #ffffff;
 }
-
+.mode-button.active {
+  background-color:  #34495e;
+  color: #ffffff;
+}
 .mode-button.active:hover{background-color: #404040;}
 
-.mode-button:hover { background-color:    #f2f3f4 ; }
+.box-content {
+  display: none;
+}
+
+/*-------------------*
+*    Controls         *
+* -------------------*/
 
 .geocoder {
-  position:absolute;
+  position:relative;
   z-index:1;
   width:90%;
   left:2.5%;
-  top:20px;
-  margin-top:30%;
   padding: 10px;
 }
-.mapboxgl-ctrl-geocoder { min-width:100%; }
+.mapboxgl-ctrl-geocoder { position:relative;min-width:100%;margin:0 auto; }
 
 @media screen and (max-height: 200px) {
   #pd {

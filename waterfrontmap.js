@@ -112,28 +112,6 @@ map.on('load', function () {
     }
   }, 'water');
 
-  // map.addLayer({
-  //     "id": "Neighborhood",
-  //     "type": "fill",
-  //     "source": "vector_data",
-  //     "source-layer": 'Neighborhood_Map',
-  //     "layout": {"visibility":'none'},
-  //     "paint": {
-  // 	  "fill-opacity": 0,
-  // 	  "fill-color": {
-  // 	      'property': 'borough',
-  // 	      'type': 'categorical',
-  // 	      "stops": [
-  // 		  ['Brooklyn', '#aeffd1'],
-  // 		  ['Staten Island', '#233c95'],
-  // 		  ['Queens', '#a7d6eb'],
-  // 		  ['Manhattan', '#ffda8e'],
-  // 		  ['Bronx', '#f4af1f']
-  // 	      ]
-  // 	  }
-  //     }
-  // }, 'water');
-
   map.addLayer({
     "id": "Percent People of Color",
     "type": "fill",
@@ -170,12 +148,12 @@ map.on('load', function () {
         'type': 'interval',
         'stops': [
           [-10, 'rgba(0, 0, 0, 0)'],
-          [0, '#ffffcc'],
-          [18001, '#d9f0a3'],
-          [39301, '#addd8e'],
-          [52301, '#78c679'],
-          [67601, '#31a354'],
-          [115301, '#006837']
+          [0, '#006837'],
+          [18001, '#31a354'],
+          [39301, '#78c679'],
+          [52301, '#addd8e'],
+          [67601, '#d9f0a3'],
+          [115301, '#ffffcc']
         ]
       }
     }
@@ -680,8 +658,7 @@ function show_explore_info(queried){
     global_current_SMIA = global_current_SMIA+1;
     if (global_current_SMIA>6){global_current_SMIA=-1}
 
-    document.getElementById('zoombutton').style.display = "block";
-    //document.getElementById('zoombutton').addEventListener('click',function(){fly_to_smia(smiaNum+1)})
+    document.getElementById('nextbutton').style.display = "block";
 
     if (smiaNum<0){
       document.getElementById('smiabox').innerHTML = '<p><small> ' + smiaIntro + '</small><br/><br/>Click next to start learning about SMIAs, or click on any SMIA for more information. </p> ';
@@ -731,7 +708,7 @@ function show_explore_info(queried){
     }
 
     // kill story button
-    document.getElementById('zoombutton').style.display = 'none';
+    document.getElementById('nextbutton').style.display = 'none';
 
     if (killallboxes!=1) {
       // show the current box and make it active!
