@@ -25,13 +25,13 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 <details><summary>Urgent changes</summary>   
 
-- Add bulk storage to tileset
-- Explore search bar isn't filling space - is something overwriting `min-width`?
-- Remove labels from zoomed in version (see [this](https://stackoverflow.com/questions/43841144/remove-all-labels-on-mapbox-gl-js)])
-- Get a license ([MIT?](https://choosealicense.com/)])
-- Put a disclaimer that this map may not be correct yet
-- Replace icons with appropriate ones
-- Fix typos in text and get official text
+- [ ] Add bulk storage to tileset
+- [ ] Explore search bar isn't filling space - is something overwriting `min-width`?
+- [ ] Remove labels from zoomed in version (see [this](https://stackoverflow.com/questions/43841144/remove-all-labels-on-mapbox-gl-js)])
+- [ ] Get a license ([MIT?](https://choosealicense.com/)])
+- [ ] Put a disclaimer that this map may not be correct yet
+- [ ] Replace icons with appropriate ones
+- [ ] Fix typos in text and get official text
 
 </details>
 
@@ -148,7 +148,7 @@ data is folded into the tileset we're using.
 
 </details>
 
-<detials><summary>How to aad new sprites</summary>
+<details><summary>How to add new sprites</summary>
 
 Adding new sprites is annoying. In order to do this, you need to:
 create a custom sprite sheet
