@@ -9,21 +9,48 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 <img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/demo.gif" width="350" height="350">
 
-#### Changes 
+#### Quality of life
+<details><summary>Brief explanation of code</summary>   
+
+- `index.html`: main html file
+- `\Assets`: folder containing images
+- `index_old.html`: a saved copy from when all the code was in one file
+- `waterfrontmap.css`: style sheet
+- `waterfrontmap.js`: javascript which does mapbox stuff (i.e. making the map)
+- `story.js`: javascript which controls story tab
+- `explore.js`: javascript which controls explore tab
+- `longtext.js`: declaration of global variables and info text - needs cleaning
+
+</details>
+
+<details><summary>Urgent changes</summary>   
+
+- Add bulk storage to tileset 
+- Explore search bar isn't filling space - is something overwriting `min-width`?
+- Remove labels from zoomed in version (see [this](https://stackoverflow.com/questions/43841144/remove-all-labels-on-mapbox-gl-js)])
+- Get a license ([MIT?](https://choosealicense.com/)])
+- Put a disclaimer that this map may not be correct yet
+- Replace icons with appropriate ones
+- Fix typos in text and get official text
+
+</details>
+
+#### Changes
 <details><summary>Latest</summary>  
-   
+
+- [x] (7/22) Cleaning -Maija
 - [x] (7/18) Story mode, legend info, bulk storage + bugfixes
 - [x] (6/25) Search bar -Maija
 - [x] (6/18) Performance improvements -Billy
 
 </details>
 <details><summary>Upcoming</summary>  
-   
-- [x] Zooming bug makes things vanish 
+
+- [x] Zooming bug makes things vanish
 - [x] Zooming control (plus/minus)
-- [x] Search bar marker 
-- [ ] Deep clean of code (i.e. Separate files) 
-- [ ] Automate data conversion to vector 
+- [x] Search bar marker
+- [ ] Deep clean of code (i.e. Separate files)
+- [ ] Automate data conversion to vector
 - [ ] Make no data areas hatched
 - [ ] New data
 - [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
@@ -41,8 +68,8 @@ Mapping weather, human industry, and social demographics of SMIAs.
 -  Hurricane Storm Surge ([SOURCE???](placeholder))
 -  Median household income ([SOURCE???](placeholder))
 -  EPA EPCRA Toxics Release Inventory (TRI) sites ([from EPA](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016), converted with [OGRE](http://ogre.adc4gis.com/))
-- [superfund class 2 sites](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3) 
-- [active bulk storage facilities (PBS and MOSF)](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4) 
+- [superfund class 2 sites](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3)
+- [active bulk storage facilities (PBS and MOSF)](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4)
 
 </details>
 
@@ -54,10 +81,13 @@ Mapping weather, human industry, and social demographics of SMIAs.
 - post irene flooding
 - Sandy Impacted zones
 - manufacturing zoning districts (1-3)
-- total population 
+- total population
 - evacuation zone
 
 </details>
+
+
+
 
 #### Resources
 <details><summary>How to add info to map (Billy's Guide)</summary>
@@ -139,9 +169,9 @@ data is folded into the tileset we're using.
 - [chloropleth tutorial](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)
 - [choropleth example](https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/)
 - [toggle layers example](https://www.mapbox.com/mapbox-gl-js/example/toggle-layers/)
-- [static map API](https://www.mapbox.com/help/how-static-maps-work/) 
+- [static map API](https://www.mapbox.com/help/how-static-maps-work/)
 - [making geojsons with python](http://geoffboeing.com/2015/10/exporting-python-data-geojson/)
 - [tabbed browsing with CSS and js](https://www.w3schools.com/howto/howto_js_tabs.asp)
-- [removing mapbox labels](https://stackoverflow.com/questions/43841144/remove-all-labels-on-mapbox-gl-js) 
+- [removing mapbox labels](https://stackoverflow.com/questions/43841144/remove-all-labels-on-mapbox-gl-js)
 
 </details>
