@@ -131,12 +131,17 @@ Mapping weather, human industry, and social demographics of SMIAs.
 Unfortunately, as of June 17, 2018, that's no longer how we're doing
 this.   
 
-In order to [improve performance](https://www.mapbox.com/help/mapbox-gl-js-performance/),
+In order
+to
+[improve performance](https://www.mapbox.com/help/mapbox-gl-js-performance/),
 we're making all our data vector tilesets and combining them into one
-source (both steps use [tippecanoe](https://github.com/mapbox/tippecanoe)). They then
-have to be uploaded to billbrod's mapbox account. We probably want it
-to either be a ScAAN mapbox account or a project-specific one (rather
-than a personal one), eventually, but this will do for now.
+source (both steps
+use [tippecanoe](https://github.com/mapbox/tippecanoe); the
+`tippecannoe.sh` script handles this, though you'll need to add
+newdata sets as necessary). They then have to be uploaded to
+billbrod's mapbox account. We probably want it to either be a ScAAN
+mapbox account or a project-specific one (rather than a personal one),
+eventually, but this will do for now.
 
 The tileset we use is `data.mbtiles` in the Data directory (it can be
 viewed using [mbview](https://github.com/mapbox/mbview), but we cannot
@@ -176,7 +181,9 @@ then run `spritezero` in the directory containing (they must be svgs
 and remember move all files you don't want in the sprite sheet) them
 like so: `spritezero sprite .` This will create `sprite.png` and
 `sprite.json`, which you shold move to the Assets directory in the
-project. Then, after pushing to github, the line `"sprite":
+project (these spritezero commands can all be handled by the
+`sprites.sh` script found in the Processing directory). Then, after
+pushing to github, the line `"sprite":
 "https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Assets/sprite",`
 in your style.json will correctly load in the sprites.
 
