@@ -188,7 +188,7 @@ map.on('load', function () {
     "source": "vector_data",
     "source-layer": 'TRI_converted',
     "layout": {
-      "icon-image": "fuel-15",
+      "icon-image": "toxic-15",
       "icon-allow-overlap": true,
       "visibility": 'none',
       //"icon-size":10,
@@ -203,7 +203,7 @@ map.on('load', function () {
       data: './Data/MOSF_converted.json'
     },
     "layout": {
-      "icon-image": "rocket-15",
+      "icon-image": "oil-15",
       "icon-allow-overlap": true,
       "visibility": 'none',
       //"icon-size":10,
@@ -218,7 +218,7 @@ map.on('load', function () {
       data: './Data/CBS_converted.json'
     },
     "layout": {
-      "icon-image": "fire-station-15",
+      "icon-image": "trash-bag-15",
       "icon-allow-overlap": true,
       "visibility": 'none',
       //"icon-size":10,
@@ -233,7 +233,7 @@ map.on('load', function () {
       data: './Data/SUPERFUND2_converted.json'
     },
     "layout": {
-      "icon-image": "volcano-15",
+      "icon-image": "pollution-15",
       "icon-allow-overlap": true,
       "visibility": 'none',
       //"icon-size":10,
