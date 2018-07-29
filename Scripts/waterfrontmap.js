@@ -191,8 +191,9 @@ map.on('load', function () {
       "icon-image": "toxic-15",
       "icon-allow-overlap": true,
       "visibility": 'none',
-      //"icon-size":10,
-    }
+      "icon-size":.7,
+    },
+    "paint":{"icon-opacity":.9}
   });
 
   map.addLayer({
@@ -206,8 +207,9 @@ map.on('load', function () {
       "icon-image": "oil-15",
       "icon-allow-overlap": true,
       "visibility": 'none',
-      //"icon-size":10,
-    }
+      "icon-size":.7,
+    },
+    "paint":{"icon-opacity":.9}
   });
 
   map.addLayer({
@@ -221,8 +223,9 @@ map.on('load', function () {
       "icon-image": "trash-bag-15",
       "icon-allow-overlap": true,
       "visibility": 'none',
-      //"icon-size":10,
-    }
+      "icon-size":.7,
+    },
+    "paint":{"icon-opacity":.9}
   });
 
   map.addLayer({
@@ -236,8 +239,9 @@ map.on('load', function () {
       "icon-image": "pollution-15",
       "icon-allow-overlap": true,
       "visibility": 'none',
-      //"icon-size":10,
-    }
+      "icon-size":.7,
+    },
+    "paint":{"icon-opacity":.9}
   });
 
 
