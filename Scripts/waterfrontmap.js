@@ -295,6 +295,32 @@ map.on('load', function () {
     "filter": ["==", "SMIA_Name", ""]
   },'Bulk Storage Sites');
 
+  map.addLayer({
+      "id": "Hurricane Evacuation Zones",
+      "type": "fill",
+      "source": {
+	  type: 'geojson',
+	  data: './Data/Hurricane-Evacuation-Zones.json'
+      },
+      "layout": {'visibility': 'visible'},
+      "paint": {
+	  "fill-opacity": 0,
+	  "fill-color": {
+              'property': 'hurricane',
+              'type': 'categorical',
+              "stops": [
+		  ['X', 'rgba(0, 0, 0, 0)'],
+		  ['1', '#ed3724'],
+		  ['2', '#f48120'],
+		  ['3', '#ffde17'],
+		  ['4', '#bed630'],
+		  ['5', '#72be44'],
+		  ['6', '#00a78d']
+              ]
+	  }
+      }
+  }, 'water');
+
 
 
 });
