@@ -297,7 +297,7 @@ map.on('load', function () {
       "id": "Hurricane Evacuation Zones",
       "type": "fill",
       "source": "vector_data",
-      "source-layer": 'Hurricane-Evacuation-Zones',
+      "source-layer": 'HurricaneEvacuationZones',
       "layout": {'visibility': 'visible'},
       "paint": {
 	  "fill-opacity": 0,
