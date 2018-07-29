@@ -1,3 +1,13 @@
+// ------------------------------------------
+// TEMPORARY
+// ------------------------------------------
+
+function hidewip(){
+    document.getElementById('wipbox').style.display = 'none';
+    document.getElementById('wipoverlay').style.display = 'none';
+}
+
+
 // ----------------------------------------
 // |  ** MENU / LAYER SWITCHING  ** |
 // ----------------------------------

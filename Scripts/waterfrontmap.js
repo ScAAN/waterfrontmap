@@ -55,18 +55,14 @@ map.on('load', function () {
     url: 'mapbox://billbrod.7693fb16'
   })
 
-  // Code which adds a background pattern
-  // - don't use this without a custom sprite sheet or it looks awkward
-  // WIP- maija, need really tiny custom sprite (diag.svg)
-  /*
+  // Add a background pattern
   map.addLayer({
   	"id": "BKG",
   	"type": "background",
   	"paint":{
-  	"background-pattern": "triangle-11"
+  	"background-pattern": "diag"
   	}
-    },'water','Zoning')
-    */
+  },'water')
 
   map.addLayer({
     "id": "Zoning",
@@ -297,7 +293,7 @@ map.on('load', function () {
       "id": "Hurricane Evacuation Zones",
       "type": "fill",
       "source": "vector_data",
-      "source-layer": 'Hurricane-Evacuation-Zones',
+      "source-layer": 'HurricaneEvacuationZones',
       "layout": {'visibility': 'visible'},
       "paint": {
 	  "fill-opacity": 0,

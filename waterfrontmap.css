@@ -1,3 +1,60 @@
+/*-------------------*
+*  Junk / temporary  *
+* -------------------*/
+
+.overlayed{
+  opacity:0.4;
+  background:black;
+  width:100%;
+  height:100%;
+  z-index:98;
+  position:fixed;
+}
+
+.instructions{
+	position:absolute;
+  font: 14px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	width:80%;
+	height:70%;
+	top:15%;
+	left:10%;
+	background-color:white;
+	border-radius:20px;
+	z-index:99;
+	text-align: center;
+	margin:0 auto;
+}
+
+.instructions h4{
+  font-weight:'bold';
+  font: 24px 'Helvetica Neue', sans-serif;
+  margin: 0 0 10px;
+  line-height: 1em;
+  font-weight:'bold';
+}
+
+
+.instructions-button {
+  z-index: 1;
+  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #F2F3F4;
+  /*box-shadow: 0 1px 2px rgba(0,0,0,0.10);*/
+  border-radius: 3px;
+  margin: 2%;
+  height:35px;
+  line-height: 25px;
+  cursor: pointer;
+  text-align:center;
+  vertical-align: middle;
+  width: 70%;
+  display: inline-block;
+  font-weight:bold;
+}
+.instructions-button:hover { background-color:    #CACFD2 ; }
+.instructions-button:active {
+  background-color:  #34495e;
+  color: #ffffff;
+}
 
 /*-------------------*
 *  Body and headings *
