@@ -199,10 +199,8 @@ map.on('load', function () {
   map.addLayer({
     "id": "MOSF",
     "type": "symbol",
-    "source": {
-      type: 'geojson',
-      data: './Data/MOSF_converted.json'
-    },
+    "source": "vector_data",
+    "source-layer": 'MOSF_converted',
     "layout": {
       "icon-image": "oil-15",
       "icon-allow-overlap": true,
@@ -215,10 +213,8 @@ map.on('load', function () {
   map.addLayer({
     "id": "CBS",
     "type": "symbol",
-    "source": {
-      type: 'geojson',
-      data: './Data/CBS_converted.json'
-    },
+    "source": "vector_data",
+    "source-layer": 'CBS_converted',
     "layout": {
       "icon-image": "trash-bag-15",
       "icon-allow-overlap": true,
@@ -231,10 +227,8 @@ map.on('load', function () {
   map.addLayer({
     "id": "SUPERFUND2",
     "type": "symbol",
-    "source": {
-      type: 'geojson',
-      data: './Data/SUPERFUND2_converted.json'
-    },
+    "source": "vector_data",
+    "source-layer": 'SUPERFUND2_converted',
     "layout": {
       "icon-image": "pollution-15",
       "icon-allow-overlap": true,
@@ -302,10 +296,8 @@ map.on('load', function () {
   map.addLayer({
       "id": "Hurricane Evacuation Zones",
       "type": "fill",
-      "source": {
-	  type: 'geojson',
-	  data: './Data/Hurricane-Evacuation-Zones.json'
-      },
+      "source": "vector_data",
+      "source-layer": 'Hurricane-Evacuation-Zones',
       "layout": {'visibility': 'visible'},
       "paint": {
 	  "fill-opacity": 0,
