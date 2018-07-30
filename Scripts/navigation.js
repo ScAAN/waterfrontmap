@@ -84,7 +84,7 @@ function show_legend_info(){
 }
 
 // reset map view
-function reset_map_view(){
+function reset_map_view(event){
   var flyopts = {
     zoom: 10,
     center: [-73.9978, 40.7209]
@@ -108,26 +108,22 @@ function manage_listeners(active_listener){
   };
   // kill manage_listeners
   map.off('click', query_point)
-  //map.off('mousemove',"SMIAfill",smia_info);
-  map.off('mousemove',"SMIAfill",which_smia);
-  map.on('click',smia_click)
+  //map.off('mousemove',"SMIAfill",which_smia);
+  map.off('mousemove',which_smia)
+  map.off('click',smia_click)
   //remove marker and info
   map.getSource('single-point').setData(blankgeojson);
   overlay.innerHTML = '';
   // selectively activate listeners
   if (active_listener.includes("story")){
-    //map.on('mousemove',"SMIAfill",smia_info);
-    map.on('mousemove',"SMIAfill",which_smia);
+    //map.on('mousemove',"SMIAfill",which_smia);
+    map.on('mousemove',which_smia);
     map.on('click',smia_click)
     global_current_SMIA = -1;
     fly_to_smia()
   }
   if (active_listener.includes("explore")){
     map.on('click',query_point);
-  }
-  if (active_listener.includes("smiazoom")){
-    map.on('mousemove',"SMIAfill",which_smia);
-    map.on('click',smia_click)
   }
 }
 

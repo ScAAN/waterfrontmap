@@ -57,7 +57,6 @@
         center: [-73.9978, 40.7209]
       }
       map.flyTo(flyopts)
-      map.on('mousemove',which_smia);
       return;
     }
 
@@ -71,7 +70,7 @@
     map.flyTo(flyopts)
 
     // turn off non-story listeners
-    manage_listeners("smiazoom")
+    manage_listeners("none")
 
     // display information about SMIA
     document.getElementById('smiabox').innerHTML = '<p><strong><big>' + smiaTitle[smiaNum] + '</big></strong>' + '<small></br></br>' + smiaDescription[smiaNum] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
