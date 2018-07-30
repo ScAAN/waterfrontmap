@@ -74,6 +74,15 @@ function show_explore_info(queried){
           shownData.push(dataKey)
           overlay.appendChild(dataDisplay);
         }
+        if (shownData.indexOf(dataKey) == -1 && dataNames[dataKey].includes('Storm') && typeof(data[Object.keys(dataNames)[0]]) != 'undefined'){
+          if (data[dataKey] > 0) {
+            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]);
+          } else {
+            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + 'none';
+          }
+          shownData.push(dataKey)
+          overlay.appendChild(dataDisplay);
+        }
       }
     }}
     overlay.style.display = 'block';

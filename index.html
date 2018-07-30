@@ -9,18 +9,21 @@
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
 </head>
 <body>
+  <!-- For some reason the geocoder control style needs to be here -->
+  <style>
+  .mapboxgl-ctrl-geocoder { position:relative;left:-9px;min-width:105%;margin:0 auto; }
+  </style>
+
   <!-- WIP BOX-->
-
-
   <div id="wipoverlay" class="overlayed" onclick='hidewip()'></div>
   <div id="wipbox" class="instructions" style="display:block" onclick='hidewip()' >
-    <div style: style='top:40%;height:80%;width:80%;margin:0 auto;'>
-      <div style: style='margin:00 auto;margin-top:40px;'>
+    <div style: style='top:40%;height:80%;width:80%;margin:0 auto;display:inline-block;'>
+      <div style: style='margin:00 auto;margin-top:25px;'>
         <p> <h4>Welcome!</h4><br/>
-          Thanks for visiting, this map is a collaboration between NYC-EJA and ScAAN, visualizing SMIAS for the Waterfront Justice Project.
-          <br/><br/> Currently, this is a work in progress so information or sources may not be 100% accurate, nevertheless we hope you enjoy this map. </p>
-          <br/><br/>
-            <h4>click anywhere to continue</h4>
+          Thanks for visiting. This map is a collaboration between NYC-EJA and ScAAN, with the aim of visualizing SMIAs for the EJA Waterfront Justice Project.
+          <br/><br/> Currently, this is a work in progress so information or sources may not be 100% accurate, nevertheless we hope you enjoy this map. Feel free to leave fedback and let us know how we're doing (about &rarr; feedback).</p>
+          <span style='vertical-align:middle;'><img style: style='height:175px;' src="Assets/demo.gif"></img></span>
+          <h4><br/>click anywhere to continue</h4>
         </div>
       </div>
     </div>
@@ -38,15 +41,15 @@
     </div>
     <p class="spacer"></p>
     <h4>Land Use <br/> (from NYC zoning)</h4>
-    <div style="text-align:right">Residential <span style='background-color: #80b1d3;margin-left:10px;'></span></div>
-    <div style="text-align:right">NYC Parks <span style='background-color: #b3de69;margin-left:10px;'></span></div>
-    <div style="text-align:right">Manufacturing <span style='background-color: #fb8072;margin-left:10px;'></span></div>
-    <div style="text-align:right">Commercial <span style='background-color: #fdb462;margin-left:10px;'></span></div>
+    <div style="text-align:right">Residential <span style='background-color: #EDAD08;margin-left:10px;'></span></div>
+    <div style="text-align:right">NYC Parks <span style='background-color: #0F8554;margin-left:10px;'></span></div>
+    <div style="text-align:right">Manufacturing <span style='background-color: #94346E;margin-left:10px;'></span></div>
+    <div style="text-align:right">Commercial <span style='background-color: #CC503E;margin-left:10px;'></span></div>
     <div style="text-align:right">
       <div style="display:inline-block;line-height:100%">Mixed manufacturing<br/>and residential</div>
-      <span style='vertical-align:middle;background-color: #bebada;margin-left:10px;margin-bottom:10px;'></span>
+      <span style='vertical-align:middle;background-color:#E17C05;margin-left:10px;margin-bottom:10px;'></span>
     </div>
-    <div style="text-align:right;">Battery Park City <span style='background-color: #ffffb3;margin-left:10px;'></span></div>
+    <div style="text-align:right;">Battery Park City <span style='background-color: #666666;margin-left:10px;'></span></div>
   </div>
   <div id='race-legend' class='legend overlay-box' style='display:block'>
     <div style="text-align:right">
@@ -230,13 +233,13 @@
       <h2>NYC-EJA Waterfront Justice Project</h2>
       <div id='storybutton' class='mode-button' onclick="showinfobox(event,'smiabox')"> STORY</div>
       <div id='explorebutton' class='mode-button'   onclick="showinfobox(event,'explorebox')"> EXPLORE </div>
-      <div id='infobutton' class='mode-button'  onclick="showinfobox(event,'infotextbox')"> INFO </div>
+      <div id='infobutton' class='mode-button'  onclick="showinfobox(event,'infotextbox')"> ABOUT </div>
     </div>
 
     <!-- INFO CONTENT  -->
     <div id='infotextbox' class='box-content'>
       <div>
-        <p>This map is a collaborative effort between NYC-EJA and ScAAN, furthering the work of NYC-EJA’s Waterfront Justice Project visualizing Special Maritime and Industrial Areas (SMIAs).
+        <p >This map is a collaborative effort between NYC-EJA and ScAAN, furthering the work of NYC-EJA’s Waterfront Justice Project visualizing Special Maritime and Industrial Areas (SMIAs).
           <br/><br/>Industrial and maritime development is encouraged by zoning regulations that have created SMIAs – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</p>
         </div>
         <div style="text-align:center;">
@@ -251,6 +254,9 @@
           </div>
         </div>
         <p style="font-size: 0.7em; color: #777777;text-align:center;"><a href="https://github.com/ScAAN/waterfrontmap/blob/master/LICENSE">&copy NYC-EJA and ScAAN, 2018</a></p>
+        <div class="fb-button" style="cursor: pointer;" onclick="window.open('https://www.google.com', '_blank');">
+          FEEDBACK
+        </div>
       </div>
 
       <!-- EXPLORE CONTENT  -->

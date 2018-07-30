@@ -236,6 +236,7 @@ p {
   width: 160px;
   border: 1px solid rgba(0,0,0,0.4);
   font-family: 'Open Sans', sans-serif;
+  line-height:1;
 }
 
 #menu a {
@@ -335,6 +336,28 @@ p {
 .legend-button {
   bottom: 325px;
   right: 10px;
+}
+.long-button {
+  width: 150px;
+  height: 25px;
+}
+.fb-button {
+  z-index: 1;
+  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #F2F3F4;
+  border-radius: 3px;
+  margin: 2%;
+  height:25px;
+  line-height: 25px;
+  cursor: pointer;
+  text-align:center;
+  vertical-align: middle;
+  font-weight:bold;
+}
+.fb-button:hover { background-color:    #CACFD2 ; }
+.fb-button:active {
+  background-color:  #34495e;
+  color: #ffffff;
 }
 
 .mode-button {

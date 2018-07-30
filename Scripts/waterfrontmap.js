@@ -55,6 +55,12 @@ map.on('load', function () {
     url: 'mapbox://billbrod.7693fb16'
   })
 
+  // remove poi and road labels
+  map.removeLayer("road-label-sm");
+  map.removeLayer("road-label-med");
+  map.removeLayer("road-label-large");
+
+
   // Add a background pattern
   map.addLayer({
   	"id": "BKG",
@@ -76,12 +82,12 @@ map.on('load', function () {
         'property': 'human_readable_zone',
         'type': 'categorical',
         "stops": [
-          ['Residential', '#80b1d3'],
-          ['New York City Parks', '#b3de69'],
-          ['Manufacturing', '#fb8072'],
-          ['Commercial', '#fdb462'],
-          ['Mixed manufacturing and residential', '#bebada'],
-          ['Battery Park City', '#ffffb3']
+          ['Residential', '#EDAD08'],
+          ['New York City Parks', '#0F8554'],
+          ['Manufacturing', '#94346E'],
+          ['Commercial', '#CC503E'],
+          ['Mixed manufacturing and residential', '#E17C05'],
+          ['Battery Park City', '#666666']
         ]
       }
     }
@@ -293,7 +299,7 @@ map.on('load', function () {
       "id": "Hurricane Evacuation Zones",
       "type": "fill",
       "source": "vector_data",
-      "source-layer": 'HurricaneEvacuationZones',
+      "source-layer": 'Hurricane-Evacuation-Zones',
       "layout": {'visibility': 'visible'},
       "paint": {
 	  "fill-opacity": 0,
