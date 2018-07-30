@@ -25,19 +25,20 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 <details><summary>Urgent changes</summary>   
 
-- [ ] Add bulk storage to tileset
-- [ ] Explore search bar isn't filling space - is something overwriting `min-width`?
-- [ ] Remove labels from zoomed in version (see [this](https://stackoverflow.com/questions/43841144/remove-all-labels-on-mapbox-gl-js)])
-- [ ] Get a license ([MIT?](https://choosealicense.com/)])
-- [ ] Put a disclaimer that this map may not be correct yet
-- [ ] Replace icons with appropriate ones
-- [ ] Fix typos in text and get official text
+- [ ] MISSING DATA BUG (bulk storage and evacuation are missing)
+- [ ] Make `diag.svg` infinite
+- [ ] Make explore info look nice (hurricane keeps switching lines) 
+- [ ] Add feedback form (to link to feedback button)
+- [ ] Simpler icons (I like [this](https://thenounproject.com/coquet_adrien/))
+- [ ] Add % uninsured 
+- [ ] Fix typos in text and get official text from EJA
 
 </details>
 
 #### Changes
 <details><summary>Latest</summary>  
 
+- [x] (7/29) Checking off to-do list -Maija
 - [x] (7/22) Deep cleaning +bugfixes -Maija
 - [x] (7/18) Story mode, legend info, bulk storage + bugfixes
 - [x] (6/25) Search bar -Maija
@@ -46,13 +47,22 @@ Mapping weather, human industry, and social demographics of SMIAs.
 </details>
 <details><summary>Upcoming</summary>  
 
+- [x] Reduced line height on menu
+- [x] Changed zoning colors to match zola
+- [x] Add bulk storage to tileset
+- [x] Explore search bar isn't filling space - is something overwriting `min-width`?
+- [x] Remove labels from zoomed in version (see [this](https://stackoverflow.com/questions/43841144/remove-all-labels-on-mapbox-gl-js)])
+- [x] Get a license ([MIT?](https://choosealicense.com/)])
+- [x] Put a disclaimer that this map may not be correct yet
+- [x] Replace icons with appropriate ones
+- [x] Fixed hover highlight
 - [x] Zooming bug makes things vanish
 - [x] Zooming control (plus/minus)
 - [x] Search bar marker
-- [ ] Deep clean of code (i.e. Separate files)
-- [ ] Add about info for icons
+- [x] Deep clean of code (i.e. Separate files)
+- [x] Make no data areas hatched
+- [x] Add about info for icons
 - [ ] Automate data conversion to vector
-- [ ] Make no data areas hatched
 - [ ] New data
 - [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
 
@@ -70,7 +80,8 @@ Mapping weather, human industry, and social demographics of SMIAs.
 -  Median household income ([SOURCE???](placeholder))
 -  EPA EPCRA Toxics Release Inventory (TRI) sites ([from EPA](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016), converted with [OGRE](http://ogre.adc4gis.com/))
 - [superfund class 2 sites](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3)
-- [active bulk storage facilities (PBS and MOSF)](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4)
+- [active bulk storage facilities (CBS and MOSF)](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4)
+- evacuation zone
 
 </details>
 
@@ -83,7 +94,6 @@ Mapping weather, human industry, and social demographics of SMIAs.
 - Sandy Impacted zones
 - manufacturing zoning districts (1-3)
 - total population
-- evacuation zone
 
 </details>
 
