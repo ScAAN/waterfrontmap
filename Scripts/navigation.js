@@ -38,6 +38,10 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
           map.setLayoutProperty('MOSF', 'visibility', 'none');
           map.setLayoutProperty('CBS', 'visibility', 'none');
           map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
+        } else if (otherLayerName == "Percent Uninsured") {
+          map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
+          map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 0);
+          console.log("why")
         } else {
           map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
         }
@@ -50,6 +54,10 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
       map.setLayoutProperty('MOSF', 'visibility', 'visible');
       map.setLayoutProperty('CBS', 'visibility', 'visible');
       map.setLayoutProperty('SUPERFUND2', 'visibility', 'visible');
+    } else if (clickedLayer == "Percent Uninsured") {
+      map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
+      map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 1);
+      console.log("disappear!")
     } else {
       map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
     }

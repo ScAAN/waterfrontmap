@@ -320,5 +320,43 @@ map.on('load', function () {
   }, 'water');
 
 
+  map.addSource('uninsured', {
+      type: 'geojson',
+      data: './Data/uninsured_converted.geojson'
+  })
+
+  map.addLayer({
+    "id": "Percent Uninsured",
+    "type": "fill",
+    "source": 'uninsured',
+    "paint": {
+      "fill-opacity": 0,
+      "fill-color":
+      {
+       'property': 'perc_uninsured',
+       'type': 'interval',
+       'stops': [
+         [-10, 'rgba(0, 0, 0, 0)'],
+         [0, '#e7f0fa'],
+         [5, '#c6dbef'],
+         [10, '#8dc1dd'],
+         [15, '#4f9bcb'],
+         [20, '#2070b4'],
+         [25, '#08468b']
+       ]
+     }
+   }
+ }, 'water');
+
+ map.addLayer({
+   "id": "Percent Uninsured Unreliable",
+   "type": "fill",
+   "source": 'uninsured',
+   "paint": {
+     "fill-opacity": 0,
+     "fill-pattern": "hatch"
+  },
+  "filter": ["==","unreliable",1]
+}, 'water','Percent Uninsured');
 
 });
