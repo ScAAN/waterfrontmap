@@ -4,83 +4,97 @@
     "pixelRatio": 1,
     "width": 11,
     "x": 34,
-    "y": 42
+    "y": 226
+  },
+  "diag-16": {
+    "height": 56,
+    "pixelRatio": 1,
+    "width": 56,
+    "x": 226,
+    "y": 0
   },
   "hatch": {
     "height": 11,
     "pixelRatio": 1,
     "width": 11,
     "x": 45,
-    "y": 42
+    "y": 226
+  },
+  "hatch-64": {
+    "height": 226,
+    "pixelRatio": 1,
+    "width": 226,
+    "x": 0,
+    "y": 0
   },
   "marker-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 63,
+    "x": 387,
     "y": 0
   },
   "marker-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 0,
+    "x": 282,
     "y": 0
   },
   "oil-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 42,
-    "y": 21
+    "x": 404,
+    "y": 0
   },
   "oil-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 21,
+    "x": 303,
     "y": 0
   },
   "pollution-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 59,
-    "y": 21
+    "x": 421,
+    "y": 0
   },
   "pollution-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 0,
-    "y": 21
+    "x": 324,
+    "y": 0
   },
   "toxic-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
     "x": 0,
-    "y": 42
+    "y": 226
   },
   "toxic-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 21,
-    "y": 21
+    "x": 345,
+    "y": 0
   },
   "trash-bag-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
     "x": 17,
-    "y": 42
+    "y": 226
   },
   "trash-bag-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 42,
+    "x": 366,
     "y": 0
   }
 }
