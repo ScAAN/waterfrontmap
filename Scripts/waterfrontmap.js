@@ -66,7 +66,7 @@ map.on('load', function () {
   	"id": "BKG",
   	"type": "background",
   	"paint":{
-  	"background-pattern": "diag-16"
+  	"background-pattern": "diag-8"
   	}
   },'water')
 
@@ -354,7 +354,7 @@ map.on('load', function () {
    "source": 'uninsured',
    "paint": {
      "fill-opacity": 0,
-     "fill-pattern": "hatch-64"
+     "fill-pattern": "hatch-32"
   },
   "filter": ["==","unreliable",1]
 }, 'water','Percent Uninsured');
