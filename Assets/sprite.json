@@ -3,112 +3,189 @@
     "height": 11,
     "pixelRatio": 1,
     "width": 11,
-    "x": 67,
-    "y": 85
+    "x": 318,
+    "y": 250
   },
   "diag-16": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 51,
-    "y": 85
+    "x": 286,
+    "y": 250
+  },
+  "diag-6": {
+    "height": 6,
+    "pixelRatio": 1,
+    "width": 6,
+    "x": 356,
+    "y": 250
   },
   "diag-8": {
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 89,
-    "y": 85
+    "x": 340,
+    "y": 250
   },
   "hatch": {
     "height": 11,
     "pixelRatio": 1,
     "width": 11,
-    "x": 78,
-    "y": 85
+    "x": 329,
+    "y": 250
+  },
+  "hatch-16": {
+    "height": 16,
+    "pixelRatio": 1,
+    "width": 16,
+    "x": 302,
+    "y": 250
   },
   "hatch-32": {
     "height": 32,
     "pixelRatio": 1,
     "width": 32,
     "x": 64,
-    "y": 0
+    "y": 250
   },
   "hatch-64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 0,
-    "y": 0
+    "y": 250
+  },
+  "hatch-8": {
+    "height": 8,
+    "pixelRatio": 1,
+    "width": 8,
+    "x": 348,
+    "y": 250
   },
   "marker-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 84,
-    "y": 64
+    "x": 201,
+    "y": 250
   },
   "marker-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
     "x": 96,
+    "y": 250
+  },
+  "noun_arrow": {
+    "height": 125,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 0,
     "y": 0
+  },
+  "noun_lab": {
+    "height": 125,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 100,
+    "y": 0
+  },
+  "noun_location": {
+    "height": 125,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 0,
+    "y": 125
+  },
+  "noun_nuclear": {
+    "height": 125,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 100,
+    "y": 125
+  },
+  "noun_oil": {
+    "height": 125,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 200,
+    "y": 0
+  },
+  "noun_powerplant": {
+    "height": 125,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 300,
+    "y": 0
+  },
+  "noun_printer": {
+    "height": 125,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 200,
+    "y": 125
+  },
+  "noun_reload": {
+    "height": 125,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 300,
+    "y": 125
   },
   "oil-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 101,
-    "y": 64
+    "x": 218,
+    "y": 250
   },
   "oil-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 0,
-    "y": 64
+    "x": 117,
+    "y": 250
   },
   "pollution-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 0,
-    "y": 85
+    "x": 235,
+    "y": 250
   },
   "pollution-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 21,
-    "y": 64
+    "x": 138,
+    "y": 250
   },
   "toxic-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 17,
-    "y": 85
+    "x": 252,
+    "y": 250
   },
   "toxic-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 42,
-    "y": 64
+    "x": 159,
+    "y": 250
   },
   "trash-bag-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 34,
-    "y": 85
+    "x": 269,
+    "y": 250
   },
   "trash-bag-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 63,
-    "y": 64
+    "x": 180,
+    "y": 250
   }
 }

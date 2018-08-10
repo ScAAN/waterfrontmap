@@ -66,7 +66,7 @@ map.on('load', function () {
   	"id": "BKG",
   	"type": "background",
   	"paint":{
-  	"background-pattern": "diag-8"
+  	"background-pattern": "diag-6"
   	}
   },'water')
 
@@ -270,7 +270,7 @@ map.on('load', function () {
       "line-width": 2,
       "line-dasharray": [1, 3]
     }
-  },'Bulk Storage Sites');
+  },'Bulk Storage Sites','point');
 
   map.addLayer({
     "id": "SMIAfill",
@@ -281,7 +281,7 @@ map.on('load', function () {
       "fill-color": "#000000",
       "fill-opacity": 0
     }
-  },'Bulk Storage Sites');
+  },'Bulk Storage Sites','point');
 
   map.addLayer({
     "id": "SMIAhover",
@@ -293,7 +293,7 @@ map.on('load', function () {
       "fill-opacity": .25,
     },
     "filter": ["==", "SMIA_Name", ""]
-  },'Bulk Storage Sites');
+  },'Bulk Storage Sites','point');
 
   map.addLayer({
       "id": "Hurricane Evacuation Zones",
@@ -354,7 +354,7 @@ map.on('load', function () {
    "source": 'uninsured',
    "paint": {
      "fill-opacity": 0,
-     "fill-pattern": "hatch-32"
+     "fill-pattern": "hatch-16"
   },
   "filter": ["==","unreliable",1]
 }, 'water','Percent Uninsured');
