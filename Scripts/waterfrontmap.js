@@ -31,9 +31,9 @@ map.on('load', function () {
     "source": "single-point",
     "type": "symbol",
     "layout": {
-      "icon-image": "marker-15",
+      "icon-image": "noun_location",
       "icon-allow-overlap": true,
-      "icon-size":1.5,
+      "icon-size":.4,
     }
   });
 
@@ -190,10 +190,10 @@ map.on('load', function () {
     "source": "vector_data",
     "source-layer": 'TRI_converted',
     "layout": {
-      "icon-image": "toxic-15",
+      "icon-image": "noun_nuclear",
       "icon-allow-overlap": true,
       "visibility": 'none',
-      "icon-size":.7,
+      "icon-size":.25,
     },
     "paint":{"icon-opacity":.9}
   });
@@ -204,10 +204,10 @@ map.on('load', function () {
     "source": "vector_data",
     "source-layer": 'MOSF_converted',
     "layout": {
-      "icon-image": "oil-15",
+      "icon-image": "noun_oil",
       "icon-allow-overlap": true,
       "visibility": 'none',
-      "icon-size":.7,
+      "icon-size":.25,
     },
     "paint":{"icon-opacity":.9}
   });
@@ -218,10 +218,10 @@ map.on('load', function () {
     "source": "vector_data",
     "source-layer": 'CBS_converted',
     "layout": {
-      "icon-image": "trash-bag-15",
+      "icon-image": "noun_lab",
       "icon-allow-overlap": true,
       "visibility": 'none',
-      "icon-size":.7,
+      "icon-size":.25,
     },
     "paint":{"icon-opacity":.9}
   });
@@ -232,10 +232,10 @@ map.on('load', function () {
     "source": "vector_data",
     "source-layer": 'SUPERFUND2_converted',
     "layout": {
-      "icon-image": "pollution-15",
+      "icon-image": "noun_powerplant",
       "icon-allow-overlap": true,
       "visibility": 'none',
-      "icon-size":.7,
+      "icon-size":.40,
     },
     "paint":{"icon-opacity":.9}
   });
@@ -354,7 +354,7 @@ map.on('load', function () {
    "source": 'uninsured',
    "paint": {
      "fill-opacity": 0,
-     "fill-pattern": "hatch-16"
+     "fill-pattern": "hatch-16-thin"
   },
   "filter": ["==","unreliable",1]
 }, 'water','Percent Uninsured');
