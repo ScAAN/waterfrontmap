@@ -12,63 +12,86 @@ function hidewip(){
 // |  ** MENU / LAYER SWITCHING  ** |
 // ----------------------------------
 
-// MH: this now happens with VISIBILITY instead of opacity (to support markers)
-for (var i = 0; i < toggleableLayerIds.length; i++) {
-  var id = toggleableLayerIds[i];
-  var link = document.createElement('a');
-  link.href = '#';
-  link.textContent = id;
-  if (id === 'Percent People of Color') {
-    link.className = 'active';
-    legend_info('Percent People of Color')
-  } else {
-    link.className = '';
-  }
-  link.id = 'toggler-' + id
-  link.onclick = function(e) {
-    var clickedLayer = this.textContent;
-    e.preventDefault();
-    e.stopPropagation();
-    for (var j = 0; j < toggleableLayerIds.length; j++) {
-      var otherLayerName = toggleableLayerIds[j]
-      if (otherLayerName != clickedLayer) {
-        document.getElementById('toggler-' + otherLayerName).className = '';
-        if (otherLayerName == 'Bulk Storage Sites') {
-          map.setLayoutProperty(otherLayerName, 'visibility', 'none');
-          map.setLayoutProperty('MOSF', 'visibility', 'none');
-          map.setLayoutProperty('CBS', 'visibility', 'none');
-          map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
-        } else if (otherLayerName == "Percent Uninsured") {
-          map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
-          map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 0);
-          console.log("why")
-        } else {
-          map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
-        }
-        document.getElementById(toggleableLegendIds[otherLayerName]).style.display = 'none';
-      }
+
+function changeTab(evt, tabName) {
+    
+    var layers = document.getElementById('menu');
+    for (var key in toggleableLegendIds) {
+	var link = document.getElementById('toggler-' + key)
+	if (link != null){
+	    layers.removeChild(link);
+	}
     }
-    this.className = 'active';
+    // MH: this now happens with VISIBILITY instead of opacity (to support markers)
+    for (var i = 0; i < toggleableLayerIds[tabName].length; i++) {
+	var id = toggleableLayerIds[tabName][i];
+	var link = document.createElement('a');
+	link.href = '#';
+	link.textContent = id;
+	link.id = 'toggler-' + id
+	link.onclick = function(e) {
+	    var clickedLayer = this.textContent;
+	    e.preventDefault();
+	    e.stopPropagation();
+	    this.className = 'active';
+	    make_layer_visible(clickedLayer)
+	};
+
+	layers.appendChild(link);
+	if (i == 0) {
+	    link.className = 'active';
+	    legend_info(id)
+	    link.click();
+	} else {
+	    link.className = '';
+	}
+    };
+    // make all the buttons inactive and then set the clicked button to active
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    evt.currentTarget.className += " active";
+}
+
+function make_layer_visible(clickedLayer) {
+    for (var otherLayerName in toggleableLegendIds) {
+	if (otherLayerName != clickedLayer) {
+	    var otherToggler = document.getElementById('toggler-' + otherLayerName)
+	    if (otherToggler != null){
+		otherToggler.className = '';
+	    }
+	    if (otherLayerName == 'Bulk Storage Sites') {
+		map.setLayoutProperty(otherLayerName, 'visibility', 'none');
+		map.setLayoutProperty('MOSF', 'visibility', 'none');
+		map.setLayoutProperty('CBS', 'visibility', 'none');
+		map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
+	    } else if (otherLayerName == "Percent Uninsured") {
+		map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
+		map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 0);
+		console.log("why")
+	    } else {
+		map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
+	    }
+	    document.getElementById(toggleableLegendIds[otherLayerName]).style.display = 'none';
+	}
+    }
     if (clickedLayer == 'Bulk Storage Sites') {
-      map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-      map.setLayoutProperty('MOSF', 'visibility', 'visible');
-      map.setLayoutProperty('CBS', 'visibility', 'visible');
-      map.setLayoutProperty('SUPERFUND2', 'visibility', 'visible');
+	map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+	map.setLayoutProperty('MOSF', 'visibility', 'visible');
+	map.setLayoutProperty('CBS', 'visibility', 'visible');
+	map.setLayoutProperty('SUPERFUND2', 'visibility', 'visible');
     } else if (clickedLayer == "Percent Uninsured") {
-      map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
-      map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 1);
-      console.log("disappear!")
+	map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
+	map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 1);
+	console.log("disappear!")
     } else {
-      map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
+	map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
     }
     document.getElementById(toggleableLegendIds[clickedLayer]).style.display = 'block';
-    legend_info(clickedLayer)
-  };
+    legend_info(clickedLayer)    
+}
 
-  var layers = document.getElementById('menu');
-  layers.appendChild(link);
-
-};
 
 function legend_info(clickedLayer){
 //update legend info to match clicked layer

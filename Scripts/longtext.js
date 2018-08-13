@@ -1,5 +1,8 @@
 // Layer names, numbers, and text
-var toggleableLayerIds = ['Percent People of Color', 'Zoning', 'Percent of Families Below Poverty Line', 'Median Household Income','Bulk Storage Sites', 'Hurricane Storm Surge Zones', 'Hurricane Evacuation Zones', 'Percent Uninsured'];
+var toggleableLayerIds =
+    {"Demographics": ['Percent People of Color', 'Percent of Families Below Poverty Line', 'Median Household Income', 'Percent Uninsured'],
+     "City Planning": ["Zoning", 'Bulk Storage Sites'],
+     "Weather": ['Hurricane Storm Surge Zones', 'Hurricane Evacuation Zones']};
 var toggleableLegendIds = {'Percent People of Color': 'race-legend',
 'Zoning': 'zoning-legend',
 'Percent of Families Below Poverty Line': 'poverty-legend',
