@@ -23,45 +23,27 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 </details>
 
-<details><summary>Urgent changes</summary>   
+<details><summary>Urgent bugs</summary>   
 
-- [ ] MISSING DATA BUG (bulk storage and evacuation are missing)
-- [ ] Make `diag.svg` infinite
-- [ ] Make explore info look nice (hurricane keeps switching lines) 
-- [ ] Add feedback form (to link to feedback button)
-- [ ] Simpler icons (I like [this](https://thenounproject.com/coquet_adrien/))
-- [ ] Add % uninsured 
-- [ ] Fix typos in text and get official text from EJA
+- [ ] add uninsured to vector data
+- [ ] `diag` doesn't render seamlessly 
 
 </details>
 
-#### Changes
-<details><summary>Latest</summary>  
+#### Changelog
+<details><summary>changes</summary>  
 
+- [x] (8/14) Percent uninsured and cosmetics -Maija 
 - [x] (7/29) Checking off to-do list -Maija
 - [x] (7/22) Deep cleaning +bugfixes -Maija
 - [x] (7/18) Story mode, legend info, bulk storage + bugfixes
 - [x] (6/25) Search bar -Maija
-- [x] (6/18) Performance improvements -Billy
-
-</details>
-<details><summary>Upcoming</summary>  
-
-- [x] Reduced line height on menu
-- [x] Changed zoning colors to match zola
-- [x] Add bulk storage to tileset
-- [x] Explore search bar isn't filling space - is something overwriting `min-width`?
-- [x] Remove labels from zoomed in version (see [this](https://stackoverflow.com/questions/43841144/remove-all-labels-on-mapbox-gl-js)])
-- [x] Get a license ([MIT?](https://choosealicense.com/)])
-- [x] Put a disclaimer that this map may not be correct yet
-- [x] Replace icons with appropriate ones
-- [x] Fixed hover highlight
-- [x] Zooming bug makes things vanish
-- [x] Zooming control (plus/minus)
-- [x] Search bar marker
-- [x] Deep clean of code (i.e. Separate files)
-- [x] Make no data areas hatched
-- [x] Add about info for icons
+- [x] (6/18) Performance improvements -Billy 
+- [ ] make explore information have consistent order
+- [ ] add feedback form 
+- [ ] pay  for icons
+- [ ] upgrade story mode 
+- [ ] get official tezt 
 - [ ] Automate data conversion to vector
 - [ ] New data
 - [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
@@ -71,7 +53,7 @@ Mapping weather, human industry, and social demographics of SMIAs.
 #### Data
 <details><summary>Currently plotted</summary>   
 
--  NYC Basic Geography ([mapbox-streets-v7](https://www.mapbox.com/vector-tiles/mapbox-streets-v7/))
+-  (removed) NYC Basic Geography ([mapbox-streets-v7](https://www.mapbox.com/vector-tiles/mapbox-streets-v7/))
 -  SMIA ([from NYC planning](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-wrp.page))
 -  Percent people of color ([Census Bulk Download](http://census.ire.org/data/bulkdata.html))
 -  Percent below poverty line ([Census fact finder](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml))
@@ -81,14 +63,15 @@ Mapping weather, human industry, and social demographics of SMIAs.
 -  EPA EPCRA Toxics Release Inventory (TRI) sites ([from EPA](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016), converted with [OGRE](http://ogre.adc4gis.com/))
 - [superfund class 2 sites](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3)
 - [active bulk storage facilities (CBS and MOSF)](https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4)
-- evacuation zone
+- evacuation zone (SOURCE?)
+- Percent uninsured (From CHS 2009 @ DOMH) ([source 1](https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html) & [source 2](https://www1.nyc.gov/site/doh/data/health-tools/maps-gis-data-files-for-download.page))
+
 
 </details>
 
 <details><summary>Future plotting</summary>   
 
 - [Future High Tide With sea level rise?](https://www1.nyc.gov/site/planning/data-maps/open-data.page#waterfront)
-- Percent uninsured (From CHS 2009 @ DOMH) ([source 1](https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html) & [source 2](https://www1.nyc.gov/site/doh/data/health-tools/maps-gis-data-files-for-download.page))
 - [FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/) (make sure to look at the metadata)
 - post irene flooding
 - Sandy Impacted zones
