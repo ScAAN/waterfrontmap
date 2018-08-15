@@ -34,6 +34,7 @@ map.on('load', function () {
       "icon-image": "noun_location",
       "icon-allow-overlap": true,
       "icon-size":.4,
+      "icon-offset":[0,-50],
     }
   });
 
@@ -62,6 +63,7 @@ map.on('load', function () {
 
 
   // Add a background pattern
+  /*
   map.addLayer({
   	"id": "BKG",
   	"type": "background",
@@ -69,6 +71,7 @@ map.on('load', function () {
   	"background-pattern": "diag-6"
   	}
   },'water')
+  */
 
   map.addLayer({
     "id": "Zoning",
