@@ -131,7 +131,9 @@ function show_legend_info(){
 function reset_map_view(event){
   var flyopts = {
     zoom: 10,
-    center: [-73.9978, 40.7209]
+    center: [-73.9978, 40.7209],
+    bearing: 0,
+    pitch:0,
   }
   map.flyTo(flyopts)
   var global_current_SMIA = -1;
