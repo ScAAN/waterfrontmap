@@ -1,7 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
 var map = new mapboxgl.Map({
   container: 'map',
-  style: './Assets/light.json',
+  style: 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Assets/light.json',
   center: [-73.9978, 40.7209],
   zoom: 10,
   legendControl: {
