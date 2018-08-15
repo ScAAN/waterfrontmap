@@ -141,6 +141,20 @@ map.on('load', function () {
   }, 'water');
 
   map.addLayer({
+    "id": "Percent People of Color Hatch",
+    "type": "fill",
+    "source": 'vector_data',
+    "source-layer": "reduced_census",
+    "layout": {"visibility":'visible'},
+    "paint": {
+      "fill-opacity": 1,
+      "fill-pattern": "diag-6"
+    },
+    "filter": ["==",'Perc_POC_P003009',-10]
+  }, 'water','Percent People of Color');
+
+
+  map.addLayer({
     "id": "Median Household Income",
     "type": "fill",
     "source": 'vector_data',
@@ -165,6 +179,20 @@ map.on('load', function () {
   }, 'water');
 
   map.addLayer({
+    "id": "Median Household Income Hatch",
+    "type": "fill",
+    "source": 'vector_data',
+    "source-layer": "reduced_census",
+    "layout": {"visibility":'visible'},
+    "paint": {
+      "fill-opacity": 0,
+      "fill-pattern": "diag-6"
+    },
+    "filter": ["==",'Median Household Income',-10]
+  }, 'water','Median Household Income');
+
+
+  map.addLayer({
     "id": "Percent of Families Below Poverty Line",
     "type": "fill",
     "source": 'vector_data',
@@ -186,6 +214,20 @@ map.on('load', function () {
       }
     }
   }, 'water');
+
+  map.addLayer({
+    "id": "Percent of Families Below Poverty Line Hatch",
+    "type": "fill",
+    "source": 'vector_data',
+    "source-layer": "reduced_census",
+    "layout": {"visibility":'visible'},
+    "paint": {
+      "fill-opacity": 0,
+      "fill-pattern": "diag-6"
+    },
+    "filter": ["==",'% of Families Below Poverty Level',-10]
+  }, 'water','Percent of Families Below Poverty Line');
+
 
   map.addLayer({
     "id": "Bulk Storage Sites",
@@ -360,6 +402,17 @@ map.on('load', function () {
      "fill-pattern": "hatch-16-thin"
   },
   "filter": ["==","unreliable",1]
+}, 'water','Percent Uninsured');
+
+map.addLayer({
+  "id": "Percent Uninsured Hatch",
+  "type": "fill",
+  "source": 'uninsured',
+  "paint": {
+    "fill-opacity": 0,
+    "fill-pattern": "diag-6"
+ },
+ "filter": ["==","perc_uninsured",-10]
 }, 'water','Percent Uninsured');
 
 });

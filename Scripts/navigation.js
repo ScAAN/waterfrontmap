@@ -83,6 +83,10 @@ function make_layer_visible(clickedLayer) {
       } else if (otherLayerName == "Percent Uninsured") {
         map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
         map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 0);
+        map.setPaintProperty("Percent Uninsured Hatch", 'fill-opacity', 0);
+      } else if (otherLayerName.includes("Percent") || otherLayerName.includes("Median Household Income")) {
+        map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
+        map.setPaintProperty(otherLayerName + " Hatch", 'fill-opacity', 0);
       } else {
         map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
       }
@@ -97,7 +101,10 @@ function make_layer_visible(clickedLayer) {
   } else if (clickedLayer == "Percent Uninsured") {
     map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
     map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 1);
-    console.log("disappear!")
+    map.setPaintProperty("Percent Uninsured Hatch", 'fill-opacity', 1);
+  } else if (clickedLayer.includes("Percent") || otherLayerName.includes("Median Household Income")) {
+    map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
+    map.setPaintProperty(clickedLayer + " Hatch", 'fill-opacity', 1);
   } else {
     map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
   }
