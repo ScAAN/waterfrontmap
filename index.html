@@ -30,7 +30,7 @@
 
   <nav id="menu" class="tab">
     <div style: style='margin:0 auto;text-align:center'>
-    <div> Data type: </div>
+    <div style="text-align:left;margin-left:10px"> Data: </div>
     <div class="menu-button" onclick="changeTab(event, 'Demographics')">Demographics</div>
     <div class="menu-button" onclick="changeTab(event, 'City Planning')">City Planning</div>
     <div class="menu-button" onclick="changeTab(event, 'Weather')">Weather</div>
@@ -320,11 +320,19 @@
       <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: -4px;display:block">RESET</p></span>
     </div>
 
-    <!-- LEGEND BUTTON  -->
+    <!-- OLD LEGEND BUTTON
     <div id='legendbutton' class='legend-button small-button general-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
       <span style='top: 5%;left:97%;position:absolute'><img class="marker" src="Assets/information-15.svg"></img></span>
       <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: 2px;display:block">INFO</p></span>
     </div>
+     -->
+
+     <!-- NEW LEGEND BUTTON -->
+     <div id='legendbutton' class='legend-button long-button general-button' style: style='display: inline-block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
+       <span style="display:inline-block;float:left"><img src="Assets/information-15.svg"></img> <span>
+       <span style="display:inline-block;line-height:0;float:left;"> <p>INFORMATION</p> <span>
+     </div>
+
 
     <!-- PRINT BUTTON  -->
     <div id='printbutton' class='print-button small-button general-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='window.print()'>

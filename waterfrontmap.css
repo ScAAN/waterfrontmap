@@ -357,12 +357,14 @@ button {
   display: block;
 }
 .legend-button {
-  bottom: 335px;
-  right: 10px;
+  /*bottom: 335px;
+  right: 10px;*/
+  bottom: 328px;
+  right:10px;
 }
 .long-button {
   width: 150px;
-  height: 25px;
+  height: 15px;
 }
 .fb-button {
   z-index: 1;
