@@ -210,6 +210,7 @@ function manage_listeners(active_listener){
 
     // kill story button
     document.getElementById('nextbutton').style.display = 'none';
+    document.getElementById('backbutton').style.display = 'none';
 
     if (killallboxes!=1) {
       // show the current box and make it active!

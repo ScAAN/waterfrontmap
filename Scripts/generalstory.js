@@ -7,7 +7,6 @@ var storyvars, pageSMIAIdx, global_max_page;
 request.onload = function() {
   var requested_text = request.response;
   storyvars = requested_text["data"];
-  console.log(requested_text)
   pageSMIAIdx = requested_text["SMIA_first_page"];
   global_max_page = requested_text["global_max_page"];
   // initialize global page
@@ -18,6 +17,13 @@ request.onload = function() {
 function story_next_page(){
   global_page = global_page+1;
   if (global_page>global_max_page){global_page=0}
+  story_display_page(global_page)
+}
+
+// prev page function
+function story_prev_page(){
+  global_page = global_page-1;
+  if (global_page<0){global_page=maxl_global_page}
   story_display_page(global_page)
 }
 
@@ -36,6 +42,7 @@ function story_display_page(storypage){
 
   // show the next button
   document.getElementById('nextbutton').style.display = "block";
+  document.getElementById('backbutton').style.display = "block";
 
  // switch to layer
  changeTab("None")
