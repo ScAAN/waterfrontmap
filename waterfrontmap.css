@@ -337,11 +337,19 @@ button {
 
 .next-button {
   width: 30px;
-  height: 125px;
+  height: 50px;
+  top: 190px;
+  left: 390px;
+  display: none;
+}
+.back-button {
+  width: 30px;
+  height: 50px;
   top: 120px;
   left: 390px;
   display: none;
 }
+
 .print-button {
   top: 10px;
   left: 390px;
