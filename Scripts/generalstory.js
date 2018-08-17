@@ -66,7 +66,7 @@ function smia_click(e){
     var smiaNum = smiaNumbers[whichsmia[0].properties.SMIA_Name]-1;
     // current SMIA number is a global variable, update it
     global_page = smiaNum;
-    story_display_page(pageSMIAIdx[smiaNum])
+    story_display_page(pageSMIAIdx[smiaNum]+1)
   }
 }
 
