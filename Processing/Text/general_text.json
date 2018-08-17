@@ -1,0 +1,103 @@
+{
+    "dataNames": {
+        "% of Families Below Poverty Level": "Percent below poverty level: ",
+        "CATEGORY": "Storm surge zone: ",
+        "Median Household Income": "Median household income: ",
+        "Perc_POC_P003009": "Percent people of color: ",
+        "human_readable_zone": "Land use: ",
+        "hurricane": "Hurricane evacuation zone: ",
+        "perc_uninsured": "Percent Uninsured"
+    },
+    "layer": [
+        {
+            "id": "Percent people of color",
+            "legend": "race-legend",
+            "source": "US Census 2010, divided by census tract, downloaded from <a href=\"http://census.ire.org/data/bulkdata.html\">CENSUS.IRE.ORG</a>",
+            "text": "Text"
+        },
+        {
+            "id": "Zoning",
+            "legend": "zoning-legend",
+            "source": "NYC Zoning designations, last updated 2015(?), downloaded from <a href=\"http://data.beta.nyc//dataset/635e26b3-2acf-4f55-8780-2619660fdf66/resource/e5528464-9a00-40a7-8b85-21e9b25d6c24/download/d52d598c77484806876b8f897d51f805nyczoning.geojson\">data.Beta.NYC</a>",
+            "text": "Text"
+        },
+        {
+            "id": "Percent of Families Below Poverty Line ",
+            "legend": "poverty-legend",
+            "source": "US Census 2010, divided by census tract, downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">US Census Bureau</a>",
+            "text": "Text"
+        },
+        {
+            "id": "Hurricane Storm Surge Zones",
+            "legend": "surge-legend",
+            "source": "'(?) 2016 Hurricane evacuation Zones from the <a href=\"https://geo.nyu.edu/catalog/nyu_2451_34571\">NYC-DEM</a>",
+            "text": "Text"
+        },
+        {
+            "id": "Median Household Income",
+            "legend": "income-legend",
+            "source": "(?) US Census 2010, divided by census tract, downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">US Census Bureau</a>",
+            "text": "Text"
+        },
+        {
+            "id": "Bulk Storage Sites ",
+            "legend": "bulk-legend",
+            "source": "2016 EPCRA TRI sites from <a href=\"https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016\">US EPA</a>. DEC active  MOSF, CBS and superfund class 2 sites (7/18/2018) from <a href=\"https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4\">NYS DEC</a> and <a href=\"https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3\">NYS DEC</a>",
+            "text": "Text"
+        },
+        {
+            "id": "Hurricane Evacuation Zones",
+            "legend": "evac-legend",
+            "source": "NYC Emergency Management, downloaded from <a href=\"https://data.cityofnewyork.us/Public-Safety/Hurricane-Evacuation-Zones/uihr-hn7s/data\">NYC Open Data</a>",
+            "text": "Text"
+        },
+        {
+            "id": "Percent Uninsured ",
+            "legend": "uninsured-legend",
+            "source": "Percent uninsured data from Community Health Survey 2016 (?), downladed at <a href=\"https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html\">NYC health</a>, community district shapefiles from <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page\">NYC planning</a>",
+            "text": "Text"
+        }
+    ],
+    "smia": [
+        {
+            "description": "As the threats of climate change increase, destructive storms like Superstorm Sandy, Hurricane Katrina, and Hurricane Harvey will expose the vulnerabilities of costal communities overburdened by industrial and chemical facilities. Of interest are NYC\u2019s Significant Maritime and Industrial Areas (SMIAs), clusters of industry and polluting infrastructure along the waterfront. SMIAs are located in classic environmental justice communities- predominantly low-income communities of color - in the south Bronx, Brooklyn, Queens and Staten Island, which are also hurricane storm surge zones. The WJP is a research and advocacy campaign focusing on community resiliency that seeks to reduce potential toxic exposures and public health risks associated with climate change and storm surge in the City\u2019s industrial waterfront.",
+            "name": "Introduction ",
+            "number": 0
+        },
+        {
+            "description": "The Brooklyn Navy Yard is a 227-acre publicly owned industrial park characterized by a diversity of small businesses. The Navy Yard has more than 2,000 permanent jobs on site, and provides an estimated 3,000 temporary jobs to crews of film and television shoots at Steiner Studios. The robust increase in business activity between 200 and 2008 is attributed to a dramatic redevelopment effort, harnessing more than $500 million in public and private investment.",
+            "name": "Brooklyn Navy Yard",
+            "number": 1
+        },
+        {
+            "description": "Newtown Creek, at over 780 acres the city\u2019s largest SMIA, abuts portions of the Greenpoint, Williamsburg, Long Island City, and Maspeth industrial areas. The waterfront area is characterized by heavy industry and municipal facilities, many of which are water-dependent.",
+            "name": "Newtown Creek",
+            "number": 2
+        },
+        {
+            "description": "No information about this SMIA yet.",
+            "name": "Staten Island West Shore",
+            "number": 3
+        },
+        {
+            "description": "The Red Hook SMIA is approximately 120 acres and is more than 90 percent publicly owned. The SMIA is home to the Red Hook Container Terminal and Brooklyn Piers Port Authority Marine Terminal.",
+            "name": "Red Hook",
+            "number": 4
+        },
+        {
+            "description": "The South Bronx SMIA is more than 850 acres in size, stretching from Port Morris on the Harlem River to Hunts Point on the East River. Wholesale trade is the dominant industry. The SMIA is home to the city\\'s produce distribution center at Hunts Point, the Fulton Fish market, and other food distributors.",
+            "name": "South Bronx",
+            "number": 5
+        },
+        {
+            "description": "Nearly 600 acres, the Sunset Park SMIA extends from Erie Basin to Owl\\'s Head, an area characterized by water-dependent facilities, concentrations  of  industrial  activity,  well-buffered  manufacturing  districts,  and  vacant  sites  and  brownfields  of  significant  size.  A  small portion of the SMIA abuts the Gowanus Canal, a waterway that was designated a Superfund Site in 2010.",
+            "name": "Sunset Park",
+            "number": 6
+        },
+        {
+            "description": "The Kill Van Kull SMIA stretches from Howland Hook to Snug Harbor. It contains a concentration of maritime uses including a marine terminal and dry docks for ship repair. The SMIA is approximately 665 acres and zoned to permit a broad range of commercial and industrial uses. In 2008, there were more than 70 firms employing more than 3,300 people in the SMIA. The overwhelming number of jobs - more than 70 percent - were in transportation and warehousing.",
+            "name": "Kill Van Kull",
+            "number": 7
+        }
+    ]
+}
