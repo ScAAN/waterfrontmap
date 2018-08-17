@@ -1,5 +1,5 @@
 
-var requestURL = 'REPLACE';
+var requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Scripts/story_text.json';
 var request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'json';
@@ -7,6 +7,7 @@ request.send();
 request.onload = function() {
   var storyvars = request.response;
   console.log(storyvars)
+  console.log(storyvars[0]["pageZoom"])
 }
 
 
@@ -20,7 +21,7 @@ function story_next_page(){
 function story_display_page(storypage){
   //flying options
   var flyopts = {
-    zoom: pageZoom[storypage],
+    zoom: storyvars[storypage]["pageLng"],
     pitch:0,
     bearing:0,
     center: [pageLat[storypage],pageLng[storypage]]
