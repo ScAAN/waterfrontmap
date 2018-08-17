@@ -15,7 +15,7 @@ function hidewip(){
 // update legend information to be default
 legend_info("Percent People of Color")
 
-function changeTab(evt, tabName) {
+function changeTab(tabName) {
   var killallboxes=0;
   var layers = document.getElementById('menu');
   var clickedTab = document.getElementById(tabName);
@@ -27,9 +27,11 @@ function changeTab(evt, tabName) {
   }
 
   // check if clicked box was alread active, if so then kill all boxes
-  if (clickedTab.className.includes("active")) {
+
+  if (clickedTab==null) {
+  } else if (clickedTab.className.includes("active")) {
     killallboxes = 1;
-}
+  }
 
   // make all the buttons inactive and then set the clicked button to active
   tablinks = document.getElementsByClassName("menu-button");
@@ -147,7 +149,6 @@ function reset_map_view(event){
   var global_page=0;
   showinfobox(event,"none")
 }
-reset_map_view()
 
 // turn on / off explore and story listeners
 // listeners 101: map.on makes it listen, map.off makes it stop
