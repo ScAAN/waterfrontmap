@@ -3,16 +3,16 @@ var request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
-var storyvars;
+var storyvars, pageSMIAIdx, global_max_page;
 request.onload = function() {
-  storyvars = request.response;
+  var requested_text = request.response;
+  storyvars = requested_text["data"];
+  console.log(requested_text)
+  pageSMIAIdx = requested_text["SMIA_first_page"];
+  global_max_page = requested_text["global_max_page"];
+  // initialize global page
+  global_page=0;
 }
-
-var pageSMIAIdx = [0,1,2,3,4,5,6,7];
-
-// initialize global page
-global_page=0;
-global_max_page=7;
 
 // next page function
 function story_next_page(){
