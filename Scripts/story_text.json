@@ -1,0 +1,58 @@
+[
+  {
+    "pageIdx": 0,
+    "pageSMIA": 0,
+    "pageLayer": "Percent People of Color",
+    "pageTitle": "Introduction Title",
+    "pageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "pageIdx": 1,
+    "pageSMIA": 1,
+    "pageLayer": "Percent People of Color",
+    "pageTitle": "Smia #1 Title",
+    "pageText": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "pageIdx": 2,
+    "pageSMIA": 2,
+    "pageLayer": "Percent People of Color",
+    "pageTitle": "Smia #2 Title",
+    "pageText": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+  },
+  {
+    "pageIdx": 3,
+    "pageSMIA": 3,
+    "pageLayer": "Percent People of Color",
+    "pageTitle": "Smia #3 Title",
+    "pageText": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+  },
+  {
+    "pageIdx": 4,
+    "pageSMIA": 4,
+    "pageLayer": "Percent People of Color",
+    "pageTitle": "Smia #4 Title",
+    "pageText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+  },
+  {
+    "pageIdx": 5,
+    "pageSMIA": 5,
+    "pageLayer": "Percent People of Color",
+    "pageTitle": "Smia #5 Title",
+    "pageText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+  },
+  {
+    "pageIdx": 6,
+    "pageSMIA": 6,
+    "pageLayer": "Percent People of Color",
+    "pageTitle": "Smia #6 Title",
+    "pageText": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+  },
+  {
+    "pageIdx": 7,
+    "pageSMIA": 7,
+    "pageLayer": "Percent People of Color",
+    "pageTitle": "Smia #7 Title",
+    "pageText": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+  }
+]

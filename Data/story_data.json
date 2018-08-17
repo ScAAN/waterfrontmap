@@ -1,0 +1,44 @@
+[{
+  "0":{
+    "pageSMIA"  :  "0",
+    "pageLayer" :  "Percent People of Color",
+    "pageTitle" :  "Introduction",
+    "pageText"  :  "This is the introduction, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "1":{
+    "pageSMIA"  :  "1",
+    "pageLayer" :  "Percent People of Color",
+    "pageTitle" :  "SMIA #1",
+    "pageText"  :  "This is SMIA one, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "2":{
+    "pageSMIA"  :  "2",
+    "pageLayer" :  "Percent People of Color",
+    "pageTitle" :  "SMIA #2",
+    "pageText"  :  "This is SMIA two, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "3":{
+    "pageSMIA"  :  "3",
+    "pageLayer" :  "Percent People of Color",
+    "pageTitle" :  "SMIA #3",
+    "pageText"  :  "This is SMIA three, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "4":{
+    "pageSMIA"  :  "4",
+    "pageLayer" :  "Percent People of Color",
+    "pageTitle" :  "SMIA #4",
+    "pageText"  :  "This is SMIA four, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "5":{
+    "pageSMIA"  :  "5",
+    "pageLayer" :  "Percent People of Color",
+    "pageTitle" :  "SMIA #5",
+    "pageText"  :  "This is SMIA five, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "6":{
+    "pageSMIA"  :  "6",
+    "pageLayer" :  "Percent People of Color",
+    "pageTitle" :  "SMIA #6",
+    "pageText"  :  "This is SMIA six, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  }
+}]

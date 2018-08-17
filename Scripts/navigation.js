@@ -12,11 +12,13 @@ function hidewip(){
 // |  ** MENU / LAYER SWITCHING  ** |
 // ----------------------------------
 
+// update legend information to be default
 legend_info("Percent People of Color")
-function changeTab(evt, tabName) {
 
+function changeTab(evt, tabName) {
   var killallboxes=0;
   var layers = document.getElementById('menu');
+  var clickedTab = document.getElementById(tabName);
   for (var key in toggleableLegendIds) {
     var link = document.getElementById('toggler-' + key)
     if (link != null){
@@ -25,7 +27,7 @@ function changeTab(evt, tabName) {
   }
 
   // check if clicked box was alread active, if so then kill all boxes
-  if (evt.currentTarget.className.includes("active")) {
+  if (clickedTab.className.includes("active")) {
     killallboxes = 1;
 }
 
@@ -34,9 +36,12 @@ function changeTab(evt, tabName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
+
+  if (tabName.includes("None")) {return}
+
   if (killallboxes !=1){
-    evt.currentTarget.className += " active";
-    // MH: this now happens with VISIBILITY instead of opacity (to support markers)
+    // build a toggling menu
+    clickedTab.className += " active";
     for (var i = 0; i < toggleableLayerIds[tabName].length; i++) {
       var id = toggleableLayerIds[tabName][i];
       var link = document.createElement('a');
@@ -62,10 +67,6 @@ function changeTab(evt, tabName) {
       }
     };
   }
-
-
-
-
 }
 
 function make_layer_visible(clickedLayer) {
@@ -143,15 +144,14 @@ function reset_map_view(event){
     pitch:0,
   }
   map.flyTo(flyopts)
-  var global_current_SMIA = -1;
+  var global_page=0;
   showinfobox(event,"none")
 }
+reset_map_view()
 
 // turn on / off explore and story listeners
 // listeners 101: map.on makes it listen, map.off makes it stop
 // map.on/off("event",("layer"),"Listerner function")
-
-var global_current_SMIA = -1;
 
 function manage_listeners(active_listener){
 
@@ -172,8 +172,8 @@ function manage_listeners(active_listener){
     //map.on('mousemove',"SMIAfill",which_smia);
     map.on('mousemove',which_smia);
     map.on('click',smia_click)
-    global_current_SMIA = -1;
-    fly_to_smia()
+    global_page = 0;
+    story_display_page(global_page)
   }
   if (active_listener.includes("explore")){
     map.on('click',query_point);

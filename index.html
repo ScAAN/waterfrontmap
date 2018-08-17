@@ -31,9 +31,9 @@
   <nav id="menu" class="tab">
     <div style: style='margin:0 auto;text-align:center'>
     <div style="text-align:left;margin-left:10px"> Data: </div>
-    <div class="menu-button" onclick="changeTab(event, 'Demographics')">Demographics</div>
-    <div class="menu-button" onclick="changeTab(event, 'City Planning')">City Planning</div>
-    <div class="menu-button" onclick="changeTab(event, 'Weather')">Weather</div>
+    <div id="Demographics" class="menu-button" onclick="changeTab(event, 'Demographics')">Demographics</div>
+    <div id="City Planning" class="menu-button" onclick="changeTab(event, 'City Planning')">City Planning</div>
+    <div id="Weather" class="menu-button" onclick="changeTab(event, 'Weather')">Weather</div>
     <div class="spacer-big"></div>
   </div>
   </nav>
@@ -306,7 +306,7 @@
     <!------------------------->
 
     <!-- NEXT BUTTON  -->
-    <div id='nextbutton' class='next-button general-button' onclick='fly_next()'>
+    <div id='nextbutton' class='next-button general-button' onclick='story_next_page()'>
       <span style='top: 30%;left:15%;position:absolute'>
         <img class="marker" style="left:0%;height:30px" src="Assets/noun_arrow.svg"></img>
         <!-- style="left:0%;transform:rotate(90deg);"-->
@@ -350,7 +350,7 @@
     <script src='Scripts/longtext.js'></script>
     <script src='Scripts/waterfrontmap.js'></script>
     <script src='Scripts/navigation.js'></script>
-    <script src='Scripts/story.js'></script>
+    <script src='Scripts/generalstory.js'></script>
     <script src='Scripts/explore.js'></script>
 
   </body>
