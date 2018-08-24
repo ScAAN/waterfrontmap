@@ -3,8 +3,10 @@ Style/**
 old/**
 figs/**
 output/**
+Processing/build**
 NotYetConverted/**
 # Windows default autosave extension
 *.asv
 *.mat
 *.jpg
+*.exe

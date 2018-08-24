@@ -1,8 +1,39 @@
 // Layer names, numbers, and text
+
+
+// request files
+var requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/general_text.json';
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+var vlayer, vsmia;
+request.onload = function() {
+  var requested_text = request.response;
+  vlayer = requested_text["layer"];
+  vsmia = requested_text["smia"];
+  // update legend information to be default
+  legend_info("Percent People of Color")
+}
+
+/*
+var toggleableLayerIds =
+var toggleableLegendIds =
+var dataNames =
+var smiaNumbers =
+var smiaTitle =
+var smiaText =
+var smiaDescription =
+var legendText =
+var legendSource =
+*/
+
 var toggleableLayerIds =
     {"Demographics": ['Percent People of Color', 'Percent of Families Below Poverty Line', 'Median Household Income', 'Percent Uninsured'],
      "City Planning": ["Zoning", 'Bulk Storage Sites'],
      "Weather": ['Hurricane Storm Surge Zones', 'Hurricane Evacuation Zones']};
+
+
 var toggleableLegendIds = {'Percent People of Color': 'race-legend',
 'Zoning': 'zoning-legend',
 'Percent of Families Below Poverty Line': 'poverty-legend',
@@ -19,6 +50,8 @@ var dataNames = {'human_readable_zone': 'Land use: ',
 'Median Household Income': 'Median household income: ',
 'hurricane': 'Hurricane evacuation zone: ',
 'perc_uninsured': 'Percent Uninsured'};
+
+
 // 'neighborhood':'NYC Neighborhood: '};
 var smiaNumbers = {'Brooklyn Navy Yard':'1',
 'Newtown Creek':'2',

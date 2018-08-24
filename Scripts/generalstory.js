@@ -1,4 +1,4 @@
-var requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Scripts/story_text.json';
+var requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/story_text.json';
 var request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'json';
@@ -65,8 +65,8 @@ function smia_click(e){
     // fly now!
     var smiaNum = smiaNumbers[whichsmia[0].properties.SMIA_Name]-1;
     // current SMIA number is a global variable, update it
-    global_page = smiaNum;
-    story_display_page(pageSMIAIdx[smiaNum]+1)
+    global_page = pageSMIAIdx[smiaNum]+1;
+    story_display_page(global_page)
   }
 }
 
