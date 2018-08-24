@@ -1,21 +1,17 @@
-// Layer names, numbers, and text
-
-
-// request files
 var requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/general_text.json';
-var request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
+var request2 = new XMLHttpRequest();
+request2.open('GET', requestURL);
+request2.responseType = 'json';
+request2.send();
 var vlayer, vsmia;
-request.onload = function() {
-  var requested_text = request.response;
+request2.onload = function() {
+  var requested_text = request2.response;
   vlayer = requested_text["layer"];
   vsmia = requested_text["smia"];
   // update legend information to be default
   legend_info("Percent People of Color")
 }
-
+// Layer names, numbers, and text
 /*
 var toggleableLayerIds =
 var toggleableLegendIds =

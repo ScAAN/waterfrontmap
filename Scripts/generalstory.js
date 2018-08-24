@@ -80,18 +80,19 @@ function which_smia(e){
 
   // if the mouse moves over a smia
   if (whichsmia.length > 0) {
+    var thissmia = whichsmia[0].properties.SMIA_Name;
     // turn filter on
-    map.setFilter("SMIAhover", ["==", "SMIA_Name", whichsmia[0].properties.SMIA_Name]);
+    map.setFilter("SMIAhover", ["==", "SMIA_Name", thissmia]);
         if (global_page<1){
           // if the map isn't zoomed in, show some basic info
-      document.getElementById('smiabox').innerHTML = '<p><strong><big>SMIA # ' + smiaNumbers[whichsmia[0].properties.SMIA_Name] + ' : ' + whichsmia[0].properties.SMIA_Name + '</big></strong>' + '<small></br></br>' + smiaText[whichsmia[0].properties.SMIA_Name] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
+      document.getElementById('smiabox').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
     }
   } else {
     // turn filter off
     map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
       if (global_page<1){
         // if the map isn't zoomed in, show some instructions
-      document.getElementById('smiabox').innerHTML = '<p><small> ' + smiaIntro + '</small><br/><br/>Click next to start learning about SMIAs, or click on any SMIA for more information. </p> ';
+      document.getElementById('smiabox').innerHTML = '<p><small> ' + vsmia["Introduction"]["description"] + '</small><br/><br/>Click next to start learning about SMIAs, or click on any SMIA for more information. </p> ';
   }
 }
 }
