@@ -1,5 +1,5 @@
 id,legend,text,source
-Percent people of color,race-legend,Text,"US Census 2010, divided by census tract, downloaded from <a href=""http://census.ire.org/data/bulkdata.html"">CENSUS.IRE.ORG</a>"
+Percent People of Color,race-legend,Text,"US Census 2010, divided by census tract, downloaded from <a href=""http://census.ire.org/data/bulkdata.html"">CENSUS.IRE.ORG</a>"
 Zoning,zoning-legend,Text,"NYC Zoning designations, last updated 2015(?), downloaded from <a href=""http://data.beta.nyc//dataset/635e26b3-2acf-4f55-8780-2619660fdf66/resource/e5528464-9a00-40a7-8b85-21e9b25d6c24/download/d52d598c77484806876b8f897d51f805nyczoning.geojson"">data.Beta.NYC</a>"
 Percent of Families Below Poverty Line ,poverty-legend,Text,"US Census 2010, divided by census tract, downloaded from <a href=""https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml"">US Census Bureau</a>"
 Hurricane Storm Surge Zones,surge-legend,Text,"'(?) 2016 Hurricane evacuation Zones from the <a href=""https://geo.nyu.edu/catalog/nyu_2451_34571"">NYC-DEM</a>"

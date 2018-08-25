@@ -11,9 +11,8 @@ function hidewip(){
 // ----------------------------------------
 // |  ** MENU / LAYER SWITCHING  ** |
 // ----------------------------------
-
 // update legend information to be default
-legend_info("Percent People of Color")
+//legend_info("Percent People of Color")
 
 function changeTab(tabName) {
   var killallboxes=0;
@@ -120,9 +119,9 @@ function legend_info(clickedLayer){
   //update legend info to match clicked layer
   document.getElementById('legendinfo').innerHTML ='<div style="margin-top:-10px;">'
   +'<p><h4>Source</h4>'
-  +'<small>'+legendSource[clickedLayer]+'</br></br></small>'
+  +'<small>'+ vlayer[clickedLayer]["source"] +'</br></br></small>'
   +'<h4>Description</h4>'
-  +'<small>' + legendText[clickedLayer] + '</small></p>'
+  +'<small>' + vlayer[clickedLayer]["source"] + '</small></p>'
   +'</div>';
 }
 

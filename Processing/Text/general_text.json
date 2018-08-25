@@ -39,7 +39,7 @@
             "source": "US Census 2010, divided by census tract, downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">US Census Bureau</a>",
             "text": "Text"
         },
-        "Percent people of color": {
+        "Percent People of Color": {
             "legend": "race-legend",
             "source": "US Census 2010, divided by census tract, downloaded from <a href=\"http://census.ire.org/data/bulkdata.html\">CENSUS.IRE.ORG</a>",
             "text": "Text"
