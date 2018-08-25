@@ -9,7 +9,7 @@
         "perc_uninsured": "Percent Uninsured"
     },
     "layer": {
-        "Bulk Storage Sites ": {
+        "Bulk Storage Sites": {
             "legend": "bulk-legend",
             "source": "2016 EPCRA TRI sites from <a href=\"https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016\">US EPA</a>. DEC active  MOSF, CBS and superfund class 2 sites (7/18/2018) from <a href=\"https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4\">NYS DEC</a> and <a href=\"https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3\">NYS DEC</a>",
             "text": "Text"
@@ -29,19 +29,19 @@
             "source": "(?) US Census 2010, divided by census tract, downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">US Census Bureau</a>",
             "text": "Text"
         },
-        "Percent Uninsured ": {
+        "Percent People of Color": {
+            "legend": "race-legend",
+            "source": "US Census 2010, divided by census tract, downloaded from <a href=\"http://census.ire.org/data/bulkdata.html\">CENSUS.IRE.ORG</a>",
+            "text": "Text"
+        },
+        "Percent Uninsured": {
             "legend": "uninsured-legend",
             "source": "Percent uninsured data from Community Health Survey 2016 (?), downladed at <a href=\"https://a816-healthpsi.nyc.gov/epiquery/CHS/CHSXIndex.html\">NYC health</a>, community district shapefiles from <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page\">NYC planning</a>",
             "text": "Text"
         },
-        "Percent of Families Below Poverty Line ": {
+        "Percent of Families Below Poverty Line": {
             "legend": "poverty-legend",
             "source": "US Census 2010, divided by census tract, downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">US Census Bureau</a>",
-            "text": "Text"
-        },
-        "Percent People of Color": {
-            "legend": "race-legend",
-            "source": "US Census 2010, divided by census tract, downloaded from <a href=\"http://census.ire.org/data/bulkdata.html\">CENSUS.IRE.ORG</a>",
             "text": "Text"
         },
         "Zoning": {

@@ -116,12 +116,14 @@ function make_layer_visible(clickedLayer) {
 
 
 function legend_info(clickedLayer){
+  console.log(clickedLayer)
+  console.log(vlayer)
   //update legend info to match clicked layer
   document.getElementById('legendinfo').innerHTML ='<div style="margin-top:-10px;">'
   +'<p><h4>Source</h4>'
   +'<small>'+ vlayer[clickedLayer]["source"] +'</br></br></small>'
   +'<h4>Description</h4>'
-  +'<small>' + vlayer[clickedLayer]["source"] + '</small></p>'
+  +'<small>' + vlayer[clickedLayer]["text"] + '</small></p>'
   +'</div>';
 }
 

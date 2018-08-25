@@ -8,6 +8,7 @@ request2.onload = function() {
   var requested_text = request2.response;
   vlayer = requested_text["layer"];
   vsmia = requested_text["smia"];
+  legend_info("Percent People of Color")
 }
 // Layer names, numbers, and text
 /*
