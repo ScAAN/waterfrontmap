@@ -9,6 +9,7 @@ Mapping weather, human industry, and social demographics of SMIAs.
 <img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/demo.gif" width="350" height="350">
 
 #### Open Issues 
+<details><summary>issues</summary> 
 - [ ] Change data names to be the same in vector data 
 - [ ] Add feedback form (see this)
 - [ ] Make python script executable (see this and this)
@@ -17,6 +18,8 @@ Mapping weather, human industry, and social demographics of SMIAs.
 - [ ] Diag svg doesn't render seamlessly
 - [ ] Pay  for icons
 - [ ] Switch to jQuery
+   
+</details>
 
 #### Changelog
 <details><summary>changes</summary>  
@@ -84,7 +87,7 @@ Of course, if there are any typos in the layer names or SMIA numbers in your csv
 
 <details><summary>How to update text</summary>
 
-Information text for layers and SMIAs is now updated through `Processing\Text\general_text.json`. Update this json by editing `layer_text.csv` and `smia_text.csv` and converting with `Processing\text_conversion_small.py`.
+Information text for layers and SMIAs is now updated through `Processing\Text\general_text.json`. Update this json by editing `Processing\Text\layer_text.csv` and `Processing\Text\smia_text.csv` and converting with `Processing\text_conversion_small.py`.
 
 To use this:
 
@@ -92,7 +95,7 @@ To use this:
 1. (b) To control SMIA information: using `smia_text.csv` enter the smia name (`name`), number (`number`) and hover box description (`description`)
 2. Save these csvs, make sure they are in `Processing\Text\` 
 3. Run `Processing\text_conversion_small.py`
-4. Push changes to github or upload `story_text.json` manually
+4. Push changes to github or upload `general_text.json` manually
 5. Wait for the raw file to refresh (~5 minutes)
 6. Finished! 
 
