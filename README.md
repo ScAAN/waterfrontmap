@@ -6,44 +6,28 @@ Mapping weather, human industry, and social demographics of SMIAs.
 [**OLD MAPS**](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true) //
 [**INFORMATION**](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)
 
-
 <img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/demo.gif" width="350" height="350">
 
-#### Quality of life
-<details><summary>Brief explanation of code</summary>   
-
-- `index.html`: main html file
-- `\Assets`: folder containing images
-- `index_old.html`: a saved copy from when all the code was in one file
-- `waterfrontmap.css`: style sheet
-- `waterfrontmap.js`: javascript which does mapbox stuff (i.e. making the map)
-- `story.js`: javascript which controls story tab
-- `explore.js`: javascript which controls explore tab
-- `longtext.js`: declaration of global variables and info text - needs cleaning
-
-</details>
-
-<details><summary>Urgent bugs</summary>   
-
-- [ ] add uninsured to vector data
-- [ ] `diag` doesn't render seamlessly 
-
-</details>
+#### Open Issues 
+- [ ] Change data names to be the same in vector data 
+- [ ] Add feedback form (see this)
+- [ ] Make python script executable (see this and this)
+- [ ] Make explore information have consistent order
+- [ ] Error checking for enhanced story 
+- [ ] Diag svg doesn't render seamlessly
+- [ ] Pay  for icons
+- [ ] Switch to jQuery
 
 #### Changelog
 <details><summary>changes</summary>  
 
+- [x] (8/28) Enhanced story mode -Maija
 - [x] (8/14) Percent uninsured and cosmetics -Maija 
 - [x] (7/29) Checking off to-do list -Maija
 - [x] (7/22) Deep cleaning +bugfixes -Maija
 - [x] (7/18) Story mode, legend info, bulk storage + bugfixes
 - [x] (6/25) Search bar -Maija
 - [x] (6/18) Performance improvements -Billy 
-- [ ] make explore information have consistent order
-- [ ] add feedback form 
-- [ ] pay  for icons
-- [ ] upgrade story mode 
-- [ ] get official tezt 
 - [ ] Automate data conversion to vector
 - [ ] New data
 - [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
@@ -80,7 +64,44 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 </details>
 
-#### Resources
+#### How to use?
+<details><summary>How to use enhanced story mode</summary>
+
+We now have a story mode! This works by reading in the information stored in the csv file `Processing\Text\story_text.csv`, converting it to a json file (`Processing\Text\story_text.json`) which is then hosted on github and read.   
+
+To use this:
+
+1. Enter your story into `story_text.csv`, each line is a page, with the specified SMIA (`pageSMIA`), layer (`pageLayer`), title (`pageTitle`), and description text (`pageText`). Please be careful to put exact layer names in the layer field, and specify SMIA's with a number from 0-7 where 0 is a zoomed out view of all the SMIAs. 
+2. Save this csv, make sure it is in `Processing\Text\` and it is a normal csv
+3. Run `Processing\text_conversion_small.py`
+4. Push changes to github or upload `story_text.json` manually
+5. Wait for the raw file to refresh (~5 minutes)
+6. Finished! 
+
+Of course, if there are any typos in the layer names or SMIA numbers in your csv file, strange things might start to happen. Make sure to always check for typos! 
+
+</details>
+
+<details><summary>How to update text</summary>
+
+Information text for layers and SMIAs is now updated through `Processing\Text\general_text.json`. Update this json by editing `layer_text.csv` and `smia_text.csv` and converting with `Processing\text_conversion_small.py`.
+
+To use this:
+
+1. (a) To control layer information: enter your layer info into `layer_text.csv`, each line is a layer with a layer id (`id`), legend id (`legend`), description text (`text`), and source text (`source`)
+1. (b) To control SMIA information: using `smia_text.csv` enter the smia name (`name`), number (`number`) and hover box description (`description`)
+2. Save these csvs, make sure they are in `Processing\Text\` 
+3. Run `Processing\text_conversion_small.py`
+4. Push changes to github or upload `story_text.json` manually
+5. Wait for the raw file to refresh (~5 minutes)
+6. Finished! 
+
+As with the story, make sure to check for typos. 
+
+</details>
+
+
+
 <details><summary>How to add info to map (Billy's Guide)</summary>
 
 <details><summary>Old/Basic guide</summary>
@@ -182,16 +203,7 @@ in your style.json will correctly load in the sprites.
 
 </details>
 
-<details><summary>Misc. data sources</summary>   
-
-- [NYC shape files](https://www1.nyc.gov/site/planning/data-maps/open-data.page)
-- [Demographic data from ACS](http://www1.nyc.gov/site/planning/data-maps/nyc-population/american-community-survey.page)
-- [Census TIGER data](https://www.census.gov/geo/maps-data/data/tiger-data.html)
-- [Neighborhood Data](http://data.beta.nyc/dataset/pediacities-nyc-neighborhoods)
-- [Poverty Data](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?src=bkmk)
-
-</details>
-
+#### Resources and tutorials 
 <details><summary>Coding resources </summary>
 
 - [mapbox-gl sprites](https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites)
