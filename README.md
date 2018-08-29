@@ -12,10 +12,9 @@ Mapping weather, human industry, and social demographics of SMIAs.
 <details><summary>issues</summary> 
    
 - [ ] Change data names to be the same in vector data 
+- [ ] Make explore information have consistent order
 - [ ] Add feedback form (see [this](https://stackoverflow.com/questions/38620919/make-contact-form-for-github-page?rq=1) or make a [google form](https://www.google.com/forms/about/))
 - [ ] Make python script executable (see [this](https://medium.com/dreamcatcher-its-blog/making-an-stand-alone-executable-from-a-python-script-using-pyinstaller-d1df9170e263) to make the executeable and [this](https://stackoverflow.com/questions/47692213/reducing-size-of-pyinstaller-exe) to reduce the size)
-- [ ] Make explore information have consistent order
-- [ ] Input error checking for enhanced story 
 - [ ] Diag svg doesn't render seamlessly
 - [ ] Pay for icons ([here](https://thenounproject.com/coquet_adrien/))
 - [ ] Switch to jQuery

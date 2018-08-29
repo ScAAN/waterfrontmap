@@ -41,7 +41,7 @@
             "pageZoom": 12
         },
         {
-            "pageIdx": 2,
+            "pageIdx": 3,
             "pageLat": -73.93480042828487,
             "pageLayer": "Zoning",
             "pageLng": 40.73043814252142,
@@ -51,7 +51,7 @@
             "pageZoom": 12
         },
         {
-            "pageIdx": 3,
+            "pageIdx": 4,
             "pageLat": -74.23091192935536,
             "pageLayer": "Median Household Income",
             "pageLng": 40.5505517824447,
@@ -61,7 +61,7 @@
             "pageZoom": 12
         },
         {
-            "pageIdx": 3,
+            "pageIdx": 5,
             "pageLat": -74.23091192935536,
             "pageLayer": "Percent Uninsured",
             "pageLng": 40.5505517824447,
@@ -71,7 +71,7 @@
             "pageZoom": 12
         },
         {
-            "pageIdx": 3,
+            "pageIdx": 6,
             "pageLat": -74.23091192935536,
             "pageLayer": "Bulk Storage Sites",
             "pageLng": 40.5505517824447,
@@ -81,7 +81,7 @@
             "pageZoom": 12
         },
         {
-            "pageIdx": 4,
+            "pageIdx": 7,
             "pageLat": -74.00743616089453,
             "pageLayer": "Percent of Families Below Poverty Line",
             "pageLng": 40.68650785503232,
@@ -91,7 +91,7 @@
             "pageZoom": 12
         },
         {
-            "pageIdx": 5,
+            "pageIdx": 8,
             "pageLat": -73.8939875925258,
             "pageLayer": "Bulk Storage Sites",
             "pageLng": 40.80730643781723,
@@ -101,7 +101,7 @@
             "pageZoom": 12
         },
         {
-            "pageIdx": 6,
+            "pageIdx": 9,
             "pageLat": -74.01499944630518,
             "pageLayer": "Hurricane Storm Surge Zones",
             "pageLng": 40.658442081047724,
@@ -111,7 +111,7 @@
             "pageZoom": 12
         },
         {
-            "pageIdx": 7,
+            "pageIdx": 10,
             "pageLat": -74.13713363755667,
             "pageLayer": "Hurricane Evacuation Zones",
             "pageLng": 40.64057887695694,
