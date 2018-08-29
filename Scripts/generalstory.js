@@ -63,9 +63,12 @@ function smia_click(e){
   // if the mouse has clicked on a SMIA then get its number and fly
   if (whichsmia.length > 0){
     // fly now!
-    var smiaNum = smiaNumbers[whichsmia[0].properties.SMIA_Name]-1;
+    var smiaNum = vsmia[whichsmia[0].properties.SMIA_Name]["number"]-1;
     // current SMIA number is a global variable, update it
     global_page = pageSMIAIdx[smiaNum]+1;
+    map.off('click',smia_click)
+    map.off('mousemove',which_smia)
+    map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
     story_display_page(global_page)
   }
 }
