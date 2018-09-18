@@ -63,7 +63,7 @@ if (storyvars[storypage]["pageIdx"]==0) {
  make_layer_visible(storyvars[storypage]["pageLayer"])
 
   // display information about SMIA
-  document.getElementById('smiabox').innerHTML = '<p><strong><big>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[storypage]["pageText"] + '</small></p>' + jumptext;
+  document.getElementById('smiabox').innerHTML = '<p><strong><big>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[storypage]["pageText"] + jumptext + '</small></p>';
 }
 
 function smia_click(e){
@@ -106,7 +106,9 @@ function which_smia(e){
     // turn filter off
     map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
     // show the story page
-    document.getElementById('smiabox').innerHTML = '<p><strong><big>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[storypage]["pageText"] + '</small></p>' + jumptext;
+    var jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
+    document.getElementById('smiabox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[global_page]["pageText"] + jumptext + '</small></p>';
+
     //      document.getElementById('smiabox').innerHTML = '<p><small> ' + vsmia["Introduction"]["description"] + '</small><br/><br/>Click next to start learning about SMIAs, or click on any SMIA for more information. </p> ';
 }
 }

@@ -17,6 +17,7 @@ request2.onload = function() {
   for (const prop in vlayer) {
     toggleableLegendIds[prop] = vlayer[prop]["legend"];
   }
+  delete toggleableLegendIds.None
 }
 
 var toggleableLayerIds =

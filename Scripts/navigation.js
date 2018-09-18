@@ -67,7 +67,7 @@ function changeTab(tabName) {
       if (i == 0) {
         link.className = 'active';
         legend_info(id)
-        link.click();
+        make_layer_visible(id)
       } else {
         link.className = '';
       }
@@ -106,7 +106,7 @@ function make_layer_visible(clickedLayer) {
     if (clickedLayer == "Highlight") {
       map.setPaintProperty("SMIAfill", 'fill-opacity',.25)
     }
-      document.getElementById(toggleableLegendIds["None"]).style.display = 'block';
+      document.getElementById("empty-legend").style.display = 'block';
       legend_info("None");
   } else {
     if (clickedLayer == 'Bulk Storage Sites') {

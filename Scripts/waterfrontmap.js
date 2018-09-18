@@ -235,12 +235,12 @@ map.on('load', function () {
     "source": "vector_data",
     "source-layer": 'TRI_converted',
     "layout": {
-      "icon-image": "noun_nuclear",
+      "icon-image": "mh_toxic2",
       "icon-allow-overlap": true,
       "visibility": 'none',
-      "icon-size":.25,
+      "icon-size":.5,
     },
-    "paint":{"icon-opacity":.9}
+    "paint":{"icon-opacity":.75}
   });
 
   map.addLayer({
@@ -249,12 +249,12 @@ map.on('load', function () {
     "source": "vector_data",
     "source-layer": 'MOSF_converted',
     "layout": {
-      "icon-image": "noun_oil",
+      "icon-image": "mh_oil2",
       "icon-allow-overlap": true,
       "visibility": 'none',
-      "icon-size":.25,
+      "icon-size":.5,
     },
-    "paint":{"icon-opacity":.9}
+    "paint":{"icon-opacity":.75}
   });
 
   map.addLayer({
@@ -263,12 +263,12 @@ map.on('load', function () {
     "source": "vector_data",
     "source-layer": 'CBS_converted',
     "layout": {
-      "icon-image": "noun_lab",
+      "icon-image": "mh_chem2",
       "icon-allow-overlap": true,
       "visibility": 'none',
-      "icon-size":.25,
+      "icon-size":.5,
     },
-    "paint":{"icon-opacity":.9}
+    "paint":{"icon-opacity":.75}
   });
 
   map.addLayer({
@@ -277,12 +277,12 @@ map.on('load', function () {
     "source": "vector_data",
     "source-layer": 'SUPERFUND2_converted',
     "layout": {
-      "icon-image": "noun_powerplant",
+      "icon-image": "mh_super2",
       "icon-allow-overlap": true,
       "visibility": 'none',
-      "icon-size":.40,
+      "icon-size":.5,
     },
-    "paint":{"icon-opacity":.9}
+    "paint":{"icon-opacity":.75}
   });
 
 
