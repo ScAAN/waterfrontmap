@@ -21,7 +21,7 @@
       <div style: style='margin:00 auto;margin-top:25px;'>
         <p> <h4>Welcome!</h4><br/>
           Thanks for visiting. This map is a collaboration between NYC-EJA and ScAAN, with the aim of visualizing SMIAs for the EJA Waterfront Justice Project.
-          <br/><br/> Currently, this is a work in progress so information or sources may not be 100% accurate, nevertheless we hope you enjoy this map. Feel free to leave fedback and let us know how we're doing (about &rarr; feedback).</p>
+          <br/><br/> Currently, this is a work in progress so information or sources may not be 100% accurate. Feel free to leave fedback and let us know how we're doing (about &rarr; feedback).</p>
           <span style='vertical-align:middle;'><img style: style='height:175px;' src="Assets/demo.gif"></img></span>
           <h4><br/>click anywhere to continue</h4>
         </div>
@@ -40,6 +40,17 @@
 
   <title>Waterfront Justice Project</title>
   <div id='map'></div>
+
+  <div id='empty-legend' class='legend overlay-box' style='display:block'>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+    </div>
+    <p class="spacer"></p>
+  </div>
+
   <div id='zoning-legend' class='legend overlay-box' style='display:none'>
     <div style="text-align:right">
       <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
@@ -59,6 +70,7 @@
     </div>
     <div style="text-align:right;">Battery Park City <span style='background-color: #666666;margin-left:10px;'></span></div>
   </div>
+
   <div id='race-legend' class='legend overlay-box' style='display:block'>
     <div style="text-align:right">
       <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
@@ -215,19 +227,19 @@
     <h4>Bulk Storage Sites</h4>
     <div style='float:right;text-align:right'>
       <div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
-      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;vertical-align:middle" src="Assets/all_sprites/noun_nuclear.svg"></img></span>
+      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;vertical-align:middle" src="Assets/all_sprites/mh_toxic2.svg"></img></span>
     </div>
     <div style='float:right;text-align:right'>
       <div style="display:inline-block;line-height:100%">Major Oil Storage<br/>Facilities</div>
-      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;" src="Assets/all_sprites/noun_oil.svg"></img></span>
+      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;" src="Assets/all_sprites/mh_oil2.svg"></img></span>
     </div>
     <div style='float:right;text-align:right'>
       <div style="display:inline-block;line-height:100%">Chemical Bulk<br/>Storage</div>
-      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;" src="Assets/all_sprites/noun_lab.svg"></img></span>
+      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;" src="Assets/all_sprites/mh_chem2.svg"></img></span>
     </div>
     <div style='float:right;text-align:right'>
       <div style="display:inline-block;line-height:100%">Superfund<br/>Class 2 Sites</div>
-      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:45px;" src="Assets/all_sprites/noun_powerplant.svg"></img></span>
+      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:45px;" src="Assets/all_sprites/mh_super2.svg"></img></span>
     </div>
     <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
   </div>

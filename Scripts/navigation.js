@@ -54,8 +54,13 @@ function changeTab(tabName) {
         var clickedLayer = this.textContent;
         e.preventDefault();
         e.stopPropagation();
-        this.className = 'active';
-        make_layer_visible(clickedLayer)
+        if (this.className == 'active') {
+          this.className = '';
+          make_layer_visible('None')
+        } else {
+          this.className = 'active';
+          make_layer_visible(clickedLayer)
+        }
       };
 
       layers.appendChild(link);
@@ -95,23 +100,33 @@ function make_layer_visible(clickedLayer) {
       document.getElementById(toggleableLegendIds[otherLayerName]).style.display = 'none';
     }
   }
-  if (clickedLayer == 'Bulk Storage Sites') {
-    map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-    map.setLayoutProperty('MOSF', 'visibility', 'visible');
-    map.setLayoutProperty('CBS', 'visibility', 'visible');
-    map.setLayoutProperty('SUPERFUND2', 'visibility', 'visible');
-  } else if (clickedLayer == "Percent Uninsured") {
-    map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
-    map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 1);
-    map.setPaintProperty("Percent Uninsured Hatch", 'fill-opacity', 1);
-  } else if (clickedLayer.includes("Percent") || clickedLayer.includes("Median Household Income")) {
-    map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
-    map.setPaintProperty(clickedLayer + " Hatch", 'fill-opacity', 1);
+  map.setPaintProperty("SMIAfill", 'fill-opacity',0)
+  if (clickedLayer=="None"||clickedLayer=="Highlight") {
+    // show fill layer to highlight SMIAs
+    if (clickedLayer == "Highlight") {
+      map.setPaintProperty("SMIAfill", 'fill-opacity',.25)
+    }
+      document.getElementById(toggleableLegendIds["None"]).style.display = 'block';
+      legend_info("None");
   } else {
-    map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
+    if (clickedLayer == 'Bulk Storage Sites') {
+      map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+      map.setLayoutProperty('MOSF', 'visibility', 'visible');
+      map.setLayoutProperty('CBS', 'visibility', 'visible');
+      map.setLayoutProperty('SUPERFUND2', 'visibility', 'visible');
+    } else if (clickedLayer == "Percent Uninsured") {
+      map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
+      map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 1);
+      map.setPaintProperty("Percent Uninsured Hatch", 'fill-opacity', 1);
+    } else if (clickedLayer.includes("Percent") || clickedLayer.includes("Median Household Income")) {
+      map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
+      map.setPaintProperty(clickedLayer + " Hatch", 'fill-opacity', 1);
+    } else {
+      map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
+    }
+    document.getElementById(toggleableLegendIds[clickedLayer]).style.display = 'block';
+    legend_info(clickedLayer)
   }
-  document.getElementById(toggleableLegendIds[clickedLayer]).style.display = 'block';
-  legend_info(clickedLayer)
 }
 
 
@@ -170,8 +185,8 @@ function manage_listeners(active_listener){
   // selectively activate listeners
   if (active_listener.includes("story")){
     //map.on('mousemove',"SMIAfill",which_smia);
-    map.on('mousemove',which_smia);
-    map.on('click',smia_click)
+    //map.on('mousemove',which_smia);
+    //map.on('click',smia_click)
     global_page = 0;
     story_display_page(global_page)
   }

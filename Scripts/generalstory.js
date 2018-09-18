@@ -23,7 +23,7 @@ function story_next_page(){
 // prev page function
 function story_prev_page(){
   global_page = global_page-1;
-  if (global_page<0){global_page=maxl_global_page}
+  if (global_page<0){global_page=global_max_page}
   story_display_page(global_page)
 }
 
@@ -44,12 +44,26 @@ function story_display_page(storypage){
   document.getElementById('nextbutton').style.display = "block";
   document.getElementById('backbutton').style.display = "block";
 
+// allow users to jump to a SMIA by clicking on it
+var jumptext = "";
+if (storypage>0) {
+    if (storyvars[storypage-1]["pageIdx"]==0) {
+      map.off('mousemove',which_smia);
+      map.off('click',smia_click);
+    }
+}
+if (storyvars[storypage]["pageIdx"]==0) {
+  map.on('mousemove',which_smia);
+  map.on('click',smia_click);
+  jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
+}
+
  // switch to layer
  changeTab("None")
  make_layer_visible(storyvars[storypage]["pageLayer"])
 
   // display information about SMIA
-  document.getElementById('smiabox').innerHTML = '<p><strong><big>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[storypage]["pageText"] + '</small></p>';
+  document.getElementById('smiabox').innerHTML = '<p><strong><big>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[storypage]["pageText"] + '</small></p>' + jumptext;
 }
 
 function smia_click(e){
@@ -86,16 +100,13 @@ function which_smia(e){
     var thissmia = whichsmia[0].properties.SMIA_Name;
     // turn filter on
     map.setFilter("SMIAhover", ["==", "SMIA_Name", thissmia]);
-        if (global_page<1){
-          // if the map isn't zoomed in, show some basic info
-      document.getElementById('smiabox').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
-    }
+    // show some SMIA info
+    document.getElementById('smiabox').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
   } else {
     // turn filter off
     map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
-      if (global_page<1){
-        // if the map isn't zoomed in, show some instructions
-      document.getElementById('smiabox').innerHTML = '<p><small> ' + vsmia["Introduction"]["description"] + '</small><br/><br/>Click next to start learning about SMIAs, or click on any SMIA for more information. </p> ';
-  }
+    // show the story page
+    document.getElementById('smiabox').innerHTML = '<p><strong><big>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[storypage]["pageText"] + '</small></p>' + jumptext;
+    //      document.getElementById('smiabox').innerHTML = '<p><small> ' + vsmia["Introduction"]["description"] + '</small><br/><br/>Click next to start learning about SMIAs, or click on any SMIA for more information. </p> ';
 }
 }

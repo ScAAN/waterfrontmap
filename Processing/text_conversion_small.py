@@ -91,6 +91,7 @@ layerdata = become_wordy_json(df,layerprop)
 
 # save the layer names for input checking in the story 
 layer_names = df[layerprop]
+layer_names[len(layer_names)] = "Highlight"
 
 # load and covert SMIA TEXT
 file_name = 'Text\\smia_text.csv'

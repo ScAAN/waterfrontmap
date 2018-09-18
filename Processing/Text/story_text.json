@@ -1,33 +1,143 @@
 {
     "SMIA_first_page": [
-        0,
-        1,
-        2,
-        4,
-        7,
-        8,
-        9,
-        10
+        19,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
     ],
     "data": [
         {
             "pageIdx": 0,
             "pageLat": -73.9978,
-            "pageLayer": "Percent People of Color",
+            "pageLayer": "None",
             "pageLng": 40.7209,
             "pageSMIA": 0,
-            "pageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "pageTitle": "Introduction Title",
+            "pageText": "As the threats of climate change increase, destructive storms like Superstorm Sandy, Hurricane Katrina, and Hurricane Harvey will expose the vulnerabilities of costal communities overburdened by industrial and chemical facilities. Of interest are NYC\u2019s Significant Maritime and Industrial Areas (SMIAs), clusters of industry and polluting infrastructure along the waterfront. SMIAs are located in classic environmental justice communities- predominantly low-income communities of color - in the south Bronx, Brooklyn, Queens and Staten Island, which are also hurricane storm surge zones. The WJP is a research and advocacy campaign focusing on community resiliency that seeks to reduce potential toxic exposures and public health risks associated with climate change and storm surge in the City\u2019s industrial waterfront.",
+            "pageTitle": "Introduction ",
             "pageZoom": 10
         },
         {
             "pageIdx": 1,
-            "pageLat": -73.97256593122793,
+            "pageLat": -73.9978,
+            "pageLayer": "Highlight",
+            "pageLng": 40.7209,
+            "pageSMIA": 0,
+            "pageText": "Significant Maritime and Industrial Areas (SMIAs) are zones designated under the WRP in order to encourage the protection and siting of industrial and maritime uses alon gthe water front. There are only seven SMIAs in the city, all located in predominatly low-income, communities of color. NYC-EJA has discovered that the SMIAs are all in storm surge zones, and that the City of New York had not analyzed the cumulative contamination exposure risks associated with clusters of heavy industrial use. ",
+            "pageTitle": "What is a SMIA?",
+            "pageZoom": 10
+        },
+        {
+            "pageIdx": 1,
+            "pageLat": -73.9978,
+            "pageLayer": "Highlight",
+            "pageLng": 40.7209,
+            "pageSMIA": 0,
+            "pageText": "This map shows the seven SMIAs (outlined in solid black) as well as a half mile buffer to SMIAs (outlined in a dashed line) to determine communities located in close proximity. Half a mile is the distance often used to study environmental impact under NY's environmental regulatory framework. ",
+            "pageTitle": "Where are SMIAs?",
+            "pageZoom": 10
+        },
+        {
+            "pageIdx": 1,
+            "pageLat": -73.9978,
+            "pageLayer": "Percent People of Color",
+            "pageLng": 40.7209,
+            "pageSMIA": 0,
+            "pageText": "This map shows the percentage of population of people of color by census tract. Census tracts in dark purple denote areas where more than 66% of the community are people of color. As you can see, the majority of areas around SMIAs represent populations of color. In fact, of the total 5.5 million people of color in NYC, 2.8 million in census tracts that are vulnerable to storm surge and approximately 430,000 live in census tracts that are both vulnerable to storm surage and fall with a half-mile of SMIAs. ",
+            "pageTitle": "People of Color",
+            "pageZoom": 10
+        },
+        {
+            "pageIdx": 1,
+            "pageLat": -73.9978,
+            "pageLayer": "Zoning",
+            "pageLng": 40.7209,
+            "pageSMIA": 0,
+            "pageText": "This land use map shows that industrial and manufacturing uses are concentrated in the SMIAs. The SMIAs are purple accounting for \"industrial and manufacturing\" uses, but these areas are surrounded by shares of yellow, denoting the presence of residential uses. Note that this map does not take into account non-conforming uses where former manufacturing buildings are being used for residential use, as is the case in Greenpoint or Williamsburg. ",
+            "pageTitle": "Land Use",
+            "pageZoom": 10
+        },
+        {
+            "pageIdx": 1,
+            "pageLat": -73.9978,
+            "pageLayer": "Hurricane Storm Surge Zones",
+            "pageLng": 40.7209,
+            "pageSMIA": 0,
+            "pageText": "The SMIAs and their surroundings are highly vulnerable to hurricane storm surge. This map shows that the SMIA boundaries and storm surge zones (as defined by the NYS Emergency Management Office). Facilities handling hazardous substances or toxic chemicals in these areas could represent a threat in the event of a hurricane storm storm surge. ",
+            "pageTitle": "Hurricane Storm Surge ",
+            "pageZoom": 10
+        },
+        {
+            "pageIdx": 1,
+            "pageLat": -73.9978,
+            "pageLayer": "Hurricane Evacuation Zones",
+            "pageLng": 40.7209,
+            "pageSMIA": 0,
+            "pageText": "Hurricane evacuation zones, provided by NYC  emergency management, show that SMIAs are highly vulnerable to hurricane damage. This presents a threat to communities who live in such areas. ",
+            "pageTitle": "Hurricane Evacuation Zones ",
+            "pageZoom": 10
+        },
+        {
+            "pageIdx": 1,
+            "pageLat": -73.9978,
+            "pageLayer": "Bulk Storage Sites",
+            "pageLng": 40.7209,
+            "pageSMIA": 0,
+            "pageText": "This map shows facilies handling hazardous substances or toxic chemicals in these areas that could represent a threat in the event of hurricane storm sturge. Among these are NY State DEC regulated class 2 Superfund sites - sites determined to pose significant threat to pulic health or the environment and requiring immediate action. We also show NYS DEC regulated active bulk chemical and major oil storage facilities, which store hazardous substances or have the capacity to store 400,000 gallons of oil. Finally we show the location of facilities reporting chemicals in the Toxics Release Inventory under the US EPA Emergency Planning and Community Right to Know act. ",
+            "pageTitle": "Sources of Toxic Waste",
+            "pageZoom": 10
+        },
+        {
+            "pageIdx": 1,
+            "pageLat": -73.9978,
+            "pageLayer": "Percent of Families Below Poverty Line",
+            "pageLng": 40.7209,
+            "pageSMIA": 0,
+            "pageText": "This map shows the percentage of families below poverty level population by census tract. Census tracts with dark red denote areas where more than 66% of the community is below poverty level. In fact of the total X million low-income population in NYC. 1.6 million live in census tracts that are vulnerable to hurricane storm surge, and 283,000 live in census tracts that are both vulnerable to storm surge and fall within a half-mile of SMIAs. ",
+            "pageTitle": "Families Below Poverty Line",
+            "pageZoom": 10
+        },
+        {
+            "pageIdx": 1,
+            "pageLat": -73.9978,
+            "pageLayer": "Median Household Income",
+            "pageLng": 40.7209,
+            "pageSMIA": 0,
+            "pageText": "Similarly, this map shows the median household income of families by census tract. Census tracts which are dark green indicate lower income households. Many low income households live in or in half-mile proximity to SMIAs. ",
+            "pageTitle": "Median Household Income",
+            "pageZoom": 10
+        },
+        {
+            "pageIdx": 1,
+            "pageLat": -73.9978,
             "pageLayer": "Percent Uninsured",
+            "pageLng": 40.7209,
+            "pageSMIA": 0,
+            "pageText": "Furthermore, using data from the NYC department of Health and Mental Hygiene we can see that SMIAs and the adjacent areas include some of the highest levels of the uninsured people by community district (dark blue), which denotes limited access to health insurance in the event of a toxic exposure. Note that that in hatched community districts, estimates of percent uninsured should be interepreted with caution. ",
+            "pageTitle": "Percent Without Health Insurance",
+            "pageZoom": 10
+        },
+        {
+            "pageIdx": 0,
+            "pageLat": -73.9978,
+            "pageLayer": "None",
+            "pageLng": 40.7209,
+            "pageSMIA": 0,
+            "pageText": "As we have shown, SMIAs and their surroundings have many industrial and toxic industries, as well as being vulnerable to storms and being home to more people of color, people below poverty line, and people without insurance. The combination of these factors creates a situation where the communities near SMIAs are vulnerable to possible toxic waste spillage in the event of storms. ",
+            "pageTitle": "Examining individual SMIAs",
+            "pageZoom": 10
+        },
+        {
+            "pageIdx": 2,
+            "pageLat": -73.97256593122793,
+            "pageLayer": "Percent People of Color",
             "pageLng": 40.70337539892057,
             "pageSMIA": 1,
-            "pageText": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "pageTitle": "Smia #1 Title",
+            "pageText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "pageTitle": "SMIA #1, Brooklyn Navy Yard",
             "pageZoom": 12
         },
         {
@@ -36,90 +146,70 @@
             "pageLayer": "Percent People of Color",
             "pageLng": 40.73043814252142,
             "pageSMIA": 2,
+            "pageText": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "pageTitle": "SMIA #2, Newtown Creek",
+            "pageZoom": 12
+        },
+        {
+            "pageIdx": 2,
+            "pageLat": -74.23091192935536,
+            "pageLayer": "Percent People of Color",
+            "pageLng": 40.5505517824447,
+            "pageSMIA": 3,
             "pageText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            "pageTitle": "Smia #2 POC",
+            "pageTitle": "SMIA #3, State Island West Shore",
             "pageZoom": 12
         },
         {
-            "pageIdx": 3,
-            "pageLat": -73.93480042828487,
-            "pageLayer": "Zoning",
-            "pageLng": 40.73043814252142,
-            "pageSMIA": 2,
-            "pageText": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"",
-            "pageTitle": "Smia #2 Zoning",
-            "pageZoom": 12
-        },
-        {
-            "pageIdx": 4,
-            "pageLat": -74.23091192935536,
-            "pageLayer": "Median Household Income",
-            "pageLng": 40.5505517824447,
-            "pageSMIA": 3,
-            "pageText": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
-            "pageTitle": "Smia #3 Income",
-            "pageZoom": 12
-        },
-        {
-            "pageIdx": 5,
-            "pageLat": -74.23091192935536,
-            "pageLayer": "Percent Uninsured",
-            "pageLng": 40.5505517824447,
-            "pageSMIA": 3,
-            "pageText": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-            "pageTitle": "Smia #3 Percent Uninsured",
-            "pageZoom": 12
-        },
-        {
-            "pageIdx": 6,
-            "pageLat": -74.23091192935536,
-            "pageLayer": "Bulk Storage Sites",
-            "pageLng": 40.5505517824447,
-            "pageSMIA": 3,
-            "pageText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
-            "pageTitle": "Smia #3 Bulk Storage",
-            "pageZoom": 12
-        },
-        {
-            "pageIdx": 7,
+            "pageIdx": 2,
             "pageLat": -74.00743616089453,
-            "pageLayer": "Percent of Families Below Poverty Line",
+            "pageLayer": "Percent People of Color",
             "pageLng": 40.68650785503232,
             "pageSMIA": 4,
             "pageText": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"",
-            "pageTitle": "Smia #4 Title",
+            "pageTitle": "SMIA #4, Red Hook",
             "pageZoom": 12
         },
         {
-            "pageIdx": 8,
+            "pageIdx": 2,
             "pageLat": -73.8939875925258,
-            "pageLayer": "Bulk Storage Sites",
+            "pageLayer": "Percent People of Color",
             "pageLng": 40.80730643781723,
             "pageSMIA": 5,
-            "pageText": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-            "pageTitle": "Smia #5 Title",
+            "pageText": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+            "pageTitle": "SMIA #5, South Bronx",
             "pageZoom": 12
         },
         {
-            "pageIdx": 9,
+            "pageIdx": 2,
             "pageLat": -74.01499944630518,
-            "pageLayer": "Hurricane Storm Surge Zones",
+            "pageLayer": "Percent People of Color",
             "pageLng": 40.658442081047724,
             "pageSMIA": 6,
-            "pageText": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
-            "pageTitle": "Smia #6 Title",
+            "pageText": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            "pageTitle": "SMIA #6, Sunset Park ",
             "pageZoom": 12
         },
         {
-            "pageIdx": 10,
+            "pageIdx": 2,
             "pageLat": -74.13713363755667,
-            "pageLayer": "Hurricane Evacuation Zones",
+            "pageLayer": "Percent People of Color",
             "pageLng": 40.64057887695694,
             "pageSMIA": 7,
-            "pageText": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-            "pageTitle": "Smia #7 Title",
+            "pageText": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+            "pageTitle": "SMIA #7, Kill Van Kull",
             "pageZoom": 12
+        },
+        {
+            "pageIdx": 0,
+            "pageLat": -73.9978,
+            "pageLayer": "None",
+            "pageLng": 40.7209,
+            "pageSMIA": 0,
+            "pageText": "As shown in these maps, the presence of vulnerable communities, manufacturing, and toxic waste in areas susceptible to storm damage could create a threat to communities in these areas. More work is needed to understand how these communities are threatened and what can be done to alleviate the threat. Click \"EXPLORE\" to explore the data by location or \"ABOUT\" to learn more about EJA and ScAAN. ",
+            "pageTitle": "In Conclusion",
+            "pageZoom": 10
         }
     ],
-    "global_max_page": 11
+    "global_max_page": 20
 }
