@@ -12,18 +12,27 @@ Mapping weather, human industry, and social demographics of SMIAs.
 <details><summary>issues</summary> 
    
 - [ ] Change data names to be the same in vector data 
-- [ ] Make explore information have consistent order
-- [ ] Add feedback form (see [this](https://stackoverflow.com/questions/38620919/make-contact-form-for-github-page?rq=1) or make a [google form](https://www.google.com/forms/about/))
-- [ ] Make python script executable (see [this](https://medium.com/dreamcatcher-its-blog/making-an-stand-alone-executable-from-a-python-script-using-pyinstaller-d1df9170e263) to make the executeable and [this](https://stackoverflow.com/questions/47692213/reducing-size-of-pyinstaller-exe) to reduce the size)
-- [ ] Diag svg doesn't render seamlessly
+- [ ] Make explore information have consistent order  
+- [ ] Diag svg doesn't render seamlessly  
+   
+</details>
+
+<details><summary>wish list</summary>  
+   
+- [ ] Put front page text in csv
+- [ ] Make python script executable (see [this](https://medium.com/dreamcatcher-its-blog/making-an-stand-alone-executable-from-a-python-script-using-pyinstaller-d1df9170e263) to make the executeable and [this](https://stackoverflow.com/questions/47692213/reducing-size-of-pyinstaller-exe) to reduce the size)  
 - [ ] Pay for icons ([here](https://thenounproject.com/coquet_adrien/))
-- [ ] Switch to jQuery
+- [ ] Switch to jQuery   
+- [ ] Automate data conversion to vector  
+- [ ] New data  
+- [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
    
 </details>
 
 #### Changelog
 <details><summary>changes</summary>  
 
+- [x] (9/22) Marker changes and debugging -Maija  
 - [x] (8/28) Enhanced story mode -Maija
 - [x] (8/14) Percent uninsured and cosmetics -Maija 
 - [x] (7/29) Checking off to-do list -Maija
@@ -31,9 +40,6 @@ Mapping weather, human industry, and social demographics of SMIAs.
 - [x] (7/18) Story mode, legend info, bulk storage + bugfixes
 - [x] (6/25) Search bar -Maija
 - [x] (6/18) Performance improvements -Billy 
-- [ ] Automate data conversion to vector
-- [ ] New data
-- [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
 
 </details>
 
