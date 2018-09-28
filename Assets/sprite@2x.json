@@ -3,85 +3,85 @@
     "height": 11,
     "pixelRatio": 1,
     "width": 11,
-    "x": 834,
-    "y": 250
+    "x": 934,
+    "y": 500
   },
   "diag-16": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 786,
-    "y": 250
+    "x": 886,
+    "y": 500
   },
   "diag-6": {
     "height": 6,
     "pixelRatio": 1,
     "width": 6,
-    "x": 872,
-    "y": 250
+    "x": 972,
+    "y": 500
   },
   "diag-8": {
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 856,
-    "y": 250
+    "x": 956,
+    "y": 500
   },
   "hatch": {
     "height": 11,
     "pixelRatio": 1,
     "width": 11,
-    "x": 845,
-    "y": 250
+    "x": 945,
+    "y": 500
   },
   "hatch-16": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 802,
-    "y": 250
+    "x": 902,
+    "y": 500
   },
   "hatch-16-thin": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 818,
-    "y": 250
+    "x": 918,
+    "y": 500
   },
   "hatch-32": {
     "height": 32,
     "pixelRatio": 1,
     "width": 32,
-    "x": 564,
-    "y": 250
+    "x": 664,
+    "y": 500
   },
   "hatch-64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 500,
-    "y": 250
+    "x": 600,
+    "y": 500
   },
   "hatch-8": {
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 864,
-    "y": 250
+    "x": 964,
+    "y": 500
   },
   "marker-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 701,
-    "y": 250
+    "x": 801,
+    "y": 500
   },
   "marker-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 596,
-    "y": 250
+    "x": 696,
+    "y": 500
   },
   "mh_chem2": {
     "height": 250,
@@ -90,116 +90,151 @@
     "x": 0,
     "y": 0
   },
-  "mh_oil2": {
+  "mh_chem3": {
     "height": 250,
     "pixelRatio": 1,
     "width": 250,
     "x": 250,
     "y": 0
   },
-  "mh_super2": {
+  "mh_oil2": {
     "height": 250,
     "pixelRatio": 1,
     "width": 250,
     "x": 0,
     "y": 250
   },
-  "mh_toxic2": {
+  "mh_oil3": {
     "height": 250,
     "pixelRatio": 1,
     "width": 250,
     "x": 250,
     "y": 250
   },
+  "mh_super2": {
+    "height": 250,
+    "pixelRatio": 1,
+    "width": 250,
+    "x": 500,
+    "y": 0
+  },
+  "mh_super3": {
+    "height": 250,
+    "pixelRatio": 1,
+    "width": 250,
+    "x": 750,
+    "y": 0
+  },
+  "mh_toxic2": {
+    "height": 250,
+    "pixelRatio": 1,
+    "width": 250,
+    "x": 500,
+    "y": 250
+  },
+  "mh_toxic3": {
+    "height": 250,
+    "pixelRatio": 1,
+    "width": 250,
+    "x": 750,
+    "y": 250
+  },
   "noun_lab": {
     "height": 125,
     "pixelRatio": 1,
     "width": 100,
-    "x": 500,
-    "y": 0
+    "x": 0,
+    "y": 500
   },
   "noun_location": {
     "height": 125,
     "pixelRatio": 1,
     "width": 100,
-    "x": 600,
-    "y": 0
+    "x": 100,
+    "y": 500
+  },
+  "noun_location_border": {
+    "height": 125,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 200,
+    "y": 500
   },
   "noun_nuclear": {
     "height": 125,
     "pixelRatio": 1,
     "width": 100,
-    "x": 700,
-    "y": 0
+    "x": 300,
+    "y": 500
   },
   "noun_oil": {
     "height": 125,
     "pixelRatio": 1,
     "width": 100,
-    "x": 800,
-    "y": 0
+    "x": 400,
+    "y": 500
   },
   "noun_powerplant": {
     "height": 125,
     "pixelRatio": 1,
     "width": 100,
-    "x": 900,
-    "y": 0
+    "x": 500,
+    "y": 500
   },
   "oil-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 718,
-    "y": 250
+    "x": 818,
+    "y": 500
   },
   "oil-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 617,
-    "y": 250
+    "x": 717,
+    "y": 500
   },
   "pollution-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 735,
-    "y": 250
+    "x": 835,
+    "y": 500
   },
   "pollution-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 638,
-    "y": 250
+    "x": 738,
+    "y": 500
   },
   "toxic-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 752,
-    "y": 250
+    "x": 852,
+    "y": 500
   },
   "toxic-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 659,
-    "y": 250
+    "x": 759,
+    "y": 500
   },
   "trash-bag-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 769,
-    "y": 250
+    "x": 869,
+    "y": 500
   },
   "trash-bag-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 680,
-    "y": 250
+    "x": 780,
+    "y": 500
   }
 }
