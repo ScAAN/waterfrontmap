@@ -31,8 +31,9 @@ map.on('load', function () {
     "source": "single-point",
     "type": "symbol",
     "layout": {
-      "icon-image": "noun_location_border",
+      "icon-image": "noun_location_border_filled",
       "icon-allow-overlap": true,
+      "text-allow-overlap": true,
       "icon-size":.4,
       "icon-offset":[0,-50],
     }
@@ -237,11 +238,12 @@ map.on('load', function () {
     "layout": {
       "icon-image": "mh_toxic3",
       "icon-allow-overlap": true,
+      "text-allow-overlap": true,
       "visibility": 'none',
       "icon-size":.5,
     },
-    "paint":{"icon-opacity":.75}
-  });
+    "paint":{"icon-opacity":1}
+  },'point');
 
   map.addLayer({
     "id": "MOSF",
@@ -251,11 +253,12 @@ map.on('load', function () {
     "layout": {
       "icon-image": "mh_oil3",
       "icon-allow-overlap": true,
+      "text-allow-overlap": true,
       "visibility": 'none',
       "icon-size":.5,
     },
-    "paint":{"icon-opacity":.75}
-  });
+    "paint":{"icon-opacity":1}
+  },'point');
 
   map.addLayer({
     "id": "CBS",
@@ -265,11 +268,12 @@ map.on('load', function () {
     "layout": {
       "icon-image": "mh_chem3",
       "icon-allow-overlap": true,
+      "text-allow-overlap": true,
       "visibility": 'none',
       "icon-size":.5,
     },
-    "paint":{"icon-opacity":.75}
-  });
+    "paint":{"icon-opacity":1}
+  },'point');
 
   map.addLayer({
     "id": "SUPERFUND2",
@@ -279,11 +283,12 @@ map.on('load', function () {
     "layout": {
       "icon-image": "mh_super3",
       "icon-allow-overlap": true,
+      "text-allow-overlap": true,
       "visibility": 'none',
       "icon-size":.5,
     },
-    "paint":{"icon-opacity":.75}
-  });
+    "paint":{"icon-opacity":1}
+  },'point');
 
 
   map.addLayer({
@@ -299,7 +304,7 @@ map.on('load', function () {
       "line-color": "#000000",
       "line-width": 3
     }
-  },'Bulk Storage Sites');
+  },'Bulk Storage Sites','SUPERUND2','CBS','MOSF');
 
   map.addLayer({
     "id": "SMIA-buffer",
@@ -315,7 +320,7 @@ map.on('load', function () {
       "line-width": 2,
       "line-dasharray": [1, 3]
     }
-  },'Bulk Storage Sites','point');
+  },'Bulk Storage Sites','SUPERUND2','CBS','MOSF');
 
   map.addLayer({
     "id": "SMIAfill",
@@ -326,7 +331,7 @@ map.on('load', function () {
       "fill-color": "#000000",
       "fill-opacity": 0
     }
-  },'Bulk Storage Sites','point');
+  },'Bulk Storage Sites','SUPERUND2','CBS','MOSF');
 
   map.addLayer({
     "id": "SMIAhover",
@@ -338,7 +343,7 @@ map.on('load', function () {
       "fill-opacity": .25,
     },
     "filter": ["==", "SMIA_Name", ""]
-  },'Bulk Storage Sites','point');
+  },'Bulk Storage Sites','SUPERUND2','CBS','MOSF');
 
   map.addLayer({
       "id": "Hurricane Evacuation Zones",

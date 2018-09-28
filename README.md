@@ -8,17 +8,18 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 <img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/demo.gif" width="350" height="350">
 
-#### Open Issues 
-<details><summary>issues</summary> 
+#### Open Issues
+<details><summary>issues</summary>
    
-- [ ] Change data names to be the same in vector data 
+- [ ] Change data names to be the same in vector data
+- [ ] Turn clustering off in vector data (symbols don't display at low zoom)
 - [ ] Make explore information have consistent order  
 - [ ] Diag svg doesn't render seamlessly  
-   
+
 </details>
 
 <details><summary>wish list</summary>  
-   
+
 - [ ] Put front page text in csv
 - [ ] Make python script executable (see [this](https://medium.com/dreamcatcher-its-blog/making-an-stand-alone-executable-from-a-python-script-using-pyinstaller-d1df9170e263) to make the executeable and [this](https://stackoverflow.com/questions/47692213/reducing-size-of-pyinstaller-exe) to reduce the size)  
 - [ ] Pay for icons ([here](https://thenounproject.com/coquet_adrien/))
@@ -26,7 +27,7 @@ Mapping weather, human industry, and social demographics of SMIAs.
 - [ ] Automate data conversion to vector  
 - [ ] New data  
 - [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
-   
+
 </details>
 
 #### Changelog
@@ -34,12 +35,12 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 - [x] (9/22) Marker changes and debugging -Maija  
 - [x] (8/28) Enhanced story mode -Maija
-- [x] (8/14) Percent uninsured and cosmetics -Maija 
+- [x] (8/14) Percent uninsured and cosmetics -Maija
 - [x] (7/29) Checking off to-do list -Maija
 - [x] (7/22) Deep cleaning +bugfixes -Maija
 - [x] (7/18) Story mode, legend info, bulk storage + bugfixes
 - [x] (6/25) Search bar -Maija
-- [x] (6/18) Performance improvements -Billy 
+- [x] (6/18) Performance improvements -Billy
 
 </details>
 
@@ -80,14 +81,14 @@ We now have a story mode! This works by reading in the information stored in the
 
 To use this:
 
-1. Enter your story into `story_text.csv`, each line is a page, with the specified SMIA (`pageSMIA`), layer (`pageLayer`), title (`pageTitle`), and description text (`pageText`). Please be careful to put exact layer names in the layer field, and specify SMIA's with a number from 0-7 where 0 is a zoomed out view of all the SMIAs. 
+1. Enter your story into `story_text.csv`, each line is a page, with the specified SMIA (`pageSMIA`), layer (`pageLayer`), title (`pageTitle`), and description text (`pageText`). Please be careful to put exact layer names in the layer field, and specify SMIA's with a number from 0-7 where 0 is a zoomed out view of all the SMIAs.
 2. Save this csv, make sure it is in `Processing\Text\` and it is a normal csv
 3. Run `Processing\text_conversion_small.py`
 4. Push changes to github or upload `story_text.json` manually
 5. Wait for the raw file to refresh (~5 minutes)
-6. Finished! 
+6. Finished!
 
-Of course, if there are any typos in the layer names or SMIA numbers in your csv file, strange things might start to happen. Make sure to always check for typos! 
+Of course, if there are any typos in the layer names or SMIA numbers in your csv file, strange things might start to happen. Make sure to always check for typos!
 
 </details>
 
@@ -99,13 +100,13 @@ To use this:
 
 1. (a) To control layer information: enter your layer info into `layer_text.csv`, each line is a layer with a layer id (`id`), legend id (`legend`), description text (`text`), and source text (`source`)
 1. (b) To control SMIA information: using `smia_text.csv` enter the smia name (`name`), number (`number`) and hover box description (`description`)
-2. Save these csvs, make sure they are in `Processing\Text\` 
+2. Save these csvs, make sure they are in `Processing\Text\`
 3. Run `Processing\text_conversion_small.py`
 4. Push changes to github or upload `general_text.json` manually
 5. Wait for the raw file to refresh (~5 minutes)
-6. Finished! 
+6. Finished!
 
-As with the story, make sure to check for typos. 
+As with the story, make sure to check for typos.
 
 </details>
 
@@ -212,7 +213,7 @@ in your style.json will correctly load in the sprites.
 
 </details>
 
-#### Resources and tutorials 
+#### Resources and tutorials
 <details><summary>Coding resources </summary>
 
 - [mapbox-gl sprites](https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites)

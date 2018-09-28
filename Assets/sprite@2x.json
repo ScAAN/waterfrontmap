@@ -3,84 +3,84 @@
     "height": 11,
     "pixelRatio": 1,
     "width": 11,
-    "x": 934,
-    "y": 500
+    "x": 48,
+    "y": 625
   },
   "diag-16": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 886,
-    "y": 500
+    "x": 0,
+    "y": 625
   },
   "diag-6": {
     "height": 6,
     "pixelRatio": 1,
     "width": 6,
-    "x": 972,
-    "y": 500
+    "x": 86,
+    "y": 625
   },
   "diag-8": {
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 956,
-    "y": 500
+    "x": 70,
+    "y": 625
   },
   "hatch": {
     "height": 11,
     "pixelRatio": 1,
     "width": 11,
-    "x": 945,
-    "y": 500
+    "x": 59,
+    "y": 625
   },
   "hatch-16": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 902,
-    "y": 500
+    "x": 16,
+    "y": 625
   },
   "hatch-16-thin": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 918,
-    "y": 500
+    "x": 32,
+    "y": 625
   },
   "hatch-32": {
     "height": 32,
     "pixelRatio": 1,
     "width": 32,
-    "x": 664,
+    "x": 764,
     "y": 500
   },
   "hatch-64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
-    "x": 600,
+    "x": 700,
     "y": 500
   },
   "hatch-8": {
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 964,
-    "y": 500
+    "x": 78,
+    "y": 625
   },
   "marker-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 801,
+    "x": 901,
     "y": 500
   },
   "marker-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 696,
+    "x": 796,
     "y": 500
   },
   "mh_chem2": {
@@ -160,81 +160,88 @@
     "x": 200,
     "y": 500
   },
-  "noun_nuclear": {
+  "noun_location_border_filled": {
     "height": 125,
     "pixelRatio": 1,
     "width": 100,
     "x": 300,
     "y": 500
   },
-  "noun_oil": {
+  "noun_nuclear": {
     "height": 125,
     "pixelRatio": 1,
     "width": 100,
     "x": 400,
     "y": 500
   },
-  "noun_powerplant": {
+  "noun_oil": {
     "height": 125,
     "pixelRatio": 1,
     "width": 100,
     "x": 500,
     "y": 500
   },
+  "noun_powerplant": {
+    "height": 125,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 600,
+    "y": 500
+  },
   "oil-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 818,
+    "x": 918,
     "y": 500
   },
   "oil-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 717,
+    "x": 817,
     "y": 500
   },
   "pollution-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 835,
+    "x": 935,
     "y": 500
   },
   "pollution-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 738,
+    "x": 838,
     "y": 500
   },
   "toxic-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 852,
+    "x": 952,
     "y": 500
   },
   "toxic-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 759,
+    "x": 859,
     "y": 500
   },
   "trash-bag-11": {
     "height": 17,
     "pixelRatio": 1,
     "width": 17,
-    "x": 869,
+    "x": 969,
     "y": 500
   },
   "trash-bag-15": {
     "height": 21,
     "pixelRatio": 1,
     "width": 21,
-    "x": 780,
+    "x": 880,
     "y": 500
   }
 }
