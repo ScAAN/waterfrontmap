@@ -17,7 +17,7 @@
         "Heat Vulnerability Index": {
             "legend": "hvi-legend",
             "source": "Heat Vulnerability Index 2010, by community district. Downloaded at <a href=\"http://a816-dohbesp.nyc.gov/IndicatorPublic/VisualizationData.aspx?id=2191,4466a0,100,Map,Score,2010\">NYC health</a>.  Community district shapefiles from <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page\">NYC planning</a>",
-            "text": "Heat vulnerability Index (HVI) measures how vulnerable a neighborhood is to heat, compared to other neighborhoods. Lower numbers indicate less risk while higher numbers indicate more risk. HVI score is relative, not absolute, such that lower numbers do not indicate zero risk, but a lower risk compared to other NYC neighborhoods. "
+            "text": "Heat vulnerability Index (HVI) measures how vulnerable a neighborhood is to heat compared to other neighborhoods on a scale of 1 (low risk) - 5 (high risk). HVI is relative, such that lower numbers do not indicate zero risk, but lower risk compared other neighborhoods. "
         },
         "Hurricane Evacuation Zones": {
             "legend": "evac-legend",

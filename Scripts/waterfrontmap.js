@@ -425,7 +425,7 @@ map.addLayer({
   "type": "fill",
   "source": 'CDdata',
   "paint": {
-    "fill-opacity": 1,
+    "fill-opacity": 0,
     "fill-color":
     {
      'property': 'HVI_score',
