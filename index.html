@@ -33,7 +33,7 @@
     <div style="text-align:left;margin-left:10px"> Data: </div>
     <div id="Demographics" class="menu-button" onclick="changeTab('Demographics')">Demographics</div>
     <div id="City Planning" class="menu-button" onclick="changeTab('City Planning')">City Planning</div>
-    <div id="Weather" class="menu-button" onclick="changeTab('Weather')">Weather</div>
+    <div id="Climate" class="menu-button" onclick="changeTab('Climate')">Climate</div>
     <div class="spacer-big"></div>
   </div>
   </nav>
@@ -267,6 +267,25 @@
       <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="right:12.5px;height:15px;width:15px" src="Assets/all_sprites/hatch-16.svg"></img></span>
     </div>
   </div>
+
+
+
+  <div id='HVI-legend' class='legend overlay-box' style='display:none'>
+    <div style="text-align:right">
+      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+    </div>
+    <p class="spacer"></p>
+    <h4>Heat Vulnerability<br/>Index</h4>
+    <div style="text-align:right">1<span style='background-color: #ffffb2;margin-left:10px;'></span></div>
+    <div style="text-align:right">2<span style='background-color: #fecc5c;margin-left:10px;'></span></div>
+    <div style="text-align:right">3<span style='background-color: #fd8d3c;margin-left:10px;'></span></div>
+    <div style="text-align:right">4<span style='background-color: #f03b20;margin-left:10px;'></span></div>
+    <div style="text-align:right">5<span style='background-color: #bd0026;margin-left:10px;'></span></div>
+  </div>
+
 
   <!------------------------->
   <!--   NAVIGATION  BOX   -->

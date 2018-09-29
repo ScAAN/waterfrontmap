@@ -370,15 +370,15 @@ map.on('load', function () {
   }, 'water');
 
 
-  map.addSource('uninsured', {
+  map.addSource('CDdata', {
       type: 'geojson',
-      data: './Data/uninsured_converted.geojson'
+      data: './Data/CDdata_converted.geojson'
   })
 
   map.addLayer({
     "id": "Percent Uninsured",
     "type": "fill",
-    "source": 'uninsured',
+    "source": 'CDdata',
     "paint": {
       "fill-opacity": 0,
       "fill-color":
@@ -401,7 +401,7 @@ map.on('load', function () {
  map.addLayer({
    "id": "Percent Uninsured Unreliable",
    "type": "fill",
-   "source": 'uninsured',
+   "source": 'CDdata',
    "paint": {
      "fill-opacity": 0,
      "fill-pattern": "hatch-16-thin"
@@ -412,12 +412,45 @@ map.on('load', function () {
 map.addLayer({
   "id": "Percent Uninsured Hatch",
   "type": "fill",
-  "source": 'uninsured',
+  "source": 'CDdata',
   "paint": {
     "fill-opacity": 0,
     "fill-pattern": "diag-6"
  },
  "filter": ["==","perc_uninsured",-10]
 }, 'water','Percent Uninsured');
+
+map.addLayer({
+  "id": "Heat Vulnerability Index",
+  "type": "fill",
+  "source": 'CDdata',
+  "paint": {
+    "fill-opacity": 1,
+    "fill-color":
+    {
+     'property': 'HVI_score',
+     'type': 'interval',
+     'stops': [
+       [-10, 'rgba(0, 0, 0, 0)'],
+       [1, '#ffffb2'],
+       [2, '#fecc5c'],
+       [3, '#fd8d3c'],
+       [4, '#f03b20'],
+       [5, '#bd0026']
+     ]
+   }
+ }
+}, 'water');
+
+map.addLayer({
+  "id": "Heat Vulnerability Index Hatch",
+  "type": "fill",
+  "source": 'CDdata',
+  "paint": {
+    "fill-opacity": 0,
+    "fill-pattern": "diag-6"
+ },
+ "filter": ["==","HVI_score",-10]
+}, 'water','HVI');
 
 });

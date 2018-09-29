@@ -23,7 +23,7 @@ request2.onload = function() {
 var toggleableLayerIds =
     {"Demographics": ['Percent People of Color', 'Percent of Families Below Poverty Line', 'Median Household Income', 'Percent Uninsured'],
      "City Planning": ["Zoning", 'Bulk Storage Sites'],
-     "Weather": ['Hurricane Storm Surge Zones', 'Hurricane Evacuation Zones']};
+     "Climate": ['Hurricane Storm Surge Zones', 'Hurricane Evacuation Zones','Heat Vulnerability Index']};
 
 var dataNames = {'human_readable_zone': 'Land use: ',
 'Perc_POC_P003009': 'Percent people of color: ',

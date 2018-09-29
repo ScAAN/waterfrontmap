@@ -14,6 +14,11 @@
             "source": "2016 EPCRA TRI sites from <a href=\"https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016\">US EPA</a>. DEC active  MOSF, CBS and superfund class 2 sites (7/18/2018) from <a href=\"https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4\">NYS DEC</a> and <a href=\"https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3\">NYS DEC</a>",
             "text": "Many sources of toxic waste such as TRI, MOSF, PBS and CBS sites as well as superfund class 2 sites are located in or near SMIAs. This represents a public health threat in the even of a storm surge. "
         },
+        "Heat Vulnerability Index": {
+            "legend": "hvi-legend",
+            "source": "Heat Vulnerability Index 2010, by community district. Downloaded at <a href=\"http://a816-dohbesp.nyc.gov/IndicatorPublic/VisualizationData.aspx?id=2191,4466a0,100,Map,Score,2010\">NYC health</a>.  Community district shapefiles from <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page\">NYC planning</a>",
+            "text": "Heat vulnerability Index (HVI) measures how vulnerable a neighborhood is to heat, compared to other neighborhoods. Lower numbers indicate less risk while higher numbers indicate more risk. HVI score is relative, not absolute, such that lower numbers do not indicate zero risk, but a lower risk compared to other NYC neighborhoods. "
+        },
         "Hurricane Evacuation Zones": {
             "legend": "evac-legend",
             "source": "Hurricane Evacuation zones from NYC Emergency Management, downloaded from <a href=\"https://data.cityofnewyork.us/Public-Safety/Hurricane-Evacuation-Zones/uihr-hn7s/data\">NYC Open Data</a>",
