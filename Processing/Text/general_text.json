@@ -60,6 +60,138 @@
             "text": "Industrial and manufacturing zones (purple) are concentrated in SMIAs. These areas are surrounded by residential zones (yellow). Note that this map does not take into account non-conforming uses where former manufacturing buildings are being used for residential use, as is the case in Greenpoint or Williamsburg. "
         }
     },
+    "legend": {
+        "bulk_color": [
+            "leave ",
+            "this ",
+            "blank",
+            "please"
+        ],
+        "bulk_entry": [
+            "leave ",
+            "this ",
+            "blank",
+            "please"
+        ],
+        "evac_color": [
+            "#ed3724",
+            "#f48120",
+            "#ffde17",
+            "#bed630",
+            "#72be44",
+            "#00a78d"
+        ],
+        "evac_entry": [
+            "Zone 1",
+            "Zone 2",
+            "Zone 3",
+            "Zone 4",
+            "Zone 5",
+            "Zone 6"
+        ],
+        "hvi_color": [
+            "#ffffb2",
+            "#fecc5c",
+            "#fd8d3c",
+            "#f03b20",
+            "#bd0026"
+        ],
+        "hvi_entry": [
+            "Index 1",
+            "Index 2",
+            "Index 3",
+            "Index 4",
+            "Index 5"
+        ],
+        "income_color": [
+            "#006837",
+            "#31a354",
+            "#78c679",
+            "#addd8e",
+            "#d9f0a3",
+            "#ffffcc"
+        ],
+        "income_entry": [
+            "$0 &#8211 $18000 <br/>(0 &#8211 20 percentile)",
+            "$18001 &#8211 $39300 <br/>(20 &#8211 40 percentile)",
+            "$39301 &#8211 $52300 <br/>(40 &#8211 50 percentile)",
+            "$52301 &#8211 $67600 <br/>(50 &#8211 60 percentile)",
+            "$67601 &#8211 $115300 <br/>(60 &#8211 80 percentile)",
+            "$115301 and up <br/>(80 &#8211 99 percentile)"
+        ],
+        "poverty_color": [
+            "#fee5d9",
+            "#fcae91",
+            "#fb6a4a",
+            "#de2d26",
+            "#a50f15"
+        ],
+        "poverty_entry": [
+            "0% &#8211 20%",
+            "21% &#8211 35%",
+            "36% &#8211 50%",
+            "51% &#8211 65%",
+            "66% &#8211 100%"
+        ],
+        "race_color": [
+            "#feebe2",
+            "#fbb4b9",
+            "#f768a1",
+            "#c51b8a",
+            "#7a0177"
+        ],
+        "race_entry": [
+            "0% &#8211 20%",
+            "21% &#8211 40%",
+            "41% &#8211 65%",
+            "66% &#8211 90%",
+            "91% &#8211 100%"
+        ],
+        "surge_color": [
+            "#d7301f",
+            "#fc8d59",
+            "#fdcc8a",
+            "#fef0d9"
+        ],
+        "surge_entry": [
+            "Category 1",
+            "Category 2",
+            "Category 3",
+            "Category 4"
+        ],
+        "uninsured_color": [
+            "#e7f0fa",
+            "#c6dbef",
+            "#8dc1dd",
+            "#4f9bcb",
+            "#2070b4",
+            "#08468b"
+        ],
+        "uninsured_entry": [
+            "0% &#8211 5%",
+            "6% &#8211 10%",
+            "11% &#8211 15%",
+            "16% &#8211 20%",
+            "21% &#8211 25%",
+            "26% &#8211 30%"
+        ],
+        "zoning_color": [
+            "#EDAD08",
+            "#0F8554",
+            "#94346E",
+            "#CC503E",
+            "#E17C05",
+            "#666666"
+        ],
+        "zoning_entry": [
+            "Residential",
+            "NYC Parks",
+            "Manufacturing",
+            "Commercial",
+            "Mixed manufacturing<br/>and residential",
+            "Battery Park City"
+        ]
+    },
     "smia": {
         "Brooklyn Navy Yard": {
             "description": "The Brooklyn Navy Yard is a 227-acre publicly owned industrial park characterized by a diversity of small businesses. The Navy Yard has more than 2,000 permanent jobs on site, and provides an estimated 3,000 temporary jobs to crews of film and television shoots at Steiner Studios. The robust increase in business activity between 200 and 2008 is attributed to a dramatic redevelopment effort, harnessing more than $500 million in public and private investment.",
