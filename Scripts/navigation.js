@@ -1,11 +1,21 @@
-// ------------------------------------------
-// TEMPORARY
-// ------------------------------------------
+/*
+Navigation script!
+This controls: info box, data box, legend, WIP box
+Contents:
+- changeTab(tabName)
+- make_layer_visible(clickedLayer)
+- legend_info(clickedLayer)
+- show_legend_info()
+- reset_map_view(event)
+- showinfobox(evt,boxname)
+*/
 
+// hide work in progress box
 function hidewip(){
-    document.getElementById('wipbox').style.display = 'none';
-    document.getElementById('wipoverlay').style.display = 'none';
+  document.getElementById('wipbox').style.display = 'none';
+  document.getElementById('wipoverlay').style.display = 'none';
 }
+
 
 // redefine "$" to return element ids
 var $ = function(id){return document.getElementById(id)};
@@ -15,6 +25,8 @@ var $ = function(id){return document.getElementById(id)};
 // ----------------------------------
 // update legend information to be default
 //legend_info("Percent People of Color")
+
+
 
 function changeTab(tabName) {
   var killallboxes=0;
@@ -28,7 +40,6 @@ function changeTab(tabName) {
   }
 
   // check if clicked box was alread active, if so then kill all boxes
-
   if (clickedTab==null) {
   } else if (clickedTab.className.includes("active")) {
     killallboxes = 1;
@@ -77,6 +88,8 @@ function changeTab(tabName) {
   }
 }
 
+
+
 function make_layer_visible(clickedLayer) {
   for (var otherLayerName in toggleableLegendIds) {
     if (otherLayerName != clickedLayer) {
@@ -96,7 +109,6 @@ function make_layer_visible(clickedLayer) {
       } else {
         map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
       }
-      //document.getElementById(toggleableLegendIds[otherLayerName]).style.display = 'none';
     }
   }
   map.setPaintProperty("SMIAfill", 'fill-opacity',0)
@@ -105,7 +117,7 @@ function make_layer_visible(clickedLayer) {
     if (clickedLayer == "Highlight") {
       map.setPaintProperty("SMIAfill", 'fill-opacity',.25)
     }
-      update_legend("None");
+    update_legend("None");
   } else {
     if (clickedLayer == 'Bulk Storage Sites') {
       map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
@@ -119,10 +131,11 @@ function make_layer_visible(clickedLayer) {
     } else {
       map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
     }
-    //document.getElementById(toggleableLegendIds[clickedLayer]).style.display = 'block';
     update_legend(clickedLayer)
   }
 }
+
+
 
 
 function update_legend(layername){
@@ -143,6 +156,7 @@ function update_legend(layername){
   if (layername == 'Bulk Storage Sites'){
     $('legend_placeholder').innerHTML = $('legendHTML_bulk').innerHTML
   } else if (layername == "None") {
+    $('legend_placeholder').innerHTML = '';
   } else {
     // build legend from entry text and colors
     for (i=0; i<legendentry.length; i++){
@@ -156,6 +170,8 @@ function update_legend(layername){
   }
 }
 
+
+
 function show_legend_info(){
   // show or hide legend info by clicking button
   if (document.getElementById('legendinfo').style.display.includes("block")){
@@ -167,8 +183,10 @@ function show_legend_info(){
   }
 }
 
-// reset map view
+
+
 function reset_map_view(event){
+  // set flying options and fly
   var flyopts = {
     zoom: 10,
     center: [-73.9978, 40.7209],
@@ -176,80 +194,71 @@ function reset_map_view(event){
     pitch:0,
   }
   map.flyTo(flyopts)
-  var global_page=0;
+
+  // reset info box and SMIA highlight
   showinfobox(event,"none")
+  map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
+  map.setPaintProperty("SMIAfill", 'fill-opacity',0)
 }
 
-// turn on / off explore and story listeners
-// listeners 101: map.on makes it listen, map.off makes it stop
-// map.on/off("event",("layer"),"Listerner function")
 
-function manage_listeners(active_listener){
 
+// ------------------------------------------
+// |-------    I N F O    B O X     --------|
+// ------------------------------------------
+function showinfobox(evt,boxname){
+  // control what's shown in the info box (STORY, EXPLORE, ABOUT)
+  // sloppy way of showing and hiding infobox from https://www.w3schools.com/howto/howto_js_tabs.asp
+  // declare variables
+  var i, boxcontent, boxlinks, killallboxes;
+
+  // hide everything named box-content
+  boxcontent = document.getElementsByClassName("box-content");
+  for (i=0; i<boxcontent.length; i++){
+    boxcontent[i].style.display = "none";
+  }
+
+  // check if clicked box was alread active, if so then kill all boxes
+  if (evt.currentTarget.className.includes("active") || boxname.includes("none")) {
+    killallboxes = 1;
+  }
+
+  // deactivate anything named mode-button
+  boxlinks= document.getElementsByClassName("mode-button");
+  for (i=0; i<boxlinks.length; i++){
+    boxlinks[i].className = boxlinks[i].className.replace(" active","");
+  }
+
+  // kill story button
+  document.getElementById('nextbutton').style.display = 'none';
+  document.getElementById('backbutton').style.display = 'none';
+
+  // clear explore box
   var blankgeojson = {
     "type": "FeatureCollection",
     "features": []
   };
-  // kill manage_listeners
-  map.off('click', query_point)
-  //map.off('mousemove',"SMIAfill",which_smia);
-  map.off('mousemove',which_smia)
-  map.off('click',smia_click)
-  //remove marker and info
   map.getSource('single-point').setData(blankgeojson);
   overlay.innerHTML = '';
-  // selectively activate listeners
-  if (active_listener.includes("story")){
-    //map.on('mousemove',"SMIAfill",which_smia);
-    //map.on('mousemove',which_smia);
-    //map.on('click',smia_click)
-    global_page = 0;
-    story_display_page(global_page)
-  }
-  if (active_listener.includes("explore")){
-    map.on('click',query_point);
+
+  // turn off all listeners
+  map.off('click', query_point)
+  map.off('mousemove',which_smia)
+  map.off('click',smia_click)
+
+  if (killallboxes!=1) {
+    // show the current box and make it active!
+    document.getElementById(boxname).style.display = "block";
+    evt.currentTarget.className += " active";
+
+    // manage listeners
+    if (evt.currentTarget.id.includes("story")) {
+      // listeners are in story_display_page
+      global_page = 0;
+      story_display_page(global_page)
+    } else if (evt.currentTarget.id.includes("explore")) {
+      // turn on point querying listener
+      map.on('click',query_point);
+    }
   }
 }
-
-  // ------------------------------------------
-  // |-------    I N F O    B O X     --------|
-  // ------------------------------------------
-
-  // MH: sloppy way of showing and hiding infobox
-  //https://www.w3schools.com/howto/howto_js_tabs.asp
-  function showinfobox(evt,boxname){
-    //variables
-    var i, boxcontent, boxlinks, killallboxes;
-
-    // hide everything named box-content
-    boxcontent = document.getElementsByClassName("box-content");
-    for (i=0; i<boxcontent.length; i++){
-      boxcontent[i].style.display = "none";
-    }
-
-    // check if clicked box was alread active, if so then kill all boxes
-    if (evt.currentTarget.className.includes("active") || boxname.includes("none")) {
-      killallboxes = 1;
-    }
-
-    // deactivate anything named mode-button
-    boxlinks= document.getElementsByClassName("mode-button");
-    for (i=0; i<boxlinks.length; i++){
-      boxlinks[i].className = boxlinks[i].className.replace(" active","");
-    }
-
-    // kill story button
-    document.getElementById('nextbutton').style.display = 'none';
-    document.getElementById('backbutton').style.display = 'none';
-
-    if (killallboxes!=1) {
-      // show the current box and make it active!
-      document.getElementById(boxname).style.display = "block";
-      evt.currentTarget.className += " active";
-      if (evt.currentTarget.id.includes("story")) {
-        manage_listeners("story")
-      } else if (evt.currentTarget.id.includes("explore")) {
-        manage_listeners("explore")
-      }
-    } else {manage_listeners("none")}
-  }
