@@ -7,6 +7,8 @@ function hidewip(){
     document.getElementById('wipoverlay').style.display = 'none';
 }
 
+// redefine "$" to return element ids
+var $ = function(id){return document.getElementById(id)};
 
 // ----------------------------------------
 // |  ** MENU / LAYER SWITCHING  ** |
@@ -66,7 +68,7 @@ function changeTab(tabName) {
       layers.appendChild(link);
       if (i == 0) {
         link.className = 'active';
-        legend_info(id)
+        update_legend(id)
         make_layer_visible(id)
       } else {
         link.className = '';
@@ -87,17 +89,14 @@ function make_layer_visible(clickedLayer) {
         map.setLayoutProperty('MOSF', 'visibility', 'none');
         map.setLayoutProperty('CBS', 'visibility', 'none');
         map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
-      } else if (otherLayerName == "Percent Uninsured") {
-        map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
-        map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 0);
-        map.setPaintProperty("Percent Uninsured Hatch", 'fill-opacity', 0);
       } else if (otherLayerName.includes("Percent") || otherLayerName.includes("Median Household Income") || otherLayerName.includes("Heat Vulnerability Index")) {
         map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
         map.setPaintProperty(otherLayerName + " Hatch", 'fill-opacity', 0);
+        if (otherLayerName == "Percent Uninsured"){map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 0)}
       } else {
         map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
       }
-      document.getElementById(toggleableLegendIds[otherLayerName]).style.display = 'none';
+      //document.getElementById(toggleableLegendIds[otherLayerName]).style.display = 'none';
     }
   }
   map.setPaintProperty("SMIAfill", 'fill-opacity',0)
@@ -106,38 +105,55 @@ function make_layer_visible(clickedLayer) {
     if (clickedLayer == "Highlight") {
       map.setPaintProperty("SMIAfill", 'fill-opacity',.25)
     }
-      document.getElementById("empty-legend").style.display = 'block';
-      legend_info("None");
+      update_legend("None");
   } else {
     if (clickedLayer == 'Bulk Storage Sites') {
       map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
       map.setLayoutProperty('MOSF', 'visibility', 'visible');
       map.setLayoutProperty('CBS', 'visibility', 'visible');
       map.setLayoutProperty('SUPERFUND2', 'visibility', 'visible');
-    } else if (clickedLayer == "Percent Uninsured") {
-      map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
-      map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 1);
-      map.setPaintProperty("Percent Uninsured Hatch", 'fill-opacity', 1);
     } else if (clickedLayer.includes("Percent") || clickedLayer.includes("Median Household Income") || clickedLayer.includes("Heat Vulnerability Index")) {
       map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
       map.setPaintProperty(clickedLayer + " Hatch", 'fill-opacity', 1);
+      if (clickedLayer == "Percent Uninsured"){map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 1)}
     } else {
       map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
     }
-    document.getElementById(toggleableLegendIds[clickedLayer]).style.display = 'block';
-    legend_info(clickedLayer)
+    //document.getElementById(toggleableLegendIds[clickedLayer]).style.display = 'block';
+    update_legend(clickedLayer)
   }
 }
 
 
-function legend_info(clickedLayer){
+function update_legend(layername){
   //update legend info to match clicked layer
-  document.getElementById('legendinfo').innerHTML ='<div style="margin-top:-10px;">'
-  +'<p><h4>Source</h4>'
-  +'<small>'+ vlayer[clickedLayer]["source"] +'</br></br></small>'
-  +'<h4>Description</h4>'
-  +'<small>' + vlayer[clickedLayer]["text"] + '</small></p>'
+  $('legendinfo').innerHTML ='<div style="margin-top:-10px;">'
+  +'<p><h4>Source</h4><small>'+ vlayer[layername]["source"] +'</br></br></small>'
+  +'<h4>Description</h4><small>' + vlayer[layername]["text"] + '</small></p>'
   +'</div>';
+
+  // get legend entry and color
+  var legendentry = legend_text[toggleableLegendIds[layername] + '_entry'];
+  var legendcolor = legend_text[toggleableLegendIds[layername] + '_color'];
+
+  // legend title
+  $('legend_placeholder').innerHTML = '<h4>' + layername + '</h4>';
+
+  // bulk legend is special
+  if (layername == 'Bulk Storage Sites'){
+    $('legend_placeholder').innerHTML = $('legendHTML_bulk').innerHTML
+  } else if (layername == "None") {
+  } else {
+    // build legend from entry text and colors
+    for (i=0; i<legendentry.length; i++){
+      var divtext = '<div style="text-align:right;"><div style="display:inline-block;line-height:100%">' + legendentry[i] + '</div>'
+      + '<span style="vertical-align:middle;background-color: ' + legendcolor[i] + ';margin-left:10px;margin-bottom:5px;"></span></div>'
+
+      $('legend_placeholder').innerHTML = $('legend_placeholder').innerHTML + divtext
+    }
+    // add image to uninsured legend
+    if (layername == 'Percent Uninsured'){$('legend_placeholder').innerHTML = $('legend_placeholder').innerHTML + $('legendHTML_uninsured').innerHTML}
+  }
 }
 
 function show_legend_info(){

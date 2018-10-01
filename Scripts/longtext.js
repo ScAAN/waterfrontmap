@@ -6,19 +6,24 @@ var request2 = new XMLHttpRequest();
 request2.open('GET', requestURL);
 request2.responseType = 'json';
 request2.send();
-var vlayer, vsmia;
+var vlayer, vsmia, vlegend;
+
 request2.onload = function() {
   var requested_text = request2.response;
   vlayer = requested_text["layer"];
   vsmia = requested_text["smia"];
-  legend_info("Percent People of Color")
+  legend_text = requested_text["legend"];
 
   // get a dict of legend ids
   for (const prop in vlayer) {
     toggleableLegendIds[prop] = vlayer[prop]["legend"];
   }
   delete toggleableLegendIds.None
+
+  update_legend("Percent People of Color")
 }
+
+
 
 var toggleableLayerIds =
     {"Demographics": ['Percent People of Color', 'Percent of Families Below Poverty Line', 'Median Household Income', 'Percent Uninsured'],

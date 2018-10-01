@@ -18,6 +18,9 @@ Formatting:
 3. Text\smia_text.csv 
     - One line for each smia (and 0 for the intro)
     - columns: name, number, description
+4. Text\legend_text.csv
+    - one ENTRY row and one COLOR row for each layer 
+    - don't have to fill out bulk storage 
     
 Remember to push to github after you convert! The map operates off of the 
 raw github files. 
@@ -38,6 +41,7 @@ smiaprop = 'name'
 import os
 import pandas as pd 
 import json
+import math
 
 # set cwd 
 os.chdir(os.path.dirname(__file__))
@@ -75,13 +79,27 @@ def become_wordy_json(df,prop):
                 newjson[id][name]= df[name][row]
     return newjson
 
+# make df become json (simple lists) - for legend text
+def become_simple_json(df):
+    newjson ={}
+    cols = list(df)
+    for name in cols:
+        newjson[name] = [x for x in df[name] if str(x)!='nan']            
+    return newjson
+
 # -----------------------------------------------------------------------------
 # now the script starts . . . 
 # -----------------------------------------------------------------------------
 
 
-# first convert the general text (LAYER & SMIA)
+# first convert the general text (LAYER & SMIA & LEGEND)
 # -----------------------------------------------------------------------------
+
+# load and convert LEGEND TEXT 
+file_name = 'Text\\legend_text.csv'
+if os.path.exists(file_name)==False: print("ERROR: legend file not found!")
+df = pd.read_csv(open(file_name),encoding='utf-8')
+legenddata = become_simple_json(df)
 
 # load and convert LAYER TEXT 
 file_name = 'Text\\layer_text.csv'
@@ -111,6 +129,7 @@ dataNames = {'human_readable_zone': 'Land use: ',
 
 # format data 
 fulldata = dict()
+fulldata["legend"] = legenddata
 fulldata["layer"] = layerdata
 fulldata["smia"] = smiadata
 fulldata["dataNames"] = dataNames

@@ -9,10 +9,16 @@
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
 </head>
 <body>
+  <!------------------------->
+  <!--     GENERAL       -->
+  <!------------------------->
   <!-- For some reason the geocoder control style needs to be here -->
   <style>
   .mapboxgl-ctrl-geocoder { position:relative;left:-9px;min-width:105%;margin:0 auto; }
   </style>
+
+  <title>Waterfront Justice Project</title>
+  <div id='map'></div>
 
   <!-- WIP BOX-->
   <div id="wipoverlay" class="overlayed" onclick='hidewip()'></div>
@@ -28,268 +34,72 @@
       </div>
     </div>
 
+
+  <!------------------------->
+  <!--     DATA MENU       -->
+  <!------------------------->
   <nav id="menu" class="tab">
     <div style: style='margin:0 auto;text-align:center'>
     <div style="text-align:left;margin-left:10px"> Data: </div>
     <div id="Demographics" class="menu-button" onclick="changeTab('Demographics')">Demographics</div>
     <div id="City Planning" class="menu-button" onclick="changeTab('City Planning')">City Planning</div>
     <div id="Climate" class="menu-button" onclick="changeTab('Climate')">Climate</div>
-    <div class="spacer-big"></div>
+    <!--<div class="spacer-big"></div>-->
   </div>
   </nav>
 
-  <title>Waterfront Justice Project</title>
-  <div id='map'></div>
+  <!------------------------->
+  <!--      LEGENDS        -->
+  <!------------------------->
 
-  <div id='empty-legend' class='legend overlay-box' style='display:block'>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+  <!-- THIS IS THE LEGEND AND LEGEND PLACEHOLDER -->
+  <div id='general_legend' class='legend overlay-box' style='display:block'>
+      <div style="text-align:right">
+        <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
+        <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+        <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
+        <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+      </div>
+      <p class="spacer"></p>
+      <div id='legend_placeholder'></div>
     </div>
-    <p class="spacer"></p>
-  </div>
 
+    <!-- LEGEND HTML FOR BULK STORAGE -->
+    <div id='legendHTML_bulk'>
+      <h4>Bulk Storage Sites</h4>
+      <div style='float:right;text-align:right'>
+        <div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
+        <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;vertical-align:middle" src="Assets/all_sprites/mh_toxic3.svg"></img></span>
+      </div>
+      <div style='float:right;text-align:right'>
+        <div style="display:inline-block;line-height:100%">Major Oil Storage<br/>Facilities</div>
+        <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;" src="Assets/all_sprites/mh_oil3.svg"></img></span>
+      </div>
+      <div style='float:right;text-align:right'>
+        <div style="display:inline-block;line-height:100%">Chemical Bulk<br/>Storage</div>
+        <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;" src="Assets/all_sprites/mh_chem3.svg"></img></span>
+      </div>
+      <div style='float:right;text-align:right'>
+        <div style="display:inline-block;line-height:100%">Superfund<br/>Class 2 Sites</div>
+        <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:45px;" src="Assets/all_sprites/mh_super3.svg"></img></span>
+      </div>
+      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+    </div>
 
-  <div id='zoning-legend' class='legend overlay-box' style='display:none'>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-    </div>
-    <p class="spacer"></p>
-    <h4>Land Use <br/> (from NYC zoning)</h4>
-    <div style="text-align:right">Residential <span style='background-color: #EDAD08;margin-left:10px;'></span></div>
-    <div style="text-align:right">NYC Parks <span style='background-color: #0F8554;margin-left:10px;'></span></div>
-    <div style="text-align:right">Manufacturing <span style='background-color: #94346E;margin-left:10px;'></span></div>
-    <div style="text-align:right">Commercial <span style='background-color: #CC503E;margin-left:10px;'></span></div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Mixed manufacturing<br/>and residential</div>
-      <span style='vertical-align:middle;background-color:#E17C05;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right;">Battery Park City <span style='background-color: #666666;margin-left:10px;'></span></div>
-  </div>
-
-  <div id='race-legend' class='legend overlay-box' style='display:block'>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-    </div>
-    <p class="spacer"></p>
-    <h4>Percent People of Color</h4>
-    <div style="text-align:right">0% &#8211 20%<span style='background-color: #feebe2;margin-left:10px;'></span></div>
-    <div style="text-align:right">21% &#8211 40%<span style='background-color: #fbb4b9;margin-left:10px;'></span></div>
-    <div style="text-align:right">41% &#8211 65%<span style='background-color: #f768a1;margin-left:10px;'></span></div>
-    <div style="text-align:right">66% &#8211 90%<span style='background-color: #c51b8a;margin-left:10px;'></span></div>
-    <div style="text-align:right">91% &#8211 100%<span style='background-color: #7a0177;margin-left:10px;'></span></div>
-  </div>
-
-  <div id='poverty-legend' class='legend overlay-box' style='display:none'>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-    </div>
-    <p class="spacer"></p>
-    <h4>Percent of Families<br/>Below Poverty Line</h4>
-    <div style="text-align:right">0% &#8211 20%<span style='background-color: #fee5d9;margin-left:10px;'></span></div>
-    <div style="text-align:right">21% &#8211 35%<span style='background-color: #fcae91;margin-left:10px;'></span></div>
-    <div style="text-align:right">36% &#8211 50%<span style='background-color: #fb6a4a;margin-left:10px;'></span></div>
-    <div style="text-align:right">51% &#8211 65%<span style='background-color: #de2d26;margin-left:10px;'></span></div>
-    <div style="text-align:right">66% &#8211 100%<span style='background-color: #a50f15;margin-left:10px;'></span></div>
-  </div>
-
-  <div id='income-legend' class='legend overlay-box' style='display:none'>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-    </div>
-    <p class="spacer"></p>
-    <h4>Median Household Income</h4>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">$0 &#8211 $18000 <br/>(0 &#8211 20 percentile)</div>
-      <span style='vertical-align:middle;background-color: #006837;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">$18001 &#8211 $39300 <br/>(20 &#8211 40 percentile)</div>
-      <span style='vertical-align:middle;background-color: #31a354;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">$39301 &#8211 $52300 <br/>(40 &#8211 50 percentile)</div>
-      <span style='vertical-align:middle;background-color: #78c679;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">$52301 &#8211 $67600 <br/>(50 &#8211 60 percentile)</div>
-      <span style='vertical-align:middle;background-color: #addd8e;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">$67601 &#8211 $115300 <br/>(60 &#8211 80 percentile)</div>
-      <span style='vertical-align:middle;background-color: #d9f0a3;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">$115301 and up <br/>(80 &#8211 99 percentile)</div>
-      <span style='vertical-align:middle;background-color: #ffffcc;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-  </div>
-
-  <div id='surge-legend' class='legend overlay-box' style='display:none'>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-    </div>
-    <p class="spacer"></p>
-    <h4>Hurricane Storm Surge Zones</h4>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Category 1<br/>winds 74-95 mph</div>
-      <span style='vertical-align:middle;background-color: #d7301f;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Category 2<br/>winds 96-110 mph</div>
-      <span style='vertical-align:middle;background-color: #fc8d59;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Category 3<br/>winds 111-130 mph</div>
-      <span style='vertical-align:middle;background-color: #fdcc8a;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Category 4<br/>winds 131+ mph</div>
-      <span style='vertical-align:middle;background-color: #fef0d9;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-  </div>
-
-  <div id='evac-legend' class='legend overlay-box' style='display:none'>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-    </div>
-    <p class="spacer"></p>
-    <h4>Hurricane Evacuation Zones</h4>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Zone 1</div>
-      <span style='vertical-align:middle;background-color: #ed3724;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Zone 2</div>
-      <span style='vertical-align:middle;background-color: #f48120;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Zone 3</div>
-      <span style='vertical-align:middle;background-color: #ffde17;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Zone 4</div>
-      <span style='vertical-align:middle;background-color: #bed630;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Zone 5</div>
-      <span style='vertical-align:middle;background-color: #72be44;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Zone 6</div>
-      <span style='vertical-align:middle;background-color: #00a78d;margin-left:10px;margin-bottom:10px;'></span>
-    </div>
-  </div>
-
-  <div id='neighborhood-legend' class='legend overlay-box' style='display:none'>
-    <div style='float:right'>
-      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-    </div>
-    <p class="spacer"></p>
-    <h4>Borough</h4>
-    <div style="text-align:right">Brooklyn<span style='background-color: #aeffd1;margin-left:10px;'></span></div>
-    <div style="text-align:right">Staten Island<span style='background-color: #233c95;margin-left:10px;'></span></div>
-    <div style="text-align:right">Queens<span style='background-color: #a7d6eb;margin-left:10px;'></span></div>
-    <div style="text-align:right">Manhattan<span style='background-color: #ffda8e;margin-left:10px;'></span></div>
-    <div style="text-align:right">Bronx<span style='background-color: #f4af1f;margin-left:10px;'></span></div>
-  </div>
-
-  <div id='bulk-legend' class='legend overlay-box' style='display:none'>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-    </div>
-    <p class="spacer"></p>
-    <h4>Bulk Storage Sites</h4>
-    <div style='float:right;text-align:right'>
-      <div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
-      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;vertical-align:middle" src="Assets/all_sprites/mh_toxic3.svg"></img></span>
-    </div>
-    <div style='float:right;text-align:right'>
-      <div style="display:inline-block;line-height:100%">Major Oil Storage<br/>Facilities</div>
-      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;" src="Assets/all_sprites/mh_oil3.svg"></img></span>
-    </div>
-    <div style='float:right;text-align:right'>
-      <div style="display:inline-block;line-height:100%">Chemical Bulk<br/>Storage</div>
-      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;" src="Assets/all_sprites/mh_chem3.svg"></img></span>
-    </div>
-    <div style='float:right;text-align:right'>
-      <div style="display:inline-block;line-height:100%">Superfund<br/>Class 2 Sites</div>
-      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:45px;" src="Assets/all_sprites/mh_super3.svg"></img></span>
-    </div>
-    <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-  </div>
-
-
-
-  <div id='uninsured-legend' class='legend overlay-box' style='display:none'>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-    </div>
-    <p class="spacer"></p>
-    <h4>Percent without<br/>health insurance</h4>
-    <div style="text-align:right">0% &#8211 5%<span style='background-color: #e7f0fa;margin-left:10px;'></span></div>
-    <div style="text-align:right">6% &#8211 10%<span style='background-color: #c6dbef;margin-left:10px;'></span></div>
-    <div style="text-align:right">11% &#8211 15%<span style='background-color: #8dc1dd;margin-left:10px;'></span></div>
-    <div style="text-align:right">16% &#8211 20%<span style='background-color: #4f9bcb;margin-left:10px;'></span></div>
-    <div style="text-align:right">21% &#8211 25%<span style='background-color: #2070b4;margin-left:10px;'></span></div>
-    <div style="text-align:right">26% &#8211 30%<span style='background-color: #08468b;margin-left:10px;'></span></div>
-    <div style='float:right;right:10px'>
+    <!-- LEGEND HTML FOR UNINSURED-->
+    <div id='legendHTML_uninsured' style='float:right;right:10px'>
       <div style="display:inline-block;line-height:100%">Estimate should<br/>be interpreted<br/>with caution</div>
       <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="right:12.5px;height:15px;width:15px" src="Assets/all_sprites/hatch-16.svg"></img></span>
     </div>
-  </div>
 
-
-
-  <div id='hvi-legend' class='legend overlay-box' style='display:none'>
-    <div style="text-align:right">
-      <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-      <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-      <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-    </div>
-    <p class="spacer"></p>
-    <h4>Heat Vulnerability<br/>Index</h4>
-    <div style="text-align:right">1<span style='background-color: #ffffb2;margin-left:10px;'></span></div>
-    <div style="text-align:right">2<span style='background-color: #fecc5c;margin-left:10px;'></span></div>
-    <div style="text-align:right">3<span style='background-color: #fd8d3c;margin-left:10px;'></span></div>
-    <div style="text-align:right">4<span style='background-color: #f03b20;margin-left:10px;'></span></div>
-    <div style="text-align:right">5<span style='background-color: #bd0026;margin-left:10px;'></span></div>
-  </div>
-
+    <!-- LEGEND INFO BOX-->
+    <div id='legendinfo' class='legend-info overlay-box'></div>
+    <div id='legendseam' class='legend-seam'></div>
 
   <!------------------------->
   <!--   NAVIGATION  BOX   -->
   <!------------------------->
+
   <div id='clickbox' class='text-info-box overlay-box' >
     <div style: style='margin:0 auto;text-align:center'>
       <h2>NYC-EJA Waterfront Justice Project</h2>
@@ -341,21 +151,17 @@
     <div id='nextbutton' class='next-button general-button' onclick='story_next_page()'>
       <span style='top: 30%;left:15%;position:absolute'>
         <img class="marker" style="left:0%;height:30px" src="Assets/noun_arrow.svg"></img>
-        <!-- style="left:0%;transform:rotate(90deg);"-->
       </span>
       <span style='top: 75%;left:15%;position:absolute' ><p style="font-size: 0.7em;margin:0;text-align:center;">NEXT</p></span>
     </div>
 
-    <!-- NEXT BUTTON  -->
+    <!-- BACK BUTTON  -->
     <div id='backbutton' class='back-button general-button' onclick='story_prev_page()'>
       <span style='top: 20%;left:15%;position:absolute'>
         <img class="marker" style="left:0%;height:30px;transform:rotate(180deg);" src="Assets/noun_arrow.svg"></img>
-        <!-- style="left:0%;transform:rotate(90deg);"-->
       </span>
       <span style='top: 75%;left:15%;position:absolute' ><p style="font-size: 0.7em;margin:0;text-align:center;">BACK</p></span>
     </div>
-
-
 
     <!-- RESET BUTTON  -->
     <div id='resetbutton' class='small-button general-button reset-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='reset_map_view(event)'>
@@ -363,29 +169,17 @@
       <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: -4px;display:block">RESET</p></span>
     </div>
 
-    <!-- OLD LEGEND BUTTON
-    <div id='legendbutton' class='legend-button small-button general-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
-      <span style='top: 5%;left:97%;position:absolute'><img class="marker" src="Assets/information-15.svg"></img></span>
-      <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: 2px;display:block">INFO</p></span>
-    </div>
-     -->
-
      <!-- NEW LEGEND BUTTON -->
      <div id='legendbutton' class='legend-button long-button general-button' style: style='display: inline-block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
        <span style="display:inline-block;float:left"><img src="Assets/information-15.svg"></img> <span>
        <span style="display:inline-block;line-height:0;float:left;"> <p>INFORMATION</p> <span>
      </div>
 
-
     <!-- PRINT BUTTON  -->
     <div id='printbutton' class='print-button small-button general-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='window.print()'>
       <span style='vertical-align:middle;'><img class="marker" style="height:30px" src="Assets/noun_printer.svg"></img></span>
       <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: -2px;display:block">PRINT</p></span>
     </div>
-
-    <!-- PRINT BUTTON INFO BOX-->
-    <div id='legendinfo' class='legend-info overlay-box'></div>
-    <div id='legendseam' class='legend-seam'></div>
 
     <!------------------------->
     <!--       SCRIPT       -->
@@ -395,6 +189,5 @@
     <script src='Scripts/navigation.js'></script>
     <script src='Scripts/generalstory.js'></script>
     <script src='Scripts/explore.js'></script>
-
   </body>
   </html>

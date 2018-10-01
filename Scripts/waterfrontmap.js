@@ -148,7 +148,7 @@ map.on('load', function () {
     "source-layer": "reduced_census",
     "layout": {"visibility":'visible'},
     "paint": {
-      "fill-opacity": 1,
+      "fill-opacity": 0,
       "fill-pattern": "diag-6"
     },
     "filter": ["==",'Perc_POC_P003009',-10]
