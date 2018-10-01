@@ -5,14 +5,16 @@ Mapping weather, human industry, and social demographics of SMIAs.
 [**CURRENT MAP**](http://scaan.net/waterfrontmap/) //
 [**EJA MAPS**](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true) //
 [**EJA-WJP INFORMATION**](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)   
+   
+   
 <img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/demo.gif" width="350" height="350">
 
 #### Work in progress
 <details><summary>Recent changes</summary>
    
-- (9/30) Various bugfixes -Maija    
-- (9/30) Heat Vulnerability Index and legend automation -Maija     
-- (9/22) New markers and general story updates -Maija   
+- [x] (9/30) Various bugfixes -Maija    
+- [x] (9/30) Heat Vulnerability Index and legend automation -Maija     
+- [x] (9/22) New markers and general story updates -Maija   
 
 </details>
 
