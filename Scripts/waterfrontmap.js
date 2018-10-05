@@ -39,8 +39,22 @@ map.on('load', function () {
     }
   });
 
-
-  map.moveLayer("water", "road-trunk")
+  map.addLayer({
+              "id": "water2",
+              "type": "fill",
+              "source": "mapbox://mapbox.mapbox-streets-v6",
+              "source-layer": "water",
+              "layout": {
+                  "visibility": "visible"
+              },
+              "paint": {
+                  "fill-color": "#d6d6d6"
+              },
+              "metadata": {
+                  "mapbox:group": "1444850923457.5469"
+              },
+              "interactive": true
+          },'road-label-sm');
 
   map.addSource('vector_data', {
     type: 'vector',
@@ -61,7 +75,6 @@ map.on('load', function () {
   map.removeLayer("road-label-sm");
   map.removeLayer("road-label-med");
   map.removeLayer("road-label-large");
-
 
   // Add a background pattern
   /*
@@ -95,7 +108,7 @@ map.on('load', function () {
         ]
       }
     }
-  }, 'water');
+  }, 'water2');
 
   map.addLayer({
     "id": "Hurricane Storm Surge Zones",
@@ -116,7 +129,7 @@ map.on('load', function () {
         ]
       }
     }
-  }, 'water');
+  }, 'water2');
 
   map.addLayer({
     "id": "Percent People of Color",
@@ -139,7 +152,7 @@ map.on('load', function () {
         ]
       }
     }
-  }, 'water');
+  }, 'water2');
 
   map.addLayer({
     "id": "Percent People of Color Hatch",
@@ -148,11 +161,11 @@ map.on('load', function () {
     "source-layer": "reduced_census",
     "layout": {"visibility":'visible'},
     "paint": {
-      "fill-opacity": 0,
+      "fill-opacity": 1,
       "fill-pattern": "diag-6"
     },
     "filter": ["==",'Perc_POC_P003009',-10]
-  }, 'water','Percent People of Color');
+  }, 'water2','Percent People of Color');
 
 
   map.addLayer({
@@ -171,13 +184,12 @@ map.on('load', function () {
           [0, '#006837'],
           [18001, '#31a354'],
           [39301, '#78c679'],
-          [52301, '#addd8e'],
-          [67601, '#d9f0a3'],
+          [67601, '#c2e699'],
           [115301, '#ffffcc']
         ]
       }
     }
-  }, 'water');
+  }, 'water2');
 
   map.addLayer({
     "id": "Median Household Income Hatch",
@@ -190,7 +202,7 @@ map.on('load', function () {
       "fill-pattern": "diag-6"
     },
     "filter": ["==",'Median Household Income',-10]
-  }, 'water','Median Household Income');
+  }, 'water2','Median Household Income');
 
 
   map.addLayer({
@@ -214,7 +226,7 @@ map.on('load', function () {
         ]
       }
     }
-  }, 'water');
+  }, 'water2');
 
   map.addLayer({
     "id": "Percent of Families Below Poverty Line Hatch",
@@ -227,7 +239,7 @@ map.on('load', function () {
       "fill-pattern": "diag-6"
     },
     "filter": ["==",'% of Families Below Poverty Level',-10]
-  }, 'water','Percent of Families Below Poverty Line');
+  }, 'water2','Percent of Families Below Poverty Line');
 
 
   map.addLayer({
@@ -321,6 +333,30 @@ map.on('load', function () {
       "line-dasharray": [1, 3]
     }
   },'Bulk Storage Sites','SUPERUND2','CBS','MOSF');
+/*
+  map.addLayer({
+    "id": "SMIAfill-color",
+    "type": "fill",
+    "source": "vector_data",
+    "source-layer": 'SMIA_halfmilebuffer_full',
+    "paint": {
+      "fill-opacity": .5,
+      "fill-color": {
+                'property': 'SMIA_Name',
+                'type': 'categorical',
+                "stops": [
+  		  ["Brooklyn Navy Yard", '#f44336'],
+  		  ["Kill Van Kull", '#9c27b0'],
+        ["Newtown Creek", '#ff9800'],
+        ["Red Hook",'#8bc34a'],
+        ["South Bronx","#03a9f4"],
+        ["Staten Island West Shore","#ffc107"],
+        ["Sunset Park","#3f51b5"]
+                ]
+  	  }
+    }
+  },'SMIA','SMIA-buffer','Bulk Storage Sites','SUPERUND2','CBS','MOSF');
+*/
 
   map.addLayer({
     "id": "SMIAfill",
@@ -345,6 +381,7 @@ map.on('load', function () {
     "filter": ["==", "SMIA_Name", ""]
   },'Bulk Storage Sites','SUPERUND2','CBS','MOSF');
 
+
   map.addLayer({
       "id": "Hurricane Evacuation Zones",
       "type": "fill",
@@ -367,7 +404,7 @@ map.on('load', function () {
               ]
 	  }
       }
-  }, 'water');
+  }, 'water2');
 
 
   map.addSource('CDdata', {
@@ -396,7 +433,7 @@ map.on('load', function () {
        ]
      }
    }
- }, 'water');
+ }, 'water2');
 
  map.addLayer({
    "id": "Percent Uninsured Unreliable",
@@ -407,7 +444,7 @@ map.on('load', function () {
      "fill-pattern": "hatch-16-thin"
   },
   "filter": ["==","unreliable",1]
-}, 'water','Percent Uninsured');
+}, 'water2','Percent Uninsured');
 
 map.addLayer({
   "id": "Percent Uninsured Hatch",
@@ -418,7 +455,7 @@ map.addLayer({
     "fill-pattern": "diag-6"
  },
  "filter": ["==","perc_uninsured",-10]
-}, 'water','Percent Uninsured');
+}, 'water2','Percent Uninsured');
 
 map.addLayer({
   "id": "Heat Vulnerability Index",
@@ -440,7 +477,7 @@ map.addLayer({
      ]
    }
  }
-}, 'water');
+}, 'water2');
 
 map.addLayer({
   "id": "Heat Vulnerability Index Hatch",
@@ -451,6 +488,6 @@ map.addLayer({
     "fill-pattern": "diag-6"
  },
  "filter": ["==","HVI_score",-10]
-}, 'water','HVI');
+}, 'water2','HVI');
 
 });

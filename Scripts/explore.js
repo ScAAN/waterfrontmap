@@ -8,6 +8,8 @@
 * 3) display information based on (1) and (2)
 */
 
+var global_last_point = [0, 0];
+
 function query_point(e){
   // on click query point, display info, and draw marker
 
@@ -22,71 +24,69 @@ function query_point(e){
 
   // get point longitude and lattitude
   var coords = e.lngLat;
-  queried[0].geometry.coordinates = [coords.lng, coords.lat];
+  var current_point = [coords.lng, coords.lat];
+  queried[0].geometry.coordinates = current_point;
   queried[0].geometry.type = "Point";
 
   // set 'single-point' marker to be at point coordinates
   map.getSource('single-point').setData(queried[0].geometry);
+
+  if (current_point[0]==global_last_point[0] && current_point[1]==global_last_point[1]){
+    // clear explore box
+    var blankgeojson = {
+      "type": "FeatureCollection",
+      "features": []
+    };
+    map.getSource('single-point').setData(blankgeojson);
+    $('map-overlay-info').innerHTML = '';
+    current_point = [0, 0];
+  }
+  global_last_point = current_point;
 }
 
 function show_explore_info(queried){
   // show info from points queried by marker
 
   // empty innerHTML so we can add to it!
-  overlay.innerHTML = '';
-  var shownData = [];
+  $('map-overlay-info').innerHTML = '';
 
-  // loop over returned rendered features ("queried")
-  for (var j = 0; j < queried.length; j++){
-    var data = queried[j].properties
-
-    for (var i = 0; i < Object.keys(dataNames).length; i++) {
-      var dataKey = Object.keys(dataNames)[i];
-      // if we haven't already found this data and it's not undefined
-      var dataDisplay = document.createElement('div');
-      if (shownData.indexOf(dataKey) == -1 && typeof(data[dataKey]) != 'undefined') {
-        if (dataNames[dataKey].includes('Percent')){
-          if (data[dataKey] > 0) {
-            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]) + ' %';
-          } else {
-            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + '<small>not enough data</small>';
-          }
-          shownData.push(dataKey)
-        } else if (dataNames[dataKey].includes('income')){
-          if (data[dataKey] > 0) {
-            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + '$ ' + Math.round(data[dataKey]);
-          } else {
-            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + '<small>not enough data</small>';
-          }
-          shownData.push(dataKey)
-        } else {
-          dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + data[dataKey];
-          shownData.push(dataKey)
-        }
-        overlay.appendChild(dataDisplay);
-      } else {
-        if (shownData.indexOf(dataKey) == -1 && dataNames[dataKey].includes('Hurricane') && typeof(data[Object.keys(dataNames)[0]]) != 'undefined'){
-          if (data[dataKey] > 0) {
-            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]);
-          } else {
-            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + 'none';
-          }
-          shownData.push(dataKey)
-          overlay.appendChild(dataDisplay);
-        }
-        if (shownData.indexOf(dataKey) == -1 && dataNames[dataKey].includes('Storm') && typeof(data[Object.keys(dataNames)[0]]) != 'undefined'){
-          if (data[dataKey] > 0) {
-            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>' + Math.round(data[dataKey]);
-          } else {
-            dataDisplay.innerHTML = '<b>' + dataNames[dataKey] + '</b>'  + 'none';
-          }
-          shownData.push(dataKey)
-          overlay.appendChild(dataDisplay);
-        }
+  // unnest query object
+  var arrObj = queried.map(a => a.properties);
+  var data = arrObj.reduce(function(result, currentObject) {
+    for(var key in currentObject) {
+      if (currentObject.hasOwnProperty(key)) {
+        result[key] = currentObject[key];
       }
-    }}
-    overlay.style.display = 'block';
+    }
+    return result;
+  }, {});
+
+  // go through layer names and list queried valies
+  for (var layerName in toggleableLegendIds) {
+    var dataKey = dataNames[layerName];
+    var divtext = '';
+    if ((typeof data[dataKey] != 'undefined') && ((data[dataKey]>0 && isNaN(data[dataKey])==0) || layerName.includes("Zoning"))){
+      if (layerName.includes("Zoning")) {
+        divtext =  '' + layerName + ':<b> ' + (data[dataKey]) +'</b>';
+      } else if (layerName.includes("Percent")) {
+        divtext =  '' + layerName + ':<b> ' +  Math.round(data[dataKey]) + '%'+'</b>';
+      } else if (layerName.includes("Income")) {
+        divtext =  '' + layerName + ':<b> ' + '$' + Math.round(data[dataKey])+'</b>';
+      } else {
+        divtext =  '' + layerName + ':<b> ' + Math.round(data[dataKey])+'</b>';
+      }
+    } else {
+      if (layerName.includes("Bulk")) {
+        // do nothing
+      } else {
+        divtext =  '' + layerName + ':<b> ' + '---'+'</b>';
+      }
+    }
+    $('map-overlay-info').innerHTML = $('map-overlay-info').innerHTML + '<div>' + divtext + '</div>'
   }
+  divtext = '<small>"</small>---<small>": no data or not enough data</small>'
+  $('map-overlay-info').innerHTML = $('map-overlay-info').innerHTML + '<div>' + divtext + '</div>'
+}
 
 
   // ---------------------------

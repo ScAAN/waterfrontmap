@@ -50,11 +50,13 @@ function changeTab(tabName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
+  $('MenuSpacer').style.display='None';
 
   if (tabName.includes("None")) {return}
 
   if (killallboxes !=1){
     // build a toggling menu
+    $('MenuSpacer').style.display='block';
     clickedTab.className += " active";
     for (var i = 0; i < toggleableLayerIds[tabName].length; i++) {
       var id = toggleableLayerIds[tabName][i];
@@ -69,6 +71,7 @@ function changeTab(tabName) {
         e.stopPropagation();
         if (this.className == 'active') {
           this.className = '';
+          console.log("none!")
           make_layer_visible('None')
         } else {
           this.className = 'active';
@@ -92,6 +95,7 @@ function changeTab(tabName) {
 
 function make_layer_visible(clickedLayer) {
   for (var otherLayerName in toggleableLegendIds) {
+
     if (otherLayerName != clickedLayer) {
       var otherToggler = document.getElementById('toggler-' + otherLayerName)
       if (otherToggler != null){
@@ -114,11 +118,14 @@ function make_layer_visible(clickedLayer) {
   map.setPaintProperty("SMIAfill", 'fill-opacity',0)
   if (clickedLayer=="None"||clickedLayer=="Highlight") {
     // show fill layer to highlight SMIAs
-    if (clickedLayer == "Highlight") {
+    //if (clickedLayer == "Highlight") {
       map.setPaintProperty("SMIAfill", 'fill-opacity',.25)
-    }
+    //}
     update_legend("None");
+    $('dataselector').innerHTML = ' Data: ';
   } else {
+    // update data tabselector
+    $('dataselector').innerHTML = 'Data: <small>'+ clickedLayer + '</small>';
     if (clickedLayer == 'Bulk Storage Sites') {
       map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
       map.setLayoutProperty('MOSF', 'visibility', 'visible');
@@ -192,12 +199,15 @@ function reset_map_view(event){
     center: [-73.9978, 40.7209],
     bearing: 0,
     pitch:0,
+    speed:.5,
+    curve: 1,
   }
-  map.flyTo(flyopts)
+  map.easeTo(flyopts)
 
   // reset info box and SMIA highlight
   showinfobox(event,"none")
   map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
+  $('smiainfoboxempty').style.visibility = 'hidden';
   map.setPaintProperty("SMIAfill", 'fill-opacity',0)
 }
 
@@ -239,12 +249,15 @@ function showinfobox(evt,boxname){
     "features": []
   };
   map.getSource('single-point').setData(blankgeojson);
-  overlay.innerHTML = '';
+  $('map-overlay-info').innerHTML = '';
 
   // turn off all listeners
   map.off('click', query_point)
   map.off('mousemove',which_smia)
   map.off('click',smia_click)
+  // turn off SMIA layer popup
+  map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
+  $('smiainfoboxempty').style.visibility = 'hidden';
 
   if (killallboxes!=1) {
     // show the current box and make it active!

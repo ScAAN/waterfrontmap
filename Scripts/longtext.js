@@ -39,10 +39,11 @@ var toggleableLayerIds =
      "Climate": ['Hurricane Storm Surge Zones', 'Hurricane Evacuation Zones','Heat Vulnerability Index']};
 
 // temporarily specify data names in vector data - will remove when fixed
-var dataNames = {'human_readable_zone': 'Land use: ',
-'Perc_POC_P003009': 'Percent people of color: ',
-'% of Families Below Poverty Level': 'Percent below poverty level: ',
-'CATEGORY': 'Storm surge zone: ',
-'Median Household Income': 'Median household income: ',
-'hurricane': 'Hurricane evacuation zone: ',
-'perc_uninsured': 'Percent Uninsured'};
+var dataNames = {'Zoning': 'human_readable_zone',
+'Percent People of Color': 'Perc_POC_P003009',
+'Percent of Families Below Poverty Line': '% of Families Below Poverty Level',
+'Hurricane Storm Surge Zones': 'CATEGORY',
+'Median Household Income': 'Median Household Income',
+'Hurricane Evacuation Zones':'hurricane',
+'Percent Uninsured': 'perc_uninsured',
+'Heat Vulnerability Index': 'HVI_score'};

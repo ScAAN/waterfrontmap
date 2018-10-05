@@ -45,7 +45,9 @@ function story_display_page(storypage){
     zoom: storyvars[storypage]["pageZoom"],
     pitch:0,
     bearing:0,
-    center: [storyvars[storypage]["pageLat"],storyvars[storypage]["pageLng"]]
+    center: [storyvars[storypage]["pageLat"],storyvars[storypage]["pageLng"]],
+    speed:.5,
+    curve: 1,
   }
   map.flyTo(flyopts)
 
@@ -87,6 +89,7 @@ function smia_click(e){
     map.off('click',smia_click)
     map.off('mousemove',which_smia)
     map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
+    $('smiainfoboxempty').style.visibility = 'hidden';
 
     // Go to the first page on which this SMIA appears
     global_page = pageSMIAIdx[smiaNum]+1;
@@ -102,15 +105,18 @@ function which_smia(e){
 
   // Get the number of the clicked SMIA
   var whichsmia = map.queryRenderedFeatures(e.point, {layers: ['SMIAfill']});
-
   // if the mouse moves over a smia show some info or don't
   if (whichsmia.length > 0) {
     // turn filter on
     var thissmia = whichsmia[0].properties.SMIA_Name;
     map.setFilter("SMIAhover", ["==", "SMIA_Name", thissmia]);
     // show some SMIA info
-    document.getElementById('smiabox').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
+    smia_info(thissmia,e.point)
+    //document.getElementById('smiabox').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
+    var jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
+    document.getElementById('smiabox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[global_page]["pageText"] + jumptext + '</small></p>';
   } else {
+    $('smiainfoboxempty').style.visibility = 'hidden';
     // turn filter off
     map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
     // show the story page text
@@ -118,3 +124,14 @@ function which_smia(e){
     document.getElementById('smiabox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[global_page]["pageText"] + jumptext + '</small></p>';
   }
 }
+
+function smia_info(thissmia,e){
+  document.getElementById('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>'
+  //+ '<small></br></br>' +vsmia[thissmia]["description"] 
+  //+ '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
+  var xcord = e["x"] - 20;
+  $('smiainfoboxempty').style.left = xcord+'px';
+  var ycord = e["y"] - $('smiainfoboxempty').offsetHeight -20;
+  $('smiainfoboxempty').style.top = ycord + 'px';
+  $('smiainfoboxempty').style.visibility = 'visible';
+  }

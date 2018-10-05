@@ -7,6 +7,7 @@
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
+  <!--<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet"> -->
 </head>
 <body>
   <!------------------------->
@@ -40,11 +41,11 @@
   <!------------------------->
   <nav id="menu" class="tab">
     <div style: style='margin:0 auto;text-align:center'>
-    <div style="text-align:left;margin-left:10px"> Data: </div>
-    <div id="Demographics" class="menu-button" onclick="changeTab('Demographics')">Demographics</div>
-    <div id="City Planning" class="menu-button" onclick="changeTab('City Planning')">City Planning</div>
-    <div id="Climate" class="menu-button" onclick="changeTab('Climate')">Climate</div>
-    <!--<div class="spacer-big"></div>-->
+    <div id="dataselector" style="text-align:left;margin-left:10px"> Data: <small>Percent People of Color</small> </div>
+    <div id="Demographics" class="menu-button large-button" onclick="changeTab('Demographics')">Demographics</div>
+    <div id="City Planning" class="menu-button large-button" onclick="changeTab('City Planning')">City Planning</div>
+    <div id="Climate" class="menu-button large-button" onclick="changeTab('Climate')">Climate</div>
+    <div id="MenuSpacer" class="spacer-big" style="display:none"></div>
   </div>
   </nav>
 
@@ -56,16 +57,16 @@
   <div id='general_legend' class='legend overlay-box' style='display:block'>
       <div style="text-align:right">
         <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-        <span style='vertical-align:middle;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
+        <span style='vertical-align:middle;outline-width:3px;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
         <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-        <span style='vertical-align:middle;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
+        <span style='vertical-align:middle;outline-width:2px;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
       </div>
       <p class="spacer"></p>
       <div id='legend_placeholder'></div>
     </div>
 
     <!-- LEGEND HTML FOR BULK STORAGE -->
-    <div id='legendHTML_bulk'>
+    <div id='legendHTML_bulk' style='display:none;'>
       <h4>Bulk Storage Sites</h4>
       <div style='float:right;text-align:right'>
         <div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
@@ -81,15 +82,17 @@
       </div>
       <div style='float:right;text-align:right'>
         <div style="display:inline-block;line-height:100%">Superfund<br/>Class 2 Sites</div>
-        <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:45px;" src="Assets/all_sprites/mh_super3.svg"></img></span>
+        <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="height:30px;" src="Assets/all_sprites/mh_super3.svg"></img></span>
       </div>
       <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
     </div>
 
     <!-- LEGEND HTML FOR UNINSURED-->
-    <div id='legendHTML_uninsured' style='float:right;right:10px'>
-      <div style="display:inline-block;line-height:100%">Estimate should<br/>be interpreted<br/>with caution</div>
-      <span style='vertical-align:middle;margin-bottom:30px;margin-left:10px;'><img class="marker" style="right:12.5px;height:15px;width:15px" src="Assets/all_sprites/hatch-16.svg"></img></span>
+    <div id='legendHTML_uninsured' style='display:none;'>
+      <div style='float:right;text-align:right'>
+        <div style="display:inline-block;line-height:100%">Interpret estimate</br>with caution</div>
+        <span style='vertical-align:middle;margin-bottom:20px;margin-left:10px;'><img class="marker" style="height:15px;width:15px;right:12.5px;" src="Assets/all_sprites/hatch-16.svg"></img></span>
+      </div>
     </div>
 
     <!-- LEGEND INFO BOX-->
@@ -102,17 +105,17 @@
 
   <div id='clickbox' class='text-info-box overlay-box' >
     <div style: style='margin:0 auto;text-align:center'>
-      <h2>NYC-EJA Waterfront Justice Project</h2>
-      <div id='storybutton' class='mode-button' onclick="showinfobox(event,'smiabox')"> STORY</div>
-      <div id='explorebutton' class='mode-button'   onclick="showinfobox(event,'explorebox')"> EXPLORE </div>
-      <div id='infobutton' class='mode-button'  onclick="showinfobox(event,'infotextbox')"> ABOUT </div>
+      NYC-EJA Waterfront Justice Project Map
+      <div id='storybutton' class='mode-button large-button' onclick="showinfobox(event,'smiabox')">Story</div>
+      <div id='explorebutton' class='mode-button large-button'   onclick="showinfobox(event,'explorebox')">Explore</div>
+      <div id='infobutton' class='mode-button large-button'  onclick="showinfobox(event,'infotextbox')">About</div>
     </div>
 
     <!-- INFO CONTENT  -->
     <div id='infotextbox' class='box-content'>
       <div>
-        <p >This map is a collaborative effort between NYC-EJA and ScAAN, furthering the work of NYC-EJA’s Waterfront Justice Project visualizing Special Maritime and Industrial Areas (SMIAs).
-          <br/><br/>Industrial and maritime development is encouraged by zoning regulations that have created SMIAs – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</p>
+          <p><small>This map is a collaborative effort between NYC-EJA and ScAAN, furthering the work of NYC-EJA’s Waterfront Justice Project visualizing Special Maritime and Industrial Areas (SMIAs).
+          <br/><br/>Industrial and maritime development is encouraged by zoning regulations that have created SMIAs – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</small></p>
         </div>
         <div style="text-align:center;">
           <div style= 'display:inline-block;width:45%;margin:auto;text-align:center;'>
@@ -126,8 +129,8 @@
           </div>
         </div>
         <p style="font-size: 0.7em; color: #777777;text-align:center;"><a href="https://github.com/ScAAN/waterfrontmap/blob/master/LICENSE">&copy NYC-EJA and ScAAN, 2018</a></p>
-        <div class="fb-button" style="cursor: pointer;" onclick="window.open('https://goo.gl/forms/Zt5tsufRS9us7Tbu2', '_blank');">
-          FEEDBACK
+        <div class= "large-button fb-button" style="width:70%;margin:auto;display:block" onclick="window.open('https://goo.gl/forms/Zt5tsufRS9us7Tbu2', '_blank');">
+          Feedback
         </div>
       </div>
 
@@ -143,42 +146,65 @@
     </div>
 
 
+    <div id='smiainfoboxempty' class='smiainfobox'></div>
+
+
     <!------------------------->
     <!--      BUTTONS        -->
     <!------------------------->
 
     <!-- NEXT BUTTON  -->
     <div id='nextbutton' class='next-button general-button' onclick='story_next_page()'>
-      <span style='top: 30%;left:15%;position:absolute'>
-        <img class="marker" style="left:0%;height:30px" src="Assets/noun_arrow.svg"></img>
+      <span class='tooltiptext'>next</span>
+      <span class='small-button-inside'>
+        <img class="marker" style="top:25%;left:50%;margin-left:-14px;height:30px;" src="Assets/noun_arrow.svg"></img>
       </span>
+      <!--
       <span style='top: 75%;left:15%;position:absolute' ><p style="font-size: 0.7em;margin:0;text-align:center;">NEXT</p></span>
+      -->
     </div>
 
     <!-- BACK BUTTON  -->
     <div id='backbutton' class='back-button general-button' onclick='story_prev_page()'>
-      <span style='top: 20%;left:15%;position:absolute'>
-        <img class="marker" style="left:0%;height:30px;transform:rotate(180deg);" src="Assets/noun_arrow.svg"></img>
+      <span class='tooltiptext'>back</span>
+      <span class='small-button-inside'>
+        <img class="marker" style="top:13%;left:50%;margin-left:-15px;height:30px;transform:rotate(180deg);" src="Assets/noun_arrow.svg"></img>
       </span>
+      <!--
       <span style='top: 75%;left:15%;position:absolute' ><p style="font-size: 0.7em;margin:0;text-align:center;">BACK</p></span>
+      -->
     </div>
 
     <!-- RESET BUTTON  -->
-    <div id='resetbutton' class='small-button general-button reset-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='reset_map_view(event)'>
-      <span style='top: 5%;left:97%;position:absolute'><img class="marker" style="height:30px" src="Assets/noun_reload.svg"></img></span>
+    <div id='resetbutton' class='reset-button small-button general-button' style='display: block; cursor: pointer; z-index: 10;' onclick='reset_map_view(event)'>
+      <span class="tooltiptext">reset</span>
+      <span class='small-button-inside'><img class="marker" style="height:35px;right:18%;top:18%;position:absolute;" src="Assets/noun_reload.svg"></img></span>
+      <!--
       <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: -4px;display:block">RESET</p></span>
+            -->
     </div>
 
-     <!-- LEGEND BUTTON -->
+     <!-- LEGEND BUTTON
      <div id='legendbutton' class='legend-button long-button general-button' style: style='display: inline-block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
        <span style="display:inline-block;float:left"><img src="Assets/information-15.svg"></img> <span>
        <span style="display:inline-block;line-height:0;float:left;"> <p>INFORMATION</p> <span>
      </div>
+ -->
+
+     <!-- LEGEND BUTTON -->
+     <div id='legendbutton' class='legend-button small-button general-button' style='display: inline-block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
+       <span class="tooltiptext" style="width:60px;margin-left:-30px;">data info</span>
+       <span class='small-button-inside'><img style="height:35px;" src="Assets/information-15-k.svg"></img> <span>
+     </div>
+
 
     <!-- PRINT BUTTON  -->
-    <div id='printbutton' class='print-button small-button general-button' style: style='display: block; cursor: pointer; z-index: 10;' onclick='window.print()'>
-      <span style='vertical-align:middle;'><img class="marker" style="height:30px" src="Assets/noun_printer.svg"></img></span>
+    <div id='printbutton' class='print-button small-button general-button' style='display: block; cursor: pointer; z-index: 10;' onclick='window.print()'>
+      <span class="tooltiptext">print</span>
+      <span class='small-button-inside'><img class="marker" style="height:35px;right:18%;top:18%;position:absolute;" src="Assets/noun_printer.svg"></img></span>
+      <!--
       <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: -2px;display:block">PRINT</p></span>
+      -->
     </div>
 
     <!------------------------->

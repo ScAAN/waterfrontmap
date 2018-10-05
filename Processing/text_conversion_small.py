@@ -30,7 +30,7 @@ raw github files.
 
 # settings and setup 
 # -----------------------------------------------------------------------------
-verbose = False
+verbose = True
 
 # properties to index by for general text 
 layerprop = 'id'

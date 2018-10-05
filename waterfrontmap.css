@@ -2,6 +2,38 @@
 *  Junk / temporary  *
 * -------------------*/
 
+/*html * {
+  font-family: "montserrat" !important
+}*/
+
+.smiainfobox {
+  background: rgba(0,0,0,.8);
+  color:white;
+  position: absolute;
+  z-index: 11;
+  top: 300px;
+  right: 500px;
+  border-radius:20px;
+  padding:10px;
+  width: 200px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 5px;
+  line-height:.9;
+  visibility:hidden;
+}
+.smiainfobox::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 20px;
+    border-right: 20px solid transparent;
+    border-top: 20px solid rgba(0,0,0,1);
+    opacity:.8;
+    z-index:11;
+    /*border-color: rgba(0,0,0,.9) transparent transparent transparent;*/
+}
+
+
 .overlayed{
   opacity:0.4;
   background:black;
@@ -32,30 +64,6 @@
   line-height: 1em;
   font-weight:'bold';
 }
-
-
-.instructions-button {
-  z-index: 1;
-  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
-  background-color: #F2F3F4;
-  /*box-shadow: 0 1px 2px rgba(0,0,0,0.10);*/
-  border-radius: 3px;
-  margin: 2%;
-  height:35px;
-  line-height: 25px;
-  cursor: pointer;
-  text-align:center;
-  vertical-align: middle;
-  width: 70%;
-  display: inline-block;
-  font-weight:bold;
-}
-.instructions-button:hover { background-color:    #CACFD2 ; }
-.instructions-button:active {
-  background-color:  #34495e;
-  color: #ffffff;
-}
-
 
 /*-------------------*
 *  Body and headings *
@@ -93,6 +101,7 @@ p {
 /* see (https://css-tricks.com/overriding-default-button-styles/)*/
 
 button {
+    box-shadow: 1 5px 5px rgba(0,0,0,0.90);
     display: inline-block;
     border: none;
     cursor: pointer;
@@ -250,7 +259,7 @@ button {
   right: 10px;
   padding:10px;
   border-radius: 3px;
-  width: 420px;
+  width: 430px;
   border: 1px solid rgba(0,0,0,0.4);
   font-family: 'Open Sans', sans-serif;
   line-height:1;
@@ -290,7 +299,7 @@ button {
   z-index: 1;
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   padding: 10px;
-  display: none;
+  display: block;
 }
 
 .text-info-box {
@@ -305,9 +314,10 @@ button {
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.10);
   padding: 10px;
+  line-height:1;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 850px) {
     #menu {
         width: 140px;
     }
@@ -320,55 +330,99 @@ button {
 
 .general-button {
   position: absolute;
-  z-index: 1;
   font: 16px 'Helvetica Neue', Helvetica, sans-serif;
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-  border-radius: 3px;
+  border-radius:50px;
   padding: 5px;
   cursor: pointer;
+  box-shadow: 1px 1px 2px 2px rgb(0,0,0,.1);
   border: 1px solid rgba(0,0,0,0.4);
-}
-.general-button:hover { background-color:    #f2f3f4 ; }
-.general-button:active {
-  background-color:  #34495e;
-  color: #ffffff;
 }
 
 .next-button {
-  width: 30px;
-  height: 50px;
-  top: 190px;
+  width: 35px;
+  height: 35px;
+  top: 140px;
   left: 390px;
   display: none;
 }
 .back-button {
-  width: 30px;
-  height: 50px;
-  top: 120px;
+  width: 35px;
+  height: 35px;
+  top: 75px;
   left: 390px;
   display: none;
 }
 
 .print-button {
-  top: 10px;
-  left: 390px;
+  bottom:330px;
+  right: 10px;
   display: block;
 }
 .small-button {
-  width: 30px;
+  width: 35px;
   height: 35px;
 }
+.small-button-inside {
+  width: 35px;
+  height: 35px;
+  border-radius:50px;
+  display:inline-block;
+  float:left;
+  transition: all 0.371s cubic-bezier(0.4,0,0.2,1);
+}
+.general-button:hover .small-button-inside { background-color: #CACFD2; }
+.general-button:active .small-button-inside {background-color: #bdbdbd; }
+.general-button:active {
+  /*background-color:  #e0e0e0;
+  color: #ffffff;*/
+}
+
+.general-button .tooltiptext {
+  visibility: hidden;
+  font: 12px 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: rgba(0,0,0,.8);
+  color: #ffffff;
+  text-align:center;
+  padding: 5px 0;
+  border-radius:50px;
+  position:absolute;
+  z-index:1;
+  width: 40px;
+  bottom: 90%;
+  left: 50%;
+  border:0px;
+  line-height:1;
+  margin-left: -20px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.general-button:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* https://www.w3schools.com/css/css_tooltip.asp*/
+.general-button .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    opacity:.;
+    border-color: rgba(0,0,0,.8) transparent transparent transparent;
+}
+
 .reset-button {
-  top: 65px;
-  left: 390px;
+  bottom:330px;
+  right: 67.5px;
   display: block;
 }
 .legend-button {
   /*bottom: 335px;
   right: 10px;*/
-  bottom: 328px;
-  right:10px;
+  bottom: 330px;
+  right:125px;
 }
 .long-button {
   width: 150px;
@@ -393,32 +447,33 @@ button {
   color: #ffffff;
 }
 
-.mode-button {
+
+.large-button {
   z-index: 1;
   font: 16px 'Helvetica Neue', Helvetica, sans-serif;
   background-color: #F2F3F4;
-  /*box-shadow: 0 1px 2px rgba(0,0,0,0.10);*/
-  border-radius: 3px;
+  box-shadow: .5px 1px 1px 1px rgb(0,0,0,.2);
   margin: 2%;
   height:25px;
+  border-radius: 3px;
   line-height: 25px;
   cursor: pointer;
   text-align:center;
   vertical-align: middle;
-  width: 28%;
   display: inline-block;
-  font-weight:bold;
+  transition: all 0.371s cubic-bezier(0.4,0,0.2,1);
 }
-.mode-button:hover { background-color:    #CACFD2 ; }
-.mode-button:active {
+
+.large-button:hover { background-color:    #CACFD2 ; }
+.large-button:active {
   background-color:  #34495e;
   color: #ffffff;
 }
-.mode-button.active {
+.large-button.active {
   background-color:  #34495e;
   color: #ffffff;
 }
-.mode-button.active:hover{background-color: #404040;}
+.large-button.active:hover{background-color: #404040;}
 
 .box-content {
   display: none;
@@ -442,7 +497,6 @@ button {
   vertical-align: middle;
   width: 100%;
   display: inline-block;
-  font-weight:bold;
 }
 .tab button:hover { background-color:    #CACFD2 ; }
 .tab button:active {
@@ -459,35 +513,13 @@ button {
     display: none;
 }
 
-
+.mode-button {
+  width: 28%;
+}
 
 .menu-button {
-  z-index: 1;
-  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
-  background-color: #F2F3F4;
-  /*box-shadow: 0 1px 2px rgba(0,0,0,0.10);*/
-  border-radius: 3px;
-  margin: 2%;
-  height:25px;
-  line-height: 25px;
-  cursor: pointer;
-  text-align:center;
-  vertical-align: middle;
   width: 120px;
-  display: inline-block;
-  font-weight:bold;
 }
-.menu-button:hover { background-color:    #CACFD2 ; }
-.menu-button:active {
-  background-color:  #34495e;
-  color: #ffffff;
-}
-.menu-button.active {
-  background-color:  #34495e;
-  color: #ffffff;
-}
-.menu-button.active:hover{background-color: #404040;}
-
 /*-------------------*
 *    Controls         *
 * -------------------*/

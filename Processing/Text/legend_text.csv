@@ -1,7 +1,8 @@
-race_entry,race_color,zoning_entry,zoning_color,poverty_entry,poverty_color,surge_entry,surge_color,income_entry,income_color,bulk_entry,bulk_color,evac_entry,evac_color,uninsured_entry,uninsured_color,hvi_entry,hvi_color
-0% &#8211 20%,#feebe2,Residential,#EDAD08,0% &#8211 20%,#fee5d9,Category 1,#d7301f,$0 &#8211 $18000 <br/>(0 &#8211 20 percentile),#006837,leave ,leave ,Zone 1,#ed3724,0% &#8211 5%,#e7f0fa,Index 1,#ffffb2
-21% &#8211 40%,#fbb4b9,NYC Parks,#0F8554,21% &#8211 35%,#fcae91,Category 2,#fc8d59,$18001 &#8211 $39300 <br/>(20 &#8211 40 percentile),#31a354,this ,this ,Zone 2,#f48120,6% &#8211 10%,#c6dbef,Index 2,#fecc5c
-41% &#8211 65%,#f768a1,Manufacturing,#94346E,36% &#8211 50%,#fb6a4a,Category 3,#fdcc8a,$39301 &#8211 $52300 <br/>(40 &#8211 50 percentile),#78c679,blank,blank,Zone 3,#ffde17,11% &#8211 15%,#8dc1dd,Index 3,#fd8d3c
-66% &#8211 90%,#c51b8a,Commercial,#CC503E,51% &#8211 65%,#de2d26,Category 4,#fef0d9,$52301 &#8211 $67600 <br/>(50 &#8211 60 percentile),#addd8e,please,please,Zone 4,#bed630,16% &#8211 20%,#4f9bcb,Index 4,#f03b20
-91% &#8211 100%,#7a0177,Mixed manufacturing<br/>and residential,#E17C05,66% &#8211 100%,#a50f15,,,$67601 &#8211 $115300 <br/>(60 &#8211 80 percentile),#d9f0a3,,,Zone 5,#72be44,21% &#8211 25%,#2070b4,Index 5,#bd0026
-,,Battery Park City,#666666,,,,,$115301 and up <br/>(80 &#8211 99 percentile),#ffffcc,,,Zone 6,#00a78d,26% &#8211 30%,#08468b,,
+race_entry,race_color,zoning_entry,zoning_color,poverty_entry,poverty_color,surge_entry,surge_color,income_entry,income_color,bulk_entry,bulk_color,evac_entry,evac_color,uninsured_entry,uninsured_color,hvi_entry,hvi_color,empty_entry,empty_color
+0% &#8211 20%,#feebe2,Residential,#EDAD08,0% &#8211 20%,#fee5d9,Category 1,#d7301f,$0 &#8211 $18000 <br/><small>(0 &#8211 20 percentile)</small>,#006837,leave ,leave ,Zone 1,#ed3724,0% &#8211 5%,#e7f0fa,Index 1,#ffffb2,#1: Brooklyn Navy Yard,#f44336
+21% &#8211 40%,#fbb4b9,NYC Parks,#0F8554,21% &#8211 35%,#fcae91,Category 2,#fc8d59,$18001 &#8211 $39300 <br/><small>(20 &#8211 40 percentile)</small>,#31a354,this ,this ,Zone 2,#f48120,6% &#8211 10%,#c6dbef,Index 2,#fecc5c,#2: Newtown Creek,#ff9800
+41% &#8211 65%,#f768a1,Manufacturing,#94346E,36% &#8211 50%,#fb6a4a,Category 3,#fdcc8a,$39301 &#8211 $67600 <br/><small>(40 &#8211 60 percentile)</small>,#78c679,blank,blank,Zone 3,#ffde17,11% &#8211 15%,#8dc1dd,Index 3,#fd8d3c,#3 Staten Island West Shore,#ffc107
+66% &#8211 90%,#c51b8a,Commercial,#CC503E,51% &#8211 65%,#de2d26,Category 4,#fef0d9,$67601 &#8211 $115300 <br/><small>(60 &#8211 80 percentile)</small>,#c2e699,please,please,Zone 4,#bed630,16% &#8211 20%,#4f9bcb,Index 4,#f03b20,#4: Red Hook: ,#8bc34a
+91% &#8211 100%,#7a0177,Mixed manufacturing<br/>and residential,#E17C05,66% &#8211 100%,#a50f15,,,$115301 and up <br/><small>(80 &#8211 99 percentile)</small>,#ffffcc,,,Zone 5,#72be44,21% &#8211 25%,#2070b4,Index 5,#bd0026,#5: South Bronx,#03a9f4
+,,Battery Park City,#666666,,,,,,,,,Zone 6,#00a78d,26% &#8211 30%,#08468b,,,#6: Sunset Park,#3f51b5
+,,,,,,,,,,,,,,,,,,#7: Kill Van Kull,#9c27b0
