@@ -127,7 +127,8 @@ function which_smia(e){
 
 function smia_info(thissmia,e){
   document.getElementById('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>'
-  //+ '<small></br></br>' +vsmia[thissmia]["description"] 
+  document.getElementById('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"] + '(<a style="color:white;" href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">Source: VISION 2020</a>)' + '</small></p>';
+  //+ '<small></br></br>' +vsmia[thissmia]["description"]
   //+ '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
   var xcord = e["x"] - 20;
   $('smiainfoboxempty').style.left = xcord+'px';
