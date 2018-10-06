@@ -191,7 +191,7 @@ button {
   right: 10px;
   z-index: 1;
   width:140px;
-  height:285px;
+  height:240px;
 }
 
 .legend p {
@@ -354,11 +354,6 @@ button {
   display: none;
 }
 
-.print-button {
-  bottom:330px;
-  right: 10px;
-  display: block;
-}
 .small-button {
   width: 35px;
   height: 35px;
@@ -414,15 +409,20 @@ button {
 }
 
 .reset-button {
-  bottom:330px;
+  bottom:285px;
   right: 67.5px;
   display: block;
 }
 .legend-button {
   /*bottom: 335px;
   right: 10px;*/
-  bottom: 330px;
+  bottom: 285px;
   right:125px;
+}
+.print-button {
+  bottom:285px;
+  right: 10px;
+  display: block;
 }
 .long-button {
   width: 150px;
