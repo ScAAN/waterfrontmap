@@ -12,6 +12,7 @@ Mapping weather, human industry, and social demographics of SMIAs.
 #### Work in progress
 <details><summary>Recent changes</summary>
    
+- [x] (10/5) Visuals and explore fix -Maija
 - [x] (9/30) Various bugfixes -Maija    
 - [x] (9/30) Heat Vulnerability Index and legend automation -Maija     
 - [x] (9/22) New markers and general story updates -Maija   
@@ -24,8 +25,6 @@ Mapping weather, human industry, and social demographics of SMIAs.
 - [ ] Turn clustering off in vector data (symbols don't display at low zoom)  
 - [ ] There is some kind of typo in vector data causing `Error at Actor.recieve`   
 - [ ] Update all sources  
-- [ ] Make explore information have consistent order    
-- [ ] Diag svg doesn't render seamlessly   
 
 </details>
 
