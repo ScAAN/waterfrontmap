@@ -1,7 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Assets/light.json',
+  style: 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Assets/light.json?optimize=true',
   center: [-73.9978, 40.7209],
   zoom: 10,
   legendControl: {
@@ -95,6 +95,18 @@ map.on('load', function () {
     "layout": {"visibility":'visible'},
     "paint": {
       "fill-opacity": 0,
+      "fill-outline-color": {
+        'property': 'human_readable_zone',
+        'type': 'categorical',
+        "stops": [
+          ['Residential', '#d58b11'],
+          ['New York City Parks', '#024529'],
+          ['Manufacturing', '#6e0d47'],
+          ['Commercial', '#b81d05'],
+          ['Mixed manufacturing and residential', '#985201'],
+          ['Battery Park City', '#404040']
+        ]
+      },
       "fill-color": {
         'property': 'human_readable_zone',
         'type': 'categorical',
@@ -139,6 +151,17 @@ map.on('load', function () {
     "layout": {"visibility":'visible'},
     "paint": {
       "fill-opacity": 1,
+      "fill-outline-color":{
+        'property': 'Perc_POC_P003009',
+        'type': 'interval',
+        'stops': [
+          [0, '#fbb4b9'],
+          [21, '#f768a1'],
+          [41, '#c51b8a'],
+          [66, '#7a0177'],
+          [91, '#c51b8a']
+        ]
+      },
       "fill-color": {
         'property': 'Perc_POC_P003009',
         'type': 'interval',
@@ -176,6 +199,17 @@ map.on('load', function () {
     "layout": {"visibility":'visible'},
     "paint": {
       "fill-opacity": 0,
+      "fill-outline-color":{
+        'property': 'Median Household Income',
+        'type': 'interval',
+        'stops': [
+          [0, '#31a354'],
+          [18001, '#006837'],
+          [39301, '#31a354'],
+          [67601, '#78c679'],
+          [115301, '#c2e699']
+        ]
+      },
       "fill-color": {
         'property': 'Median Household Income',
         'type': 'interval',
@@ -213,6 +247,17 @@ map.on('load', function () {
     "layout": {"visibility":'visible'},
     "paint": {
       "fill-opacity": 0,
+      "fill-outline-color":{
+        'property': '% of Families Below Poverty Level',
+        'type': 'interval',
+        'stops': [
+          [0, '#fcae91'],
+          [21, '#fb6a4a'],
+          [36, '#de2d26'],
+          [51, '#a50f15'],
+          [66, '#de2d26']
+        ]
+      },
       "fill-color": {
         'property': '% of Families Below Poverty Level',
         'type': 'interval',
@@ -418,6 +463,18 @@ map.on('load', function () {
     "source": 'CDdata',
     "paint": {
       "fill-opacity": 0,
+      "fill-outline-color":{
+        'property': 'perc_uninsured',
+        'type': 'interval',
+        'stops': [
+          [0, '#c6dbef'],
+          [5, '#8dc1dd'],
+          [10, '#4f9bcb'],
+          [15, '#2070b4'],
+          [20, '#08468b'],
+          [25, '#2070b4']
+        ]
+      },
       "fill-color":
       {
        'property': 'perc_uninsured',
@@ -463,6 +520,17 @@ map.addLayer({
   "source": 'CDdata',
   "paint": {
     "fill-opacity": 0,
+    "fill-outline-color": {
+      'property': 'HVI_score',
+      'type': 'interval',
+      'stops': [
+        [1, '#fecc5c'],
+        [2, '#fd8d3c'],
+        [3, '#f03b20'],
+        [4, '#bd0026'],
+        [5, '#f03b20']
+      ]
+    },
     "fill-color":
     {
      'property': 'HVI_score',

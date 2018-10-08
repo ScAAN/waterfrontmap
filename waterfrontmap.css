@@ -33,7 +33,6 @@
     /*border-color: rgba(0,0,0,.9) transparent transparent transparent;*/
 }
 
-
 .overlayed{
   opacity:0.4;
   background:black;
@@ -58,7 +57,6 @@
 }
 
 .instructions h4{
-  font-weight:'bold';
   font: 24px 'Helvetica Neue', sans-serif;
   margin: 0 0 10px;
   line-height: 1em;
