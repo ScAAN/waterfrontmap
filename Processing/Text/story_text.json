@@ -11,6 +11,7 @@
     ],
     "data": [
         {
+            "bulkLayers": "None",
             "pageIdx": 0,
             "pageLat": -73.9978,
             "pageLayer": "None",
@@ -21,6 +22,7 @@
             "pageZoom": 10
         },
         {
+            "bulkLayers": "None",
             "pageIdx": 1,
             "pageLat": -73.9978,
             "pageLayer": "Highlight",
@@ -31,6 +33,7 @@
             "pageZoom": 10
         },
         {
+            "bulkLayers": "None",
             "pageIdx": 1,
             "pageLat": -73.9978,
             "pageLayer": "Highlight",
@@ -41,6 +44,7 @@
             "pageZoom": 10
         },
         {
+            "bulkLayers": "None",
             "pageIdx": 1,
             "pageLat": -73.9978,
             "pageLayer": "Percent People of Color",
@@ -51,6 +55,7 @@
             "pageZoom": 10
         },
         {
+            "bulkLayers": "None",
             "pageIdx": 1,
             "pageLat": -73.9978,
             "pageLayer": "Zoning",
@@ -61,6 +66,7 @@
             "pageZoom": 10
         },
         {
+            "bulkLayers": "None",
             "pageIdx": 1,
             "pageLat": -73.9978,
             "pageLayer": "Hurricane Storm Surge Zones",
@@ -71,6 +77,7 @@
             "pageZoom": 10
         },
         {
+            "bulkLayers": "None",
             "pageIdx": 1,
             "pageLat": -73.9978,
             "pageLayer": "Hurricane Evacuation Zones",
@@ -81,6 +88,7 @@
             "pageZoom": 10
         },
         {
+            "bulkLayers": "None",
             "pageIdx": 1,
             "pageLat": -73.9978,
             "pageLayer": "Bulk Storage Sites",
@@ -91,6 +99,7 @@
             "pageZoom": 10
         },
         {
+            "bulkLayers": "None",
             "pageIdx": 1,
             "pageLat": -73.9978,
             "pageLayer": "Percent of Families Below Poverty Line",
@@ -101,6 +110,7 @@
             "pageZoom": 10
         },
         {
+            "bulkLayers": "None",
             "pageIdx": 1,
             "pageLat": -73.9978,
             "pageLayer": "Median Household Income",
@@ -111,6 +121,7 @@
             "pageZoom": 10
         },
         {
+            "bulkLayers": "None",
             "pageIdx": 1,
             "pageLat": -73.9978,
             "pageLayer": "Percent Uninsured",
@@ -121,6 +132,7 @@
             "pageZoom": 10
         },
         {
+            "bulkLayers": "None",
             "pageIdx": 0,
             "pageLat": -73.9978,
             "pageLayer": "None",
@@ -131,6 +143,7 @@
             "pageZoom": 10
         },
         {
+            "bulkLayers": "Bulk Storage Sites,MOSF,CBS,SUPERFUND2",
             "pageIdx": 2,
             "pageLat": -73.97256593122793,
             "pageLayer": "Percent People of Color",
@@ -141,6 +154,7 @@
             "pageZoom": 12
         },
         {
+            "bulkLayers": "MOSF",
             "pageIdx": 2,
             "pageLat": -73.93480042828487,
             "pageLayer": "Percent People of Color",
@@ -151,16 +165,18 @@
             "pageZoom": 12
         },
         {
+            "bulkLayers": "CBS",
             "pageIdx": 2,
             "pageLat": -74.23091192935536,
             "pageLayer": "Percent People of Color",
             "pageLng": 40.5505517824447,
             "pageSMIA": 3,
             "pageText": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            "pageTitle": "SMIA #3, State Island West Shore",
+            "pageTitle": "SMIA #3, Staten Island West Shore",
             "pageZoom": 12
         },
         {
+            "bulkLayers": "SUPERFUND2",
             "pageIdx": 2,
             "pageLat": -74.00743616089453,
             "pageLayer": "Percent People of Color",
@@ -171,6 +187,7 @@
             "pageZoom": 12
         },
         {
+            "bulkLayers": "MOSF,CBS",
             "pageIdx": 2,
             "pageLat": -73.8939875925258,
             "pageLayer": "Percent People of Color",
@@ -181,6 +198,7 @@
             "pageZoom": 12
         },
         {
+            "bulkLayers": "Bulk Storage Sites,SUPERFUND2",
             "pageIdx": 2,
             "pageLat": -74.01499944630518,
             "pageLayer": "Percent People of Color",
@@ -191,6 +209,7 @@
             "pageZoom": 12
         },
         {
+            "bulkLayers": "MOSF,CBS,Bulk Storage Sites",
             "pageIdx": 2,
             "pageLat": -74.13713363755667,
             "pageLayer": "Percent People of Color",
@@ -201,6 +220,7 @@
             "pageZoom": 12
         },
         {
+            "bulkLayers": NaN,
             "pageIdx": 0,
             "pageLat": -73.9978,
             "pageLayer": "None",

@@ -244,6 +244,11 @@ button {
   margin-top:-50px;
 }
 
+#legendHTML_bulk {
+  right:180px;
+  bottom:20px;
+}
+
 .spacer {
   padding-bottom:0px;
 }

@@ -30,6 +30,7 @@ function query_point(e){
 
   // set 'single-point' marker to be at point coordinates
   map.getSource('single-point').setData(queried[0].geometry);
+  console.log(queried[0].geometry)
 
   if (current_point[0]==global_last_point[0] && current_point[1]==global_last_point[1]){
     // clear explore box
@@ -84,7 +85,7 @@ function show_explore_info(queried){
     }
     $('map-overlay-info').innerHTML = $('map-overlay-info').innerHTML + '<div>' + divtext + '</div>'
   }
-  divtext = '<small>"</small>---<small>": no data or not enough data</small>'
+  divtext = '<small>"</small>--<small>": no data or not enough data</small>'
   $('map-overlay-info').innerHTML = $('map-overlay-info').innerHTML + '<div>' + divtext + '</div>'
 }
 

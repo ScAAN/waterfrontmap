@@ -31,7 +31,8 @@ var $ = function(id){return document.getElementById(id)};
 // update legend information to be default
 //legend_info("Percent People of Color")
 
-
+var global_bulkflag = false;
+var global_notbulk = false;
 
 function changeTab(tabName) {
   var killallboxes=0;
@@ -67,36 +68,111 @@ function changeTab(tabName) {
       var id = toggleableLayerIds[tabName][i];
       var link = document.createElement('a');
       link.style.cssText = 'float:left; width:112px;margin-left:9px;';
-      // add some padding on the first element so it doesn't show when hidden
-      //if (i==0||i==3||i==6) {link.style.cssText =  'margin-left:10px;float:left; width:117px;'}
       link.href = '#';
       link.textContent = id;
       link.id = 'toggler-' + id
+      // manage bulk activity
+      if (global_bulkflag==true && ($("toggler-Bulk Storage Sites") == null)==false){
+        $("toggler-Bulk Storage Sites").className = 'active';
+        if (global_notbulk==true){bulk_legend(true)}
+      }
       link.onclick = function(e) {
         var clickedLayer = this.textContent;
         e.preventDefault();
         e.stopPropagation();
         if (this.className == 'active') {
+          // if the class was already active make it inactive
           this.className = '';
-          make_layer_visible('None')
+
+          //  manage bulk legend
+          if (clickedLayer=="Bulk Storage Sites") {
+            toggle_bulk("None")
+            if (global_notbulk==false){update_legend("None")}
+            bulk_legend(false)
+          } else {
+            global_notbulk=false;
+            make_layer_visible('None')
+            if (global_bulkflag==true){
+              update_legend('Bulk Storage Sites')
+              bulk_legend(false)
+            } else {
+              update_legend("None")
+            }
+            // manage bulk activity
+            if (global_bulkflag==true && ($("toggler-Bulk Storage Sites") == null)==false){
+              $("toggler-Bulk Storage Sites").className = 'active';
+            }
+
+          }
         } else {
+          // if this wasn't active make it active now
           this.className = 'active';
-          make_layer_visible(clickedLayer)
+          if (clickedLayer=="Bulk Storage Sites"){
+            toggle_bulk(['Bulk Storage Sites','MOSF','CBS','SUPERFUND2'])
+            if (global_notbulk==false){update_legend("Bulk Storage Sites")}
+            if (global_notbulk==true){bulk_legend(true)}
+          } else {
+            global_notbulk=true;
+            // manage bulk legend
+            if (global_bulkflag==true){bulk_legend(true)}
+            make_layer_visible(clickedLayer)
+            // manage bulk activity
+            if (global_bulkflag==true && ($("toggler-Bulk Storage Sites") == null)==false){
+              $("toggler-Bulk Storage Sites").className = 'active';
+              if (global_notbulk==true){bulk_legend(true)}
+            }
+
+          }
         }
       };
 
       layers.appendChild(link);
+
+      // delete this and make toggles invisible instead of vanishing
       if (i == 0) {
         link.className = 'active';
         update_legend(id)
         make_layer_visible(id)
+        global_notbulk=true;
+        if (global_bulkflag==true){bulk_legend(true)}
       } else {
         link.className = '';
       }
+      // manage bulk activity
+      if (global_bulkflag==true && ($("toggler-Bulk Storage Sites") == null)==false){
+        $("toggler-Bulk Storage Sites").className = 'active';
+        if (global_notbulk==true){bulk_legend(true)}
+      }
+
     };
   }
 }
 
+function toggle_bulk(layers) {
+  map.setLayoutProperty('Bulk Storage Sites', 'visibility', 'none');
+  map.setLayoutProperty('MOSF', 'visibility', 'none');
+  map.setLayoutProperty('CBS', 'visibility', 'none');
+  map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
+  global_bulkflag = false
+  if (layers!='None') {
+    for (i=0; i < layers.length; i++) {
+      map.setLayoutProperty(layers[i],'visibility','visible')
+      global_bulkflag = true
+    }
+  }
+}
+
+function bulk_legend(value) {
+  if (value==true && global_notbulk==true){
+    $('legendHTML_bulk').style.display = 'block';
+    if (document.getElementById('legendinfo').style.display.includes("block")){
+      $('legendinfo').style.right='350px';
+    }
+  } else {
+    $('legendinfo').style.right='180px';
+    $('legendHTML_bulk').style.display = 'none';
+  }
+}
 
 
 function make_layer_visible(clickedLayer) {
@@ -108,10 +184,11 @@ function make_layer_visible(clickedLayer) {
         otherToggler.className = '';
       }
       if (otherLayerName == 'Bulk Storage Sites') {
-        map.setLayoutProperty(otherLayerName, 'visibility', 'none');
-        map.setLayoutProperty('MOSF', 'visibility', 'none');
-        map.setLayoutProperty('CBS', 'visibility', 'none');
-        map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
+        // do nothing
+        //map.setLayoutProperty(otherLayerName, 'visibility', 'none');
+        //map.setLayoutProperty('MOSF', 'visibility', 'none');
+        //map.setLayoutProperty('CBS', 'visibility', 'none');
+        //map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
       } else if (otherLayerName.includes("Percent") || otherLayerName.includes("Median Household Income") || otherLayerName.includes("Heat Vulnerability Index")) {
         map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
         map.setPaintProperty(otherLayerName + " Hatch", 'fill-opacity', 0);
@@ -122,10 +199,12 @@ function make_layer_visible(clickedLayer) {
     }
   }
   map.setPaintProperty("SMIAfill", 'fill-opacity',0)
+  map.setLayoutProperty("SMIAnumbers", 'visibility',"none")
   if (clickedLayer=="None"||clickedLayer=="Highlight") {
     // show fill layer to highlight SMIAs
     //if (clickedLayer == "Highlight") {
-      map.setPaintProperty("SMIAfill", 'fill-opacity',.25)
+    map.setLayoutProperty("SMIAnumbers",'visibility','visible')
+    map.setPaintProperty("SMIAfill", 'fill-opacity',.25)
     //}
     update_legend("None");
     $('dataselector').innerHTML = ' Data: ';
@@ -169,7 +248,8 @@ function update_legend(layername){
   if (layername == 'Bulk Storage Sites'){
     $('legend_placeholder').innerHTML = $('legendHTML_bulk').innerHTML
   } else if (layername == "None") {
-    $('legend_placeholder').innerHTML = '';
+    //$('legend_placeholder').innerHTML = '';
+    $('legend_placeholder').innerHTML = $('legendHTML_Highlight').innerHTML
   } else {
     // build legend from entry text and colors
     for (i=0; i<legendentry.length; i++){
@@ -190,9 +270,15 @@ function show_legend_info(){
   if (document.getElementById('legendinfo').style.display.includes("block")){
     document.getElementById('legendinfo').style.display='none';
     document.getElementById('legendseam').style.display='none';
+    //if (global_bulkflag==true){ $('legendHTML_bulk').style.right='180px';}
   } else {
     document.getElementById('legendinfo').style.display='block';
     document.getElementById('legendseam').style.display='block';
+    if (global_bulkflag==true && global_notbulk==true){
+      $('legendinfo').style.right='350px';
+    } else {
+      $('legendinfo').style.right='180px';
+    }
   }
 }
 
@@ -215,6 +301,7 @@ function reset_map_view(event){
   map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
   $('smiainfoboxempty').style.visibility = 'hidden';
   map.setPaintProperty("SMIAfill", 'fill-opacity',0)
+  map.setLayoutProperty("SMIAnumbers",'visibility','none')
 }
 
 

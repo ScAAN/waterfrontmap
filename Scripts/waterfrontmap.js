@@ -25,45 +25,133 @@ map.on('load', function () {
     }
   });
 
-  // display marker for geocoder, this is a symbol (marker-15)
-  map.addLayer({
-    "id": "point",
-    "source": "single-point",
-    "type": "symbol",
-    "layout": {
-      "icon-image": "noun_location_border_filled",
-      "icon-allow-overlap": true,
-      "text-allow-overlap": true,
-      "icon-size":.4,
-      "icon-offset":[0,-50],
-    }
-  });
 
-  map.addLayer({
-              "id": "water2",
-              "type": "fill",
-              "source": "mapbox://mapbox.mapbox-streets-v6",
-              "source-layer": "water",
-              "layout": {
-                  "visibility": "visible"
-              },
-              "paint": {
-                  "fill-color": "#d6d6d6"
-              },
-              "metadata": {
-                  "mapbox:group": "1444850923457.5469"
-              },
-              "interactive": true
-          },'road-label-sm');
 
-  map.addSource('vector_data', {
-    type: 'vector',
-    url: 'mapbox://billbrod.7693fb16'
-  })
+  map.addSource('SMIA-point', {
+    "type": "geojson",
+    "data":{
+        "type": "FeatureCollection",
+        "features": [{
+          "type": "Feature",
+          "properties": {
+            "Number": 1,
+            "Name":"Brooklyn Navy Yard",
+            "Icon":"number-1"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.94904816851808, 40.747175323625896]
+          }
+        },{
+          "type": "Feature",
+          "properties": {
+            "Number": 2,
+            "Name":"Newtown Creek",
+            "Icon":"number-2"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.95922616286612, 40.70190246515443]
+          }
+        },{
+          "type": "Feature",
+          "properties": {
+            "Number": 3,
+            "Name": "Staten Island West Shore",
+            "Icon":"number-3"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.20918201032606, 40.564923648547676]
+          }
+        },{
+          "type": "Feature",
+          "properties": {
+            "Number": 4,
+            "Name":"Red Hook",
+            "Icon":"number-4"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.01084626453857, 40.69669671469495]
+          }
+        },{
+          "type": "Feature",
+          "properties": {
+            "Number": 5,
+            "Name":"South Bronx",
+            "Icon":"number-5"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.93737519505117, 40.806451757747396]
+          }
+        },{
+          "type": "Feature",
+          "properties": {
+            "Number": 6,
+            "Name":"Sunset Park",
+            "Icon":"number-6"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-73.99368012684003, 40.65868241533579]
+          }
+        },{
+          "type": "Feature",
+          "properties": {
+            "Number": 7,
+            "Name":"Kill Van Kull",
+            "Icon":"number-7"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-74.09599030750208, 40.65086857337019]
+          }
+        }
+      ]
+    }});
 
-  // from
-  // https://github.com/mapbox/mapbox-gl-js/issues/5040#issuecomment-321688603;
-  // apparently duplicating the source to have a separate
+
+    // display marker for geocoder, this is a symbol (marker-15)
+    map.addLayer({
+      "id": "point",
+      "source": "single-point",
+      "type": "symbol",
+      "layout": {
+        "icon-image": "noun_location_border_filled",
+        "icon-allow-overlap": true,
+        "text-allow-overlap": true,
+        "icon-size":.4,
+        "icon-offset":[0,-50],
+      }
+    });
+
+    map.addLayer({
+      "id": "water2",
+      "type": "fill",
+      "source": "mapbox://mapbox.mapbox-streets-v6",
+      "source-layer": "water",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#d6d6d6"
+      },
+      "metadata": {
+        "mapbox:group": "1444850923457.5469"
+      },
+      "interactive": true
+    },'road-label-sm');
+
+    map.addSource('vector_data', {
+      type: 'vector',
+      url: 'mapbox://billbrod.7693fb16'
+    })
+
+    // from
+    // https://github.com/mapbox/mapbox-gl-js/issues/5040#issuecomment-321688603;
+    // apparently duplicating the source to have a separate
   // source for the hover effect improves performance. not
   // sure why that works, but whatever
   map.addSource('vector_data-hover', {
@@ -378,6 +466,7 @@ map.on('load', function () {
       "line-dasharray": [1, 3]
     }
   },'Bulk Storage Sites','SUPERUND2','CBS','MOSF');
+
 /*
   map.addLayer({
     "id": "SMIAfill-color",
@@ -403,6 +492,18 @@ map.on('load', function () {
   },'SMIA','SMIA-buffer','Bulk Storage Sites','SUPERUND2','CBS','MOSF');
 */
 
+// display marker for SMIAs
+map.addLayer({
+  "id": "SMIAnumbers",
+  "source": "SMIA-point",
+  "type": "symbol",
+  "layout": {
+    "icon-image": "{Icon}",
+    "icon-size":.35,
+    "visibility":"none"
+  }
+});
+
   map.addLayer({
     "id": "SMIAfill",
     "type": "fill",
@@ -424,8 +525,7 @@ map.on('load', function () {
       "fill-opacity": .25,
     },
     "filter": ["==", "SMIA_Name", ""]
-  },'Bulk Storage Sites','SUPERUND2','CBS','MOSF');
-
+  },'Bulk Storage Sites','SUPERUND2','CBS','MOSF','SMIAnumbers');
 
   map.addLayer({
       "id": "Hurricane Evacuation Zones",

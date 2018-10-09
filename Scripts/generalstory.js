@@ -68,6 +68,11 @@ function story_display_page(storypage){
 
   // switch to layer, turn off all tabs selected for cleanliness
   changeTab("None")
+  // add bulkLayers
+  // var bulks = storyvars[storypage]['bulkLayers'].split(",")
+  toggle_bulk("None")
+  bulk_legend(false)
+  update_legend("None")
   make_layer_visible(storyvars[storypage]["pageLayer"])
 
   // display information about SMIA
