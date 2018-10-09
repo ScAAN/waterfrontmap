@@ -65,10 +65,11 @@ function menuinit(layers){
             bulk_legend(false)
             if (nonbulk_active()==false){update_legend("None")}
           } else {
-            make_layer_visible('None')
-            if (("toggler-Bulk Storage Sites").className=='active'){
+            if ($("toggler-Bulk Storage Sites").className=='active'){
               update_legend('Bulk Storage Sites')
               bulk_legend(false)
+            } else {
+              make_layer_visible('None')
             }
           }
         } else {
