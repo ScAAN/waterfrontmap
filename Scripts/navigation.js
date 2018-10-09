@@ -1,4 +1,4 @@
-/*
+nonbulk_active()/*
 Navigation script!
 This controls: info box, data box, legend, WIP box
 Contents:
@@ -31,8 +31,64 @@ var $ = function(id){return document.getElementById(id)};
 // update legend information to be default
 //legend_info("Percent People of Color")
 
-var global_bulkflag = false;
-var global_notbulk = false;
+function clearmenu(){
+  for (var key in toggleableLegendIds) {
+    var link = document.getElementById('toggler-' + key)
+    if (link != null){
+      link.style.display='none'
+    }
+  }
+}
+
+function menuinit(layers){
+  tablinks = document.getElementsByClassName("menu-button");
+  for (j = 0; j < tablinks.length; j++) {
+    tablinks[j].className += " active";
+    var tabName = tablinks[j].id;
+    for (var i = 0; i < toggleableLayerIds[tabName].length; i++) {
+      var id = toggleableLayerIds[tabName][i];
+      var link = document.createElement('a');
+      link.style.cssText = 'float:left; width:112px;margin-left:9px;';
+      link.href = '#';
+      link.textContent = id;
+      link.id = 'toggler-' + id
+      link.className = ''
+      link.onclick = function(e) {
+        var clickedLayer = this.textContent;
+        e.preventDefault();
+        e.stopPropagation();
+        if (this.className == 'active') {
+          // if the class was already active make it inactive
+          this.className = '';
+          if (clickedLayer=="Bulk Storage Sites") {
+            toggle_bulk("None")
+            bulk_legend(false)
+            if (nonbulk_active()==false){update_legend("None")}
+          } else {
+            make_layer_visible('None')
+            if (("toggler-Bulk Storage Sites").className=='active'){
+              update_legend('Bulk Storage Sites')
+              bulk_legend(false)
+            }
+          }
+        } else {
+          // if this wasn't active make it active now
+          this.className = 'active';
+          if (clickedLayer=="Bulk Storage Sites") {
+            toggle_bulk(['Bulk Storage Sites','MOSF','CBS','SUPERFUND2'])
+            if (nonbulk_active()==false){update_legend("Bulk Storage Sites")}
+            if (nonbulk_active()==true){bulk_legend(true)}
+          } else {
+            if ($("toggler-Bulk Storage Sites").className=='active'){bulk_legend(true)}
+            make_layer_visible(clickedLayer)
+          }
+        }
+      };
+      layers.appendChild(link);
+    }
+    tablinks[j].className.replace(' active','')
+  }
+}
 
 function changeTab(tabName) {
   var killallboxes=0;
@@ -41,7 +97,7 @@ function changeTab(tabName) {
   for (var key in toggleableLegendIds) {
     var link = document.getElementById('toggler-' + key)
     if (link != null){
-      layers.removeChild(link);
+      link.style.display='none'
     }
   }
 
@@ -63,89 +119,32 @@ function changeTab(tabName) {
   if (killallboxes !=1){
     // build a toggling menu
     $('MenuSpacer').style.display='block';
+
+    // initialize menu
+    if ($('toggler-Percent People of Color')==null){
+      menuinit(layers)
+    }
+    
     clickedTab.className += " active";
     for (var i = 0; i < toggleableLayerIds[tabName].length; i++) {
       var id = toggleableLayerIds[tabName][i];
-      var link = document.createElement('a');
-      link.style.cssText = 'float:left; width:112px;margin-left:9px;';
-      link.href = '#';
-      link.textContent = id;
-      link.id = 'toggler-' + id
-      // manage bulk activity
-      if (global_bulkflag==true && ($("toggler-Bulk Storage Sites") == null)==false){
-        $("toggler-Bulk Storage Sites").className = 'active';
-        if (global_notbulk==true){bulk_legend(true)}
-      }
-      link.onclick = function(e) {
-        var clickedLayer = this.textContent;
-        e.preventDefault();
-        e.stopPropagation();
-        if (this.className == 'active') {
-          // if the class was already active make it inactive
-          this.className = '';
-
-          //  manage bulk legend
-          if (clickedLayer=="Bulk Storage Sites") {
-            toggle_bulk("None")
-            if (global_notbulk==false){update_legend("None")}
-            bulk_legend(false)
-          } else {
-            global_notbulk=false;
-            make_layer_visible('None')
-            if (global_bulkflag==true){
-              update_legend('Bulk Storage Sites')
-              bulk_legend(false)
-            } else {
-              update_legend("None")
-            }
-            // manage bulk activity
-            if (global_bulkflag==true && ($("toggler-Bulk Storage Sites") == null)==false){
-              $("toggler-Bulk Storage Sites").className = 'active';
-            }
-
-          }
-        } else {
-          // if this wasn't active make it active now
-          this.className = 'active';
-          if (clickedLayer=="Bulk Storage Sites"){
-            toggle_bulk(['Bulk Storage Sites','MOSF','CBS','SUPERFUND2'])
-            if (global_notbulk==false){update_legend("Bulk Storage Sites")}
-            if (global_notbulk==true){bulk_legend(true)}
-          } else {
-            global_notbulk=true;
-            // manage bulk legend
-            if (global_bulkflag==true){bulk_legend(true)}
-            make_layer_visible(clickedLayer)
-            // manage bulk activity
-            if (global_bulkflag==true && ($("toggler-Bulk Storage Sites") == null)==false){
-              $("toggler-Bulk Storage Sites").className = 'active';
-              if (global_notbulk==true){bulk_legend(true)}
-            }
-
-          }
-        }
-      };
-
-      layers.appendChild(link);
-
-      // delete this and make toggles invisible instead of vanishing
-      if (i == 0) {
-        link.className = 'active';
-        update_legend(id)
-        make_layer_visible(id)
-        global_notbulk=true;
-        if (global_bulkflag==true){bulk_legend(true)}
+      if ($('toggler-'+id) == null){
+        // moved to menuinit(layer)
       } else {
-        link.className = '';
+        $('toggler-' + id).style.display='block';
       }
-      // manage bulk activity
-      if (global_bulkflag==true && ($("toggler-Bulk Storage Sites") == null)==false){
-        $("toggler-Bulk Storage Sites").className = 'active';
-        if (global_notbulk==true){bulk_legend(true)}
-      }
-
     };
   }
+}
+
+function nonbulk_active(){
+  var flag=false;
+  for (var key in toggleableLegendIds){
+    if ($('toggler-' + key).className=='active' && key!='Bulk Storage Sites'){
+      flag=true;
+    }
+  }
+  return flag
 }
 
 function toggle_bulk(layers) {
@@ -153,17 +152,15 @@ function toggle_bulk(layers) {
   map.setLayoutProperty('MOSF', 'visibility', 'none');
   map.setLayoutProperty('CBS', 'visibility', 'none');
   map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
-  global_bulkflag = false
   if (layers!='None') {
     for (i=0; i < layers.length; i++) {
       map.setLayoutProperty(layers[i],'visibility','visible')
-      global_bulkflag = true
     }
   }
 }
 
 function bulk_legend(value) {
-  if (value==true && global_notbulk==true){
+  if (value==true && nonbulk_active()==true){
     $('legendHTML_bulk').style.display = 'block';
     if (document.getElementById('legendinfo').style.display.includes("block")){
       $('legendinfo').style.right='350px';
@@ -174,21 +171,34 @@ function bulk_legend(value) {
   }
 }
 
+function show_legend_info(){
+  // show or hide legend info by clicking button
+  if (document.getElementById('legendinfo').style.display.includes("block")){
+    document.getElementById('legendinfo').style.display='none';
+    document.getElementById('legendseam').style.display='none';
+  } else {
+    document.getElementById('legendinfo').style.display='block';
+    document.getElementById('legendseam').style.display='block';
+    if ($("toggler-Bulk Storage Sites").className=='active' && nonbulk_active()==true){
+      $('legendinfo').style.right='350px';
+    } else {
+      $('legendinfo').style.right='180px';
+    }
+  }
+}
+
+
 
 function make_layer_visible(clickedLayer) {
   for (var otherLayerName in toggleableLegendIds) {
 
     if (otherLayerName != clickedLayer) {
       var otherToggler = document.getElementById('toggler-' + otherLayerName)
-      if (otherToggler != null){
+      if (otherToggler != null && (otherLayerName !='Bulk Storage Sites')){
         otherToggler.className = '';
       }
       if (otherLayerName == 'Bulk Storage Sites') {
         // do nothing
-        //map.setLayoutProperty(otherLayerName, 'visibility', 'none');
-        //map.setLayoutProperty('MOSF', 'visibility', 'none');
-        //map.setLayoutProperty('CBS', 'visibility', 'none');
-        //map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
       } else if (otherLayerName.includes("Percent") || otherLayerName.includes("Median Household Income") || otherLayerName.includes("Heat Vulnerability Index")) {
         map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
         map.setPaintProperty(otherLayerName + " Hatch", 'fill-opacity', 0);
@@ -212,10 +222,7 @@ function make_layer_visible(clickedLayer) {
     // update data tabselector
     $('dataselector').innerHTML = 'Data: <small>'+ clickedLayer + '</small>';
     if (clickedLayer == 'Bulk Storage Sites') {
-      map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-      map.setLayoutProperty('MOSF', 'visibility', 'visible');
-      map.setLayoutProperty('CBS', 'visibility', 'visible');
-      map.setLayoutProperty('SUPERFUND2', 'visibility', 'visible');
+      //do nothing
     } else if (clickedLayer.includes("Percent") || clickedLayer.includes("Median Household Income") || clickedLayer.includes("Heat Vulnerability Index")) {
       map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
       map.setPaintProperty(clickedLayer + " Hatch", 'fill-opacity', 1);
@@ -262,26 +269,6 @@ function update_legend(layername){
     if (layername == 'Percent Uninsured'){$('legend_placeholder').innerHTML = $('legend_placeholder').innerHTML + $('legendHTML_uninsured').innerHTML}
   }
 }
-
-
-
-function show_legend_info(){
-  // show or hide legend info by clicking button
-  if (document.getElementById('legendinfo').style.display.includes("block")){
-    document.getElementById('legendinfo').style.display='none';
-    document.getElementById('legendseam').style.display='none';
-    //if (global_bulkflag==true){ $('legendHTML_bulk').style.right='180px';}
-  } else {
-    document.getElementById('legendinfo').style.display='block';
-    document.getElementById('legendseam').style.display='block';
-    if (global_bulkflag==true && global_notbulk==true){
-      $('legendinfo').style.right='350px';
-    } else {
-      $('legendinfo').style.right='180px';
-    }
-  }
-}
-
 
 
 function reset_map_view(event){

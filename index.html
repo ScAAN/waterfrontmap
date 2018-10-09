@@ -43,7 +43,7 @@
 
 
   <div id="rightslider">
-    <div class="innerslider">
+    <div class="innerslider" onmouseleave="clearmenu()">
     <div id="slideoutercircle" class="slidecircle"></div>
     <div id="slideinnercircle" class="slidecircle" style="overflow:visible">
       <div class="general-button" style='box-shadow:none;border:none;position:relative;'>
@@ -59,9 +59,9 @@
       <nav id="menu" class="tab">
         <div style: style='margin:0 auto;text-align:center;position'>
         <div id="dataselector" style="text-align:left;margin-left:10px"> Data: <small>Percent People of Color</small> </div>
-        <div id="Demographics" class="menu-button large-button" onclick="changeTab('Demographics')">Demographics</div>
-        <div id="City Planning" class="menu-button large-button" onclick="changeTab('City Planning')">City Planning</div>
-        <div id="Climate" class="menu-button large-button" onclick="changeTab('Climate')">Climate</div>
+        <div id="Demographics" class="menu-button large-button" onmouseover="changeTab('Demographics')">Demographics</div>
+        <div id="City Planning" class="menu-button large-button" onmouseover="changeTab('City Planning')">City Planning</div>
+        <div id="Climate" class="menu-button large-button" onmouseover="changeTab('Climate')">Climate</div>
         <div id="MenuSpacer" class="spacer-big" style="display:none"></div>
       </div>
       </nav>

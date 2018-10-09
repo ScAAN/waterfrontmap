@@ -29,6 +29,8 @@ request2.onload = function() {
 
   // initialize map
   update_legend("Percent People of Color")
+  changeTab("Demographics")
+  changeTab("None")
 }
 
 // MANUALLY SPECIFY WHICH LAYERS BELONG IN WHICH TABS
