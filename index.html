@@ -8,7 +8,7 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
   <!--<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
 </head>
 <body>
   <!------------------------->
@@ -24,14 +24,14 @@
 
   <!-- WIP BOX-->
   <div id="wipoverlay" class="overlayed" onclick='hidewip()'></div>
-  <div id="wipbox" class="instructions" style="display:block" onclick='hidewip()' >
+  <div id="wipbox" class="overlay-box instructions" style="z-index:99;font: 16px 'Helvetica Neue', Helvetica, sans-serif;" onclick='hidewip()' >
     <div style='margin:0 30px auto;display:inline-block;font-size:1em;line-height:1'>
       <div style='margin:00 auto;margin-top:25px;  '>
         <p> <h4 style='font-size:1.5em'>Welcome to the Waterfront Justice Map!</h4><br/>
           Thank you for visiting. This is a collaboration between NYC-EJA and ScAAN, aiming to visualize Special Maritime and Industrial Areas for the EJA-WJP.
            We're currently under construction so information may not be 100% accurate. Feel free to leave feedback and let us know how we're doing (about &rarr; feedback).</br></br></p>
-          <span style='vertical-align:middle;'><img style: style='height:30vh;' src="Assets/demo.gif"></img></span>
-          <h4 style='font-size:1.5em'><br/>click anywhere to continue</h4>
+          <div style="text-align:center;"><span style='vertical-align:middle;'><img style: style='height:30vh;' src="Assets/demo.gif"></img></span></div>
+          <h4 style='font-size:1.5em;text-align:center;'><br/>click anywhere to continue</h4>
         </div>
       </div>
     </div>
@@ -40,15 +40,34 @@
   <!------------------------->
   <!--     DATA MENU       -->
   <!------------------------->
-  <nav id="menu" class="tab">
-    <div style: style='margin:0 auto;text-align:center'>
-    <div id="dataselector" style="text-align:left;margin-left:10px"> Data: <small>Percent People of Color</small> </div>
-    <div id="Demographics" class="menu-button large-button" onclick="changeTab('Demographics')">Demographics</div>
-    <div id="City Planning" class="menu-button large-button" onclick="changeTab('City Planning')">City Planning</div>
-    <div id="Climate" class="menu-button large-button" onclick="changeTab('Climate')">Climate</div>
-    <div id="MenuSpacer" class="spacer-big" style="display:none"></div>
+
+
+  <div id="rightslider">
+    <div class="innerslider">
+    <div id="slideoutercircle" class="slidecircle"></div>
+    <div id="slideinnercircle" class="slidecircle" style="overflow:visible">
+      <div class="general-button" style='box-shadow:none;border:none;position:relative;'>
+      <span style="position:absolute;font-size:12px;background-color: rgba(0,0,0,.8);color: #ffffff;text-align:center;padding: 5px 0;border-radius:50px;z-index:1;width: 40px;bottom: 90%;left: 50%;border:0px;line-height:1;margin-left: -20px;">data</span>
+      <!--
+      <div style="position:absolute;z-index:11;left:35%;border-left:7px solid transparent;border-right: 7px solid transparent;border-top: 7px solid rgba(0,0,0,1);opacity:0.8;"></div>
+      -->
+      <span class='small-button-inside' style="position:relative;top:0px;height:40px;width:40px;">
+        <img class="marker" style="z-index:1;top:3px;left:2px;width:35px;height:35px" src="Assets/noun_map.svg"></img>
+      </span>
+    </div>
+    </div>
+      <nav id="menu" class="tab">
+        <div style: style='margin:0 auto;text-align:center;position'>
+        <div id="dataselector" style="text-align:left;margin-left:10px"> Data: <small>Percent People of Color</small> </div>
+        <div id="Demographics" class="menu-button large-button" onclick="changeTab('Demographics')">Demographics</div>
+        <div id="City Planning" class="menu-button large-button" onclick="changeTab('City Planning')">City Planning</div>
+        <div id="Climate" class="menu-button large-button" onclick="changeTab('Climate')">Climate</div>
+        <div id="MenuSpacer" class="spacer-big" style="display:none"></div>
+      </div>
+      </nav>
+    </div>
   </div>
-  </nav>
+
 
   <!------------------------->
   <!--      LEGENDS        -->
@@ -104,19 +123,43 @@
   <!--   NAVIGATION  BOX   -->
   <!------------------------->
 
-  <div id='clickbox' class='text-info-box overlay-box' >
-    <div style: style='margin:0 auto;text-align:center'>
-      NYC-EJA Waterfront Justice Project Map
-      <div id='storybutton' class='mode-button large-button' onclick="showinfobox(event,'smiabox')">Story</div>
-      <div id='explorebutton' class='mode-button large-button'   onclick="showinfobox(event,'explorebox')">Explore</div>
-      <div id='infobutton' class='mode-button large-button'  onclick="showinfobox(event,'infotextbox')">About</div>
+  <div id='infobar' style='background-color:rgba(255,255,255,.8);width:100%;height:30px;padding:5px;position:absolute;top:7px;font: 16px "Helvetica Neue", Helvetica, sans-serif;'>
+    <div style="line-height:1;margin:10px;display:inline-block;color:black;">Waterfront Justice Map</div>
+
+    <div id='storybutton' style="left:190px" class='mode-button bar-button' onclick="showinfobox(event,'storybox')">Story</div>
+    <div id='explorebutton' style="left:280px" class='mode-button bar-button'   onclick="showinfobox(event,'explorebox')">Explore</div>
+    <div id='aboutbutton' style="left:370px" class='mode-button bar-button'  onclick="showinfobox(event,'aboutbox')">About</div>
+
+    <!--
+    <div id='storybutton' style="left:200px;top:-5px;" class='mode-button general-button small-button' onclick='showinfobox(event,"smiabox")'>
+      <span class='tooltiptext'>story</span>
+      <span class='small-button-inside'>
+        <img class="marker" style="border-radius:0;top:18%;left:50%;margin-left:-14px;height:30px;" src="Assets/noun_story.svg"></img>
+      </span>
     </div>
+    <div id='explorebutton' style="left:260px;top:-5px;" class='mode-button general-button small-button' onclick='showinfobox(event,"explorebox")'>
+      <span class='tooltiptext'>explore</span>
+      <span class='small-button-inside'>
+        <img class="marker" style="border-radius:0;top:18%;left:50%;margin-left:-14px;height:30px;" src="Assets/noun_explore.svg"></img>
+      </span>
+    </div>
+    <div id='infobutton' style="left:320px;top:-5px;" class='mode-button general-button small-button' onclick='showinfobox(event,"infotextbox")'>
+      <span class='tooltiptext'>about</span>
+      <span class='small-button-inside'>
+        <img class="marker" style="top:15%;left:50%;margin-left:-14px;height:30px;" src="Assets/noun_about.svg"></img>
+      </span>
+    </div>
+      -->
+  </div>
+
+
 
     <!-- INFO CONTENT  -->
-    <div id='infotextbox' class='box-content'>
+    <div id='aboutbox' class='box-content text-info-box overlay-box' onclick="hideaboutbox()">
       <div>
-          <p><small>This map is a collaborative effort between NYC-EJA and ScAAN, furthering the work of NYC-EJA’s Waterfront Justice Project visualizing Special Maritime and Industrial Areas (SMIAs).
-          <br/><br/>Industrial and maritime development is encouraged by zoning regulations that have created SMIAs – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.</small></p>
+          <p><small>This is a collaborative effort between NYC-EJA and ScAAN, furthering the work of NYC-EJA’s Waterfront Justice Project visualizing Special Maritime and Industrial Areas (SMIAs).
+          <br/><br/>Industrial and maritime development is encouraged by zoning regulations that have created SMIAs – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.
+          <br/><br/>This map was created by <a href="https://github.com/billbrod">Bill Broderick</a>, <a href="https://github.com/MaijaHonig">Maija Honig</a>, and <a href="https://github.com/jsaliani92">Julian Nader Saliani</a> using <a href="https://www.mapbox.com/help/define-mapbox-gl-js/">mapbox-gl-js</a> with icons from the <a href="https://thenounproject.com/coquet_adrien/">Adrien Coquet</a> at the noun project. It is licensed with a MIT license, and source code can be viewed on <a href ="https://github.com/ScAAN/waterfrontmap">our github</a>. Thanks for visiting and feel free to let us know how we're doing with feedback!</small></p>
         </div>
         <div style="text-align:center;">
           <div style= 'display:inline-block;width:45%;margin:auto;text-align:center;'>
@@ -129,25 +172,27 @@
             </p>
           </div>
         </div>
-        <p style="font-size: 0.7em; color: #777777;text-align:center;"><a href="https://github.com/ScAAN/waterfrontmap/blob/master/LICENSE">&copy NYC-EJA and ScAAN, 2018</a></p>
+        <div class="spacer-big"></div>
         <div class= "large-button fb-button" style="width:70%;margin:auto;display:block" onclick="window.open('https://goo.gl/forms/Zt5tsufRS9us7Tbu2', '_blank');">
           Feedback
         </div>
+        <p style="font-size: 0.7em; color: #777777;text-align:center;"><a href="https://github.com/ScAAN/waterfrontmap/blob/master/LICENSE">&copy NYC-EJA and ScAAN, 2018</a></p>
       </div>
 
+      <div id="aboutoverlay" class="overlayed" style='display:none;' onclick="hideaboutbox()"></div>
+
       <!-- EXPLORE CONTENT  -->
-      <div id='explorebox' class='box-content'>
+      <div id='explorebox' class='box-content text-info-box overlay-box'>
         <div> <p>Click the map to explore a neighborhood, or search with the bar below. </p></div>
         <div id='geocoder' class='geocoder'></div>
         <div id='map-overlay-info' class='map-overlay-info'></div>
       </div>
 
       <!-- STORY CONTENT  -->
-      <div id='smiabox' class='box-content'></div>
-    </div>
-
+      <div id='storybox' class='box-content text-info-box overlay-box'></div>
 
     <div id='smiainfoboxempty' class='smiainfobox'></div>
+
 
 
     <!------------------------->

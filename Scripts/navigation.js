@@ -16,6 +16,11 @@ function hidewip(){
   document.getElementById('wipoverlay').style.display = 'none';
 }
 
+function hideaboutbox(){
+  $('aboutbox').style.display = 'none';
+  $('aboutoverlay').style.display = 'none';
+  showinfobox(event,"None")
+}
 
 // redefine "$" to return element ids
 var $ = function(id){return document.getElementById(id)};
@@ -61,7 +66,9 @@ function changeTab(tabName) {
     for (var i = 0; i < toggleableLayerIds[tabName].length; i++) {
       var id = toggleableLayerIds[tabName][i];
       var link = document.createElement('a');
-      link.style.cssText = 'float:left; width:120px;';
+      link.style.cssText = 'float:left; width:112px;margin-left:9px;';
+      // add some padding on the first element so it doesn't show when hidden
+      //if (i==0||i==3||i==6) {link.style.cssText =  'margin-left:10px;float:left; width:117px;'}
       link.href = '#';
       link.textContent = id;
       link.id = 'toggler-' + id
@@ -71,7 +78,6 @@ function changeTab(tabName) {
         e.stopPropagation();
         if (this.className == 'active') {
           this.className = '';
-          console.log("none!")
           make_layer_visible('None')
         } else {
           this.className = 'active';
@@ -148,8 +154,8 @@ function make_layer_visible(clickedLayer) {
 function update_legend(layername){
   //update legend info to match clicked layer
   $('legendinfo').innerHTML ='<div style="margin-top:-10px;">'
-  +'<p><h4>Source</h4><small>'+ vlayer[layername]["source"] +'</br></br></small>'
-  +'<h4>Description</h4><small>' + vlayer[layername]["text"] + '</small></p>'
+  +'<p><h4>Description</h4><small>' + vlayer[layername]["text"] + '</br></br></small>'
+  +'<h4>Source</h4><small>'+ vlayer[layername]["source"] +'</small></p>'
   +'</div>';
 
   // get legend entry and color
@@ -258,6 +264,7 @@ function showinfobox(evt,boxname){
   // turn off SMIA layer popup
   map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
   $('smiainfoboxempty').style.visibility = 'hidden';
+  $('aboutoverlay').style.display="none";
 
   if (killallboxes!=1) {
     // show the current box and make it active!
@@ -272,6 +279,9 @@ function showinfobox(evt,boxname){
     } else if (evt.currentTarget.id.includes("explore")) {
       // turn on point querying listener
       map.on('click',query_point);
+    } else if (evt.currentTarget.id.includes("about")) {
+      // show overlay
+      $('aboutoverlay').style.display="block";
     }
   }
 }
