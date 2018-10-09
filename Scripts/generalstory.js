@@ -72,6 +72,7 @@ function story_display_page(storypage){
   // var bulks = storyvars[storypage]['bulkLayers'].split(",")
   toggle_bulk("None")
   bulk_legend(false)
+  $('toggler-Bulk Storage Sites').className = '';
   update_legend("None")
   make_layer_visible(storyvars[storypage]["pageLayer"])
 

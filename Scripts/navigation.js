@@ -124,7 +124,7 @@ function changeTab(tabName) {
     if ($('toggler-Percent People of Color')==null){
       menuinit(layers)
     }
-    
+
     clickedTab.className += " active";
     for (var i = 0; i < toggleableLayerIds[tabName].length; i++) {
       var id = toggleableLayerIds[tabName][i];
@@ -219,6 +219,7 @@ function make_layer_visible(clickedLayer) {
     update_legend("None");
     $('dataselector').innerHTML = ' Data: ';
   } else {
+    $('toggler-' + clickedLayer).className = 'active';
     // update data tabselector
     $('dataselector').innerHTML = 'Data: <small>'+ clickedLayer + '</small>';
     if (clickedLayer == 'Bulk Storage Sites') {
