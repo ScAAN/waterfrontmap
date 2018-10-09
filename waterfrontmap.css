@@ -318,6 +318,7 @@ button {
   padding: 10px;
   text-decoration: none;
   text-align: center;
+  pointer-events: none;
 }
 
 .innerslider {
@@ -326,6 +327,7 @@ button {
   min-height:80px;
   position:relative;
   transition: all 0.3s ease-in-out;
+  pointer-events:all;
 }
 
 .innerslider:hover {
