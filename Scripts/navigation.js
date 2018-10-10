@@ -19,7 +19,7 @@ function hidewip(){
 function hideaboutbox(){
   $('aboutbox').style.display = 'none';
   $('aboutoverlay').style.display = 'none';
-  showinfobox(event,"None")
+  showinfobox([],"none")
 }
 
 // redefine "$" to return element ids
@@ -149,16 +149,52 @@ function nonbulk_active(){
 }
 
 function toggle_bulk(layers) {
-  map.setLayoutProperty('Bulk Storage Sites', 'visibility', 'none');
-  map.setLayoutProperty('MOSF', 'visibility', 'none');
-  map.setLayoutProperty('CBS', 'visibility', 'none');
-  map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
+  var alllayers = ['Bulk Storage Sites','MOSF','CBS','SUPERFUND2'];
+  for (i=0;i<alllayers.length;i++){
+    layername = alllayers[i];
+    map.setLayoutProperty(layername, 'visibility', 'none');
+    $(layername).className += ' target';
+    $(layername).style.display="block";
+  }
+
   if (layers!='None') {
-    for (i=0; i < layers.length; i++) {
-      map.setLayoutProperty(layers[i],'visibility','visible')
+    for (i=0;i<layers.length;i++){
+      layername = layers[i];
+      map.setLayoutProperty(layername, 'visibility', 'visible');
+      $(layername).className = $(layername).className.replace(" target", "");
+      $(layername).style.display="none";
     }
   }
 }
+
+function bulk_indiv(divname){
+  if ($(divname).className.includes('target')){
+    $(divname).className = $(divname).className.replace(" target", "");
+    $(divname).style.display="none";
+    if (divname.includes("Bulk Storage Sites")){
+      map.setLayoutProperty('Bulk Storage Sites', 'visibility', 'visible');
+    } else if (divname.includes("MOSF")){
+      map.setLayoutProperty('MOSF', 'visibility', 'visible');
+    } else if (divname.includes("CBS")){
+      map.setLayoutProperty('CBS', 'visibility', 'visible');
+    } else if (divname.includes("SUPERFUND2")){
+      map.setLayoutProperty('SUPERFUND2', 'visibility', 'visible');
+    }
+  } else {
+    $(divname).className += ' target';
+    $(divname).style.display="block";
+    if (divname.includes("Bulk Storage Sites")){
+      map.setLayoutProperty('Bulk Storage Sites', 'visibility', 'none');
+    } else if (divname.includes("MOSF")){
+      map.setLayoutProperty('MOSF', 'visibility', 'none');
+    } else if (divname.includes("CBS")){
+      map.setLayoutProperty('CBS', 'visibility', 'none');
+    } else if (divname.includes("SUPERFUND2")){
+      map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
+    }
+  }
+}
+
 
 function bulk_legend(value) {
   if (value==true && nonbulk_active()==true){
@@ -287,10 +323,12 @@ function reset_map_view(event){
 
   // reset info box and SMIA highlight
   showinfobox(event,"none")
+  toggle_bulk("None")
   map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
   $('smiainfoboxempty').style.visibility = 'hidden';
   map.setPaintProperty("SMIAfill", 'fill-opacity',0)
   map.setLayoutProperty("SMIAnumbers",'visibility','none')
+  make_layer_visible("None")
 }
 
 
@@ -311,7 +349,7 @@ function showinfobox(evt,boxname){
   }
 
   // check if clicked box was alread active, if so then kill all boxes
-  if (evt.currentTarget.className.includes("active") || boxname.includes("none")) {
+  if (boxname.includes("none") || evt.currentTarget.className.includes("active")) {
     killallboxes = 1;
   }
 

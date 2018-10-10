@@ -88,21 +88,33 @@
     <!-- LEGEND HTML FOR BULK STORAGE -->
     <div id='legendHTML_bulk' class='legend overlay-box' style='display:none;'>
       <h4>Bulk Storage Sites</h4>
-      <div style='float:right;text-align:right'>
-        <div style="display:inline-block;line-height:100%">Toxic Release<br/>Inventory Sites</div>
-        <span style='vertical-align:middle;margin-bottom:30px;position:relative;bottom:1.5px;left:15px;margin-left:10px;'><img class="marker" style="height:30px;vertical-align:middle" src="Assets/all_sprites/mh_toxic3.svg"></img></span>
+      <div class='legendrow' style="margin-top:-10px;">
+        <div style="display:inline-block;line-height:100%;"></br>Toxic Release<br/>Inventory Sites</div>
+        <div onclick="bulk_indiv('Bulk Storage Sites')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
+        <img id='Bulk Storage Sites' class="bulk-div marker3" src="Assets/mh_x.svg"></img>
+        <img class="bulk-div marker2" src="Assets/all_sprites/mh_toxic3.svg"></img>
       </div>
-      <div style='float:right;text-align:right'>
-        <div style="display:inline-block;line-height:100%">Major Oil Storage<br/>Facilities</div>
-        <span style='vertical-align:middle;margin-bottom:30px;position:relative;bottom:3.5px;left:15px;margin-left:10px;'><img class="marker" style="height:30px;" src="Assets/all_sprites/mh_oil3.svg"></img></span>
       </div>
-      <div style='float:right;text-align:right'>
-        <div style="display:inline-block;line-height:100%">Chemical Bulk<br/>Storage</div>
-        <span style='vertical-align:middle;margin-bottom:30px;position:relative;bottom:2px;left:15px;margin-left:10px;'><img class="marker" style="height:30px;" src="Assets/all_sprites/mh_chem3.svg"></img></span>
+      <div class='legendrow'>
+        <div style="display:inline-block;line-height:100%"></br>Major Oil Storage<br/>Facilities</div>
+        <div onclick="bulk_indiv('MOSF')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
+        <img id='MOSF' style="transform:rotate(-20deg);" class="bulk-div marker3" src="Assets/mh_x.svg"></img>
+        <img class="bulk-div marker2" src="Assets/all_sprites/mh_oil3.svg"></img>
       </div>
-      <div style='float:right;text-align:right'>
-        <div style="display:inline-block;line-height:100%">Superfund<br/>Class 2 Sites</div>
-        <span style='vertical-align:middle;margin-bottom:30px;position:relative;bottom:4px;left:15px;margin-left:10px;'><img class="marker" style="height:30px;" src="Assets/all_sprites/mh_super3.svg"></img></span>
+      </div>
+      <div class='legendrow'>
+        <div style="display:inline-block;line-height:100%"></br>Chemical Bulk<br/>Storage</div>
+        <div onclick="bulk_indiv('CBS')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
+        <img id='CBS' style="transform:rotate(160deg);" class="bulk-div marker3" src="Assets/mh_x.svg"></img>
+        <img class="bulk-div marker2" src="Assets/all_sprites/mh_chem3.svg"></img>
+      </div>
+      </div>
+      <div class='legendrow'>
+        <div style="display:inline-block;line-height:100%"></br>Superfund<br/>Class 2 Sites</div>
+        <div onclick="bulk_indiv('SUPERFUND2')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
+          <img id='SUPERFUND2' style="transform:rotate(10deg);" class="bulk-div marker3" src="Assets/mh_x.svg"></img>
+          <img class="bulk-div marker2" src="Assets/all_sprites/mh_super3.svg"></img>
+        </div>
       </div>
       <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
     </div>
