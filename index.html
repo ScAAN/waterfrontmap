@@ -2,6 +2,7 @@
 <html>
 <meta charset="utf-8">
 <head>
+  <link href='reset.css' rel='stylesheet' />
   <link href='waterfrontmap.css' rel='stylesheet' />
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
@@ -9,6 +10,8 @@
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
   <!--<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
+  <!-- open links in new tabs by default-->
+  <base target="_blank">
 </head>
 <body>
   <!------------------------->
@@ -19,8 +22,9 @@
   .mapboxgl-ctrl-geocoder { position:relative;left:-9px;min-width:105%;margin:0 auto; }
   </style>
 
-  <title>Waterfront Justice Project</title>
-  <div id='map'></div>
+  <title>EJA Waterfront Justice Map</title>
+  <div id='map'>
+    <div id='bodyreturn'>
 
   <!-- WIP BOX-->
   <div id="wipoverlay" class="overlayed" onclick='hidewip()'></div>
@@ -36,6 +40,10 @@
       </div>
     </div>
 
+  <div id="too_small_overlay" class="overlayed" style='display:none;z-index:99;'></div>
+  <div id='screen_too_small' class='box-content text-info-box overlay-box' style='display:none;z-index:100;width:80%;top:10%;left:10%;text-align:center;font-size:32px;'>
+  </br>Please increase window size or use full screen to view this map.</br></br>
+  </div>
 
   <!------------------------->
   <!--     DATA MENU       -->
@@ -46,14 +54,12 @@
     <div class="innerslider" onmouseleave="clearmenu()">
     <div id="slideoutercircle" class="slidecircle"></div>
     <div id="slideinnercircle" class="slidecircle" style="overflow:visible">
-      <div class="general-button" style='box-shadow:none;border:none;position:relative;'>
+      <div class="general-button button-fill" style='box-shadow:none;border:none;position:relative;'>
       <span style="position:absolute;font-size:12px;background-color: rgba(0,0,0,.8);color: #ffffff;text-align:center;padding: 5px 0;border-radius:50px;z-index:1;width: 40px;bottom: 90%;left: 50%;border:0px;line-height:1;margin-left: -20px;">data</span>
-      <!--
-      <div style="position:absolute;z-index:11;left:35%;border-left:7px solid transparent;border-right: 7px solid transparent;border-top: 7px solid rgba(0,0,0,1);opacity:0.8;"></div>
-      -->
       <span class='small-button-inside' style="position:relative;top:0px;height:40px;width:40px;">
         <img class="marker" style="z-index:1;top:3px;left:2px;width:35px;height:35px" src="Assets/noun_map.svg"></img>
       </span>
+      <img style="position:absolute;height:20px;top:17.5px;" src="Assets/noun_arrow_g.svg"></img>
     </div>
     </div>
       <nav id="menu" class="tab">
@@ -169,33 +175,44 @@
   <!--   NAVIGATION  BOX   -->
   <!------------------------->
 
-  <div id='infobar' style='background-color:rgba(255,255,255,.8);width:100%;height:30px;padding:5px;position:absolute;top:7px;font: 16px "Helvetica Neue", Helvetica, sans-serif;'>
-    <div style="line-height:1;margin:10px;display:inline-block;color:black;">Waterfront Justice Map</div>
-
+  <div id='infobar'>
+    <div class="text-stroke" style="font-size:20px;bottom:15px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;">
+      <big>W</big>aterfront</br><big>J</big>ustice <big>M</big>ap
+    </div>
+<!--
     <div id='storybutton' style="left:190px" class='mode-button bar-button' onclick="showinfobox(event,'storybox')">Story</div>
     <div id='explorebutton' style="left:280px" class='mode-button bar-button'   onclick="showinfobox(event,'explorebox')">Explore</div>
     <div id='aboutbutton' style="left:370px" class='mode-button bar-button'  onclick="showinfobox(event,'aboutbox')">About</div>
-
-    <!--
-    <div id='storybutton' style="left:200px;top:-5px;" class='mode-button general-button small-button' onclick='showinfobox(event,"smiabox")'>
-      <span class='tooltiptext'>story</span>
+  -->
+    <div id='storybutton' class='mode-button general-button relative-button' onclick='showinfobox(event,"storybox")'>
+      <div style="display:inline-block" class="small-button button-fill">
+      <span class='tooltiptext largetooltip'>story</span>
       <span class='small-button-inside'>
-        <img class="marker" style="border-radius:0;top:18%;left:50%;margin-left:-14px;height:30px;" src="Assets/noun_story.svg"></img>
+        <img class="marker-rel" src="Assets/noun_story.svg"></img>
       </span>
+      </div>
+      <div class="relative-button-text">
+        story
+      </div>
     </div>
-    <div id='explorebutton' style="left:260px;top:-5px;" class='mode-button general-button small-button' onclick='showinfobox(event,"explorebox")'>
-      <span class='tooltiptext'>explore</span>
+    <div id='explorebutton' class='mode-button general-button relative-button' onclick='showinfobox(event,"explorebox")'>
+      <div style="display:inline-block" class="small-button button-fill">
+      <span class='tooltiptext largetooltip' style="width:50px;margin-left:-25px;">explore</span>
       <span class='small-button-inside'>
-        <img class="marker" style="border-radius:0;top:18%;left:50%;margin-left:-14px;height:30px;" src="Assets/noun_explore.svg"></img>
+        <img class="marker-rel" src="Assets/noun_explore.svg"></img>
       </span>
+      </div>
+      <div class="relative-button-text">explore</div>
     </div>
-    <div id='infobutton' style="left:320px;top:-5px;" class='mode-button general-button small-button' onclick='showinfobox(event,"infotextbox")'>
-      <span class='tooltiptext'>about</span>
+    <div id='aboutbutton' class='mode-button general-button relative-button' onclick='showinfobox(event,"aboutbox")'>
+      <div style="display:inline-block" class="small-button button-fill">
+      <span class='tooltiptext largetooltip'>about</span>
       <span class='small-button-inside'>
-        <img class="marker" style="top:15%;left:50%;margin-left:-14px;height:30px;" src="Assets/noun_about.svg"></img>
+        <img class="marker-rel" src="Assets/noun_about.svg"></img>
       </span>
+      </div>
+      <div class="relative-button-text">about</div>
     </div>
-      -->
   </div>
 
 
@@ -246,10 +263,10 @@
     <!------------------------->
 
     <!-- NEXT BUTTON  -->
-    <div id='nextbutton' class='next-button general-button' onclick='story_next_page()'>
+    <div id='nextbutton' class='next-button general-button button-fill' onclick='story_next_page()'>
       <span class='tooltiptext'>next</span>
       <span class='small-button-inside'>
-        <img class="marker" style="top:25%;left:50%;margin-left:-14px;height:30px;" src="Assets/noun_arrow.svg"></img>
+        <img class="marker" style="top:20%;left:50%;margin-left:-14px;height:30px;" src="Assets/noun_arrow.svg"></img>
       </span>
       <!--
       <span style='top: 75%;left:15%;position:absolute' ><p style="font-size: 0.7em;margin:0;text-align:center;">NEXT</p></span>
@@ -257,10 +274,10 @@
     </div>
 
     <!-- BACK BUTTON  -->
-    <div id='backbutton' class='back-button general-button' onclick='story_prev_page()'>
+    <div id='backbutton' class='back-button general-button button-fill' onclick='story_prev_page()'>
       <span class='tooltiptext'>back</span>
       <span class='small-button-inside'>
-        <img class="marker" style="top:13%;left:50%;margin-left:-15px;height:30px;transform:rotate(180deg);" src="Assets/noun_arrow.svg"></img>
+        <img class="marker" style="left:50%;margin-left:-15px;height:30px;transform:rotate(180deg);" src="Assets/noun_arrow.svg"></img>
       </span>
       <!--
       <span style='top: 75%;left:15%;position:absolute' ><p style="font-size: 0.7em;margin:0;text-align:center;">BACK</p></span>
@@ -268,9 +285,9 @@
     </div>
 
     <!-- RESET BUTTON  -->
-    <div id='resetbutton' class='reset-button small-button general-button' style='display: block; cursor: pointer; z-index: 10;' onclick='reset_map_view(event)'>
+    <div id='resetbutton' class='reset-button small-button general-button button-fill' style='display: block; cursor: pointer; z-index: 10;' onclick='reset_map_view(event)'>
       <span class="tooltiptext">reset</span>
-      <span class='small-button-inside'><img class="marker" style="height:35px;right:18%;top:18%;position:absolute;" src="Assets/noun_reload.svg"></img></span>
+      <span class='small-button-inside'><img class="marker" style="left:2.5px;height:40px;" src="Assets/noun_reload.svg"></img></span>
       <!--
       <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: -4px;display:block">RESET</p></span>
             -->
@@ -284,20 +301,30 @@
  -->
 
      <!-- LEGEND BUTTON -->
-     <div id='legendbutton' class='legend-button small-button general-button' style='display: inline-block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
+     <div id='legendbutton' class='legend-button small-button general-button button-fill' style='display: inline-block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
        <span class="tooltiptext" style="width:60px;margin-left:-30px;">data info</span>
        <span class='small-button-inside'><img style="height:35px;" src="Assets/information-15-k.svg"></img> <span>
      </div>
 
 
     <!-- PRINT BUTTON  -->
-    <div id='printbutton' class='print-button small-button general-button' style='display: block; cursor: pointer; z-index: 10;' onclick='window.print()'>
+    <div id='printbutton' class='print-button small-button general-button button-fill' style='display: block; cursor: pointer; z-index: 10;' onclick='window.print()'>
       <span class="tooltiptext">print</span>
-      <span class='small-button-inside'><img class="marker" style="height:35px;right:18%;top:18%;position:absolute;" src="Assets/noun_printer.svg"></img></span>
+      <span class='small-button-inside'><img class="marker" style="left:2.5px;height:40px;" src="Assets/noun_printer.svg"></img></span>
       <!--
       <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: -2px;display:block">PRINT</p></span>
       -->
     </div>
+
+
+    <!-- MAPBOX FULLSCREEN -->
+    <div id='fullscreenbutton' class='fullscreen-button small-button general-button button-fill' style='display: block; cursor: pointer; z-index: 10;'>
+      <span class="tooltiptext" style="width:70px;margin-left:-35px;" >fullscreen</span>
+      <span class='small-button-inside' style="position:absolute;z-index:0;"></span>
+    </div>
+
+
+
 
     <!------------------------->
     <!--       SCRIPT       -->
@@ -308,5 +335,8 @@
     <script src='Scripts/generalstory.js'></script>
     <script src='Scripts/explore.js'></script>
 
+
+    </div>
+    </div>
   </body>
   </html>

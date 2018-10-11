@@ -1,0 +1,87 @@
+{
+  "type": "FeatureCollection",
+  "features": [{
+    "type": "Feature",
+    "properties": {
+      "Number": 1,
+      "Name":"Brooklyn Navy Yard",
+      "Icon":"number-1"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-73.94904816851808, 40.747175323625896]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "Number": 2,
+      "Name":"Newtown Creek",
+      "Icon":"number-2"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-73.95922616286612, 40.70190246515443]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "Number": 3,
+      "Name": "Staten Island West Shore",
+      "Icon":"number-3"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-74.20918201032606, 40.564923648547676]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "Number": 4,
+      "Name":"Red Hook",
+      "Icon":"number-4"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-74.01084626453857, 40.69669671469495]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "Number": 5,
+      "Name":"South Bronx",
+      "Icon":"number-5"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-73.93737519505117, 40.806451757747396]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "Number": 6,
+      "Name":"Sunset Park",
+      "Icon":"number-6"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-73.99368012684003, 40.65868241533579]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "Number": 7,
+      "Name":"Kill Van Kull",
+      "Icon":"number-7"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-74.09599030750208, 40.65086857337019]
+    }
+  }]
+}

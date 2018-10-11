@@ -65,11 +65,10 @@ function menuinit(layers){
             bulk_legend(false)
             if (nonbulk_active()==false){update_legend("None")}
           } else {
+            make_layer_visible('None')
             if ($("toggler-Bulk Storage Sites").className=='active'){
               update_legend('Bulk Storage Sites')
               bulk_legend(false)
-            } else {
-              make_layer_visible('None')
             }
           }
         } else {
@@ -95,12 +94,9 @@ function changeTab(tabName) {
   var killallboxes=0;
   var layers = document.getElementById('menu');
   var clickedTab = document.getElementById(tabName);
-  for (var key in toggleableLegendIds) {
-    var link = document.getElementById('toggler-' + key)
-    if (link != null){
-      link.style.display='none'
-    }
-  }
+
+  // clear menu of previous togglers
+  clearmenu()
 
   // check if clicked box was alread active, if so then kill all boxes
   if (clickedTab==null) {
@@ -153,7 +149,9 @@ function toggle_bulk(layers) {
   for (i=0;i<alllayers.length;i++){
     layername = alllayers[i];
     map.setLayoutProperty(layername, 'visibility', 'none');
-    $(layername).className += ' target';
+    if ($(layername).className.includes("target")==false){
+      $(layername).className += ' target';
+    }
     $(layername).style.display="block";
   }
 
@@ -181,7 +179,9 @@ function bulk_indiv(divname){
       map.setLayoutProperty('SUPERFUND2', 'visibility', 'visible');
     }
   } else {
-    $(divname).className += ' target';
+    if ($(divname).className.includes("target")==false){
+      $(divname).className += ' target';
+    }
     $(divname).style.display="block";
     if (divname.includes("Bulk Storage Sites")){
       map.setLayoutProperty('Bulk Storage Sites', 'visibility', 'none');
@@ -227,6 +227,7 @@ function show_legend_info(){
 
 
 function make_layer_visible(clickedLayer) {
+
   for (var otherLayerName in toggleableLegendIds) {
 
     if (otherLayerName != clickedLayer) {
@@ -245,17 +246,22 @@ function make_layer_visible(clickedLayer) {
       }
     }
   }
-  map.setPaintProperty("SMIAfill", 'fill-opacity',0)
-  map.setLayoutProperty("SMIAnumbers", 'visibility',"none")
   if (clickedLayer=="None"||clickedLayer=="Highlight") {
     // show fill layer to highlight SMIAs
     //if (clickedLayer == "Highlight") {
+    //smia_hover_toggle(true,false)
     map.setLayoutProperty("SMIAnumbers",'visibility','visible')
     map.setPaintProperty("SMIAfill", 'fill-opacity',.25)
     //}
     update_legend("None");
     $('dataselector').innerHTML = ' Data: ';
   } else {
+    // get rid of none stuff
+    smia_hover_toggle(false,false)
+    map.setPaintProperty("SMIAfill", 'fill-opacity',0)
+    map.setLayoutProperty("SMIAnumbers", 'visibility',"none")
+
+    // make active
     $('toggler-' + clickedLayer).className = 'active';
     // update data tabselector
     $('dataselector').innerHTML = 'Data: <small>'+ clickedLayer + '</small>';
@@ -324,10 +330,10 @@ function reset_map_view(event){
   // reset info box and SMIA highlight
   showinfobox(event,"none")
   toggle_bulk("None")
-  map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
-  $('smiainfoboxempty').style.visibility = 'hidden';
-  map.setPaintProperty("SMIAfill", 'fill-opacity',0)
-  map.setLayoutProperty("SMIAnumbers",'visibility','none')
+  bulk_legend(false)
+  smia_hover_toggle(false,false)
+  //map.setPaintProperty("SMIAfill", 'fill-opacity',0)
+  //map.setLayoutProperty("SMIAnumbers",'visibility','none')
   make_layer_visible("None")
 }
 
@@ -371,14 +377,9 @@ function showinfobox(evt,boxname){
   map.getSource('single-point').setData(blankgeojson);
   $('map-overlay-info').innerHTML = '';
 
-  // turn off all listeners
+  // turn off all listeners, SMIA layer popup
   map.off('click', query_point)
-  map.off('mousemove',which_smia)
-  map.off('click',smia_click)
-  // turn off SMIA layer popup
-  map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
-  $('smiainfoboxempty').style.visibility = 'hidden';
-  $('aboutoverlay').style.display="none";
+  smia_hover_toggle(false,false)
 
   if (killallboxes!=1) {
     // show the current box and make it active!

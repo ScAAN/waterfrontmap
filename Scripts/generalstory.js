@@ -55,14 +55,13 @@ function story_display_page(storypage){
   document.getElementById('nextbutton').style.display = "block";
   document.getElementById('backbutton').style.display = "block";
 
+
   // allow users to jump to a SMIA by clicking on it (if pageIdx is zero)
   var jumptext = "";
   if (storyvars[storypage]["pageIdx"]!=0) {
-    map.off('mousemove',which_smia);
-    map.off('click',smia_click);
+    smia_hover_toggle(false,false)
   } else {
-    map.on('mousemove',which_smia);
-    map.on('click',smia_click);
+    smia_hover_toggle(true,true)
     jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
   }
 
@@ -73,12 +72,43 @@ function story_display_page(storypage){
   toggle_bulk("None")
   bulk_legend(false)
   $('toggler-Bulk Storage Sites').className = '';
-  update_legend("None")
   make_layer_visible(storyvars[storypage]["pageLayer"])
+  if (storyvars[storypage]["pageLayer"]=="Bulk Storage Sites"){
+    toggle_bulk(['Bulk Storage Sites','MOSF','CBS','SUPERFUND2'])
+  }
 
   // display information about SMIA
   document.getElementById('storybox').innerHTML = '<p><strong><big>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[storypage]["pageText"] + jumptext + '</small></p>';
 }
+
+
+function smia_hover_toggle(hover,click){
+  // turn of listeners and remove info
+  map.off('click',smia_click)
+  map.off('mousemove',which_smia)
+  map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
+  $('smiainfoboxempty').style.visibility = 'hidden';
+
+  // toggle hover listener
+  if (hover==true){
+    map.on('mousemove',which_smia);
+  } else {
+    map.off('mousemove',which_smia);
+  }
+
+  // toggle click listener
+  if (click==true){
+    map.on('click',smia_click);
+  } else {
+    map.off('click',smia_click);
+  }
+}
+
+
+
+
+
+
 
 function smia_click(e){
   // zoom into smia on click
@@ -92,10 +122,7 @@ function smia_click(e){
     var smiaNum = vsmia[whichsmia[0].properties.SMIA_Name]["number"]-1;
 
     // Remember to turn off listeners and highlight effect after you zoom
-    map.off('click',smia_click)
-    map.off('mousemove',which_smia)
-    map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
-    $('smiainfoboxempty').style.visibility = 'hidden';
+    smia_hover_toggle(false,false)
 
     // Go to the first page on which this SMIA appears
     global_page = pageSMIAIdx[smiaNum]+1;
@@ -132,13 +159,14 @@ function which_smia(e){
 }
 
 function smia_info(thissmia,e){
-  document.getElementById('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>'
+  // info (name only or full)
+  //document.getElementById('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>'
   document.getElementById('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"] + '(<a style="color:white;" href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">Source: VISION 2020</a>)' + '</small></p>';
-  //+ '<small></br></br>' +vsmia[thissmia]["description"]
-  //+ '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
+
+  // set box coordinates and make visible
   var xcord = e["x"] - 20;
   $('smiainfoboxempty').style.left = xcord+'px';
   var ycord = e["y"] - $('smiainfoboxempty').offsetHeight -20;
   $('smiainfoboxempty').style.top = ycord + 'px';
   $('smiainfoboxempty').style.visibility = 'visible';
-  }
+}

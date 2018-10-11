@@ -13,8 +13,19 @@ var map = new mapboxgl.Map({
 
 var overlay = document.getElementById('map-overlay-info');
 
+// fullscreen control
+// put it in a div, named "mapbox-ctrl-fs" in a container "mapbox-container-fs"
+var ctrl_fullscreen = new mapboxgl.FullscreenControl();
+document.getElementById('fullscreenbutton').appendChild(ctrl_fullscreen.onAdd(map))
+var fs_element = document.querySelector('[aria-label="Toggle fullscreen"]');
+fs_element.id="mapbox-ctrl-fs";
+var fs_container = fs_element.parentNode;
+fs_container.id ="mapbox-container-fs"
+
+
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'bottom-left');
+
 map.on('load', function () {
   // add a source layer and default styling for a single point.
   map.addSource('single-point', {
@@ -29,88 +40,7 @@ map.on('load', function () {
 
   map.addSource('SMIA-point', {
     "type": "geojson",
-    "data":{
-        "type": "FeatureCollection",
-        "features": [{
-          "type": "Feature",
-          "properties": {
-            "Number": 1,
-            "Name":"Brooklyn Navy Yard",
-            "Icon":"number-1"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [-73.94904816851808, 40.747175323625896]
-          }
-        },{
-          "type": "Feature",
-          "properties": {
-            "Number": 2,
-            "Name":"Newtown Creek",
-            "Icon":"number-2"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [-73.95922616286612, 40.70190246515443]
-          }
-        },{
-          "type": "Feature",
-          "properties": {
-            "Number": 3,
-            "Name": "Staten Island West Shore",
-            "Icon":"number-3"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [-74.20918201032606, 40.564923648547676]
-          }
-        },{
-          "type": "Feature",
-          "properties": {
-            "Number": 4,
-            "Name":"Red Hook",
-            "Icon":"number-4"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [-74.01084626453857, 40.69669671469495]
-          }
-        },{
-          "type": "Feature",
-          "properties": {
-            "Number": 5,
-            "Name":"South Bronx",
-            "Icon":"number-5"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [-73.93737519505117, 40.806451757747396]
-          }
-        },{
-          "type": "Feature",
-          "properties": {
-            "Number": 6,
-            "Name":"Sunset Park",
-            "Icon":"number-6"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [-73.99368012684003, 40.65868241533579]
-          }
-        },{
-          "type": "Feature",
-          "properties": {
-            "Number": 7,
-            "Name":"Kill Van Kull",
-            "Icon":"number-7"
-          },
-          "geometry": {
-            "type": "Point",
-            "coordinates": [-74.09599030750208, 40.65086857337019]
-          }
-        }
-      ]
-    }});
+    "data":"./Data/smia_coordinates.geojson"});
 
 
     // display marker for geocoder, this is a symbol (marker-15)
@@ -163,6 +93,28 @@ map.on('load', function () {
   map.removeLayer("road-label-sm");
   map.removeLayer("road-label-med");
   map.removeLayer("road-label-large");
+  // restrict labels to new York
+  //map.setFilter('state_label',["!=",'Perc_POC_P003009',null])
+
+
+/*
+//trying to get rid of labels outside of new york
+  var maplayers = map.getStyle().layers;
+  var layerIds = maplayers.map(function (layer) {
+    if (layer.id.includes("label")){
+        return layer.id;
+    }
+  });
+
+  var labelIds = layerIds.filter(function (el) {
+    return el != null;
+  });
+
+  for (i=0;i<labelIds.length;i++){
+    //map.setFilter(labelIds[i],["==",['has', 'Perc_POC_P003009'],true])
+  }
+
+  */
 
   // Add a background pattern
   /*
@@ -187,12 +139,12 @@ map.on('load', function () {
         'property': 'human_readable_zone',
         'type': 'categorical',
         "stops": [
-          ['Residential', '#d58b11'],
-          ['New York City Parks', '#024529'],
-          ['Manufacturing', '#6e0d47'],
-          ['Commercial', '#b81d05'],
-          ['Mixed manufacturing and residential', '#985201'],
-          ['Battery Park City', '#404040']
+          ['Residential', '#E17C05'],
+          ['New York City Parks', '#E17C05'],
+          ['Manufacturing', '#E17C05'],
+          ['Commercial', '#E17C05'],
+          ['Mixed manufacturing and residential', '#EDAD08'],
+          ['Battery Park City', '#E17C05']
         ]
       },
       "fill-color": {
@@ -522,7 +474,7 @@ map.addLayer({
     "source-layer": 'SMIA_halfmilebuffer_full',
     "paint": {
       "fill-color": "#000000",
-      "fill-opacity": .25,
+      "fill-opacity": .5,
     },
     "filter": ["==", "SMIA_Name", ""]
   },'Bulk Storage Sites','SUPERUND2','CBS','MOSF','SMIAnumbers');
