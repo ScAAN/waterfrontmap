@@ -9,16 +9,16 @@ Contains:
 */
 
 // first load in the story text file
-var requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/story_text.json';
-var request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
+var storyrequestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/story_text.json';
+var storyrequest = new XMLHttpRequest();
+storyrequest.open('GET', storyrequestURL);
+storyrequest.responseType = 'json';
+storyrequest.send();
 
 // after loading do some processing
 var storyvars, pageSMIAIdx, global_max_page;
-request.onload = function() {
-  var requested_text = request.response;
+storyrequest.onload = function() {
+  var requested_text = storyrequest.response;
   storyvars = requested_text["data"];
   pageSMIAIdx = requested_text["SMIA_first_page"];
   global_max_page = requested_text["global_max_page"];

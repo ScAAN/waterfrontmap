@@ -13,7 +13,7 @@
             "legend": "bulk",
             "shortname": "Bulk storage sites",
             "source": "2016 EPCRA TRI sites from <a href=\"https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-2016\">US EPA</a>. DEC active  MOSF, CBS and superfund class 2 sites (7/18/2018) from <a href=\"https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=4\">NYS DEC</a> and <a href=\"https://www.dec.ny.gov/cfmx/extapps/derexternal/index.cfm?pageid=3\">NYS DEC</a>",
-            "text": "Many sources of toxic waste such as TRI, MOSF, PBS and CBS sites as well as superfund class 2 sites are located in or near SMIAs. This represents a public health threat in the even of a storm surge. "
+            "text": "Click on the legend symbol to toggle viewed storage sites. Many sources of toxic waste such as TRI, MOSF, PBS and CBS sites as well as superfund class 2 sites are located in or near SMIAs. This represents a public health threat in the even of a storm surge. "
         },
         "Heat Vulnerability Index": {
             "legend": "hvi",
