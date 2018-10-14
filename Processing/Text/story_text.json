@@ -220,7 +220,7 @@
             "pageZoom": 12
         },
         {
-            "bulkLayers": NaN,
+            "bulkLayers": "None",
             "pageIdx": 0,
             "pageLat": -73.9978,
             "pageLayer": "None",
