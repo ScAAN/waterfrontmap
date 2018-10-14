@@ -200,10 +200,10 @@ function bulk_legend(value) {
   if (value==true && nonbulk_active()==true){
     $('legendHTML_bulk').style.display = 'block';
     if (document.getElementById('legendinfo').style.display.includes("block")){
-      $('legendinfo').style.right='350px';
+      $('legendinfo').style.right='370px';
     }
   } else {
-    $('legendinfo').style.right='180px';
+    $('legendinfo').style.right='190px';
     $('legendHTML_bulk').style.display = 'none';
   }
 }
