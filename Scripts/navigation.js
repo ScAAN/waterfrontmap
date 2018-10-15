@@ -48,7 +48,7 @@ function menuinit(layers){
     for (var i = 0; i < toggleableLayerIds[tabName].length; i++) {
       var id = toggleableLayerIds[tabName][i];
       var link = document.createElement('a');
-      link.style.cssText = 'float:left; width:112px;margin-left:9px;';
+      link.style.cssText = 'float:left; width:112px;margin-left:9px;font-size:12px;';
       link.href = '#';
       link.textContent = id;
       link.id = 'toggler-' + id

@@ -3,7 +3,7 @@
 * -------------------*/
 
 html * {
-  font-family: "Open Sans" !important
+  font-family: "Open Sans", sans-serif, 'Helvetica Neue', Arial, Helvetica;
 }
 
 .text-stroke {
@@ -24,7 +24,7 @@ html * {
   border-radius:20px;
   padding:10px;
   width: 200px;
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 12px;
   padding: 5px;
   line-height:.9;
   visibility:hidden;
@@ -51,7 +51,7 @@ html * {
 }
 
 .instructions{
-  font: 14px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 14px;
 	width:80vw;
 	top:10vh;
 	left:10vw;
@@ -62,7 +62,7 @@ html * {
 }
 
 .instructions h4{
-  font: 24px 'Helvetica Neue', sans-serif;
+  font-size: 24px;
   margin: 0 0 10px;
   line-height: 1em;
   font-weight:'bold';
@@ -92,15 +92,20 @@ h3 {
   font-size: 1em;
 }
 h4{
-  font: 16px 'Helvetica Neue', sans-serif;
+  font-size: 16px;
   margin: 0 0 10px;
   line-height: 1em;
+  font-weight:normal;
 }
 
 p {
   font-size: 0.85em;
   margin: 10px;
   text-align: left;
+}
+
+strong {
+  font-weight:600;
 }
 
 /*-------------------*
@@ -133,6 +138,8 @@ button {
 * cursor needs to be auto because otherwise style="" overwrites it*/
 #map > #bodyreturn{
   cursor:auto;
+  font-weight:auto;
+  font-size:auto;
 }
 
 /** Set rules for how the map overlays (info box
@@ -142,7 +149,7 @@ button {
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.10);
   border: 1px solid rgba(0,0,0,0.4);
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 12px;
   padding: 10px;
   position: absolute;
   z-index: 1;
@@ -155,7 +162,6 @@ button {
   right: 0;
   background: rgba(255, 255, 255, 0.8);
   margin-right: 20px;
-  font-family: Arial, sans-serif;
   overflow: auto;
   border-radius: 3px;
   line-height: 1em;
@@ -210,7 +216,7 @@ button {
   bottom: 20px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.10);
   border: 1px solid rgba(0,0,0,0.4);
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 12px;
   padding: 10px;
   position: absolute;
   right: 10px;
@@ -242,7 +248,7 @@ button {
   bottom: 20px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.10);
   border: 1px solid rgba(0,0,0,0.4);
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 12px;
   padding: 10px;
   position: absolute;
   right: 190px;
@@ -256,7 +262,7 @@ button {
 .legend-seam {
   background-color: #fff;
   bottom: 21px;
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 12px;
   padding: 10px;
   position: absolute;
   right: 162px;
@@ -294,7 +300,6 @@ button {
   width: 430px;
   min-height:60px;
   border: 1px solid rgba(0,0,0,0.4);
-  font-family: 'Open Sans', sans-serif;
   line-height:1;
 }
 
@@ -385,14 +390,14 @@ button {
 
 .map-overlay-info {
   z-index: 1;
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 12px;
   padding: 10px;
   display: block;
 }
 
 .text-info-box {
   position: absolute;
-  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 16px;
   background-color: rgba(255,255,255,1);
   position: absolute;
   top: 60px;
@@ -432,6 +437,11 @@ width:330px;
 
 #storybox{
 width:240px;
+}
+
+.story-box {
+  font-size: 15px;
+  line-height:1;
 }
 
 
@@ -484,7 +494,7 @@ width:240px;
   min-width:600px;
   position:absolute;
   top:6px;
-  font: 16px "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
   z-index:1;
 }
 
@@ -523,7 +533,7 @@ width:240px;
 
 .relative-button-text {
   display:inline-block;
-  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 16px;
   border-top-right-radius:3px;
   border-bottom-right-radius:3px;
   vertical-align:top;
@@ -648,7 +658,7 @@ width:240px;
 }
 
 .button-fill {
-  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  font-size:16px;
   background-color: #fff;
   border-radius:50px;
   padding: 5px;
@@ -675,7 +685,7 @@ width:240px;
 
 .general-button .tooltiptext {
   visibility: hidden;
-  font: 12px 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 12px;
   background-color: rgba(0,0,0,.8);
   color: #ffffff;
   text-align:center;
@@ -745,7 +755,7 @@ width:240px;
 }
 .fb-button {
   z-index: 1;
-  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 16px;
   background-color: #F2F3F4;
   border-radius: 3px;
   margin: 2%;
@@ -765,7 +775,7 @@ width:240px;
 
 .large-button {
   z-index: 1;
-  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 16px;
   background-color: #F2F3F4;
   box-shadow: .5px 1px 1px 1px rgb(0,0,0,.2);
   margin: 2%;
@@ -793,7 +803,7 @@ width:240px;
 .bar-button {
 
   width: 80px;
-  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  font-size:16px;
   background-color: #F2F3F4;
   box-shadow: .5px 1px 1px 1px rgb(0,0,0,.2);
   margin: 3px auto;
@@ -831,7 +841,7 @@ width:240px;
 
 .tab button {
   z-index: 1;
-  font: 16px 'Helvetica Neue', Helvetica, sans-serif;
+  font-size:16px;
   background-color: #F2F3F4;
   /*box-shadow: 0 1px 2px rgba(0,0,0,0.10);*/
   border-radius: 3px;
