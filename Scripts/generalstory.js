@@ -70,17 +70,18 @@ function story_display_page(storypage){
   // add bulkLayers
   // var bulks = storyvars[storypage]['bulkLayers'].split(",")
   var bulkstring = storyvars[storypage]["bulkLayers"].split(",");
+  if (storyvars[storypage]["pageLayer"]=="Bulk Storage Sites"){
+    bulkstring = ['Bulk Storage Sites','MOSF','CBS','SUPERFUND2'];
+  }
   toggle_bulk(bulkstring)
-  if (bulkstring!="None"){
+  if (bulkstring!="None" && storyvars[storypage]["pageLayer"]!="Bulk Storage Sites"){
+    bulk_legend(false)
     bulk_legend(true)
   } else {
     bulk_legend(false)
   }
   $('toggler-Bulk Storage Sites').className = '';
   make_layer_visible(storyvars[storypage]["pageLayer"])
-  if (storyvars[storypage]["pageLayer"]=="Bulk Storage Sites"){
-    toggle_bulk(['Bulk Storage Sites','MOSF','CBS','SUPERFUND2'])
-  }
 
   // display information about SMIA
   document.getElementById('storybox').innerHTML = '<p><big><strong>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[storypage]["pageText"] + jumptext + '</small></p>';
