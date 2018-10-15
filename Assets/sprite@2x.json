@@ -3,7 +3,7 @@
     "height": 11,
     "pixelRatio": 1,
     "width": 11,
-    "x": 1750,
+    "x": 1766,
     "y": 250
   },
   "diag-16": {
@@ -17,42 +17,42 @@
     "height": 4,
     "pixelRatio": 1,
     "width": 4,
-    "x": 1808,
+    "x": 1824,
     "y": 250
   },
   "diag-4-thin": {
     "height": 4,
     "pixelRatio": 1,
     "width": 4,
-    "x": 1812,
+    "x": 1828,
     "y": 250
   },
   "diag-6": {
     "height": 6,
     "pixelRatio": 1,
     "width": 6,
-    "x": 1796,
+    "x": 1812,
     "y": 250
   },
   "diag-6-sym": {
     "height": 6,
     "pixelRatio": 1,
     "width": 6,
-    "x": 1802,
+    "x": 1818,
     "y": 250
   },
   "diag-8": {
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 1772,
+    "x": 1788,
     "y": 250
   },
   "hatch": {
     "height": 11,
     "pixelRatio": 1,
     "width": 11,
-    "x": 1761,
+    "x": 1777,
     "y": 250
   },
   "hatch-16": {
@@ -69,11 +69,18 @@
     "x": 1718,
     "y": 250
   },
-  "hatch-16-thin": {
+  "hatch-16-old": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
     "x": 1734,
+    "y": 250
+  },
+  "hatch-16-thin": {
+    "height": 16,
+    "pixelRatio": 1,
+    "width": 16,
+    "x": 1750,
     "y": 250
   },
   "hatch-32": {
@@ -94,14 +101,14 @@
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 1780,
+    "x": 1796,
     "y": 250
   },
   "hatch-8-clean": {
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 1788,
+    "x": 1804,
     "y": 250
   },
   "marker-11": {
