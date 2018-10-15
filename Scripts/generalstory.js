@@ -21,20 +21,20 @@ storyrequest.onload = function() {
   var requested_text = storyrequest.response;
   storyvars = requested_text["data"];
   pageSMIAIdx = requested_text["SMIA_first_page"];
-  global_max_page = requested_text["global_max_page"];
+  global_max_page = requested_text["global_max_page"]-1;
 }
 
 // next page function
 function story_next_page(){
   global_page = global_page+1;
-  if (global_page>global_max_page){global_page=0}
+  if (global_page>global_max_page){global_page=0;}
   story_display_page(global_page)
 }
 
 // prev page function
 function story_prev_page(){
   global_page = global_page-1;
-  if (global_page<0){global_page=global_max_page}
+  if (global_page<0){global_page=global_max_page;}
   story_display_page(global_page)
 }
 
@@ -69,8 +69,13 @@ function story_display_page(storypage){
   changeTab("None")
   // add bulkLayers
   // var bulks = storyvars[storypage]['bulkLayers'].split(",")
-  toggle_bulk("None")
-  bulk_legend(false)
+  var bulkstring = storyvars[storypage]["bulkLayers"].split(",");
+  toggle_bulk(bulkstring)
+  if (bulkstring!="None"){
+    bulk_legend(true)
+  } else {
+    bulk_legend(false)
+  }
   $('toggler-Bulk Storage Sites').className = '';
   make_layer_visible(storyvars[storypage]["pageLayer"])
   if (storyvars[storypage]["pageLayer"]=="Bulk Storage Sites"){
@@ -125,8 +130,11 @@ function smia_click(e){
     smia_hover_toggle(false,false)
 
     // Go to the first page on which this SMIA appears
-    global_page = pageSMIAIdx[smiaNum]+1;
-    story_display_page(global_page)
+    var jumppage = pageSMIAIdx[smiaNum]+1;
+    if (jumppage !=0){
+      global_page = jumppage;
+      story_display_page(global_page);
+    }
   }
 }
 
@@ -161,7 +169,7 @@ function which_smia(e){
 function smia_info(thissmia,e){
   // info (name only or full)
   //document.getElementById('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>'
-  document.getElementById('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"] + '(<a style="color:white;" href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">Source: VISION 2020</a>)' + '</small></p>';
+  document.getElementById('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA ' + vsmia[thissmia]["number"] + ':  ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"]  + '</small></p>';
 
   // set box coordinates and make visible
   var xcord = e["x"] - 20;

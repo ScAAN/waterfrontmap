@@ -197,10 +197,12 @@ function bulk_indiv(divname){
 
 
 function bulk_legend(value) {
-  if (value==true && nonbulk_active()==true){
+  if (value==true){
     $('legendHTML_bulk').style.display = 'block';
-    if (document.getElementById('legendinfo').style.display.includes("block")){
-      $('legendinfo').style.right='370px';
+    if (nonbulk_active()==true){
+      if (document.getElementById('legendinfo').style.display.includes("block")){
+        $('legendinfo').style.right='370px';
+      }
     }
   } else {
     $('legendinfo').style.right='190px';

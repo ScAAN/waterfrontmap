@@ -41,6 +41,20 @@ html * {
     /*border-color: rgba(0,0,0,.9) transparent transparent transparent;*/
 }
 
+.smiainfobox a{
+  color:white;
+  background-color: rgba(255,255,255,0.05);
+  border-radius:10px;
+  padding-left:2px;
+  padding-right:2px;
+  text-decoration:none;
+  font-weight:normal;
+}
+
+.smiainfobox a:hover{
+  background-color: rgba(255,255,255,0.2);
+}
+
 .overlayed{
   opacity:0.4;
   background:black;
