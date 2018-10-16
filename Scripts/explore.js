@@ -30,7 +30,8 @@ function query_point(e){
 
   // set 'single-point' marker to be at point coordinates
   map.getSource('single-point').setData(queried[0].geometry);
-  console.log(queried[0].geometry)
+  // for debugging: display clicked coordinate
+  //console.log(queried[0].geometry)
 
   if (current_point[0]==global_last_point[0] && current_point[1]==global_last_point[1]){
     // clear explore box
@@ -63,7 +64,10 @@ function show_explore_info(queried){
   }, {});
 
   // go through layer names and list queried valies
-  for (var layerName in toggleableLegendIds) {
+  //for (var layerName in toggleableLegendIds) {
+  // explore information is sorted by property length for readability (see longtext)
+  for (i=0;i<exploreIdOrder.length;i++) {
+    var layerName = exploreIdOrder[i];
     var dataKey = dataNames[layerName];
     var divtext = '';
     if ((typeof data[dataKey] != 'undefined') && ((data[dataKey]>0 && isNaN(data[dataKey])==0) || layerName.includes("Zoning"))){

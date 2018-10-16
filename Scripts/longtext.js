@@ -7,6 +7,7 @@ Text processing script!
 
 // request the general text
 var toggleableLegendIds = {};
+var exploreIdOrder = [];
 var requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/general_text.json';
 var request2 = new XMLHttpRequest();
 request2.open('GET', requestURL);
@@ -24,8 +25,11 @@ request2.onload = function() {
   // get a dict of legend ids, but don't include the none layer
   for (const prop in vlayer) {
     toggleableLegendIds[prop] = vlayer[prop]["legend"];
+    if (prop!="None") {exploreIdOrder.push(prop);}
   }
   delete toggleableLegendIds.None
+  // sort layers ids so the explore display will look neater
+  exploreIdOrder.sort(function(a, b){return a.length - b.length});
 
   // initialize map
   update_legend("Percent People of Color")

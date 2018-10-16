@@ -11,8 +11,6 @@ var map = new mapboxgl.Map({
   maxZoom: 13
 });
 
-var overlay = document.getElementById('map-overlay-info');
-
 // fullscreen control
 // put it in a div, named "mapbox-ctrl-fs" in a container "mapbox-container-fs"
 var ctrl_fullscreen = new mapboxgl.FullscreenControl();
