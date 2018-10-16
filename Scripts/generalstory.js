@@ -80,7 +80,7 @@ function story_display_page(storypage){
   } else {
     bulk_legend(false)
   }
-  $('toggler-Bulk Storage Sites').className = '';
+  document.getElementById('toggler-Bulk Storage Sites').className = '';
   make_layer_visible(storyvars[storypage]["pageLayer"])
 
   // display information about SMIA
@@ -93,7 +93,7 @@ function smia_hover_toggle(hover,click){
   map.off('click',smia_click)
   map.off('mousemove',which_smia)
   map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
-  $('smiainfoboxempty').style.visibility = 'hidden';
+  document.getElementById('smiainfoboxempty').style.visibility = 'hidden';
 
   // toggle hover listener
   if (hover==true){
@@ -158,7 +158,7 @@ function which_smia(e){
     var jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
     document.getElementById('storybox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[global_page]["pageText"] + jumptext + '</small></p>';
   } else {
-    $('smiainfoboxempty').style.visibility = 'hidden';
+    document.getElementById('smiainfoboxempty').style.visibility = 'hidden';
     // turn filter off
     map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
     // show the story page text
@@ -174,8 +174,8 @@ function smia_info(thissmia,e){
 
   // set box coordinates and make visible
   var xcord = e["x"] - 20;
-  $('smiainfoboxempty').style.left = xcord+'px';
-  var ycord = e["y"] - $('smiainfoboxempty').offsetHeight -20;
-  $('smiainfoboxempty').style.top = ycord + 'px';
-  $('smiainfoboxempty').style.visibility = 'visible';
+  document.getElementById('smiainfoboxempty').style.left = xcord+'px';
+  var ycord = e["y"] - document.getElementById('smiainfoboxempty').offsetHeight -20;
+  document.getElementById('smiainfoboxempty').style.top = ycord + 'px';
+  document.getElementById('smiainfoboxempty').style.visibility = 'visible';
 }

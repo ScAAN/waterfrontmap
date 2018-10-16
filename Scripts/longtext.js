@@ -31,7 +31,7 @@ request2.onload = function() {
   update_legend("Percent People of Color")
   changeTab("Demographics")
   changeTab("None")
-  $('toggler-' + "Percent People of Color").className = 'active';
+  document.getElementById('toggler-' + "Percent People of Color").className = 'active';
 }
 
 // MANUALLY SPECIFY WHICH LAYERS BELONG IN WHICH TABS
