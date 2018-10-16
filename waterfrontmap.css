@@ -150,7 +150,7 @@ button {
 
 /** to do full screen we need everything to be the child of map
 * cursor needs to be auto because otherwise style="" overwrites it*/
-#map > #bodyreturn{
+#map > #control_container{
   cursor:auto;
   font-weight:auto;
   font-size:auto;

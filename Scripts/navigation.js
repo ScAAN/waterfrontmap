@@ -1,4 +1,4 @@
-nonbulk_active()/*
+/*
 Navigation script!
 This controls: info box, data box, legend, WIP box
 Contents:
@@ -9,6 +9,10 @@ Contents:
 - reset_map_view(event)
 - showinfobox(evt,boxname)
 */
+
+
+// redefine "$" to return element ids
+var $ = function(id){return document.getElementById(id)};
 
 // hide work in progress box
 function hidewip(){
@@ -21,9 +25,6 @@ function hideaboutbox(){
   $('aboutoverlay').style.display = 'none';
   showinfobox([],"none")
 }
-
-// redefine "$" to return element ids
-var $ = function(id){return document.getElementById(id)};
 
 // ----------------------------------------
 // |  ** MENU / LAYER SWITCHING  ** |
