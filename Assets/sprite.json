@@ -3,36 +3,36 @@
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 292,
+    "x": 324,
     "y": 325
   },
   "diag-4": {
     "height": 4,
     "pixelRatio": 1,
     "width": 4,
-    "x": 392,
-    "y": 325
+    "x": 52,
+    "y": 425
   },
   "diag-4-thin": {
     "height": 4,
     "pixelRatio": 1,
     "width": 4,
-    "x": 396,
-    "y": 325
+    "x": 56,
+    "y": 425
   },
   "diag-6": {
     "height": 6,
     "pixelRatio": 1,
     "width": 6,
-    "x": 380,
-    "y": 325
+    "x": 40,
+    "y": 425
   },
   "diag-6-sym": {
     "height": 6,
     "pixelRatio": 1,
     "width": 6,
-    "x": 386,
-    "y": 325
+    "x": 46,
+    "y": 425
   },
   "diag-64": {
     "height": 64,
@@ -45,28 +45,42 @@
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 356,
-    "y": 325
+    "x": 16,
+    "y": 425
   },
   "hatch-16": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 308,
+    "x": 340,
     "y": 325
   },
-  "hatch-16-larger": {
+  "hatch-16-3": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 324,
+    "x": 356,
+    "y": 325
+  },
+  "hatch-16-old": {
+    "height": 16,
+    "pixelRatio": 1,
+    "width": 16,
+    "x": 372,
     "y": 325
   },
   "hatch-16-thin": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 340,
+    "x": 0,
+    "y": 425
+  },
+  "hatch-32": {
+    "height": 32,
+    "pixelRatio": 1,
+    "width": 32,
+    "x": 292,
     "y": 325
   },
   "hatch-64": {
@@ -87,15 +101,15 @@
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 364,
-    "y": 325
+    "x": 24,
+    "y": 425
   },
   "hatch-8-clean": {
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 372,
-    "y": 325
+    "x": 32,
+    "y": 425
   },
   "mh_chem3": {
     "height": 100,
