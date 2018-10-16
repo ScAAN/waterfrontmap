@@ -122,7 +122,7 @@ map.on('load', function () {
   	"id": "BKG",
   	"type": "background",
   	"paint":{
-  	"background-pattern": "diag-4"
+  	"background-pattern": "diag-64"
   	}
   },'water')
   */
@@ -225,7 +225,7 @@ map.on('load', function () {
     "layout": {"visibility":'visible'},
     "paint": {
       "fill-opacity": 1,
-      "fill-pattern": "diag-4"
+      "fill-pattern": "diag-64"
     },
     "filter": ["==",'Perc_POC_P003009',-10]
   }, 'water2','Percent People of Color');
@@ -273,7 +273,7 @@ map.on('load', function () {
     "layout": {"visibility":'visible'},
     "paint": {
       "fill-opacity": 0,
-      "fill-pattern": "diag-4"
+      "fill-pattern": "diag-64"
     },
     "filter": ["==",'Median Household Income',-10]
   }, 'water2','Median Household Income');
@@ -321,7 +321,7 @@ map.on('load', function () {
     "layout": {"visibility":'visible'},
     "paint": {
       "fill-opacity": 0,
-      "fill-pattern": "diag-4"
+      "fill-pattern": "diag-64"
     },
     "filter": ["==",'% of Families Below Poverty Level',-10]
   }, 'water2','Percent of Families Below Poverty Line');
@@ -550,7 +550,7 @@ map.addLayer({
    "source": 'CDdata',
    "paint": {
      "fill-opacity": 0,
-     "fill-pattern": "hatch-16-thin"
+     "fill-pattern": "hatch-64"
   },
   "filter": ["==","unreliable",1]
 }, 'water2','Percent Uninsured');
@@ -561,7 +561,7 @@ map.addLayer({
   "source": 'CDdata',
   "paint": {
     "fill-opacity": 0,
-    "fill-pattern": "diag-4"
+    "fill-pattern": "diag-64"
  },
  "filter": ["==","perc_uninsured",-10]
 }, 'water2','Percent Uninsured');
@@ -605,7 +605,7 @@ map.addLayer({
   "source": 'CDdata',
   "paint": {
     "fill-opacity": 0,
-    "fill-pattern": "diag-4"
+    "fill-pattern": "diag-64"
  },
  "filter": ["==","HVI_score",-10]
 }, 'water2','HVI');
