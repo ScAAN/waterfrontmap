@@ -22,7 +22,7 @@ var global_loadcount = 0;
 var global_pageloaded = 0;
 function map_init(num){
   global_loadcount = global_loadcount+num;
-  if (global_loadcount >=7){
+  if (global_loadcount >=8){
     global_pageloaded = 1;
     // make default layer visible and initialize menu
     menuinit();
@@ -53,10 +53,6 @@ function load_script(url, completeCallback) {
 */
 
 // request the general text
-var toggleableLegendIds = {};
-var toggleableLayerIds = {};
-var dataNames = {};
-var exploreIdOrder = [];
 var general_requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/general_text.json';
 var general_request = new XMLHttpRequest();
 general_request.open('GET', general_requestURL);
@@ -64,6 +60,7 @@ general_request.responseType = 'json';
 general_request.send();
 
 // now do some processing
+var toggleableLegendIds={}, toggleableLayerIds={}, dataNames={}, exploreIdOrder=[];
 var vlayer, vsmia, vlegend;
 general_request.onload = function() {
   var requested_text = general_request.response;
@@ -71,20 +68,24 @@ general_request.onload = function() {
   vsmia = requested_text["smia"];
   legend_text = requested_text["legend"];
 
-  // get a dict of legend ids, but don't include the none layer
+  // do processing, but don't include the none layer
   for (const prop in vlayer) {
     if (prop!="None") {
+      //get a dict of legend ids
       toggleableLegendIds[prop] = vlayer[prop]["legend"];
+      // get an array of ids
       exploreIdOrder.push(prop);
-      /*
-      if (typeof toggleableLayerIds[vlayer[prop]["tab"]]==undefined) {
+      // get grouped menu ids
+      if (typeof toggleableLayerIds[vlayer[prop]["tab"]]=='undefined') {
         toggleableLayerIds[vlayer[prop]["tab"]] = [];
       }
       toggleableLayerIds[vlayer[prop]["tab"]].push(prop);
+      // sort layers so menu display will look neater
+      toggleableLayerIds[vlayer[prop]["tab"]].sort(function(a, b){return b.length - a.length});
+      // data names dict
       if (vlayer[prop]["dataName"] !="Null"){
         dataNames[prop] = vlayer[prop]["dataName"];
       }
-      */
     }
   }
   // sort layers ids so the explore display will look neater
@@ -92,22 +93,6 @@ general_request.onload = function() {
   map_init(1);
 }
 
-// MANUALLY SPECIFY WHICH LAYERS BELONG IN WHICH TABS
-// IF YOU LEAVE A LAYER NAME OUT IT WON'T APPEAR!
-var toggleableLayerIds =
-    {"Demographics": ['Percent People of Color', 'Percent of Families Below Poverty Line', 'Median Household Income', 'Percent Uninsured'],
-     "City Planning": ["Zoning", 'Bulk Storage Sites'],
-     "Climate": ['Hurricane Storm Surge Zones', 'Hurricane Evacuation Zones','Heat Vulnerability Index']};
-
-// temporarily specify data names in vector data - will remove when fixed
-var dataNames = {'Zoning': 'human_readable_zone',
-'Percent People of Color': 'Perc_POC_P003009',
-'Percent of Families Below Poverty Line': '% of Families Below Poverty Level',
-'Hurricane Storm Surge Zones': 'CATEGORY',
-'Median Household Income': 'Median Household Income',
-'Hurricane Evacuation Zones':'hurricane',
-'Percent Uninsured': 'perc_uninsured',
-'Heat Vulnerability Index': 'HVI_score'};
 
 
 

@@ -46,8 +46,6 @@ map.on('load', function () {
     }
   });
 
-
-
   map.addSource('SMIA-point', {
     "type": "geojson",
     "data":"./Data/smia_coordinates.geojson"});
@@ -620,5 +618,8 @@ map.addLayer({
  "filter": ["==","HVI_score",-10]
 }, 'water2','HVI');
 
+// call map_init here so we know when all layers are loaded!
+// (since map.loaded and map._loaded don't work)
+map_init(1);
 
 });
