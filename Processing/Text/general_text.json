@@ -1,13 +1,4 @@
 {
-    "dataNames": {
-        "% of Families Below Poverty Level": "Percent below poverty level: ",
-        "CATEGORY": "Storm surge zone: ",
-        "Median Household Income": "Median household income: ",
-        "Perc_POC_P003009": "Percent people of color: ",
-        "human_readable_zone": "Land use: ",
-        "hurricane": "Hurricane evacuation zone: ",
-        "perc_uninsured": "Percent Uninsured"
-    },
     "layer": {
         "Bulk Storage Sites": {
             "dataName": "Null",

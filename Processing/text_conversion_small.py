@@ -41,7 +41,6 @@ smiaprop = 'name'
 import os
 import pandas as pd 
 import json
-import math
 
 # set cwd 
 os.chdir(os.path.dirname(__file__))
@@ -117,22 +116,11 @@ if os.path.exists(file_name)==False: print("ERROR: smia file not found!")
 df = pd.read_csv(open(file_name),encoding='utf-8')
 smiadata = become_wordy_json(df,smiaprop)
 
-# MISC 
-# manual variable which we'll remove once vector data is updated 
-dataNames = {'human_readable_zone': 'Land use: ',
-'Perc_POC_P003009': 'Percent people of color: ',
-'% of Families Below Poverty Level': 'Percent below poverty level: ',
-'CATEGORY': 'Storm surge zone: ',
-'Median Household Income': 'Median household income: ',
-'hurricane': 'Hurricane evacuation zone: ',
-'perc_uninsured': 'Percent Uninsured'}
-
 # format data 
 fulldata = dict()
 fulldata["legend"] = legenddata
 fulldata["layer"] = layerdata
 fulldata["smia"] = smiadata
-fulldata["dataNames"] = dataNames
         
 # save data (pretty)
 output_file = 'Text\\general_text.json'
