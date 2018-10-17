@@ -432,7 +432,9 @@ top:10%;
 z-index:99;
 }
 
-.box-content a {
+.link-restyle{}
+
+.link-restyle a{
   color:black;
   background-color: rgba(0,0,0,0.075);
   border-radius:10px;
@@ -442,7 +444,7 @@ z-index:99;
   font-weight:normal;
 }
 
-.box-content a:hover{
+.link-restyle a:hover{
   background-color: rgba(0,0,0,0.2);
 }
 
