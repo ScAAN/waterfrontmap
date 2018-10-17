@@ -8,16 +8,16 @@ Text processing script!
 // request the general text
 var toggleableLegendIds = {};
 var exploreIdOrder = [];
-var requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/general_text.json';
-var request2 = new XMLHttpRequest();
-request2.open('GET', requestURL);
-request2.responseType = 'json';
-request2.send();
+var general_requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/general_text.json';
+var general_request = new XMLHttpRequest();
+general_request.open('GET', general_requestURL);
+general_request.responseType = 'json';
+general_request.send();
 
 // now do some processing
 var vlayer, vsmia, vlegend;
-request2.onload = function() {
-  var requested_text = request2.response;
+general_request.onload = function() {
+  var requested_text = general_request.response;
   vlayer = requested_text["layer"];
   vsmia = requested_text["smia"];
   legend_text = requested_text["legend"];

@@ -40,7 +40,7 @@ function query_point(e){
       "features": []
     };
     map.getSource('single-point').setData(blankgeojson);
-    document.getElementById('map-overlay-info').innerHTML = '';
+    $('map-overlay-info').innerHTML = '';
     current_point = [0, 0];
   }
   global_last_point = current_point;
@@ -50,7 +50,7 @@ function show_explore_info(queried){
   // show info from points queried by marker
 
   // empty innerHTML so we can add to it!
-  document.getElementById('map-overlay-info').innerHTML = '';
+  $('map-overlay-info').innerHTML = '';
 
   // unnest query object
   var arrObj = queried.map(a => a.properties);
@@ -87,10 +87,10 @@ function show_explore_info(queried){
         divtext =  '' + layerName + ':<b> ' + '---'+'</b>';
       }
     }
-    document.getElementById('map-overlay-info').innerHTML = document.getElementById('map-overlay-info').innerHTML + '<div>' + divtext + '</div>'
+    document.getElementById('map-overlay-info').innerHTML = document.getElementById('map-overlay-info').innerHTML + '<div>' + divtext + '</div>';
   }
   divtext = '<small>"</small>--<small>": no data or not enough data</small>'
-  document.getElementById('map-overlay-info').innerHTML = document.getElementById('map-overlay-info').innerHTML + '<div>' + divtext + '</div>'
+  document.getElementById('map-overlay-info').innerHTML = document.getElementById('map-overlay-info').innerHTML + '<div>' + divtext + '</div>';
 }
 
 

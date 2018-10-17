@@ -46,8 +46,15 @@
               Thank you for visiting. This is a collaboration between NYC-EJA and ScAAN, aiming to visualize Special Maritime and Industrial Areas for the EJA-WJP.
               We're currently under construction so information may not be 100% accurate. Feel free to leave feedback and let us know how we're doing (about &rarr; feedback).</br></br>
             </p>
+              <!--
             <div style="text-align:center;"><span style='vertical-align:middle;'><img style: style='height:30vh;' src="Assets/demo.gif"></img></span></div>
-            <h4 style='font-size:1.5em;text-align:center;'><br/>click anywhere to continue</h4>
+            -->
+            <div style="text-align:center;">
+              <img id="load_gif" style="height:30vh;position:absolute;" src="Assets/loadloop.gif"></img>
+              <img id="load_png" style="height:30vh;" src="Assets/loadmap.png"></img>
+           </div>
+            <h4 id="loading_message" style='font-size:1.5em;text-align:center;'><br/>loading...</h4>
+          </div>
           </div>
         </div>
       </div>
@@ -219,8 +226,8 @@
 
 
   <!-- INFO CONTENT  -->
-  <div id="aboutoverlay" class="overlayed" style='display:none;' onclick="hideaboutbox()"></div>
-  <div id='aboutbox' class='box-content text-info-box overlay-box' onclick="hideaboutbox()">
+  <div id="aboutoverlay" style="cursor:pointer;display:none" class="overlayed" onclick="hideaboutbox()"></div>
+  <div id='aboutbox' style="cursor:pointer;display:none" class='box-content text-info-box overlay-box' onclick="hideaboutbox()">
     <div>
       <p><small>This is a collaborative effort between NYC-EJA and ScAAN, furthering the work of NYC-EJA’s Waterfront Justice Project visualizing Special Maritime and Industrial Areas (SMIAs).
         <br/><br/>Industrial and maritime development is encouraged by zoning regulations that have created SMIAs – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.
@@ -302,20 +309,30 @@
     <span class="tooltiptext" style="width:70px;margin-left:-35px;" >fullscreen</span>
     <span class='small-button-inside' style="position:absolute;z-index:0;"></span>
   </div>
-
-
-<!------------------------->
-<!--       SCRIPT       -->
-<!------------------------->
-<!--First load the map, then the text and navigation-->
-<script src='Scripts/waterfrontmap.js'></script>
-<script src='Scripts/longtext.js'></script>
-<script src='Scripts/navigation.js'></script>
-<script src='Scripts/generalstory.js'></script>
-<script src='Scripts/explore.js'></script>
-
-
 </div>
 </div>
+
+<!------------------------->
+<!--       SCRIPT        -->
+<!------------------------->
+<!--First load essential functions and text, then everything else
+<script id="map_script" src='Scripts/waterfrontmap.js'></script>
+-->
+
+<!--First load essential functions and text, then everything else -->
+<script id="first_loaded" src='Scripts/first_script.js'></script>
+<script >
+  var myscript = document.querySelector('#first_loaded');
+  myscript.addEventListener('load', load_the_rest());
+  function load_the_rest() {
+    // load the other Scripts
+    load_script("Scripts/navigation.js",map_init(1))
+    load_script("Scripts/waterfrontmap.js",map_init(1))
+    load_script("Scripts/story.js",map_init(1))
+    load_script("Scripts/explore.js",map_init(1))
+  }
+</script>
+
+
 </body>
 </html>

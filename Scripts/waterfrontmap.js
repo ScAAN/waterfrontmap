@@ -24,6 +24,18 @@ fs_container.id ="mapbox-container-fs"
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'bottom-left');
 
+// check if map style is loaded
+map.on('style.load', () => {
+  const waiting = () => {
+    if (!map.isStyleLoaded()) {
+      setTimeout(waiting, 200);
+    } else {
+      map_init(1);
+    }
+  };
+  waiting();
+});
+
 map.on('load', function () {
   // add a source layer and default styling for a single point.
   map.addSource('single-point', {
@@ -188,7 +200,7 @@ map.on('load', function () {
     "source-layer": "reduced_census",
     "layout": {"visibility":'visible'},
     "paint": {
-      "fill-opacity": 1,
+      "fill-opacity": 0,
       "fill-outline-color":{
         'property': 'Perc_POC_P003009',
         'type': 'interval',
@@ -335,7 +347,7 @@ map.on('load', function () {
       "icon-allow-overlap": true,
       "text-allow-overlap": true,
       "visibility": 'none',
-      "icon-size":.5,
+      "icon-size":.25,
     },
     "paint":{"icon-opacity":1}
   },'point');
@@ -350,7 +362,7 @@ map.on('load', function () {
       "icon-allow-overlap": true,
       "text-allow-overlap": true,
       "visibility": 'none',
-      "icon-size":.5,
+      "icon-size":.25,
     },
     "paint":{"icon-opacity":1}
   },'point');
@@ -365,7 +377,7 @@ map.on('load', function () {
       "icon-allow-overlap": true,
       "text-allow-overlap": true,
       "visibility": 'none',
-      "icon-size":.5,
+      "icon-size":.25,
     },
     "paint":{"icon-opacity":1}
   },'point');
@@ -380,7 +392,7 @@ map.on('load', function () {
       "icon-allow-overlap": true,
       "text-allow-overlap": true,
       "visibility": 'none',
-      "icon-size":.5,
+      "icon-size":.25,
     },
     "paint":{"icon-opacity":1}
   },'point');
@@ -607,5 +619,6 @@ map.addLayer({
  },
  "filter": ["==","HVI_score",-10]
 }, 'water2','HVI');
+
 
 });
