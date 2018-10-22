@@ -7,7 +7,7 @@ Mapping weather, human industry, and social demographics of SMIAs.
 [**EJA-WJP INFORMATION**](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)   
    
    
-<img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/demo.gif" width="350" height="350">
+<img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/images/demo.gif" width="350" height="350">
 
 #### Work in progress
 <details><summary>Recent changes</summary>
