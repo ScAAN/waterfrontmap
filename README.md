@@ -21,10 +21,10 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 <details><summary>Open issues</summary>
 
-- [ ] Change data names to be the same in vector data  
-- [ ] Turn clustering off in vector data (symbols don't display at low zoom)  
-- [ ] There is some kind of typo in vector data causing `Error at Actor.recieve`   
-- [ ] Update all sources  
+- [ ] Change data names to be the same in vector data
+- [ ] Turn clustering off in vector data (symbols don't display at low zoom)
+- [ ] There is some kind of typo in vector data causing `Error at Actor.recieve`
+- [ ] Update all sources (double-check sources, re-download and re-process data)
 
 </details>
 
