@@ -28,7 +28,7 @@
             "dataName": "CATEGORY",
             "legend": "surge",
             "shortname": "Hurricane storm surge zone",
-            "source": "(?) 2016 Hurricane evacuation Zones from the <a href=\"https://geo.nyu.edu/catalog/nyu_2451_34571\">NYC-DEM</a>",
+            "source": "Hurricane surge inundation from the <a href=\"https://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1260\">New York State Office of Emergency Management</a> (last revised April 2013). Hurricane surge inundation is calculated from NOAAs NY3 Sea, Lake and Overland Surges from Hurricanes (SLOSH) basin Maximum of Maximum (MOM) surge height values, representing maximum surge at any given location from category 1 - 4 storms at high tide.",
             "tab": "Climate",
             "text": "The SMIAs and their surroundings are highly vulnerable to hurricane storm surge. Facilities handling hazardous substances or toxic chemicals in these areas could represent a threat in the event of a hurricane storm storm surge. Facilities handling hazardous substances or toxic chemicals in these areas could represent a threat in the event of a hurricane storm storm surge. "
         },
@@ -76,7 +76,7 @@
             "dataName": "human_readable_zone",
             "legend": "zoning",
             "shortname": "Zoning",
-            "source": "(?) NYC Zoning designations, last updated 2015(?), downloaded from <a href=\"http://data.beta.nyc//dataset/635e26b3-2acf-4f55-8780-2619660fdf66/resource/e5528464-9a00-40a7-8b85-21e9b25d6c24/download/d52d598c77484806876b8f897d51f805nyczoning.geojson\">data.Beta.NYC</a>",
+            "source": "NYC Zoning designations, last updated January 5, 2015, downloaded from <a href=\"http://data.beta.nyc/dataset/nyc-zoning-districts/resource/6d635f4d-d225-48ad-b0e4-9820ed54c66f?view_id=587a3a67-be99-4a1b-916c-eab984c16888\">BetaNYC</a> (the geojson provided on the <a href=\"https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-gis-zoning.page\">official NYC.gov website</a> only contains data for the Bronx and Brooklyn, though the ArcGIS shapefile seems to contain all five boroughs).",
             "tab": "City Planning",
             "text": "Industrial and manufacturing zones (purple) are concentrated in SMIAs. These areas are surrounded by residential zones (yellow). Note that this map does not take into account non-conforming uses where former manufacturing buildings are being used for residential use, as is the case in Greenpoint or Williamsburg. "
         }
