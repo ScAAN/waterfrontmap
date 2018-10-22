@@ -38,14 +38,13 @@ smiaprop = 'name'
 
 
 # import stuff
-import os
+from os import chdir, path, getcwd
+from json import dump as jsondump
 import pandas as pd 
-import json
-import math
 
 # set cwd 
-os.chdir(os.path.dirname(__file__))
-if verbose: print("current working directory: " + str(os.getcwd()))
+chdir(path.dirname(__file__))
+if verbose: print("current working directory: " + str(getcwd()))
 
 
 # functions 
@@ -97,13 +96,13 @@ def become_simple_json(df):
 
 # load and convert LEGEND TEXT 
 file_name = 'Text\\legend_text.csv'
-if os.path.exists(file_name)==False: print("ERROR: legend file not found!")
+if path.exists(file_name)==False: print("ERROR: legend file not found!")
 df = pd.read_csv(open(file_name),encoding='utf-8')
 legenddata = become_simple_json(df)
 
 # load and convert LAYER TEXT 
 file_name = 'Text\\layer_text.csv'
-if os.path.exists(file_name)==False: print("ERROR: layer file not found!")
+if path.exists(file_name)==False: print("ERROR: layer file not found!")
 df = pd.read_csv(open(file_name),encoding='utf-8')
 layerdata = become_wordy_json(df,layerprop)
 
@@ -113,31 +112,20 @@ layer_names[len(layer_names)] = "Highlight"
 
 # load and covert SMIA TEXT
 file_name = 'Text\\smia_text.csv'
-if os.path.exists(file_name)==False: print("ERROR: smia file not found!")
+if path.exists(file_name)==False: print("ERROR: smia file not found!")
 df = pd.read_csv(open(file_name),encoding='utf-8')
 smiadata = become_wordy_json(df,smiaprop)
-
-# MISC 
-# manual variable which we'll remove once vector data is updated 
-dataNames = {'human_readable_zone': 'Land use: ',
-'Perc_POC_P003009': 'Percent people of color: ',
-'% of Families Below Poverty Level': 'Percent below poverty level: ',
-'CATEGORY': 'Storm surge zone: ',
-'Median Household Income': 'Median household income: ',
-'hurricane': 'Hurricane evacuation zone: ',
-'perc_uninsured': 'Percent Uninsured'}
 
 # format data 
 fulldata = dict()
 fulldata["legend"] = legenddata
 fulldata["layer"] = layerdata
 fulldata["smia"] = smiadata
-fulldata["dataNames"] = dataNames
         
 # save data (pretty)
 output_file = 'Text\\general_text.json'
 with open(output_file, 'w') as f:
-    json.dump(fulldata, f, sort_keys=True,indent=4)
+    jsondump(fulldata, f, sort_keys=True,indent=4)
 
 
 
@@ -146,7 +134,7 @@ with open(output_file, 'w') as f:
 # -----------------------------------------------------------------------------
 # load STORY text 
 file_name = 'Text\\story_text.csv'
-if os.path.exists(file_name)==False: print("ERROR: story file not found!")
+if path.exists(file_name)==False: print("ERROR: story file not found!")
 df = pd.read_csv(open(file_name),encoding='utf-8')
 
 # first check for typos 
@@ -193,4 +181,4 @@ fulldata["SMIA_first_page"] = SMIA_first_page
 # save data (pretty)
 output_file = 'Text\\story_text.json'
 with open(output_file, 'w') as f:
-    json.dump(fulldata, f, sort_keys=True,indent=4)
+    jsondump(fulldata, f, sort_keys=True,indent=4)

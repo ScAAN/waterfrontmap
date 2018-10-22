@@ -2,84 +2,99 @@
 <html>
 <meta charset="utf-8">
 <head>
+  <!-- CSS reset (for cross browser compatibility)-->
   <link href='reset.css' rel='stylesheet' />
+  <!-- our style sheet-->
   <link href='waterfrontmap.css' rel='stylesheet' />
+  <!-- MAPBOX stuff (script, style sheet, geocoder script and stylesheet)-->
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
+  <!-- Open Sans from google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
   <!-- open links in new tabs by default-->
   <base target="_blank">
 </head>
 <body>
   <!------------------------->
-  <!--     GENERAL       -->
+  <!--        MISC.        -->
   <!------------------------->
-  <!-- For some reason the geocoder control style needs to be here -->
+  <!-- Overwrite default geocoder control style -->
   <style>
   .mapboxgl-ctrl-geocoder { position:relative;left:-9px;min-width:105%;margin:0 auto; }
   </style>
 
   <title>EJA Waterfront Justice Map</title>
-  <div id='map'>
-    <div id='bodyreturn'>
 
-  <!-- WIP BOX-->
-  <div id="wipoverlay" class="overlayed" onclick='hidewip()'></div>
-  <div id="wipbox" class="overlay-box instructions" style="z-index:99;font: 16px 'Helvetica Neue', Helvetica, sans-serif;" onclick='hidewip()' >
-    <div style='margin:0 30px auto;display:inline-block;font-size:1em;line-height:1'>
-      <div style='margin:00 auto;margin-top:25px;  '>
-        <p> <h4 style='font-size:1.5em'>Welcome to the Waterfront Justice Map!</h4><br/>
-          Thank you for visiting. This is a collaboration between NYC-EJA and ScAAN, aiming to visualize Special Maritime and Industrial Areas for the EJA-WJP.
-           We're currently under construction so information may not be 100% accurate. Feel free to leave feedback and let us know how we're doing (about &rarr; feedback).</br></br></p>
-          <div style="text-align:center;"><span style='vertical-align:middle;'><img style: style='height:30vh;' src="Assets/demo.gif"></img></span></div>
-          <h4 style='font-size:1.5em;text-align:center;'><br/>click anywhere to continue</h4>
+  <!------------------------->
+  <!--     START           -->
+  <!------------------------->
+
+  <!-- Everything is wrapped inside the map container so fullscreen can work -->
+  <div id='map'>
+    <!-- Put controls in their own container -->
+    <div id='control_container'>
+
+      <!-- WIP overlay and box-->
+      <div id="wipoverlay" class="overlayed" onclick='hidewip()'></div>
+      <div id="wipbox" class="overlay-box instructions" style="z-index:99;font: 16px 'Helvetica Neue', Helvetica, sans-serif;" onclick='hidewip()' >
+        <div style='margin:0 30px auto;display:inline-block;font-size:1em;line-height:1'>
+          <div style='margin:00 auto;margin-top:25px;  '>
+            <p>
+              <h4 style='font-size:1.5em'>Welcome to the Waterfront Justice Map!</h4><br/>
+              Thank you for visiting. This is a collaboration between NYC-EJA and ScAAN, aiming to visualize Special Maritime and Industrial Areas for the EJA-WJP.
+              We're currently under construction so information may not be 100% accurate. Feel free to leave feedback and let us know how we're doing (about &rarr; feedback).</br></br>
+            </p>
+              <!--
+            <div style="text-align:center;"><span style='vertical-align:middle;'><img style: style='height:30vh;' src="Assets/images/demo.gif"></img></span></div>
+            -->
+            <div style="text-align:center;">
+              <img id="load_gif" style="height:30vh;position:absolute;" src="Assets/images/loadloop.gif"></img>
+              <img id="load_png" style="height:30vh;" src="Assets/images/loadmap.png"></img>
+           </div>
+            <h4 id="loading_message" style='font-size:1.5em;text-align:center;'><br/>loading...</h4>
+          </div>
+          </div>
         </div>
       </div>
-    </div>
 
-  <div id="too_small_overlay" class="overlayed" style='display:none;z-index:99;'></div>
-  <div id='screen_too_small' class='box-content text-info-box overlay-box' style='display:none;z-index:100;width:80%;top:10%;left:10%;text-align:center;font-size:32px;'>
-  </br>Please increase window size or use full screen to view this map.</br></br>
-  </div>
-
-  <!------------------------->
-  <!--     DATA MENU       -->
-  <!------------------------->
+    <!------------------------->
+    <!--     DATA MENU       -->
+    <!------------------------->
 
 
-  <div id="rightslider">
-    <div class="innerslider" onmouseleave="clearmenu()">
-    <div id="slideoutercircle" class="slidecircle"></div>
-    <div id="slideinnercircle" class="slidecircle" style="overflow:visible">
-      <div class="general-button button-fill" style='box-shadow:none;border:none;position:relative;'>
-      <span style="position:absolute;font-size:12px;background-color: rgba(0,0,0,.8);color: #ffffff;text-align:center;padding: 5px 0;border-radius:50px;z-index:1;width: 40px;bottom: 90%;left: 50%;border:0px;line-height:1;margin-left: -20px;">data</span>
-      <span class='small-button-inside' style="position:relative;top:0px;height:40px;width:40px;">
-        <img class="marker" style="z-index:1;top:3px;left:2px;width:35px;height:35px" src="Assets/noun_map.svg"></img>
-      </span>
-      <img style="position:absolute;height:20px;top:17.5px;" src="Assets/noun_arrow_g.svg"></img>
-    </div>
-    </div>
-      <nav id="menu" class="tab">
-        <div style: style='margin:0 auto;text-align:center;position'>
-        <div id="dataselector" style="text-align:left;margin-left:10px"> Data: <small>Percent People of Color</small> </div>
-        <div id="Demographics" class="menu-button large-button" onmouseover="changeTab('Demographics')">Demographics</div>
-        <div id="City Planning" class="menu-button large-button" onmouseover="changeTab('City Planning')">City Planning</div>
-        <div id="Climate" class="menu-button large-button" onmouseover="changeTab('Climate')">Climate</div>
-        <div id="MenuSpacer" class="spacer-big" style="display:none"></div>
+    <div id="rightslider">
+      <div class="innerslider" onmouseleave="clearmenu()">
+        <div id="slideoutercircle" class="slidecircle"></div>
+        <div id="slideinnercircle" class="slidecircle" style="overflow:visible">
+          <div class="general-button button-fill" style='box-shadow:none;border:none;position:relative;'>
+            <span style="position:absolute;font-size:12px;background-color: rgba(0,0,0,.8);color: #ffffff;text-align:center;padding: 5px 0;border-radius:50px;z-index:1;width: 40px;bottom: 90%;left: 50%;border:0px;line-height:1;margin-left: -20px;">data</span>
+            <span class='small-button-inside' style="position:relative;top:0px;height:40px;width:40px;">
+              <img class="marker" style="z-index:1;top:3px;left:2px;width:35px;height:35px" src="Assets/images/noun_map.svg"></img>
+            </span>
+            <img style="position:absolute;height:20px;top:17.5px;" src="Assets/images/noun_arrow_g.svg"></img>
+          </div>
+        </div>
+        <nav id="menu" class="tab">
+          <div style: style='margin:0 auto;text-align:center;position'>
+            <div id="dataselector" style="text-align:left;margin-left:10px"> Data: <small>Percent People of Color</small> </div>
+            <div id="Demographics" class="menu-button large-button" onmouseover="changeTab('Demographics')">Demographics</div>
+            <div id="City Planning" class="menu-button large-button" onmouseover="changeTab('City Planning')">City Planning</div>
+            <div id="Climate" class="menu-button large-button" onmouseover="changeTab('Climate')">Climate</div>
+            <div id="MenuSpacer" class="spacer-big" style="display:none"></div>
+          </div>
+        </nav>
       </div>
-      </nav>
     </div>
-  </div>
 
 
-  <!------------------------->
-  <!--      LEGENDS        -->
-  <!------------------------->
+    <!------------------------->
+    <!--      LEGENDS        -->
+    <!------------------------->
 
-  <!-- THIS IS THE LEGEND AND LEGEND PLACEHOLDER -->
-  <div id='general_legend' class='legend overlay-box' style='display:block'>
+    <!-- THIS IS THE LEGEND AND LEGEND PLACEHOLDER -->
+    <div id='general_legend' class='legend overlay-box' style='display:block'>
       <div style="text-align:right">
         <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
         <span style='vertical-align:middle;outline-width:3px;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
@@ -96,28 +111,28 @@
       <div class='legendrow' style="margin-top:-10px;">
         <div style="display:inline-block;line-height:100%;"></br>Toxic Release<br/>Inventory Sites</div>
         <div onclick="bulk_indiv('Bulk Storage Sites')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
-        <img id='Bulk Storage Sites' class="bulk-div marker3" src="Assets/mh_x.svg"></img>
-        <img class="bulk-div marker2" src="Assets/all_sprites/mh_toxic3.svg"></img>
-      </div>
+          <img id='Bulk Storage Sites' class="bulk-div marker3" src="Assets/images/mh_x.svg"></img>
+          <img class="bulk-div marker2" src="Assets/all_sprites/mh_toxic3.svg"></img>
+        </div>
       </div>
       <div class='legendrow'>
         <div style="display:inline-block;line-height:100%"></br>Major Oil Storage<br/>Facilities</div>
         <div onclick="bulk_indiv('MOSF')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
-        <img id='MOSF' style="transform:rotate(-20deg);" class="bulk-div marker3" src="Assets/mh_x.svg"></img>
-        <img class="bulk-div marker2" src="Assets/all_sprites/mh_oil3.svg"></img>
-      </div>
+          <img id='MOSF' style="transform:rotate(-20deg);" class="bulk-div marker3" src="Assets/images/mh_x.svg"></img>
+          <img class="bulk-div marker2" src="Assets/all_sprites/mh_oil3.svg"></img>
+        </div>
       </div>
       <div class='legendrow'>
         <div style="display:inline-block;line-height:100%"></br>Chemical Bulk<br/>Storage</div>
         <div onclick="bulk_indiv('CBS')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
-        <img id='CBS' style="transform:rotate(160deg);" class="bulk-div marker3" src="Assets/mh_x.svg"></img>
-        <img class="bulk-div marker2" src="Assets/all_sprites/mh_chem3.svg"></img>
-      </div>
+          <img id='CBS' style="transform:rotate(160deg);" class="bulk-div marker3" src="Assets/images/mh_x.svg"></img>
+          <img class="bulk-div marker2" src="Assets/all_sprites/mh_chem3.svg"></img>
+        </div>
       </div>
       <div class='legendrow'>
         <div style="display:inline-block;line-height:100%"></br>Superfund<br/>Class 2 Sites</div>
         <div onclick="bulk_indiv('SUPERFUND2')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
-          <img id='SUPERFUND2' style="transform:rotate(10deg);" class="bulk-div marker3" src="Assets/mh_x.svg"></img>
+          <img id='SUPERFUND2' style="transform:rotate(10deg);" class="bulk-div marker3" src="Assets/images/mh_x.svg"></img>
           <img class="bulk-div marker2" src="Assets/all_sprites/mh_super3.svg"></img>
         </div>
       </div>
@@ -169,89 +184,84 @@
     <!-- LEGEND INFO BOX-->
     <div id='legendinfo' class='legend-info overlay-box'></div>
 
-  <!------------------------->
-  <!--   NAVIGATION  BOX   -->
-  <!------------------------->
+    <!------------------------->
+    <!--   NAVIGATION  BOX   -->
+    <!------------------------->
 
-  <div id='infobar'>
-    <div class="text-stroke" style="font-size:20px;bottom:21px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;">
-      <big>W</big>aterfront</br><big>J</big>ustice <big>M</big>ap
-    </div>
-<!--
-    <div id='storybutton' style="left:190px" class='mode-button bar-button' onclick="showinfobox(event,'storybox')">Story</div>
-    <div id='explorebutton' style="left:280px" class='mode-button bar-button'   onclick="showinfobox(event,'explorebox')">Explore</div>
-    <div id='aboutbutton' style="left:370px" class='mode-button bar-button'  onclick="showinfobox(event,'aboutbox')">About</div>
-  -->
-    <div id='storybutton' class='mode-button general-button relative-button' onclick='showinfobox(event,"storybox")'>
-      <div style="display:inline-block" class="small-button button-fill">
-      <span class='tooltiptext largetooltip'>story</span>
-      <span class='small-button-inside'>
-        <img class="marker-rel" src="Assets/noun_story.svg"></img>
-      </span>
+    <div id='infobar'>
+      <div class="text-stroke" style="font-size:20px;bottom:21px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;">
+        <big>W</big>aterfront</br><big>J</big>ustice <big>M</big>ap
       </div>
-      <div class="relative-button-text">
-        story
-      </div>
-    </div>
-    <div id='explorebutton' class='mode-button general-button relative-button' onclick='showinfobox(event,"explorebox")'>
-      <div style="display:inline-block" class="small-button button-fill">
-      <span class='tooltiptext largetooltip' style="width:50px;margin-left:-25px;">explore</span>
-      <span class='small-button-inside'>
-        <img class="marker-rel" src="Assets/noun_explore.svg"></img>
-      </span>
-      </div>
-      <div class="relative-button-text">explore</div>
-    </div>
-    <div id='aboutbutton' class='mode-button general-button relative-button' onclick='showinfobox(event,"aboutbox")'>
-      <div style="display:inline-block" class="small-button button-fill">
-      <span class='tooltiptext largetooltip'>about</span>
-      <span class='small-button-inside'>
-        <img class="marker-rel" src="Assets/mh_about.svg"></img>
-      </span>
-      </div>
-      <div class="relative-button-text">about</div>
-    </div>
-  </div>
-
-
-
-    <!-- INFO CONTENT  -->
-    <div id='aboutbox' class='box-content text-info-box overlay-box' onclick="hideaboutbox()">
-      <div>
-          <p><small>This is a collaborative effort between NYC-EJA and ScAAN, furthering the work of NYC-EJA’s Waterfront Justice Project visualizing Special Maritime and Industrial Areas (SMIAs).
-          <br/><br/>Industrial and maritime development is encouraged by zoning regulations that have created SMIAs – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.
-          <br/><br/>This map was created by <a href="https://github.com/billbrod">Bill Broderick</a>, <a href="https://github.com/MaijaHonig">Maija Honig</a>, and <a href="https://github.com/jsaliani92">Julian Nader Saliani</a> using <a href="https://www.mapbox.com/help/define-mapbox-gl-js/">mapbox-gl-js</a> with icons from the <a href="https://thenounproject.com/coquet_adrien/">Adrien Coquet</a> at the noun project. It is licensed with a MIT license, and source code can be viewed on <a href ="https://github.com/ScAAN/waterfrontmap">our github</a>. Thanks for visiting and feel free to let us know how we're doing with feedback!</small></p>
+      <div id='storybutton' class='mode-button general-button relative-button' onclick='showinfobox(event,"storybox")'>
+        <div style="display:inline-block" class="small-button button-fill">
+          <span class='tooltiptext largetooltip'>story</span>
+          <span class='small-button-inside'>
+            <img class="marker-rel" src="Assets/images/noun_story.svg"></img>
+          </span>
         </div>
-        <div style="text-align:center;">
-          <div style= 'display:inline-block;width:45%;margin:auto;text-align:center;'>
-            <img src="Assets/nycejalliance.png" alt="ScAAN" style="height:60px;margin-left:auto;margin-right:auto;display:block;vertical-align:middle">
-            <p style="font-size: 0.7em;"><a href="http://www.nyc-eja.org/">NYC-EJA</a> is a nonprofit citywide network founded in 1991, linking grassroots organizations from low-income communities of color in their struggle for environmental justice.</p>
-          </div>
-          <div style= 'display:inline-block;width:45%;margin:auto;text-align:center;'>
-            <img src="Assets/scaan.png" alt="ScAAN" style="height:30px;margin-left:auto;margin-right:auto;display:block;vertical-align:middle">
-            <p style="font-size: 0.7em;"><a href="http://scaan.net">ScAAN</a> is a New York-based group of scientists who use their expertise in partnership with organizations that are creating positive social change.
-            </p>
-          </div>
+        <div class="relative-button-text">
+          story
         </div>
-        <div class="spacer-big"></div>
-        <div class= "large-button fb-button" style="width:70%;margin:auto;display:block" onclick="window.open('https://goo.gl/forms/Zt5tsufRS9us7Tbu2', '_blank');">
-          Feedback
+      </div>
+      <div id='explorebutton' class='mode-button general-button relative-button' onclick='showinfobox(event,"explorebox")'>
+        <div style="display:inline-block" class="small-button button-fill">
+          <span class='tooltiptext largetooltip' style="width:50px;margin-left:-25px;">explore</span>
+          <span class='small-button-inside'>
+            <img class="marker-rel" src="Assets/images/noun_explore.svg"></img>
+          </span>
         </div>
-        <p style="font-size: 0.7em; color: #777777;text-align:center;"><a href="https://github.com/ScAAN/waterfrontmap/blob/master/LICENSE">&copy NYC-EJA and ScAAN, 2018</a></p>
+        <div class="relative-button-text">explore</div>
       </div>
-
-      <div id="aboutoverlay" class="overlayed" style='display:none;' onclick="hideaboutbox()"></div>
-
-      <!-- EXPLORE CONTENT  -->
-      <div id='explorebox' class='box-content text-info-box overlay-box'>
-        <div> <p>Click the map to explore a neighborhood, or search with the bar below. </p></div>
-        <div id='geocoder' class='geocoder'></div>
-        <div id='map-overlay-info' class='map-overlay-info'></div>
+      <div id='aboutbutton' class='mode-button general-button relative-button' onclick='showinfobox(event,"aboutbox")'>
+        <div style="display:inline-block" class="small-button button-fill">
+          <span class='tooltiptext largetooltip'>about</span>
+          <span class='small-button-inside'>
+            <img class="marker-rel" src="Assets/images/mh_about.svg"></img>
+          </span>
+        </div>
+        <div class="relative-button-text">about</div>
       </div>
+    </div>
 
-      <!-- STORY CONTENT  -->
-      <div id='storybox' class='box-content text-info-box overlay-box story-box'></div>
 
+
+  <!-- INFO CONTENT  -->
+  <div id="aboutoverlay" style="cursor:pointer;display:none" class="overlayed" onclick="hideaboutbox()"></div>
+  <div id='aboutbox' style="cursor:pointer;display:none" class='box-content text-info-box overlay-box link-restyle' onclick="hideaboutbox()">
+    <div>
+      <p><small>This is a collaborative effort between NYC-EJA and ScAAN, furthering the work of NYC-EJA’s Waterfront Justice Project visualizing Special Maritime and Industrial Areas (SMIAs).
+        <br/><br/>Industrial and maritime development is encouraged by zoning regulations that have created SMIAs – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.
+        <br/><br/>This map was created by <a href="https://github.com/billbrod">Bill Broderick</a>, <a href="https://github.com/MaijaHonig">Maija Honig</a>, and <a href="https://github.com/jsaliani92">Julian Nader Saliani</a> using <a href="https://www.mapbox.com/help/define-mapbox-gl-js/">mapbox-gl-js</a> with icons from the <a href="https://thenounproject.com/coquet_adrien/">Adrien Coquet</a> at the noun project. It is licensed with a MIT license, and source code can be viewed on <a href ="https://github.com/ScAAN/waterfrontmap">our github</a>. Thanks for visiting and feel free to let us know how we're doing with feedback!</small></p>
+      </div>
+      <div style="text-align:center;">
+        <div style= 'display:inline-block;width:45%;margin:auto;text-align:center;'>
+          <img src="Assets/images/nycejalliance.png" alt="ScAAN" style="height:60px;margin-left:auto;margin-right:auto;display:block;vertical-align:middle">
+          <p style="font-size: 0.7em;"><a href="http://www.nyc-eja.org/">NYC-EJA</a> is a nonprofit citywide network founded in 1991, linking grassroots organizations from low-income communities of color in their struggle for environmental justice.
+          </p>
+        </div>
+        <div style= 'display:inline-block;width:45%;margin:auto;text-align:center;'>
+          <img src="Assets/images/scaan.png" alt="ScAAN" style="height:30px;margin-left:auto;margin-right:auto;display:block;vertical-align:middle">
+          <p style="font-size: 0.7em;"><a href="http://scaan.net">ScAAN</a> is a New York-based group of scientists who use their expertise in partnership with organizations that are creating positive social change.
+          </p>
+        </div>
+      </div>
+      <div class="spacer-big"></div>
+      <div class= "large-button fb-button" style="width:70%;margin:auto;display:block" onclick="window.open('https://goo.gl/forms/Zt5tsufRS9us7Tbu2', '_blank');">
+        Feedback
+      </div>
+      <p style="font-size: 0.7em; color: #777777;text-align:center;"><a href="https://github.com/ScAAN/waterfrontmap/blob/master/LICENSE">&copy NYC-EJA and ScAAN, 2018</a></p>
+    </div>
+
+    <!-- EXPLORE CONTENT  -->
+    <div id='explorebox' class='box-content text-info-box overlay-box'>
+      <div> <p>Click the map to explore a neighborhood, or search with the bar below. </p></div>
+      <div id='geocoder' class='geocoder'></div>
+      <div id='map-overlay-info' class='map-overlay-info'></div>
+    </div>
+
+
+    <!-- STORY CONTENT  -->
+    <div id='storybox' class='box-content text-info-box overlay-box story-box link-restyle'></div>
     <div id='smiainfoboxempty' class='smiainfobox'></div>
 
 
@@ -264,77 +274,65 @@
     <div id='nextbutton' class='next-button general-button button-fill' onclick='story_next_page()'>
       <span class='tooltiptext'>next</span>
       <span class='small-button-inside'>
-        <img class="marker" style="top:20%;left:50%;margin-left:-14px;height:30px;" src="Assets/noun_arrow.svg"></img>
+        <img class="marker" style="top:20%;left:50%;margin-left:-14px;height:30px;" src="Assets/images/noun_arrow.svg"></img>
       </span>
-      <!--
-      <span style='top: 75%;left:15%;position:absolute' ><p style="font-size: 0.7em;margin:0;text-align:center;">NEXT</p></span>
-      -->
     </div>
 
     <!-- BACK BUTTON  -->
     <div id='backbutton' class='back-button general-button button-fill' onclick='story_prev_page()'>
       <span class='tooltiptext'>back</span>
       <span class='small-button-inside'>
-        <img class="marker" style="left:50%;margin-left:-15px;height:30px;transform:rotate(180deg);" src="Assets/noun_arrow.svg"></img>
+        <img class="marker" style="left:50%;margin-left:-15px;height:30px;transform:rotate(180deg);" src="Assets/images/noun_arrow.svg"></img>
       </span>
-      <!--
-      <span style='top: 75%;left:15%;position:absolute' ><p style="font-size: 0.7em;margin:0;text-align:center;">BACK</p></span>
-      -->
     </div>
 
     <!-- RESET BUTTON  -->
     <div id='resetbutton' class='reset-button small-button general-button button-fill' style='display: block; cursor: pointer; z-index: 10;' onclick='reset_map_view(event)'>
       <span class="tooltiptext">reset</span>
-      <span class='small-button-inside'><img class="marker" style="left:2.5px;height:40px;bottom:0px;" src="Assets/mh_reload.svg"></img></span>
-      <!--
-      <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: -4px;display:block">RESET</p></span>
-            -->
+      <span class='small-button-inside'><img class="marker" style="left:2.5px;height:40px;bottom:0px;" src="Assets/images/mh_reload.svg"></img></span>
+  </div>
+
+  <!-- LEGEND BUTTON -->
+  <div id='legendbutton' class='legend-button small-button general-button button-fill' style='display: inline-block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
+    <span class="tooltiptext" style="width:60px;margin-left:-30px;">data info</span>
+    <span class='small-button-inside'><img style="height:35px;" src="Assets/images/mh_info.svg"></img> <span>
     </div>
-
-     <!-- LEGEND BUTTON
-     <div id='legendbutton' class='legend-button long-button general-button' style: style='display: inline-block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
-       <span style="display:inline-block;float:left"><img src="Assets/information-15.svg"></img> <span>
-       <span style="display:inline-block;line-height:0;float:left;"> <p>INFORMATION</p> <span>
-     </div>
- -->
-
-     <!-- LEGEND BUTTON -->
-     <div id='legendbutton' class='legend-button small-button general-button button-fill' style='display: inline-block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
-       <span class="tooltiptext" style="width:60px;margin-left:-30px;">data info</span>
-       <span class='small-button-inside'><img style="height:35px;" src="Assets/mh_info.svg"></img> <span>
-     </div>
-
 
     <!-- PRINT BUTTON  -->
     <div id='printbutton' class='print-button small-button general-button button-fill' style='display: block; cursor: pointer; z-index: 10;' onclick='window.print()'>
       <span class="tooltiptext">print</span>
-      <span class='small-button-inside'><img class="marker" style="left:2.5px;height:40px;" src="Assets/noun_printer.svg"></img></span>
-      <!--
-      <span><p style="font-size: 0.7em;position:absolute;top:45%;margin-left: -2px;display:block">PRINT</p></span>
-      -->
-    </div>
+      <span class='small-button-inside'><img class="marker" style="left:2.5px;height:40px;" src="Assets/images/noun_printer.svg"></img></span>
+  </div>
+
+  <!-- MAPBOX FULLSCREEN -->
+  <div id='fullscreenbutton' class='fullscreen-button small-button general-button button-fill' style='display: block; cursor: pointer; z-index: 10;'>
+    <span class="tooltiptext" style="width:70px;margin-left:-35px;" >fullscreen</span>
+    <span class='small-button-inside' style="position:absolute;z-index:0;"></span>
+  </div>
+</div>
+</div>
+
+<!------------------------->
+<!--       SCRIPT        -->
+<!------------------------->
+<!--First load essential functions and text, then everything else
+<script id="map_script" src='Scripts/waterfrontmap.js'></script>
+-->
+
+<!--First load essential functions and text, then everything else -->
+<script id="first_loaded" src='Scripts/first_script.js'></script>
+<script >
+  var myscript = document.querySelector('#first_loaded');
+  myscript.addEventListener('load', load_the_rest());
+  function load_the_rest() {
+    // load the other Scripts
+    load_script("Scripts/navigation.js",map_init(1))
+    load_script("Scripts/waterfrontmap.js",map_init(1))
+    load_script("Scripts/story.js",map_init(1))
+    load_script("Scripts/explore.js",map_init(1))
+  }
+</script>
 
 
-    <!-- MAPBOX FULLSCREEN -->
-    <div id='fullscreenbutton' class='fullscreen-button small-button general-button button-fill' style='display: block; cursor: pointer; z-index: 10;'>
-      <span class="tooltiptext" style="width:70px;margin-left:-35px;" >fullscreen</span>
-      <span class='small-button-inside' style="position:absolute;z-index:0;"></span>
-    </div>
-
-
-
-
-    <!------------------------->
-    <!--       SCRIPT       -->
-    <!------------------------->
-    <script src='Scripts/longtext.js'></script>
-    <script src='Scripts/waterfrontmap.js'></script>
-    <script src='Scripts/navigation.js'></script>
-    <script src='Scripts/generalstory.js'></script>
-    <script src='Scripts/explore.js'></script>
-
-
-    </div>
-    </div>
-  </body>
-  </html>
+</body>
+</html>

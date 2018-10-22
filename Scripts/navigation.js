@@ -1,4 +1,4 @@
-nonbulk_active()/*
+/*
 Navigation script!
 This controls: info box, data box, legend, WIP box
 Contents:
@@ -12,8 +12,10 @@ Contents:
 
 // hide work in progress box
 function hidewip(){
-  document.getElementById('wipbox').style.display = 'none';
-  document.getElementById('wipoverlay').style.display = 'none';
+  if (global_pageloaded==1){
+    $('wipbox').style.display = 'none';
+    $('wipoverlay').style.display = 'none';
+  }
 }
 
 function hideaboutbox(){
@@ -21,9 +23,6 @@ function hideaboutbox(){
   $('aboutoverlay').style.display = 'none';
   showinfobox([],"none")
 }
-
-// redefine "$" to return element ids
-var $ = function(id){return document.getElementById(id)};
 
 // ----------------------------------------
 // |  ** MENU / LAYER SWITCHING  ** |
@@ -33,14 +32,14 @@ var $ = function(id){return document.getElementById(id)};
 
 function clearmenu(){
   for (var key in toggleableLegendIds) {
-    var link = document.getElementById('toggler-' + key)
-    if (link != null){
+    var link = $('toggler-' + key)
       link.style.display='none'
-    }
   }
 }
 
-function menuinit(layers){
+
+function menuinit(){
+  menudiv = $('menu');
   tablinks = document.getElementsByClassName("menu-button");
   for (j = 0; j < tablinks.length; j++) {
     tablinks[j].className += " active";
@@ -84,19 +83,19 @@ function menuinit(layers){
           }
         }
       };
-      layers.appendChild(link);
+      menudiv.appendChild(link);
     }
     tablinks[j].className.replace(' active','')
-  }
+  };
+  changeTab("None");
 }
 
 function changeTab(tabName) {
   var killallboxes=0;
-  var layers = document.getElementById('menu');
-  var clickedTab = document.getElementById(tabName);
+  var clickedTab = $(tabName);
 
   // clear menu of previous togglers
-  clearmenu()
+  clearmenu();
 
   // check if clicked box was alread active, if so then kill all boxes
   if (clickedTab==null) {
@@ -117,19 +116,10 @@ function changeTab(tabName) {
     // build a toggling menu
     $('MenuSpacer').style.display='block';
 
-    // initialize menu
-    if ($('toggler-Percent People of Color')==null){
-      menuinit(layers)
-    }
-
     clickedTab.className += " active";
     for (var i = 0; i < toggleableLayerIds[tabName].length; i++) {
       var id = toggleableLayerIds[tabName][i];
-      if ($('toggler-'+id) == null){
-        // moved to menuinit(layer)
-      } else {
-        $('toggler-' + id).style.display='block';
-      }
+      $('toggler-' + id).style.display='block';
     };
   }
 }
@@ -200,7 +190,7 @@ function bulk_legend(value) {
   if (value==true){
     $('legendHTML_bulk').style.display = 'block';
     if (nonbulk_active()==true){
-      if (document.getElementById('legendinfo').style.display.includes("block")){
+      if ($('legendinfo').style.display.includes("block")){
         $('legendinfo').style.right='370px';
       }
     }
@@ -212,16 +202,14 @@ function bulk_legend(value) {
 
 function show_legend_info(){
   // show or hide legend info by clicking button
-  if (document.getElementById('legendinfo').style.display.includes("block")){
-    document.getElementById('legendinfo').style.display='none';
-    document.getElementById('legendseam').style.display='none';
+  if ($('legendinfo').style.display.includes("block")){
+    $('legendinfo').style.display='none';
   } else {
-    document.getElementById('legendinfo').style.display='block';
-    document.getElementById('legendseam').style.display='block';
+    $('legendinfo').style.display='block';
     if ($("toggler-Bulk Storage Sites").className=='active' && nonbulk_active()==true){
-      $('legendinfo').style.right='350px';
+      $('legendinfo').style.right='370px';
     } else {
-      $('legendinfo').style.right='180px';
+      $('legendinfo').style.right='190px';
     }
   }
 }
@@ -233,7 +221,7 @@ function make_layer_visible(clickedLayer) {
   for (var otherLayerName in toggleableLegendIds) {
 
     if (otherLayerName != clickedLayer) {
-      var otherToggler = document.getElementById('toggler-' + otherLayerName)
+      var otherToggler = $('toggler-' + otherLayerName)
       if (otherToggler != null && (otherLayerName !='Bulk Storage Sites')){
         otherToggler.className = '';
       }
@@ -368,8 +356,8 @@ function showinfobox(evt,boxname){
   }
 
   // kill story button
-  document.getElementById('nextbutton').style.display = 'none';
-  document.getElementById('backbutton').style.display = 'none';
+  $('nextbutton').style.display = 'none';
+  $('backbutton').style.display = 'none';
 
   // clear explore box
   var blankgeojson = {
@@ -385,7 +373,7 @@ function showinfobox(evt,boxname){
 
   if (killallboxes!=1) {
     // show the current box and make it active!
-    document.getElementById(boxname).style.display = "block";
+    $(boxname).style.display = "block";
     evt.currentTarget.className += " active";
 
     // manage listeners

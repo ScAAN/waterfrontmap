@@ -8,22 +8,6 @@ Contains:
 - which_smia (display SMIA info on hover)
 */
 
-// first load in the story text file
-var storyrequestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/story_text.json';
-var storyrequest = new XMLHttpRequest();
-storyrequest.open('GET', storyrequestURL);
-storyrequest.responseType = 'json';
-storyrequest.send();
-
-// after loading do some processing
-var storyvars, pageSMIAIdx, global_max_page;
-storyrequest.onload = function() {
-  var requested_text = storyrequest.response;
-  storyvars = requested_text["data"];
-  pageSMIAIdx = requested_text["SMIA_first_page"];
-  global_max_page = requested_text["global_max_page"]-1;
-}
-
 // next page function
 function story_next_page(){
   global_page = global_page+1;
@@ -52,8 +36,8 @@ function story_display_page(storypage){
   map.flyTo(flyopts)
 
   // show the next and back buttons
-  document.getElementById('nextbutton').style.display = "block";
-  document.getElementById('backbutton').style.display = "block";
+  $('nextbutton').style.display = "block";
+  $('backbutton').style.display = "block";
 
 
   // allow users to jump to a SMIA by clicking on it (if pageIdx is zero)
@@ -84,7 +68,7 @@ function story_display_page(storypage){
   make_layer_visible(storyvars[storypage]["pageLayer"])
 
   // display information about SMIA
-  document.getElementById('storybox').innerHTML = '<p><big><strong>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[storypage]["pageText"] + jumptext + '</small></p>';
+  $('storybox').innerHTML = '<p><big><strong>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[storypage]["pageText"] + jumptext + '</small></p>';
 }
 
 
@@ -154,23 +138,23 @@ function which_smia(e){
     map.setFilter("SMIAhover", ["==", "SMIA_Name", thissmia]);
     // show some SMIA info
     smia_info(thissmia,e.point)
-    //document.getElementById('storybox').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
+    //$('storybox').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
     var jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
-    document.getElementById('storybox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[global_page]["pageText"] + jumptext + '</small></p>';
+    $('storybox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[global_page]["pageText"] + jumptext + '</small></p>';
   } else {
     $('smiainfoboxempty').style.visibility = 'hidden';
     // turn filter off
     map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
     // show the story page text
     var jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
-    document.getElementById('storybox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[global_page]["pageText"] + jumptext + '</small></p>';
+    $('storybox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[global_page]["pageText"] + jumptext + '</small></p>';
   }
 }
 
 function smia_info(thissmia,e){
   // info (name only or full)
-  //document.getElementById('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>'
-  document.getElementById('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA ' + vsmia[thissmia]["number"] + ':  ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"]  + '</small></p>';
+  //$('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>'
+  $('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA ' + vsmia[thissmia]["number"] + ':  ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"]  + '</small></p>';
 
   // set box coordinates and make visible
   var xcord = e["x"] - 20;
