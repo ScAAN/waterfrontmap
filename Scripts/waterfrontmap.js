@@ -142,7 +142,7 @@ map.on('load', function () {
 
     map.addSource('vector_data', {
       type: 'vector',
-      url: 'mapbox://billbrod.7693fb16'
+      url: 'mapbox://billbrod.data'
     })
 
     // from
@@ -151,8 +151,8 @@ map.on('load', function () {
     // source for the hover effect improves performance. not
     // sure why that works, but whatever
     map.addSource('vector_data-hover', {
-      type: 'vector',
-      url: 'mapbox://billbrod.7693fb16'
+	type: 'vector',
+	url: 'mapbox://billbrod.data'
     })
 
     // remove poi and road labels

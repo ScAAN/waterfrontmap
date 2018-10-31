@@ -67,8 +67,8 @@ function story_display_page(storypage){
   $('toggler-Bulk Storage Sites').className = '';
   make_layer_visible(storyvars[storypage]["pageLayer"])
 
-  // display information about SMIA
-  $('storybox').innerHTML = '<p><big><strong>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[storypage]["pageText"] + jumptext + '</small></p>';
+  // display information about story page
+  $('storybox').innerHTML = '<p><big><strong>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '</br></br>' + storyvars[storypage]["pageText"] + jumptext + '</p>';
 }
 
 
@@ -139,15 +139,15 @@ function which_smia(e){
     // show some SMIA info
     smia_info(thissmia,e.point)
     //$('storybox').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
-    var jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
-    $('storybox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[global_page]["pageText"] + jumptext + '</small></p>';
+    //var jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
+    //$('storybox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '</br></br>' + storyvars[global_page]["pageText"] + jumptext + '</p>';
   } else {
     $('smiainfoboxempty').style.visibility = 'hidden';
     // turn filter off
     map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
     // show the story page text
-    var jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
-    $('storybox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[global_page]["pageText"] + jumptext + '</small></p>';
+    //var jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
+    //$('storybox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '</br></br>' + storyvars[global_page]["pageText"] + jumptext + '</p>';
   }
 }
 

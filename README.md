@@ -7,7 +7,7 @@ Mapping weather, human industry, and social demographics of SMIAs.
 [**EJA-WJP INFORMATION**](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)   
    
    
-<img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/demo.gif" width="350" height="350">
+<img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/images/demo.gif" width="350" height="350">
 
 #### Work in progress
 <details><summary>Recent changes</summary>
@@ -21,10 +21,10 @@ Mapping weather, human industry, and social demographics of SMIAs.
 
 <details><summary>Open issues</summary>
 
-- [ ] Change data names to be the same in vector data  
-- [ ] Turn clustering off in vector data (symbols don't display at low zoom)  
-- [ ] There is some kind of typo in vector data causing `Error at Actor.recieve`   
-- [ ] Update all sources  
+- [ ] Change data names to be the same in vector data
+- [ ] Turn clustering off in vector data (symbols don't display at low zoom)
+- [ ] There is some kind of typo in vector data causing `Error at Actor.recieve`
+- [ ] Update all sources (double-check sources, re-download and re-process data)
 
 </details>
 
