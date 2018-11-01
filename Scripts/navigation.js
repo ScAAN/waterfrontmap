@@ -384,6 +384,7 @@ function showinfobox(evt,boxname){
     } else if (evt.currentTarget.id.includes("explore")) {
       // turn on point querying listener
       map.on('click',query_point);
+      smia_hover_toggle(true,false,true)
     } else if (evt.currentTarget.id.includes("about")) {
       // show overlay
       $('aboutoverlay').style.display="block";

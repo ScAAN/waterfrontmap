@@ -13,9 +13,9 @@ STORY
 [ ] water front -> waterfront 
 [x] EJA has discovered -> EJA's research has shown 
 [ ] data toggler and legend info buttons aren't salient 
-[ ] Add SMIA text on click (or hover) in Explore mode 
+[x] Add SMIA text on click (or hover) in Explore mode 
 [ ] Put further zoning designation on click (for zoning)
-[ ] Battery Park City -> Other 
+[x] Battery Park City -> Other 
 [ ] 200% poverty mayors ofice of economic activity
 [ ] split up median house hold income diferently (legend)
 [x] why interpret estimate with caution?? in description 
@@ -30,5 +30,5 @@ STORY
 [ ] data explore 
 [x] Add scale bar 
 [ ] Arrow vanishes in print and chrome 
-[ ] Add link to original paper somewhere (pop up box in beginning/about tab)
+[x] Add link to original paper somewhere (pop up box in beginning/about tab)
 
