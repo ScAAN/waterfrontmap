@@ -1,0 +1,34 @@
+[x] EJA -> NYC-EJA
+[x] Waterfront Justice Project instead of Waterfront Justice 
+[x] About section revised text (add Jalisa's name)
+
+STORY
+[ ] Explain how to add toggling to STORY (on all pages)
+[x] Make text bigger 
+[x] SMIA 2 Abut -> Adjacent 
+[x] SMIA 5 \s typo
+[x] SMIA 6 \s typo, Abut -> Adjacent 
+[ ] SUNSET PARK -> Include links to autoshops
+[x] WRP -> waterfront revitilzation project
+[ ] water front -> waterfront 
+[x] EJA has discovered -> EJA's research has shown 
+[ ] data toggler and legend info buttons aren't salient 
+[x] Add SMIA text on click (or hover) in Explore mode 
+[ ] Put further zoning designation on click (for zoning)
+[x] Battery Park City -> Other 
+[ ] 200% poverty mayors ofice of economic activity
+[ ] split up median house hold income diferently (legend)
+[x] why interpret estimate with caution?? in description 
+
+[ ] Hurricane evac zones are obselete, replace with sea level rise (100 year/1000years)
+[ ] Other toxic sites??
+[x] SMIA's 1 and two are swapped
+[x] CBS and MOSF sites -> Toxic Sites 
+[x] TRI sites -> Toxic Sites
+
+[x] In COnclusion -> Conclusion 
+[ ] data explore 
+[x] Add scale bar 
+[ ] Arrow vanishes in print and chrome 
+[x] Add link to original paper somewhere (pop up box in beginning/about tab)
+

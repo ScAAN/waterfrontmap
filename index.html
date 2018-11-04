@@ -25,7 +25,7 @@
   .mapboxgl-ctrl-geocoder { position:relative;left:-9px;min-width:105%;margin:0 auto; }
   </style>
 
-  <title>EJA Waterfront Justice Map</title>
+  <title>NYC-EJA Waterfront Justice Project Map</title>
 
   <!------------------------->
   <!--     START           -->
@@ -38,12 +38,12 @@
 
       <!-- WIP overlay and box-->
       <div id="wipoverlay" class="overlayed" onclick='hidewip()'></div>
-      <div id="wipbox" class="overlay-box instructions" style="z-index:99;font: 16px 'Helvetica Neue', Helvetica, sans-serif;" onclick='hidewip()' >
+      <div id="wipbox" class="overlay-box instructions link-restyle" style="z-index:99;font: 16px 'Helvetica Neue', Helvetica, sans-serif;" onclick='hidewip()' >
         <div style='margin:0 30px auto;display:inline-block;font-size:1em;line-height:1'>
           <div style='margin:00 auto;margin-top:25px;  '>
             <p>
-              <h4 style='font-size:1.5em'>Welcome to the Waterfront Justice Map!</h4><br/>
-              Thank you for visiting. This is a collaboration between NYC-EJA and ScAAN, aiming to visualize Special Maritime and Industrial Areas for the EJA-WJP.
+              <h4 style='font-size:1.5em'>Welcome to the Waterfront Justice Project Map!</h4><br/>
+              Thank you for visiting. This is a collaboration between NYC-EJA and ScAAN, aiming to visualize Special Maritime and Industrial Areas for the Waterfront Justice Project. View the static NYC-EJA maps in their <a href="https://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true">peer reviewed paper</a>.
               We're currently under construction so information may not be 100% accurate. Feel free to leave feedback and let us know how we're doing (about &rarr; feedback).</br></br>
             </p>
               <!--
@@ -69,11 +69,11 @@
         <div id="slideoutercircle" class="slidecircle"></div>
         <div id="slideinnercircle" class="slidecircle" style="overflow:visible">
           <div class="general-button button-fill" style='box-shadow:none;border:none;position:relative;'>
-            <span style="position:absolute;font-size:12px;background-color: rgba(0,0,0,.8);color: #ffffff;text-align:center;padding: 5px 0;border-radius:50px;z-index:1;width: 40px;bottom: 90%;left: 50%;border:0px;line-height:1;margin-left: -20px;">data</span>
+            <span style="position:absolute;font-size:12px;background-color: rgba(0,0,0,.8);color: #ffffff;text-align:center;padding: 5px 0;border-radius:50px;z-index:1;width: 70px;bottom: 90%;left: 50%;border:0px;line-height:1;margin-left: -35px;">data toggle</span>
             <span class='small-button-inside' style="position:relative;top:0px;height:40px;width:40px;">
               <img class="marker" style="z-index:1;top:3px;left:2px;width:35px;height:35px" src="Assets/images/noun_map.svg"></img>
             </span>
-            <img style="position:absolute;height:20px;top:17.5px;" src="Assets/images/noun_arrow_g.svg"></img>
+            <img style="position:absolute;height:20px;top:17.5px;left:45px;" src="Assets/images/noun_arrow_g.svg"></img>
           </div>
         </div>
         <nav id="menu" class="tab">
@@ -189,8 +189,8 @@
     <!------------------------->
 
     <div id='infobar'>
-      <div class="text-stroke" style="font-size:20px;bottom:21px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;">
-        <big>W</big>aterfront</br><big>J</big>ustice <big>M</big>ap
+      <div class="text-stroke" style="font-size:18px;bottom:20px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;">
+        <big>W</big>aterfront </br><big>J</big>ustice <big>P</big>roject
       </div>
       <div id='storybutton' class='mode-button general-button relative-button' onclick='showinfobox(event,"storybox")'>
         <div style="display:inline-block" class="small-button button-fill">
@@ -231,7 +231,7 @@
     <div>
       <p><small>This is a collaborative effort between NYC-EJA and ScAAN, furthering the work of NYC-EJA’s Waterfront Justice Project visualizing Special Maritime and Industrial Areas (SMIAs).
         <br/><br/>Industrial and maritime development is encouraged by zoning regulations that have created SMIAs – areas with a less strict approval process than other waterfront applications. These designations were given in largely low-income communities of color without considering climate change impacts and vulnerable populations in these areas. The NYC-EJA advocates for regulations to protect those who live and work around the SMIAs by promoting the safe and responsible use of hazardous materials and toxic chemicals, as well as supporting climate change adaptation measures.
-        <br/><br/>This map was created by <a href="https://github.com/billbrod">Bill Broderick</a>, <a href="https://github.com/MaijaHonig">Maija Honig</a>, and <a href="https://github.com/jsaliani92">Julian Nader Saliani</a> using <a href="https://www.mapbox.com/help/define-mapbox-gl-js/">mapbox-gl-js</a> with icons from the <a href="https://thenounproject.com/coquet_adrien/">Adrien Coquet</a> at the noun project. It is licensed with a MIT license, and source code can be viewed on <a href ="https://github.com/ScAAN/waterfrontmap">our github</a>. Thanks for visiting and feel free to let us know how we're doing with feedback!</small></p>
+        <br/><br/>This map was created by <a href="https://github.com/billbrod">Bill Broderick</a>, <a href="https://github.com/MaijaHonig">Maija Honig</a>, and <a href="https://github.com/jsaliani92">Julian Nader Saliani</a> and Jalisa Gilmore using <a href="https://www.mapbox.com/help/define-mapbox-gl-js/">mapbox-gl-js</a> with icons from the <a href="https://thenounproject.com/coquet_adrien/">Adrien Coquet</a> at the noun project. It is licensed with a MIT license, and source code can be viewed on <a href ="https://github.com/ScAAN/waterfrontmap">our github</a>. Thanks for visiting and feel free to let us know how we're doing with feedback!</small></p>
       </div>
       <div style="text-align:center;">
         <div style= 'display:inline-block;width:45%;margin:auto;text-align:center;'>
@@ -295,7 +295,7 @@
   <!-- LEGEND BUTTON -->
   <div id='legendbutton' class='legend-button small-button general-button button-fill' style='display: inline-block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
     <span class="tooltiptext" style="width:60px;margin-left:-30px;">data info</span>
-    <span class='small-button-inside'><img style="height:35px;" src="Assets/images/mh_info.svg"></img> <span>
+    <span class='small-button-inside'><img style="height:35px;margin-left:-2px;" src="Assets/images/mh_map_info3.svg"></img> <span>
     </div>
 
     <!-- PRINT BUTTON  -->

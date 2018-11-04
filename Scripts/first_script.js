@@ -53,7 +53,7 @@ function load_script(url, completeCallback) {
 */
 
 // request the general text
-var general_requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/general_text.json';
+var general_requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/map_text.json';
 var general_request = new XMLHttpRequest();
 general_request.open('GET', general_requestURL);
 general_request.responseType = 'json';
@@ -62,6 +62,8 @@ general_request.send();
 // now do some processing
 var toggleableLegendIds={}, toggleableLayerIds={}, dataNames={}, exploreIdOrder=[];
 var vlayer, vsmia, vlegend;
+var storyvars, pageSMIAIdx, global_max_page;
+
 general_request.onload = function() {
   var requested_text = general_request.response;
   vlayer = requested_text["layer"];
@@ -91,28 +93,11 @@ general_request.onload = function() {
   // sort layers ids so the explore display will look neater
   exploreIdOrder.sort(function(a, b){return a.length - b.length});
   map_init(1);
-}
 
-
-
-
-/*
-LOAD STORY Text
-*/
-
-// first load in the story text file
-var story_requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/story_text.json';
-var story_request = new XMLHttpRequest();
-story_request.open('GET', story_requestURL);
-story_request.responseType = 'json';
-story_request.send();
-
-// after loading do some processing
-var storyvars, pageSMIAIdx, global_max_page;
-story_request.onload = function() {
-  var requested_text = story_request.response;
-  storyvars = requested_text["data"];
-  pageSMIAIdx = requested_text["SMIA_first_page"];
-  global_max_page = requested_text["global_max_page"]-1;
+  // story processing
+  story_text = requested_text["story"];
+  storyvars = story_text["data"];
+  pageSMIAIdx = story_text["SMIA_first_page"];
+  global_max_page = story_text["global_max_page"]-1;
   map_init(1);
 }

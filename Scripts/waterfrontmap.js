@@ -25,6 +25,18 @@ fs_container.id ="mapbox-container-fs"
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'bottom-left');
 
+// Scale Control
+// https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol
+/* currently I am just letting mapbox position it automatically -
+   to put it in a div check out the geocoder control
+   If you're having trouble styling check the mapbox style sheet for scale ctrl
+*/
+var scale = new mapboxgl.ScaleControl({
+    maxWidth: 80,
+    unit: 'imperial'
+});
+map.addControl(scale);
+
 // geocoder control
 // put it in "geocoder" div
 // geocoder code! adds a geocoder and marker

@@ -43,9 +43,9 @@ function story_display_page(storypage){
   // allow users to jump to a SMIA by clicking on it (if pageIdx is zero)
   var jumptext = "";
   if (storyvars[storypage]["pageIdx"]!=0) {
-    smia_hover_toggle(false,false)
+    smia_hover_toggle(false,false,false)
   } else {
-    smia_hover_toggle(true,true)
+    smia_hover_toggle(true,true,false)
     jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
   }
 
@@ -67,23 +67,31 @@ function story_display_page(storypage){
   $('toggler-Bulk Storage Sites').className = '';
   make_layer_visible(storyvars[storypage]["pageLayer"])
 
-  // display information about SMIA
-  $('storybox').innerHTML = '<p><big><strong>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[storypage]["pageText"] + jumptext + '</small></p>';
+  // display information about story page
+  $('storybox').innerHTML = '<p><big><strong>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '</br></br>' + storyvars[storypage]["pageText"] + jumptext + '</p>';
 }
 
 
-function smia_hover_toggle(hover,click){
+function smia_hover_toggle(hover,click,name_only){
+  // display SMIA name only if true 
+  if (typeof name_only == 'undefined'){
+    name_only=false
+  }
+
   // turn of listeners and remove info
   map.off('click',smia_click)
-  map.off('mousemove',which_smia)
+  map.off('mousemove',smia_displayname)
+  map.off('mousemove',smia_displaytext)
   map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
   $('smiainfoboxempty').style.visibility = 'hidden';
 
   // toggle hover listener
   if (hover==true){
-    map.on('mousemove',which_smia);
-  } else {
-    map.off('mousemove',which_smia);
+    if (name_only==true){
+      map.on('mousemove',smia_displayname);
+    } else {
+      map.on('mousemove',smia_displaytext);
+    }
   }
 
   // toggle click listener
@@ -94,8 +102,13 @@ function smia_hover_toggle(hover,click){
   }
 }
 
+function smia_displayname(event){
+  which_smia(event,true)
+}
 
-
+function smia_displaytext(event){
+  which_smia(event,false)
+}
 
 
 
@@ -112,7 +125,7 @@ function smia_click(e){
     var smiaNum = vsmia[whichsmia[0].properties.SMIA_Name]["number"]-1;
 
     // Remember to turn off listeners and highlight effect after you zoom
-    smia_hover_toggle(false,false)
+    smia_hover_toggle(false,false,false)
 
     // Go to the first page on which this SMIA appears
     var jumppage = pageSMIAIdx[smiaNum]+1;
@@ -124,7 +137,7 @@ function smia_click(e){
 }
 
 
-function which_smia(e){
+function which_smia(e,name_only){
   // Display SMIA info on hover
   // When the user moves their mouse over the SMIA buffer layer, we'll update the filter in
   // the state-fills-hover layer to only show the matching state, thus making a hover effect.
@@ -137,24 +150,21 @@ function which_smia(e){
     var thissmia = whichsmia[0].properties.SMIA_Name;
     map.setFilter("SMIAhover", ["==", "SMIA_Name", thissmia]);
     // show some SMIA info
-    smia_info(thissmia,e.point)
-    //$('storybox').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"] + '</br></br><strong>Source:</strong> <a href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf">VISION 2020 comprehensive waterfront plan, Appx. B</a>' + '</small></p>';
-    var jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
-    $('storybox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[global_page]["pageText"] + jumptext + '</small></p>';
+    smia_info(thissmia,e.point,name_only)
   } else {
     $('smiainfoboxempty').style.visibility = 'hidden';
     // turn filter off
     map.setFilter("SMIAhover", ["==", "SMIA_Name", ""]);
-    // show the story page text
-    var jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
-    $('storybox').innerHTML = '<p><strong><big>' + storyvars[global_page]["pageTitle"] + '</big></strong>' + '<small></br></br>' + storyvars[global_page]["pageText"] + jumptext + '</small></p>';
   }
 }
 
-function smia_info(thissmia,e){
+function smia_info(thissmia,e,name_only){
   // info (name only or full)
-  //$('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>'
-  $('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA ' + vsmia[thissmia]["number"] + ':  ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"]  + '</small></p>';
+  if (name_only==true){
+    $('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>';
+  } else {
+    $('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA ' + vsmia[thissmia]["number"] + ':  ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"]  + '</small></p>';
+  }
 
   // set box coordinates and make visible
   var xcord = e["x"] - 20;
