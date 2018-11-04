@@ -72,7 +72,7 @@ function show_explore_info(queried){
     var divtext = '';
     if ((typeof data[dataKey] != 'undefined') && ((data[dataKey]>0 && isNaN(data[dataKey])==0) || layerName.includes("Zoning"))){
       if (layerName.includes("Zoning")) {
-        divtext =  '' + layerName + ':<b> ' + (data[dataKey]) +'</b>';
+          divtext =  '' + layerName + ':<b> ' + (data[dataKey]) + ' (NYC Zoning code: ' +(data['ZONEDIST']) +')</b>';
       } else if (layerName.includes("Percent")) {
         divtext =  '' + layerName + ':<b> ' +  Math.round(data[dataKey]) + '%'+'</b>';
       } else if (layerName.includes("Income")) {
