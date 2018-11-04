@@ -92,11 +92,6 @@ map.on('load', function () {
     }
   });
 
-  map.addSource('SMIA-point', {
-    "type": "geojson",
-    "data":"./Data/smia_coordinates.geojson"});
-
-
     // display marker for geocoder, this is a symbol (marker-15)
     map.addLayer({
       "id": "point",
@@ -501,7 +496,8 @@ map.addLayer({
 // display marker for SMIAs
 map.addLayer({
   "id": "SMIAnumbers",
-  "source": "SMIA-point",
+  "source": "vector_data",
+  "source-layer": "smia_coordinates",
   "type": "symbol",
   "layout": {
     "icon-image": "{Icon}",
@@ -558,15 +554,11 @@ map.addLayer({
 }, 'water2');
 
 
-map.addSource('CDdata', {
-  type: 'geojson',
-  data: './Data/CDdata_converted.geojson'
-})
-
 map.addLayer({
   "id": "Percent Uninsured",
   "type": "fill",
-  "source": 'CDdata',
+   "source": "vector_data",
+   "source-layer": "CDdata_converted",
   "paint": {
     "fill-opacity": 0,
     "fill-outline-color":{
@@ -601,7 +593,8 @@ map.addLayer({
 map.addLayer({
   "id": "Percent Uninsured Unreliable",
   "type": "fill",
-  "source": 'CDdata',
+  "source": "vector_data",
+   "source-layer": "CDdata_converted",
   "paint": {
     "fill-opacity": 0,
     "fill-pattern": "hatch-64"
@@ -612,7 +605,8 @@ map.addLayer({
 map.addLayer({
   "id": "Percent Uninsured Hatch",
   "type": "fill",
-  "source": 'CDdata',
+  "source": "vector_data",
+   "source-layer": "CDdata_converted",
   "paint": {
     "fill-opacity": 0,
     "fill-pattern": "diag-64"
@@ -623,7 +617,8 @@ map.addLayer({
 map.addLayer({
   "id": "Heat Vulnerability Index",
   "type": "fill",
-  "source": 'CDdata',
+  "source": "vector_data",
+   "source-layer": "CDdata_converted",
   "paint": {
     "fill-opacity": 0,
     "fill-outline-color": {
@@ -656,7 +651,8 @@ map.addLayer({
 map.addLayer({
   "id": "Heat Vulnerability Index Hatch",
   "type": "fill",
-  "source": 'CDdata',
+  "source": "vector_data",
+  "source-layer": "CDdata_converted",
   "paint": {
     "fill-opacity": 0,
     "fill-pattern": "diag-64"
