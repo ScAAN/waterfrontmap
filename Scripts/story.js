@@ -73,7 +73,7 @@ function story_display_page(storypage){
 
 
 function smia_hover_toggle(hover,click,name_only){
-  // display SMIA name only if true 
+  // display SMIA name only if true
   if (typeof name_only == 'undefined'){
     name_only=false
   }
@@ -167,9 +167,9 @@ function smia_info(thissmia,e,name_only){
   }
 
   // set box coordinates and make visible
-  var xcord = e["x"] - 20;
+  var xcord = e["x"] - 15;
   $('smiainfoboxempty').style.left = xcord+'px';
-  var ycord = e["y"] - $('smiainfoboxempty').offsetHeight -20;
+  var ycord = e["y"] - $('smiainfoboxempty').offsetHeight -30;
   $('smiainfoboxempty').style.top = ycord + 'px';
   $('smiainfoboxempty').style.visibility = 'visible';
 }
