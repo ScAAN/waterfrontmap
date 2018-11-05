@@ -32,6 +32,8 @@ function map_init(num){
     $('loading_message').innerHTML='<br/>click anywhere to continue';
     $('wipbox').style.cursor = 'pointer';
     $('wipoverlay').style.cursor = 'pointer';
+    // //uncomment when reordering is enabled (first remake vector data)
+    //reorder_smia(true)
   }
 }
 
@@ -104,13 +106,16 @@ general_request.onload = function() {
 
 // renumber SMIAs if necessary
 function reorder_smia(reorder_true){
-  if (reorder_true==True){
-    var new_num = storyvars["new_number"];
-    for (img=0;img<8;img++){
-      var imgid = 'smiaimg' + img.toString();
-      var imgsrc = "Assets/all_sprites/number-" + new_num[img] + ".svg";
-      $(imgid).src = imgsrc;
+  if (reorder_true==true){
+    for (smia_name in vsmia){
+      if (smia_name !="Introduction"){
+        var img = vsmia[smia_name]["number"];
+        var new_num = vsmia[smia_name]["new_number"];
+        var imgid = 'smiaimg' + img.toString();
+        var imgsrc = "Assets/all_sprites/number-" + new_num + ".svg";
+        $(imgid).src = imgsrc;
+        vsmia[smia_name]["number"] = new_num;
+      }
     }
-    storyvars["number"] = new_num;
   }
 }

@@ -5,7 +5,8 @@
     "properties": {
       "Number": 1,
       "Name":"Brooklyn Navy Yard",
-      "Icon":"number-1"
+      "Icon":"number-1",
+      "IconR":"number-2"
     },
     "geometry": {
       "type": "Point",
@@ -17,7 +18,8 @@
     "properties": {
       "Number": 2,
       "Name":"Newtown Creek",
-      "Icon":"number-2"
+      "Icon":"number-2",
+      "IconR":"number-3"
     },
     "geometry": {
       "type": "Point",
@@ -29,7 +31,8 @@
     "properties": {
       "Number": 3,
       "Name": "Staten Island West Shore",
-      "Icon":"number-3"
+      "Icon":"number-3",
+      "IconR":"number-7"
     },
     "geometry": {
       "type": "Point",
@@ -41,7 +44,8 @@
     "properties": {
       "Number": 4,
       "Name":"Red Hook",
-      "Icon":"number-4"
+      "Icon":"number-4",
+      "IconR":"number-4"
     },
     "geometry": {
       "type": "Point",
@@ -53,7 +57,8 @@
     "properties": {
       "Number": 5,
       "Name":"South Bronx",
-      "Icon":"number-5"
+      "Icon":"number-5",
+      "IconR":"number-1"
     },
     "geometry": {
       "type": "Point",
@@ -65,7 +70,8 @@
     "properties": {
       "Number": 6,
       "Name":"Sunset Park",
-      "Icon":"number-6"
+      "Icon":"number-6",
+      "IconR":"number-5"
     },
     "geometry": {
       "type": "Point",
@@ -77,7 +83,8 @@
     "properties": {
       "Number": 7,
       "Name":"Kill Van Kull",
-      "Icon":"number-7"
+      "Icon":"number-7",
+      "IconR":"number-6"
     },
     "geometry": {
       "type": "Point",
