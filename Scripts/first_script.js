@@ -101,3 +101,16 @@ general_request.onload = function() {
   global_max_page = story_text["global_max_page"]-1;
   map_init(1);
 }
+
+// renumber SMIAs if necessary
+function reorder_smia(reorder_true){
+  if (reorder_true==True){
+    var new_num = storyvars["new_number"];
+    for (img=0;img<8;img++){
+      var imgid = 'smiaimg' + img.toString();
+      var imgsrc = "Assets/all_sprites/number-" + new_num[img] + ".svg";
+      $(imgid).src = imgsrc;
+    }
+    storyvars["number"] = new_num;
+  }
+}

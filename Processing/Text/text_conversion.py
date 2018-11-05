@@ -6,21 +6,7 @@ text_conversion_small.py
 A function which converts csv files to json files for waterfrontmap
 
 Requires: pandas
-
-Formatting:  
-1. story_text.csv 
-    - One line for each story page    
-    - All pages for a given smia must occur consecutively
-    - columns: pageSMIA, pageLayer, pageTitle, pageText
-2. layer_text.csv 
-    - One line for each layer
-    - columns: id, legend, text, source
-3. smia_text.csv 
-    - One line for each smia (and 0 for the intro)
-    - columns: name, number, description
-4. legend_text.csv
-    - one ENTRY row and one COLOR row for each layer 
-    - don't have to fill out bulk storage 
+For formatting requirements: maptext_readme.md
     
 Remember to push to github after you convert! The map operates off of the 
 raw github files. 
