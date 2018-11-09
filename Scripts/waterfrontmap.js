@@ -31,11 +31,12 @@ map.addControl(nav, 'bottom-left');
    to put it in a div check out the geocoder control
    If you're having trouble styling check the mapbox style sheet for scale ctrl
 */
-var scale = new mapboxgl.ScaleControl({
+var scale_control = new mapboxgl.ScaleControl({
     maxWidth: 80,
     unit: 'imperial'
 });
-map.addControl(scale);
+//map.addControl(scale);
+document.getElementById('scale-control').appendChild(scale_control.onAdd(map));
 
 // geocoder control
 // put it in "geocoder" div

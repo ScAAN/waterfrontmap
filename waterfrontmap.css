@@ -924,6 +924,13 @@ width:330px;
 }
 .mapboxgl-ctrl-geocoder { position:relative;min-width:100%;margin:0 auto; }
 
+#scale-control {
+  position:absolute;
+  left:50px;
+  bottom:37.5px;
+  z-index:2;
+}
+
 @media screen and (max-height: 200px) {
   #pd {
     display: none;
