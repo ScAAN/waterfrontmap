@@ -336,7 +336,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 0,
+                "pageIdx": 1,
                 "pageLat": -73.9978,
                 "pageLayer": "Highlight",
                 "pageLng": 40.7209,
@@ -347,7 +347,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 0,
+                "pageIdx": 1,
                 "pageLat": -73.9978,
                 "pageLayer": "Highlight",
                 "pageLng": 40.7209,
@@ -358,7 +358,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 0,
+                "pageIdx": 1,
                 "pageLat": -73.9978,
                 "pageLayer": "Percent People of Color",
                 "pageLng": 40.7209,
@@ -369,7 +369,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 0,
+                "pageIdx": 1,
                 "pageLat": -73.9978,
                 "pageLayer": "Zoning",
                 "pageLng": 40.7209,
@@ -380,7 +380,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 0,
+                "pageIdx": 1,
                 "pageLat": -73.9978,
                 "pageLayer": "Percent of Families Below Poverty Line",
                 "pageLng": 40.7209,
@@ -391,7 +391,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 0,
+                "pageIdx": 1,
                 "pageLat": -73.9978,
                 "pageLayer": "Median Household Income",
                 "pageLng": 40.7209,
@@ -402,7 +402,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 0,
+                "pageIdx": 1,
                 "pageLat": -73.9978,
                 "pageLayer": "Percent Uninsured",
                 "pageLng": 40.7209,
@@ -413,7 +413,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 0,
+                "pageIdx": 1,
                 "pageLat": -73.9978,
                 "pageLayer": "FEMA Sea Level Rise",
                 "pageLng": 40.7209,
@@ -424,7 +424,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 0,
+                "pageIdx": 1,
                 "pageLat": -73.9978,
                 "pageLayer": "Bulk Storage Sites",
                 "pageLng": 40.7209,
@@ -435,7 +435,7 @@
             },
             {
                 "bulkLayers": "Bulk Storage Sites,MOSF,CBS,SUPERFUND2",
-                "pageIdx": 0,
+                "pageIdx": 1,
                 "pageLat": -73.9978,
                 "pageLayer": "Hurricane Storm Surge Zones",
                 "pageLng": 40.7209,
@@ -457,7 +457,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 2,
+                "pageIdx": 3,
                 "pageLat": -73.97256593,
                 "pageLayer": "Percent People of Color",
                 "pageLng": 40.7033754,
@@ -468,7 +468,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 2,
+                "pageIdx": 3,
                 "pageLat": -73.93480043,
                 "pageLayer": "Percent People of Color",
                 "pageLng": 40.73043814,
@@ -479,7 +479,7 @@
             },
             {
                 "bulkLayers": "SUPERFUND2",
-                "pageIdx": 2,
+                "pageIdx": 3,
                 "pageLat": -73.93480043,
                 "pageLayer": "Hurricane Storm Surge Zones",
                 "pageLng": 40.73043814,
@@ -490,7 +490,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 2,
+                "pageIdx": 3,
                 "pageLat": -74.23091193,
                 "pageLayer": "Percent People of Color",
                 "pageLng": 40.55055178,
@@ -501,7 +501,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 2,
+                "pageIdx": 3,
                 "pageLat": -74.00743616,
                 "pageLayer": "Percent People of Color",
                 "pageLng": 40.68650786,
@@ -512,7 +512,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 2,
+                "pageIdx": 3,
                 "pageLat": -73.89398759,
                 "pageLayer": "Percent People of Color",
                 "pageLng": 40.80730644,
@@ -523,7 +523,7 @@
             },
             {
                 "bulkLayers": "CBS,MOSF",
-                "pageIdx": 2,
+                "pageIdx": 3,
                 "pageLat": -73.89398759,
                 "pageLayer": "Hurricane Storm Surge Zones",
                 "pageLng": 40.80730644,
@@ -534,7 +534,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 2,
+                "pageIdx": 3,
                 "pageLat": -74.01499945,
                 "pageLayer": "Percent People of Color",
                 "pageLng": 40.65844208,
@@ -545,7 +545,7 @@
             },
             {
                 "bulkLayers": "Bulk Storage Sites",
-                "pageIdx": 2,
+                "pageIdx": 3,
                 "pageLat": -74.01499945,
                 "pageLayer": "Hurricane Storm Surge Zones",
                 "pageLng": 40.65844208,
@@ -556,7 +556,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 2,
+                "pageIdx": 3,
                 "pageLat": -74.13713364,
                 "pageLayer": "Percent People of Color",
                 "pageLng": 40.64057888,
@@ -567,7 +567,7 @@
             },
             {
                 "bulkLayers": "None",
-                "pageIdx": 0,
+                "pageIdx": 1,
                 "pageLat": -73.9978,
                 "pageLayer": "None",
                 "pageLng": 40.7209,

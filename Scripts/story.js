@@ -42,11 +42,15 @@ function story_display_page(storypage){
 
   // allow users to jump to a SMIA by clicking on it (if pageIdx is zero)
   var jumptext = "";
-  if (storyvars[storypage]["pageIdx"]!=0) {
-    smia_hover_toggle(false,false,false)
-  } else {
+  if (storyvars[storypage]["pageIdx"]==1) {
+    smia_hover_toggle(true,false,false)
+  } else if (storyvars[storypage]["pageIdx"]==2) {
+    smia_hover_toggle(true,false,true)
+  } else if (storyvars[storypage]["pageIdx"]==0) {
     smia_hover_toggle(true,true,false)
     jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
+  } else
+    smia_hover_toggle(false,false,false)
   }
 
   // switch to layer, turn off all tabs selected for cleanliness
