@@ -251,7 +251,7 @@ function make_layer_visible(clickedLayer) {
     $('dataselector').innerHTML = ' Data: ';
   } else {
     // get rid of none stuff
-    smia_hover_toggle(false,false)
+    //smia_hover_toggle(false,false)
     map.setPaintProperty("SMIAfill", 'fill-opacity',0)
     map.setLayoutProperty("SMIAnumbers", 'visibility',"none")
 

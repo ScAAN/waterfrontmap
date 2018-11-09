@@ -81,7 +81,7 @@ function smia_hover_toggle(hover,click,name_only){
   if (typeof name_only == 'undefined'){
     name_only=false
   }
-
+  
   // turn of listeners and remove info
   map.off('click',smia_click)
   map.off('mousemove',smia_displayname)
