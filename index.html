@@ -68,12 +68,14 @@
       <div class="innerslider" onmouseleave="clearmenu()">
         <div id="slideoutercircle" class="slidecircle"></div>
         <div id="slideinnercircle" class="slidecircle" style="overflow:visible">
-          <div class="general-button button-fill" style='box-shadow:none;border:none;position:relative;'>
+          <div class="general-button button-fill" style='box-shadow:none;border:none;position:relative;top:-1px'>
+            <!--
             <span style="position:absolute;font-size:12px;background-color: rgba(0,0,0,.8);color: #ffffff;text-align:center;padding: 5px 0;border-radius:50px;z-index:1;width: 70px;bottom: 90%;left: 50%;border:0px;line-height:1;margin-left: -35px;">data toggle</span>
-            <span class='small-button-inside' style="position:relative;top:0px;height:40px;width:40px;">
-              <img class="marker" style="z-index:1;top:3px;left:2px;width:35px;height:35px" src="Assets/images/noun_map.svg"></img>
+          -->
+            <span class='small-button-inside' style="position:relative;top:0px;height:70px;width:70px;">
+              <img class="marker" style="position:absolute;overflow:visible;z-index:1;top:5px;left:2px;width:65px;height:65px;border-radius:0px;" src="Assets/images/mh_map_bigger.svg"></img>
             </span>
-            <img style="position:absolute;height:20px;top:17.5px;left:45px;" src="Assets/images/noun_arrow_g.svg"></img>
+            <img style="position:absolute;overflow:visible;height:20px;top:35px;left:75px;" src="Assets/images/noun_arrow_g.svg"></img>
           </div>
         </div>
         <nav id="menu" class="tab">
@@ -82,7 +84,7 @@
             <div id="Demographics" class="menu-button large-button" onmouseover="changeTab('Demographics')">Demographics</div>
             <div id="City Planning" class="menu-button large-button" onmouseover="changeTab('City Planning')">City Planning</div>
             <div id="Climate" class="menu-button large-button" onmouseover="changeTab('Climate')">Climate</div>
-            <div id="MenuSpacer" class="spacer-big" style="display:none"></div>
+            <div id="MenuSpacer" class="spacer-big" style="display:block"></div>
           </div>
         </nav>
       </div>

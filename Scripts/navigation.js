@@ -108,13 +108,14 @@ function changeTab(tabName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  $('MenuSpacer').style.display='None';
+  // don't need this anymore
+  //$('MenuSpacer').style.display='None';
 
   if (tabName.includes("None")) {return}
 
   if (killallboxes !=1){
     // build a toggling menu
-    $('MenuSpacer').style.display='block';
+    //$('MenuSpacer').style.display='block';
 
     clickedTab.className += " active";
     for (var i = 0; i < toggleableLayerIds[tabName].length; i++) {

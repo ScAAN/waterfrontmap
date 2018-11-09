@@ -349,7 +349,7 @@ button {
 #rightslider {
   font-size: 13px;
   display: inline-block;
-  right:-440px;
+  right:-420px;
   top:50px;
   position:absolute;
   overflow: hidden;
@@ -357,7 +357,7 @@ button {
   margin: 0;
   padding: 0;
   height:600px;
-  width:935px;
+  width:955px;
   padding: 10px;
   text-decoration: none;
   text-align: center;
@@ -365,7 +365,7 @@ button {
 }
 
 .innerslider {
-  left:440px;
+  left:480px;
   overflow:visible;
   min-height:80px;
   position:relative;
@@ -374,7 +374,7 @@ button {
 }
 
 .innerslider:hover {
-  left:0px;
+  left:40px;
 }
 
 .slidecircle {
@@ -387,17 +387,17 @@ button {
 }
 #slideoutercircle{
   z-index:1;
-  top:14px;
-  left:-6px;
-  width:52px;
-  height:52px;
+  top:0px;
+  left:-31px;
+  width:81px;
+  height:81px;
   border:1px solid rgba(0,0,0,0.4);
 }
 #slideinnercircle{
-  top:15px;
-  left:-5px;
-  width:50px;
-  height:50px;
+  top:1px;
+  left:-30px;
+  width:80px;
+  height:80px;
   z-index:2;
 }
 
@@ -571,8 +571,8 @@ width:330px;
   position:absolute;
   content: " ";
   left:28%;
-  top:8px;
-  height:30px;
+  top:9px;
+  height:29px;
   width:10px;
   z-index:1;
   background-color:white;
