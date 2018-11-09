@@ -8,6 +8,14 @@
             "tab": "City Planning",
             "text": "Click on the legend symbol to toggle viewed storage sites. Many sources of toxic waste such as TRI, MOSF, PBS and CBS sites as well as superfund class 2 sites are located in or near SMIAs. This represents a public health threat in the even of a storm surge. "
         },
+        "FEMA Sea Level Rise": {
+            "dataName": "Null",
+            "legend": "slr",
+            "shortname": "Sea Level Rise",
+            "source": "Sea Level Rise for 2020s and 2050s from <a href=\"https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-100-year-Floodplain-/ezfn-5dsb\">NYC OpenData (2020s) </a> and <a href=https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2050s-500-year-Floodplain-/qwca-zqw3>NYC OpenData (2050s)</a>. See the NYC Panel on Climate Change <a href=\"https://data.cityofnewyork.us/api/assets/581A4132-3843-4C3B-8B80-D268257AC778?download=true\">2013 Climate Risk Information</a> for details of how these estimates were made. ",
+            "tab": "Climate",
+            "text": "Sea level rise based on FEMA's Preliminary work map data and NY Panel on Climate Change's 90th percentile Projects for Sea-Level Rise (11 inches 2020 31 inches 2050). Plotted are the 100-year floodplain for 2020s and the 500-year floodplain for 2050s. In the future, rising sea will levels threaten infrastructure near SMIAs."
+        },
         "Heat Vulnerability Index": {
             "dataName": "HVI_score",
             "legend": "hvi",
@@ -21,14 +29,14 @@
             "legend": "evac",
             "shortname": "Hurricane evacuation zone",
             "source": "Hurricane Evacuation zones from NYC Emergency Management, downloaded from <a href=\"https://data.cityofnewyork.us/Public-Safety/Hurricane-Evacuation-Zones/uihr-hn7s/data\">NYC Open Data</a>",
-            "tab": "Climate",
+            "tab": "Null",
             "text": "SMIAs are in hurricane evacuation zones and highly vulnerable to hurricanes. "
         },
         "Hurricane Storm Surge Zones": {
             "dataName": "CATEGORY",
             "legend": "surge",
             "shortname": "Hurricane storm surge zone",
-            "source": "Hurricane surge inundation from the <a href=\\\"https://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1260\\\">New York State Office of Emergency Management</a> (last revised April 2013). Hurricane surge inundation is calculated from NOAAs NY3 Sea, Lake and Overland Surges from Hurricanes (SLOSH) basin Maximum of Maximum (MOM) surge height values, representing maximum surge at any given location from category 1 - 4 storms at high tide.",
+            "source": "Hurricane surge inundation from the <a href=\\\"https://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1260\\\">New York State Office of Emergency Management</a> (last revised April 2013). Hurricane surge inundation is calculated from NOAAs NY3 Sea, Lake and Overland Surges from Hurricanes (SLOSH) basin Maximum of Maximum (MOM) surge height values, representing maximum surge at high tide.",
             "tab": "Climate",
             "text": "The SMIAs and their surroundings are highly vulnerable to hurricane storm surge. Facilities handling hazardous substances or toxic chemicals in these areas could represent a threat in the event of a hurricane storm storm surge. "
         },
@@ -71,14 +79,6 @@
             "source": "US Census 2010, divided by census tract, downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">US Census Bureau</a>",
             "tab": "Demographics",
             "text": "People below poverty level are disproportionally present near SMIAs. In fact of the total X million low-income population in NYC. 1.6 million live in census tracts that are vulnerable to hurricane storm surge, and 283,000 live in census tracts that are both vulnerable to storm surge and fall within a half-mile of SMIAs. "
-        },
-        "Sea Level Rise": {
-            "dataName": "Null",
-            "legend": "slr",
-            "shortname": "Sea Level Rise",
-            "source": "Sea Level Rise for 2020s and 2050s from <a href=\"https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2020s-100-year-Floodplain-/ezfn-5dsb\">NYC OpenData (2020s) </a> and <a href=https://data.cityofnewyork.us/Environment/Sea-Level-Rise-Maps-2050s-500-year-Floodplain-/qwca-zqw3>NYC OpenData (2050s)</a>. See the NYC Panel on Climate Change <a href=\"https://data.cityofnewyork.us/api/assets/581A4132-3843-4C3B-8B80-D268257AC778?download=true\">2013 Climate Risk Information</a> for details of how these estimates were made. ",
-            "tab": "Climate",
-            "text": "Sea level rise based on FEMA's Preliminary work map data nad NY Panel on Climate Change's 90th percentile Projects for Sea-Level Rise (11 inches 2020 31 inches 2050). Plotted are the 100-year floodplain for 2020s and the 500-year floodplain for 2050s. In the future, rising sea will levels threaten infrastructure near SMIAs."
         },
         "Zoning": {
             "dataName": "human_readable_zone",
@@ -197,8 +197,8 @@
             "#03a9f4"
         ],
         "slr_entry": [
-            "2020s",
-            "2050s"
+            "Sea level rise 2020s<br/>(100-year floodplain)",
+            "Sea level rise 2050s<br/>(500-year floodplain)"
         ],
         "surge_color": [
             "#d7301f",
@@ -415,11 +415,11 @@
                 "bulkLayers": "None",
                 "pageIdx": 0,
                 "pageLat": -73.9978,
-                "pageLayer": "Hurricane Evacuation Zones",
+                "pageLayer": "FEMA Sea Level Rise",
                 "pageLng": 40.7209,
                 "pageSMIA": 0,
-                "pageText": "Hurricane evacuation zones, provided by NYC  emergency management, show that SMIAs are highly vulnerable to hurricane damage. This presents a threat to communities who live in such areas. ",
-                "pageTitle": "Hurricane Evacuation Zones ",
+                "pageText": "Sea level rise projections for 2020s (100-year floodplain) and 2050s (500-year floodplain), show that SMIAs are highly vulnerable to future sea level rise. This presents a threat to communities who live in such areas by endangering both community residences and stored toxic waste in the neighborhood. ",
+                "pageTitle": "FEMA Sea Level Rise",
                 "pageZoom": 10
             },
             {
