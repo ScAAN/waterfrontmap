@@ -512,7 +512,7 @@
                 "pageLayer": "Hurricane Storm Surge Zones",
                 "pageLng": 40.80730644,
                 "pageSMIA": 5,
-                "pageText": "In the South Bronx SMIA, of particular note are the locations of NY State DEC regulated active chemical bulk and major oil storage facilities. These facilities store hazardous substances or have the capacity to store 400,000 gallons of oil. Of the 171 facilities in NYC, 18 of them or 11% are both vulnerable to storm surge and located within half a mile of the South Bronx SMIA.",
+                "pageText": "In the South Bronx SMIA, of particular note are the locations of NY State DEC regulated active chemical bulk and major oil storage facilities. These facilities store hazardous substances or have the capacity to store 400,000 gallons of oil. Of the 171 facilities in NYC, 18 of them or 11% are both vulnerable to storm surge and located within half a mile of the South Bronx SMIA. Currently the <a href=\"http://www.dec.ny.gov/chemical/97067.html\">NYC Industrial Waterfront Project</a> is working to help implement polution prevention, toxics reduction and climate adaption strategies with the goal of making the South Bronx industrial waterfront sustainable and climate resilient.",
                 "pageTitle": "Toxic sites in South Bronx",
                 "pageZoom": 12
             },
@@ -534,7 +534,7 @@
                 "pageLayer": "Hurricane Storm Surge Zones",
                 "pageLng": 40.65844208,
                 "pageSMIA": 6,
-                "pageText": "Furthermore, the Sunset park SMIA contains potentially vulnerable  facilites containg toxic chemicals. Shown is the location of facilities reporting chemicals in the Toxics Release Inventory under the US EPA Emergency Planning and Community Right-to-Know Act. Of the 234 TRI Reporters in NYC, 17 of them or 7% are both vulnerable to storm surge and located within half a mile of the Sunset Park SMIA. ",
+                "pageText": "Furthermore, the Sunset park SMIA contains potentially vulnerable  facilites containg toxic chemicals. Shown is the location of facilities reporting chemicals in the Toxics Release Inventory under the US EPA Emergency Planning and Community Right-to-Know Act. Of the 234 TRI Reporters in NYC, 17 of them or 7% are both vulnerable to storm surge and located within half a mile of the Sunset Park SMIA. Currently <a href=\"https://www.rand.org/jie/infrastructure-resilience-environment/projects/grasp.html\">RAND and NYC-EJA</a> is taking a grassroots research-to-action approach to improve community resiliency in Sunset Park. ",
                 "pageTitle": "Toxic sites in Sunset Park",
                 "pageZoom": 12
             },
