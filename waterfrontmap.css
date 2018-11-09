@@ -578,6 +578,12 @@ width:330px;
   background-color:white;
 }
 
+*::-moz-focus-inner {
+padding: 0;
+border: 0;
+margin-top:-1px;
+margin-bottom:-1px;
+}
 
 .bulk-button{
   width: 35px;
@@ -695,8 +701,8 @@ width:330px;
 .general-button:hover .relative-button-text { background-color: #CACFD2; box-shadow:inset 0px 0px 0px 5px white;}
 .general-button:hover .relative-button-text::after {
   background-color: #CACFD2;
-  border-top: 5px solid white;
-  border-bottom:5px solid white;
+  border-top: 4.75px solid white;
+  border-bottom: 4.75px solid white;
   height:20px;
 }
 .general-button:hover .small-button-inside { background-color: #CACFD2; }
