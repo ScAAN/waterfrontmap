@@ -105,6 +105,16 @@ map.on('load', function () {
     }
   });
 
+  map.addSource('sealevel2050', {
+    "type": "geojson",
+    "data": "./Data/SeaLevelRise2050.geojson"
+  });
+  map.addSource('sealevel2020', {
+    "type": "geojson",
+    "data": "./Data/SeaLevelRise2020.geojson"
+  });
+
+
     // display marker for geocoder, this is a symbol (marker-15)
     map.addLayer({
       "id": "point",
@@ -448,6 +458,26 @@ map.addLayer({
   },
   "paint":{"icon-opacity":1}
 },'point');
+
+map.addLayer({
+  "id": "Sea Level Rise 2050",
+  "type": "fill",
+  "source": "sealevel2050",
+  "paint": {
+    "fill-color": "#03a9f4",
+    "fill-opacity": 1
+  }
+},'water2','Bulk Storage Sites','SUPERUND2','CBS','MOSF');
+
+map.addLayer({
+  "id": "Sea Level Rise 2020",
+  "type": "fill",
+  "source": "sealevel2020",
+  "paint": {
+    "fill-color": "#3f51b5",
+    "fill-opacity": 1
+  }
+},'water2','Bulk Storage Sites','SUPERUND2','CBS','MOSF');
 
 
 map.addLayer({

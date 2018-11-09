@@ -228,6 +228,9 @@ function make_layer_visible(clickedLayer) {
       }
       if (otherLayerName == 'Bulk Storage Sites') {
         // do nothing
+      } else if (otherLayerName.includes("Sea Level Rise")) {
+        map.setPaintProperty('Sea Level Rise 2020','fill-opacity',0);
+        map.setPaintProperty('Sea Level Rise 2050','fill-opacity',0);
       } else if (otherLayerName.includes("Percent") || otherLayerName.includes("Median Household Income") || otherLayerName.includes("Heat Vulnerability Index")) {
         map.setPaintProperty(otherLayerName, 'fill-opacity', 0);
         map.setPaintProperty(otherLayerName + " Hatch", 'fill-opacity', 0);
@@ -258,6 +261,9 @@ function make_layer_visible(clickedLayer) {
     $('dataselector').innerHTML = 'Data: <small>'+ clickedLayer + '</small>';
     if (clickedLayer == 'Bulk Storage Sites') {
       //do nothing
+    } else if (clickedLayer.includes("Sea Level Rise")) {
+      map.setPaintProperty('Sea Level Rise 2020','fill-opacity',1);
+      map.setPaintProperty('Sea Level Rise 2050','fill-opacity',1);
     } else if (clickedLayer.includes("Percent") || clickedLayer.includes("Median Household Income") || clickedLayer.includes("Heat Vulnerability Index")) {
       map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
       map.setPaintProperty(clickedLayer + " Hatch", 'fill-opacity', 1);
