@@ -74,7 +74,7 @@ general_request.onload = function() {
 
   // do processing, but don't include the none layer or Null layers
   for (const prop in vlayer) {
-    if (prop!="None" || vlayer[prop]["tab"]!="Removed") {
+    if (prop!="None" && vlayer[prop]["tab"]!="Removed") {
       //get a dict of legend ids
       toggleableLegendIds[prop] = vlayer[prop]["legend"];
       // get an array of ids
@@ -91,6 +91,7 @@ general_request.onload = function() {
         dataNames[prop] = vlayer[prop]["dataName"];
       }
     }
+    console.log(toggleableLegendIds)
   }
   // sort layers ids so the explore display will look neater
   exploreIdOrder.sort(function(a, b){return a.length - b.length});
