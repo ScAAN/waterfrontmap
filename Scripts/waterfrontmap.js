@@ -398,6 +398,8 @@ map.addLayer({
   "filter": ["==",'% of Families Below Poverty Level',-10]
 }, 'water2','Percent of Families Below Poverty Line');
 
+// ICON OPACITY FOR ALL BULK STORAGE SITES
+var iconop = .65;
 
 map.addLayer({
   "id": "Bulk Storage Sites",
@@ -411,7 +413,7 @@ map.addLayer({
     "visibility": 'none',
     "icon-size":.25,
   },
-  "paint":{"icon-opacity":1}
+  "paint":{"icon-opacity":iconop}
 },'point');
 
 map.addLayer({
@@ -426,7 +428,7 @@ map.addLayer({
     "visibility": 'none',
     "icon-size":.25,
   },
-  "paint":{"icon-opacity":1}
+  "paint":{"icon-opacity":iconop}
 },'point');
 
 map.addLayer({
@@ -441,7 +443,7 @@ map.addLayer({
     "visibility": 'none',
     "icon-size":.25,
   },
-  "paint":{"icon-opacity":1}
+  "paint":{"icon-opacity":iconop}
 },'point');
 
 map.addLayer({
@@ -456,7 +458,7 @@ map.addLayer({
     "visibility": 'none',
     "icon-size":.25,
   },
-  "paint":{"icon-opacity":1}
+  "paint":{"icon-opacity":iconop}
 },'point');
 
 map.addLayer({
