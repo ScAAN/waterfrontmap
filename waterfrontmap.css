@@ -462,7 +462,7 @@ width:330px;
 }
 
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 930px) {
     #menu {
         width: 140px;
     }
@@ -478,7 +478,7 @@ width:330px;
     }
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 930px) {
     .largetooltip {
         display:none !important;
     }
@@ -750,28 +750,29 @@ margin-bottom:-1px;
 .reset-button {
   position: absolute;
   top:2px;
-  /*right: 67.5px;*/
-  right: 205px;
+  /*right: 205px;*/
+  right: 245px; /*205*/
   display: block;
 }
 .legend-button {
-  /*bottom: 335px;
-  right: 10px;*/
   position: absolute;
   top:2px;
-  /*right: 125px;*/
-  right: 10px;
+  right:5px;
+  /*right: 10px;*/
+
 }
 .print-button {
   position: absolute;
   top:2px;
-  right:75px;
+  right:115px; /*100px*/
+  /*right:75px;*/
   display: block;
 }
 .fullscreen-button {
   position: absolute;
   top:2px;
-  right:140px;
+  /*right:140px;*/
+  right:180px; /*152.5*/
   display: block;
 }
 .long-button {
