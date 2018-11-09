@@ -465,7 +465,7 @@ map.addLayer({
   "source": "sealevel2050",
   "paint": {
     "fill-color": "#03a9f4",
-    "fill-opacity": 1
+    "fill-opacity": 0
   }
 },'water2','Bulk Storage Sites','SUPERUND2','CBS','MOSF');
 
@@ -475,7 +475,7 @@ map.addLayer({
   "source": "sealevel2020",
   "paint": {
     "fill-color": "#3f51b5",
-    "fill-opacity": 1
+    "fill-opacity": 0
   }
 },'water2','Bulk Storage Sites','SUPERUND2','CBS','MOSF');
 

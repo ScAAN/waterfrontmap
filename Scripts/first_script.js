@@ -72,9 +72,9 @@ general_request.onload = function() {
   vsmia = requested_text["smia"];
   legend_text = requested_text["legend"];
 
-  // do processing, but don't include the none layer
+  // do processing, but don't include the none layer or Null layers
   for (const prop in vlayer) {
-    if (prop!="None") {
+    if (prop!="None" || vlayer[prop]["tab"]!="Removed") {
       //get a dict of legend ids
       toggleableLegendIds[prop] = vlayer[prop]["legend"];
       // get an array of ids
