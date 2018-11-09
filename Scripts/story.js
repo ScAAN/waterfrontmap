@@ -163,7 +163,7 @@ function smia_info(thissmia,e,name_only){
   if (name_only==true){
     $('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA # ' + vsmia[thissmia]["number"] + ' : ' + thissmia + '</big></strong>';
   } else {
-    $('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA ' + vsmia[thissmia]["number"] + ':  ' + thissmia + '</big></strong>' + '<small></br></br>' +vsmia[thissmia]["description"]  + '</small></p>';
+    $('smiainfoboxempty').innerHTML = '<p><strong><big>SMIA ' + vsmia[thissmia]["number"] + ':  ' + thissmia + '</big></strong>' + '</br></br>' +vsmia[thissmia]["description"]  + '</p>';
   }
 
   // set box coordinates and make visible
