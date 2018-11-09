@@ -91,7 +91,6 @@ general_request.onload = function() {
         dataNames[prop] = vlayer[prop]["dataName"];
       }
     }
-    console.log(toggleableLegendIds)
   }
   // sort layers ids so the explore display will look neater
   exploreIdOrder.sort(function(a, b){return a.length - b.length});

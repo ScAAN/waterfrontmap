@@ -49,7 +49,7 @@ function story_display_page(storypage){
   } else if (storyvars[storypage]["pageIdx"]==0) {
     smia_hover_toggle(true,true,false)
     jumptext = "<br><br> Click on any SMIA for more information, or click next to continue to learn about SMIAs. ";
-  } else
+  } else {
     smia_hover_toggle(false,false,false)
   }
 
