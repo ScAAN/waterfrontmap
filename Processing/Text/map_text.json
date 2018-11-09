@@ -29,7 +29,7 @@
             "legend": "evac",
             "shortname": "Hurricane evacuation zone",
             "source": "Hurricane Evacuation zones from NYC Emergency Management, downloaded from <a href=\"https://data.cityofnewyork.us/Public-Safety/Hurricane-Evacuation-Zones/uihr-hn7s/data\">NYC Open Data</a>",
-            "tab": "Null",
+            "tab": "Removed",
             "text": "SMIAs are in hurricane evacuation zones and highly vulnerable to hurricanes. "
         },
         "Hurricane Storm Surge Zones": {
