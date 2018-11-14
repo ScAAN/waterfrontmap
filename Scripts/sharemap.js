@@ -16,7 +16,7 @@ function print_map(){
     $('myscreenshot').height = loadheight + 'px';
     $('myscreenshot').innerHTML = '<img src="Assets/images/loadloop.gif" style="margin:auto;" height=' + loadheight + 'px/>';
     $('screenshot_txt').innerHTML = "capturing current map view...";
-    html2canvas(document.getElementById("test_container"),{backgroundColor:null},{allowTaint:false},{useCORS:false}).then(function(canvas) {
+    html2canvas(document.getElementById("test_container"),{backgroundColor:null},{allowTaint:false},{useCORS:true}).then(function(canvas) {
       var mapcan  = map.getCanvas().toDataURL();
       var imgcan = new Image();
       imgcan.crossOrigin = "Anonymous";
