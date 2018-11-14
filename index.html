@@ -46,13 +46,13 @@
           <div id="myscreenshot" style="vertical-align:middle;"></div>
           <canvas id="my_canvas" style="display:none;"></canvas>
           <!--<div id="printexit" style="color:white;background-color:rgba(255,0,0,.9);display:inline-block;width:150px;font-size:32px;" onclick="(function(){$('print_container').style.display='none'})();">exit</div>-->
-          <div id="printexit" onclick="(function(){$('print_container').style.display='none'})();">x</div>
+          <div id="printexit" onclick="(function(){$('print_container').style.display='none'})();"><img src="Assets/images/share_x.svg" height="40px"/></div>
           <div id="printbuttons" style="visibility:hidden;">
             <p class="spacer"></p>
-            <div id="share_download" class="share-button" style="background-color:rgba(255,50,0,1);" onclick="savefile()">download</div>
-            <div class="share-button" style="background-color:rgba(0,50,255,1);" onclick="sharevia('facebook')">facebook</div>
-            <div class="share-button" style="background-color:rgba(50,200,50,1);" onclick="sharevia('twitter')">twitter</div>
-            <div class="share-button" style="background-color:rgba(255,200,0,1);" onclick="sharevia('email')">email</div>
+            <div id="share_download" class="share-button" onclick="savefile()"><img class="share-icon" src="Assets/images/share_download.svg" height="30px"/></div>
+            <div class="share-button" onclick="sharevia('facebook')"><img class="share-icon" src="Assets/images/share_facebook_white_100.svg" height="30px"/></div>
+            <div class="share-button" onclick="sharevia('twitter')"><img class="share-icon" src="Assets/images/share_twitter_white.svg" height="30px"/></div>
+            <div class="share-button" onclick="sharevia('email')"><img class="share-icon" src="Assets/images/share_email_simple.svg" height="30px"/></div>
           </div>
         </div>
     </div>

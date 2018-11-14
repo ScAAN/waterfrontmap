@@ -576,18 +576,25 @@ width:330px;
 .share-button {
   color:white;
   display:inline-block;
-  width:180px;
+  width:40px;
+  height:40px;
+  margin:10px;
   cursor:pointer;
-  border-radius:5px;
-  padding:5px;
+  border-radius:20px;
+  padding:10px;
   font-size:30px;
-  opacity:.4;
+  opacity:1;
   margin:5px;
+  background-color:rgba(200,200,200,1);
 }
 
 .share-button:hover {
   transition: all 0.371s cubic-bezier(0.4,0,0.2,1);
-  opacity:1;
+  background-color:rgba(150,150,150,1);
+}
+
+.share-icon {
+  padding-top:5px;
 }
 
 .relative-button {
