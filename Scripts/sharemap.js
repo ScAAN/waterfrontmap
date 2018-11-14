@@ -29,6 +29,8 @@ function print_map(){
     var print_date = new Date();
     $('print_date').innerHTML = '<p>Downloaded: <small>' + print_date + '</small></p>';
     $('infobarprint').style.display="block";
+    // add back attribution
+    $('drawn_attribution').style.display="block";
     $('print_container').style.display="block";
     // loadheight = screenheight* mysca*dispsca/2
     var loadheight = (screen.height*2)/12;
@@ -74,8 +76,9 @@ function print_map(){
            $('screenshot_txt').innerHTML = " . . . map view captured!</br><small>      download or share below</small>";
            $('myscreenshot').innerHTML = '<img id="mapcapture" src="' + img + '" style="border: 1px solid rgba(0,0,0,1);margin:auto;" height=' + htpx + 'px/>';
            //$('share_download').innerHTML = '<a href="' + img +  '" download="wfm_mapview.png" style="color:white;">download</a>';
-           // hide print infobar and show printbuttons
+           // hide print infobar, drawn attribution and show print buttons
            $('infobarprint').style.display="none";
+           $('drawn_attribution').style.display="none";
            $('printbuttons').style.visibility="visible";
          }
       };
