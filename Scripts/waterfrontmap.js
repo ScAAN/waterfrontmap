@@ -1,4 +1,15 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
+
+//http://fuzzytolerance.info/blog/2016/07/01/Printing-Mapbox-GL-JS-maps-in-Firefox/
+// Firefox won't print a GL map unless preserveDrawingBuffer is set to true
+function fixFirefoxPrint() {
+    return navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+}
+
+function pdbtrue(){
+  return true
+}
+
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Assets/light.json?optimize=true',
@@ -8,7 +19,8 @@ var map = new mapboxgl.Map({
     position: 'bottomright'
   },
   minZoom: 10,
-  maxZoom: 13
+  maxZoom: 13,
+  preserveDrawingBuffer: pdbtrue()
 });
 
 // fullscreen control

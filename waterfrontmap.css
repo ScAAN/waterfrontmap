@@ -5,6 +5,9 @@
 html * {
   font-family: "Open Sans", sans-serif, 'Helvetica Neue', Arial, Helvetica;
 }
+html {
+    height: 100%;
+}
 
 .text-stroke {
   text-shadow:
@@ -92,7 +95,8 @@ body {
   padding: 0;
   position:fixed;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+  background-color:transparent;
 }
 
 h2,
@@ -499,6 +503,23 @@ width:330px;
 */
 
 #infobar {
+  /*
+  background-image: url("Assets/map_wave2.svg");
+  background-size: 100px 50px;
+  background-repeat: repeat-x;
+  */
+  background-color:rgba(255,255,255,.8);
+  width:100%;
+  height:30px;
+  padding:5px;
+  min-width:600px;
+  position:absolute;
+  top:6px;
+  font-size: 16px;
+  z-index:1;
+}
+
+#infobarprint {
   /*
   background-image: url("Assets/map_wave2.svg");
   background-size: 100px 50px;

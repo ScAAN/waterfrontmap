@@ -8,6 +8,8 @@
   <link href='waterfrontmap.css' rel='stylesheet' />
   <!-- MAPBOX stuff (script, style sheet, geocoder script and stylesheet)-->
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
+  <script src='./Scripts/html2canvas.min.js'></script>
+  <script src='./Scripts/filesaver.min.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
@@ -23,6 +25,7 @@
   <!-- Overwrite default geocoder control style -->
   <style>
   .mapboxgl-ctrl-geocoder { position:relative;left:-9px;min-width:105%;margin:0 auto; }
+  .testprint{height:500px;}
   </style>
 
   <title>NYC-EJA Waterfront Justice Project Map</title>
@@ -33,10 +36,103 @@
 
   <!-- Everything is wrapped inside the map container so fullscreen can work -->
   <div id='map'>
+    <!-- Container for pop up screen for printing -->
+    <div id='print_container' style="display:none;z-index:99;position:absolute;">
+        <div id="printoverlay" class="overlayed" style="z-index:1;"></div>
+        <div id="print_overlay" class="instructions overlay-box" style="text-align:center;height:80vh;z-index:5;">
+          <div id="screenshot_txt" style="font-size:18px;margin:10px;"></div>
+          <div id="myscreenshot" style="vertical-align:middle;"></div>
+          <canvas id="my_canvas"></canvas>
+          <div id="printexit" style="color:white;background-color:rgba(255,0,0,.9);display:inline-block;width:150px;font-size:32px;" onclick="(function(){$('print_container').style.display='none'})();">exit</div>
+          <div id="share_download" style="color:white;background-color:rgba(0,0,255,.9);display:inline-block;width:200px;font-size:32px;" onclick="savefile()">download</div>
+        </div>
+    </div>
     <!-- Put controls in their own container -->
-    <div id='control_container'>
-      <!-- scale button-->
+    <div id="test_container" style="position:absolute;width:100%;height:100%;">
+
+
+      <div id='infobarprint' style="display:none;">
+        <div class="text-stroke" style="font-size:18px;bottom:20px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;">
+          <big>W</big>aterfront </br><big>J</big>ustice <big>P</big>roject
+        </div>
+        <div style="font-size:18px;top:-6px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;"> Created by: </div>
+        <!--<div style="display:inline-block;position:relative;top:-20px;"><img src="Assets/images/scaan.png" alt="ScAAN" style="top:-20px;height:20px;"/></div>-->
+        <div style="display:inline-block;position:relative;top:-20px;"><img src="https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Assets/images/scaan.png" alt="ScAAN" style="top:-20px;height:20px;"/></div>
+        <div style="font-size:18px;top:-6px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;"> and </div>
+        <div style="display:inline-block;position:relative;top:-11px;"><img src="https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Assets/images/scaan.png" alt="NYC-EJA" style="top:-20px;height:45px;"/></div>
+        <!--<div style="display:inline-block;position:relative;top:-11px;"><img src="Assets/images/nycejalliance.png" alt="NYC-EJA" style="top:-20px;height:45px;"/></div>-->
+        <div style="font-size:18px;top:-6px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;">  http://scaan.net/waterfrontmap/ </div>
+        <div id="print_date" style="position:absolute;font-size:1.8vw;top:-14px;right:0px;line-height:1;margin:5px;width:30%;display:inline-block;color:black;vertical-align:top;">
+        </div>
+      </div>
+
+
+      <!-- SCALE BAR (CONTROL)-->
       <div id='scale-control'></div>
+
+      <!-- THIS IS THE LEGEND AND LEGEND PLACEHOLDER -->
+      <div id='general_legend' class='legend overlay-box' style='display:block'>
+        <div style="text-align:right">
+          <div style="display:inline-block;line-height:100%;max-width:120px;">Significant Maritime and Industrial Areas</div>
+          <span style="vertical-align:middle;outline-width:3px;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;"></span>
+          <div style="display:inline-block;line-height:100%;max-width:120px;">Half-mile buffer to SMIAs</div>
+          <span style="vertical-align:middle;outline-width:2px;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;"></span>
+        </div>
+        <p class="spacer"></p>
+        <div id="legend_placeholder"></div>
+      </div>
+
+      <!-- LEGEND INFO BOX-->
+      <div id='legendinfo' class='legend-info overlay-box'></div>
+
+      <!-- EXPLORE CONTENT  -->
+      <div id='explorebox' class='box-content text-info-box overlay-box'>
+        <div> <p>Click the map to explore a neighborhood, or search with the bar below. </p></div>
+        <div id='geocoder' class='geocoder'></div>
+        <div id='map-overlay-info' class='map-overlay-info'></div>
+      </div>
+
+      <!-- STORY CONTENT  -->
+      <div id='storybox' class='box-content text-info-box overlay-box story-box link-restyle'></div>
+      <div id='smiainfoboxempty' class='smiainfobox'></div>
+
+
+      <!-- LEGEND HTML FOR BULK STORAGE -->
+      <div id='legendHTML_bulk' class='legend overlay-box' style='display:none;'>
+        <h4>Bulk Storage Sites</h4>
+        <div class='legendrow' style="margin-top:-10px;">
+          <div style="display:inline-block;line-height:100%;"></br>Toxic Release<br/>Inventory Sites</div>
+          <div onclick="bulk_indiv('Bulk Storage Sites')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
+            <img id='Bulk Storage Sites' class="bulk-div marker3" src="Assets/images/mh_x.svg"></img>
+            <img class="bulk-div marker2" src="Assets/all_sprites/mh_toxic3.svg"></img>
+          </div>
+        </div>
+        <div class='legendrow'>
+          <div style="display:inline-block;line-height:100%"></br>Major Oil Storage<br/>Facilities</div>
+          <div onclick="bulk_indiv('MOSF')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
+            <img id='MOSF' style="transform:rotate(-20deg);" class="bulk-div marker3" src="Assets/images/mh_x.svg"></img>
+            <img class="bulk-div marker2" src="Assets/all_sprites/mh_oil3.svg"></img>
+          </div>
+        </div>
+        <div class='legendrow'>
+          <div style="display:inline-block;line-height:100%"></br>Chemical Bulk<br/>Storage</div>
+          <div onclick="bulk_indiv('CBS')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
+            <img id='CBS' style="transform:rotate(160deg);" class="bulk-div marker3" src="Assets/images/mh_x.svg"></img>
+            <img class="bulk-div marker2" src="Assets/all_sprites/mh_chem3.svg"></img>
+          </div>
+        </div>
+        <div class='legendrow'>
+          <div style="display:inline-block;line-height:100%"></br>Superfund<br/>Class 2 Sites</div>
+          <div onclick="bulk_indiv('SUPERFUND2')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
+            <img id='SUPERFUND2' style="transform:rotate(10deg);" class="bulk-div marker3" src="Assets/images/mh_x.svg"></img>
+            <img class="bulk-div marker2" src="Assets/all_sprites/mh_super3.svg"></img>
+          </div>
+        </div>
+        <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
+      </div>
+    </div>
+
+    <div id='control_container' style='width:100%;background-color:rgba(0,0,0,0);'>
 
       <!-- WIP overlay and box-->
       <div id="wipoverlay" class="overlayed" onclick='hidewip()'></div>
@@ -92,56 +188,6 @@
     </div>
 
 
-    <!------------------------->
-    <!--      LEGENDS        -->
-    <!------------------------->
-
-    <!-- THIS IS THE LEGEND AND LEGEND PLACEHOLDER -->
-    <div id='general_legend' class='legend overlay-box' style='display:block'>
-      <div style="text-align:right">
-        <div style="display:inline-block;line-height:100%">Significant Maritime<br/>and Industrial Areas</div>
-        <span style='vertical-align:middle;outline-width:3px;outline-color: #000000;outline-style: solid;margin-bottom:12px;margin-left:10px;'></span>
-        <div style="display:inline-block;line-height:100%">Half-mile buffer<br/>to SMIAs</div>
-        <span style='vertical-align:middle;outline-width:2px;outline-color: #000000;outline-style: dashed;margin-bottom:12px;margin-left:10px;'></span>
-      </div>
-      <p class="spacer"></p>
-      <div id='legend_placeholder'></div>
-    </div>
-
-    <!-- LEGEND HTML FOR BULK STORAGE -->
-    <div id='legendHTML_bulk' class='legend overlay-box' style='display:none;'>
-      <h4>Bulk Storage Sites</h4>
-      <div class='legendrow' style="margin-top:-10px;">
-        <div style="display:inline-block;line-height:100%;"></br>Toxic Release<br/>Inventory Sites</div>
-        <div onclick="bulk_indiv('Bulk Storage Sites')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
-          <img id='Bulk Storage Sites' class="bulk-div marker3" src="Assets/images/mh_x.svg"></img>
-          <img class="bulk-div marker2" src="Assets/all_sprites/mh_toxic3.svg"></img>
-        </div>
-      </div>
-      <div class='legendrow'>
-        <div style="display:inline-block;line-height:100%"></br>Major Oil Storage<br/>Facilities</div>
-        <div onclick="bulk_indiv('MOSF')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
-          <img id='MOSF' style="transform:rotate(-20deg);" class="bulk-div marker3" src="Assets/images/mh_x.svg"></img>
-          <img class="bulk-div marker2" src="Assets/all_sprites/mh_oil3.svg"></img>
-        </div>
-      </div>
-      <div class='legendrow'>
-        <div style="display:inline-block;line-height:100%"></br>Chemical Bulk<br/>Storage</div>
-        <div onclick="bulk_indiv('CBS')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
-          <img id='CBS' style="transform:rotate(160deg);" class="bulk-div marker3" src="Assets/images/mh_x.svg"></img>
-          <img class="bulk-div marker2" src="Assets/all_sprites/mh_chem3.svg"></img>
-        </div>
-      </div>
-      <div class='legendrow'>
-        <div style="display:inline-block;line-height:100%"></br>Superfund<br/>Class 2 Sites</div>
-        <div onclick="bulk_indiv('SUPERFUND2')" style="display:inline-block;line-height:100%;position:relative;bottom:35px;">
-          <img id='SUPERFUND2' style="transform:rotate(10deg);" class="bulk-div marker3" src="Assets/images/mh_x.svg"></img>
-          <img class="bulk-div marker2" src="Assets/all_sprites/mh_super3.svg"></img>
-        </div>
-      </div>
-      <div style="text-align:right"><span style='background-color: #ffffff'></span></div>
-    </div>
-
     <!-- LEGEND HTML FOR BULK STORAGE -->
     <div id='legendHTML_Highlight' class='legend overlay-box' style='display:none;right:180px;bottom:-55px;'>
       <h4>SMIAs</h4>
@@ -184,8 +230,6 @@
       </div>
     </div>
 
-    <!-- LEGEND INFO BOX-->
-    <div id='legendinfo' class='legend-info overlay-box'></div>
 
     <!------------------------->
     <!--   NAVIGATION  BOX   -->
@@ -255,19 +299,6 @@
       <p style="font-size: 0.7em; color: #777777;text-align:center;"><a href="https://github.com/ScAAN/waterfrontmap/blob/master/LICENSE">&copy NYC-EJA and ScAAN, 2018</a></p>
     </div>
 
-    <!-- EXPLORE CONTENT  -->
-    <div id='explorebox' class='box-content text-info-box overlay-box'>
-      <div> <p>Click the map to explore a neighborhood, or search with the bar below. </p></div>
-      <div id='geocoder' class='geocoder'></div>
-      <div id='map-overlay-info' class='map-overlay-info'></div>
-    </div>
-
-
-    <!-- STORY CONTENT  -->
-    <div id='storybox' class='box-content text-info-box overlay-box story-box link-restyle'></div>
-    <div id='smiainfoboxempty' class='smiainfobox'></div>
-
-
 
     <!------------------------->
     <!--      BUTTONS        -->
@@ -302,7 +333,7 @@
     </div>
 
     <!-- PRINT BUTTON  -->
-    <div id='printbutton' class='print-button small-button general-button button-fill' style='display: block; cursor: pointer; z-index: 10;' onclick='window.print()'>
+    <div id='printbutton' class='print-button small-button general-button button-fill' style='display: block; cursor: pointer; z-index: 10;' onclick='print_map()'>
       <span class="tooltiptext">print</span>
       <span class='small-button-inside'><img class="marker" style="left:2.5px;height:40px;" src="Assets/images/noun_printer.svg"></img></span>
   </div>
