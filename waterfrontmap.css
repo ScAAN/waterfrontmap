@@ -77,6 +77,17 @@ html {
   line-height:1;
 }
 
+#print_overlay{
+  font-size: 14px;
+	width:60vw;
+	top:7.5vh;
+	left:20vw;
+	z-index:99;
+	margin:0 auto;
+  display:block;
+  line-height:1;
+}
+
 .instructions h4{
   font-size: 24px;
   margin: 0 0 10px;
@@ -581,7 +592,7 @@ width:330px;
   margin:10px;
   cursor:pointer;
   border-radius:20px;
-  padding:10px;
+  padding:7.5px;
   font-size:30px;
   opacity:1;
   margin:5px;

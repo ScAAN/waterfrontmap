@@ -22,7 +22,7 @@ var global_loadcount = 0;
 var global_pageloaded = 0;
 function map_init(num){
   global_loadcount = global_loadcount+num;
-  if (global_loadcount >=8){
+  if (global_loadcount >=(8+3)){
     global_pageloaded = 1;
     // make default layer visible and initialize menu
     menuinit();

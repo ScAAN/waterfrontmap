@@ -8,9 +8,6 @@
   <link href='waterfrontmap.css' rel='stylesheet' />
   <!-- MAPBOX stuff (script, style sheet, geocoder script and stylesheet)-->
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
-  <script src='./Scripts/sharemap.js'></script>
-  <script src='./Scripts/html2canvas.min.js'></script>
-  <script src='./Scripts/filesaver.min.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
@@ -41,7 +38,7 @@
     <div id="flashdiv"></div>
     <div id='print_container' style="display:none;z-index:99;position:absolute;">
         <div id="printoverlay" class="overlayed" style="z-index:1;"></div>
-        <div id="print_overlay" class="instructions overlay-box" style="text-align:center;height:80vh;z-index:5;">
+        <div id="print_overlay" class="overlay-box" style="text-align:center;height:80vh;z-index:5;">
           <div id="screenshot_txt" style="font-size:18px;margin:10px;"></div>
           <div id="myscreenshot" style="vertical-align:middle;"></div>
           <canvas id="my_canvas" style="display:none;"></canvas>
@@ -68,7 +65,7 @@
         <!--<div style="display:inline-block;position:relative;top:-20px;"><img src="Assets/images/scaan.png" alt="ScAAN" style="top:-20px;height:20px;"/></div>-->
         <div style="display:inline-block;position:relative;top:-20px;"><img src="Assets/images/scaan.png" alt="ScAAN" style="top:-20px;height:20px;"/></div>
         <div style="font-size:1.6vw;top:-6px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;"> and </div>
-        <div style="display:inline-block;position:relative;top:-11px;"><img src="Assets/images/nycejalliance.png" alt="NYC-EJA" style="top:-20px;height:45px;"/></div>
+        <div style="display:inline-block;position:relative;top:-11px;"><img src="Assets/images/nycejalliance.svg" alt="NYC-EJA" style="top:-20px;height:45px;"/></div>
         <!--<div style="display:inline-block;position:relative;top:-11px;"><img src="Assets/images/nycejalliance.png" alt="NYC-EJA" style="top:-20px;height:45px;"/></div>-->
         <div style="font-size:1.7vw;top:-6px;line-height:1;margin:10px;width:30%;display:inline-block;color:black;position:relative;vertical-align:top;">   http://scaan.net/waterfrontmap/ </div>
         <div id="print_date" style="position:absolute;font-size:1.6vw;top:-14px;right:0px;line-height:1;margin:5px;width:25%;display:inline-block;color:black;vertical-align:top;">
@@ -373,6 +370,9 @@
     load_script("Scripts/waterfrontmap.js",map_init(1))
     load_script("Scripts/story.js",map_init(1))
     load_script("Scripts/explore.js",map_init(1))
+    load_script("Scripts/html2canvas.min.js",map_init(1))
+    load_script("Scripts/filesaver.min.js",map_init(1))
+    load_script("Scripts/sharemap.js",map_init(1))
   }
 </script>
 
