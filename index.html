@@ -38,19 +38,22 @@
   <!-- Everything is wrapped inside the map container so fullscreen can work -->
   <div id='map'>
     <!-- Container for pop up screen for printing -->
+    <div id="flashdiv"></div>
     <div id='print_container' style="display:none;z-index:99;position:absolute;">
         <div id="printoverlay" class="overlayed" style="z-index:1;"></div>
         <div id="print_overlay" class="instructions overlay-box" style="text-align:center;height:80vh;z-index:5;">
           <div id="screenshot_txt" style="font-size:18px;margin:10px;"></div>
           <div id="myscreenshot" style="vertical-align:middle;"></div>
-          <canvas id="my_canvas"></canvas>
+          <canvas id="my_canvas" style="display:none;"></canvas>
           <!--<div id="printexit" style="color:white;background-color:rgba(255,0,0,.9);display:inline-block;width:150px;font-size:32px;" onclick="(function(){$('print_container').style.display='none'})();">exit</div>-->
-          <div id="printexit" style="color:white;background-color:rgba(200,200,200,1);display:inline-block;width:40px;height:40px;position:absolute;top:10px;right:10px;font-size:32px;border-radius:5px;" onclick="(function(){$('print_container').style.display='none'})();">x</div>
-          <p class="spacer"></p>
-          <div id="share_download" style="color:white;background-color:rgba(255,50,0,.6);display:inline-block;width:200px;font-size:32px;" onclick="savefile()">download</div>
-          <div id="share_download" style="color:white;background-color:rgba(0,50,255,.6);display:inline-block;width:200px;font-size:32px;" onclick="sharevia('facebook')">facebook</div>
-          <div id="share_download" style="color:white;background-color:rgba(0,255,200,.6);display:inline-block;width:200px;font-size:32px;" onclick="sharevia('twitter')">twitter</div>
-          <div id="share_download" style="color:white;background-color:rgba(255,200,0,.6);display:inline-block;width:200px;font-size:32px;" onclick="sharevia('email')">email</div>
+          <div id="printexit" onclick="(function(){$('print_container').style.display='none'})();">x</div>
+          <div id="printbuttons" style="visibility:hidden;">
+            <p class="spacer"></p>
+            <div id="share_download" class="share-button" style="background-color:rgba(255,50,0,1);" onclick="savefile()">download</div>
+            <div class="share-button" style="background-color:rgba(0,50,255,1);" onclick="sharevia('facebook')">facebook</div>
+            <div class="share-button" style="background-color:rgba(50,200,50,1);" onclick="sharevia('twitter')">twitter</div>
+            <div class="share-button" style="background-color:rgba(255,200,0,1);" onclick="sharevia('email')">email</div>
+          </div>
         </div>
     </div>
     <!-- Put controls in their own container -->
@@ -65,7 +68,7 @@
         <!--<div style="display:inline-block;position:relative;top:-20px;"><img src="Assets/images/scaan.png" alt="ScAAN" style="top:-20px;height:20px;"/></div>-->
         <div style="display:inline-block;position:relative;top:-20px;"><img src="https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Assets/images/scaan.png" alt="ScAAN" style="top:-20px;height:20px;"/></div>
         <div style="font-size:18px;top:-6px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;"> and </div>
-        <div style="display:inline-block;position:relative;top:-11px;"><img src="https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Assets/images/scaan.png" alt="NYC-EJA" style="top:-20px;height:45px;"/></div>
+        <div style="display:inline-block;position:relative;top:-11px;"><img src="https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Assets/images/nycejalliance.png" alt="NYC-EJA" style="top:-20px;height:45px;"/></div>
         <!--<div style="display:inline-block;position:relative;top:-11px;"><img src="Assets/images/nycejalliance.png" alt="NYC-EJA" style="top:-20px;height:45px;"/></div>-->
         <div style="font-size:18px;top:-6px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;">  http://scaan.net/waterfrontmap/ </div>
         <div id="print_date" style="position:absolute;font-size:1.8vw;top:-14px;right:0px;line-height:1;margin:5px;width:30%;display:inline-block;color:black;vertical-align:top;">
@@ -339,7 +342,7 @@
     </div>
 
     <!-- PRINT BUTTON  -->
-    <div id='printbutton' class='print-button small-button general-button button-fill' style='display: block; cursor: pointer; z-index: 10;' onclick='print_map()'>
+    <div id='printbutton' class='print-button small-button general-button button-fill' style='display: block; cursor: pointer; z-index: 10;' onclick='map_capture()'>
       <span class="tooltiptext">print</span>
       <span class='small-button-inside'><img class="marker" style="left:2.5px;height:40px;" src="Assets/images/noun_printer.svg"></img></span>
   </div>

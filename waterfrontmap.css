@@ -84,6 +84,40 @@ html {
   font-weight:'bold';
 }
 
+#flashdiv {
+  opacity: 0;
+  transition: all 10ms ease-in;/* Shutter speed */
+  position: absolute;
+  height: 0%;
+  width: 0%;
+  pointer-events: none;
+  background-color: white;/* Shutter Color */
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  z-index:99;
+}
+
+#printexit {
+  color:white;
+  background-color:rgba(200,200,200,1);
+  display:inline-block;
+  width:40px;
+  height:40px;
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:32px;
+  border-radius:3px;
+  cursor:pointer;
+}
+
+#printexit:hover {
+  background-color:rgba(100,100,100,1);
+  color:rgba(200,200,200,1);
+}
+
 /*-------------------*
 *  Body and headings *
 * -------------------*/
@@ -539,6 +573,23 @@ width:330px;
 /*-------------------*
 *    Buttons         *
 * -------------------*/
+.share-button {
+  color:white;
+  display:inline-block;
+  width:180px;
+  cursor:pointer;
+  border-radius:5px;
+  padding:5px;
+  font-size:30px;
+  opacity:.4;
+  margin:5px;
+}
+
+.share-button:hover {
+  transition: all 0.371s cubic-bezier(0.4,0,0.2,1);
+  opacity:1;
+}
+
 .relative-button {
   bottom:20px;
   vertical-align:top;

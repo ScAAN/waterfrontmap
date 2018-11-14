@@ -1,22 +1,27 @@
 
+function map_capture(){
+  capture_animation();
+  setTimeout(function() {
+    print_map()
+  }, 10*2+45+45);
+}
+
 function print_map(){
+    $('printbuttons').style.visibility="hidden";
     var print_date = new Date();
     $('print_date').innerHTML = '<p>Downloaded: <small>' + print_date + '</small></p>';
     $('infobarprint').style.display="block";
     $('print_container').style.display="block";
-    var loadheight = screen.height/5;
-    $('myscreenshot').innerHTML = '<img src="Assets/images/loadloop.gif" height=' + loadheight + 'px/>';
-    $('screenshot_txt').innerHTML = "map rendering...";
+    var loadheight = (screen.height*2)/5;
+    $('myscreenshot').height = loadheight + 'px';
+    $('myscreenshot').innerHTML = '<img src="Assets/images/loadloop.gif" style="margin:auto;" height=' + loadheight + 'px/>';
+    $('screenshot_txt').innerHTML = "capturing current map view...";
     html2canvas(document.getElementById("test_container"),{backgroundColor:null},{allowTaint:false},{useCORS:false}).then(function(canvas) {
-      tempcan = document.getElementById("myscreenshot").appendChild(canvas);
-      tempcan.style.width="100%";
-      tempcan.style.height="100%";
       var mapcan  = map.getCanvas().toDataURL();
       var imgcan = new Image();
       imgcan.crossOrigin = "Anonymous";
       imgcan = canvas.toDataURL();
       //dispimg(mapcan,imgcan)
-      tempcan.style.display = "none";
       var img1 = imgcan;
       var img2 = mapcan;
       var c = $('my_canvas');
@@ -32,18 +37,17 @@ function print_map(){
            var hei = imageObj2.height*mysca;
            c.width=wid;
            c.height=hei;
-           c.style.display="none"
            ctx.drawImage(imageObj2, 0, 0, wid,hei);
            ctx.drawImage(imageObj1, 0, 0, wid,hei);
            //var img = c.toDataURL("image/png");
            var img = c.toDataURL();
-           console.log(img)
            var htpx = hei/5;
-           $('screenshot_txt').innerHTML = "map screen captured!";
+           $('screenshot_txt').innerHTML = "...map view captured!";
            $('myscreenshot').innerHTML = '<img id="mapcapture" src="' + img + '" style="border: 1px solid rgba(0,0,0,1);margin:auto;" height=' + htpx + 'px/>';
            //$('share_download').innerHTML = '<a href="' + img +  '" download="wfm_mapview.png" style="color:white;">download</a>';
            $('share_download').innterHTML = 'download'
            $('infobarprint').style.display="none";
+           $('printbuttons').style.visibility="visible";
          }
       };
     });
@@ -54,6 +58,17 @@ function savefile(){
   saveAs($('mapcapture').src, "map_download.png");
 }
 
+function capture_animation(){
+  $('flashdiv').style.opacity=1;
+  $('flashdiv').style.width="100%";
+  $('flashdiv').style.height="100%";
+
+  setTimeout(function() {
+    $('flashdiv').style.opacity=0;
+    $('flashdiv').style.width="0%";
+    $('flashdiv').style.height="0%";
+  }, 10*2+45);/* Shutter speed (double & add 45) */
+}
 
 function sharevia(platform){
   var generated_link = "";
