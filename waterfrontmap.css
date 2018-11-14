@@ -110,6 +110,19 @@ html {
   z-index:99;
 }
 
+#share_download_name{
+  display:inline-block;
+}
+
+#download_name_input{
+  border-radius:20px;
+  padding:5px;
+  width:105px;
+  margin-top:5px;
+  display:inline-block;
+  padding-left:10px;
+}
+
 #printexit {
   color:white;
   background-color:rgba(200,200,200,1);

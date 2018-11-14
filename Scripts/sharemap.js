@@ -80,6 +80,11 @@ function print_map(){
            $('infobarprint').style.display="none";
            $('drawn_attribution').style.display="none";
            $('printbuttons').style.visibility="visible";
+           // reset file name input box
+           // and add one to it for every time a screen is captured
+           $('download_name_input').value = '';
+           var pic_num = Number($('download_name_input').placeholder.charAt(13))+1;
+           $('download_name_input').placeholder = 'WJPscreenshot' + pic_num;
          }
       };
     });
@@ -87,7 +92,12 @@ function print_map(){
 
 // save the captured image as a png
 function savefile(){
-  saveAs($('mapcapture').src, "map_download.png");
+  if ($("download_name_input").value==''){
+    var file_name = $('download_name_input').placeholder;
+  } else {
+    var file_name = $("download_name_input").value;
+  }
+  saveAs($('mapcapture').src, file_name + ".png");
 }
 
 // camera flash animation to indicate to use screen is being captured
