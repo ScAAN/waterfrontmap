@@ -12,7 +12,7 @@ function print_map(){
     $('print_date').innerHTML = '<p>Downloaded: <small>' + print_date + '</small></p>';
     $('infobarprint').style.display="block";
     $('print_container').style.display="block";
-    var loadheight = (screen.height*2)/5;
+    var loadheight = (screen.height*2)/6;
     $('myscreenshot').height = loadheight + 'px';
     $('myscreenshot').innerHTML = '<img src="Assets/images/loadloop.gif" style="margin:auto;" height=' + loadheight + 'px/>';
     $('screenshot_txt').innerHTML = "capturing current map view...";
@@ -41,7 +41,7 @@ function print_map(){
            ctx.drawImage(imageObj1, 0, 0, wid,hei);
            //var img = c.toDataURL("image/png");
            var img = c.toDataURL();
-           var htpx = hei/5;
+           var htpx = hei/6;
            $('screenshot_txt').innerHTML = "...map view captured!";
            $('myscreenshot').innerHTML = '<img id="mapcapture" src="' + img + '" style="border: 1px solid rgba(0,0,0,1);margin:auto;" height=' + htpx + 'px/>';
            //$('share_download').innerHTML = '<a href="' + img +  '" download="wfm_mapview.png" style="color:white;">download</a>';
