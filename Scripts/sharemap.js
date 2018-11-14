@@ -53,3 +53,19 @@ function savefile(){
   console.log($('mapcapture').src)
   saveAs($('mapcapture').src, "map_download.png");
 }
+
+
+function sharevia(platform){
+  var generated_link = "";
+  var url = window.location.href;
+  var url = "http://scaan.net/waterfrontmap/";
+  console.log(url)
+  if (platform=="facebook"){
+    generated_link = `https://www.facebook.com/sharer.php?u=${url}`
+  } else if (platform=="twitter"){
+    generated_link = `https://twitter.com/share?url=${url}`;
+  } else if (platform=="email"){
+    generated_link =`mailto:{email_address}?subject={title}&body={text}`;
+  }
+  window.open(generated_link)
+}
