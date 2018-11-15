@@ -864,6 +864,19 @@ margin-bottom:-1px;
   /*right: 10px;*/
 
 }
+#legendexitbutton{
+  top:10px;
+  right:10px;
+  z-index:2;
+  position:absolute;
+  height:20px;
+  width:20px;
+  cursor:pointer;
+  background-color:rgba(200,200,200,1);
+}
+#legendexitbutton:hover{
+  background-color:rgba(150,150,150,1);
+}
 .print-button {
   position: absolute;
   top:2px;
@@ -1037,7 +1050,14 @@ margin-bottom:-1px;
 #scale-control {
   position:absolute;
   left:50px;
-  bottom:37.5px;
+  bottom:40px;
+  z-index:2;
+}
+
+#nav-control {
+  left:10px;
+  bottom:40px;
+  position:absolute;
   z-index:2;
 }
 

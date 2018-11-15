@@ -32,7 +32,7 @@ function print_map(){
     // add back attribution
     $('drawn_attribution').style.display="block";
     $('print_container').style.display="block";
-    // loadheight = screenheight* mysca*dispsca/2
+    // loadheight = screenheight*2*dispsca/2
     var loadheight = (screen.height*2)/12;
     $('myscreenshot').height = loadheight + 'px';
     $('myscreenshot').innerHTML = '<img src="Assets/images/loadloop.gif" style="margin-top:100px;" height=' + loadheight + 'px/>';

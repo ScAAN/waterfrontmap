@@ -283,7 +283,8 @@ function update_legend(layername){
   $('legendinfo').innerHTML ='<div style="margin-top:-10px;">'
   +'<p><h4>Description</h4><small>' + vlayer[layername]["text"] + '</br></br></small>'
   +'<h4>Source</h4><small>'+ vlayer[layername]["source"] +'</small></p>'
-  +'</div>';
+  +'</div>' +
+  '<div id="legendexitbutton" onclick="show_legend_info()"><img src="Assets/images/share_x.svg" height="20px"/></div>';
 
   // get legend entry and color
   var legendentry = legend_text[toggleableLegendIds[layername] + '_entry'];

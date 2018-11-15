@@ -34,8 +34,9 @@ fs_container.id ="mapbox-container-fs"
 
 // navigation control
 // put it in the bottom left
-var nav = new mapboxgl.NavigationControl();
-map.addControl(nav, 'bottom-left');
+var nav_control = new mapboxgl.NavigationControl();
+document.getElementById('nav-control').appendChild(nav_control.onAdd(map));
+//map.addControl(nav, 'bottom-left');
 
 // Scale Control
 // https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol
