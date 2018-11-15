@@ -187,8 +187,14 @@
     <!------------------------->
 
 
+    <div id="slider_flash">
+      <div id="flash_circ_outer">
+        <div id="flash_circ_inner"></div>
+      </div>
+    </div>
+
     <div id="rightslider">
-      <div class="innerslider" onmouseleave="clearmenu()">
+      <div class="innerslider" onmouseleave="clearmenu()" onmouseenter="slider_pulse('stop')">
         <div id="slideoutercircle" class="slidecircle"></div>
         <div id="slideinnercircle" class="slidecircle" style="overflow:visible">
           <div class="general-button button-fill" style='box-shadow:none;border:none;position:relative;top:-1px'>
@@ -296,19 +302,19 @@
       </div>
 
       <!-- RESET BUTTON  -->
-      <div id='resetbutton' class='small-button general-button button-fill small-bar-button ' onclick='reset_map_view(event)'>
+      <div id='resetbutton' class='small-button general-button button-flat small-bar-button button-fill ' onclick='reset_map_view(event)'>
         <span class="tooltiptext">reset</span>
         <span class='small-button-inside'><img class="marker" style="left:2.5px;height:40px;bottom:0px;" src="Assets/images/mh_reload.svg"></img></span>
     </div>
 
         <!-- PRINT BUTTON  -->
-        <div id='printbutton' class='small-button general-button button-fill small-bar-button ' onclick='map_capture()'>
+        <div id='printbutton' class='small-button general-button button-flat small-bar-button button-fill' onclick='map_capture()'>
           <span class="tooltiptext">print</span>
-          <span class='small-button-inside'><img class="marker" style="left:2.5px;height:40px;" src="Assets/images/noun_printer.svg"></img></span>
+          <span class='small-button-inside'><img class="marker" style="left:2.5px;height:45px;top:0px;" src="Assets/images/noun_printer.svg"></img></span>
       </div>
 
       <!-- MAPBOX FULLSCREEN -->
-      <div id='fullscreenbutton' class='small-button general-button button-fill small-bar-button '>
+      <div id='fullscreenbutton' class='small-button general-button button-flat small-bar-button button-fill '>
         <span class="tooltiptext" style="width:70px;margin-left:-35px;" >fullscreen</span>
         <span class='small-button-inside' style="position:absolute;z-index:0;"></span>
       </div>

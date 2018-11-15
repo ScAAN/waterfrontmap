@@ -15,6 +15,7 @@ function hidewip(){
   if (global_pageloaded==1){
     $('wipbox').style.display = 'none';
     $('wipoverlay').style.display = 'none';
+    slider_pulse("start");
   }
 }
 
@@ -22,6 +23,17 @@ function hideaboutbox(){
   $('aboutbox').style.display = 'none';
   $('aboutoverlay').style.display = 'none';
   showinfobox([],"none")
+}
+
+function slider_pulse(string){
+  if (string=="start"){
+    $('slider_flash').style.webkitTransform="scale(1)";
+  } else if (string="stop"){
+    $('slider_flash').style.webkitTransform="scale(.1)";
+    setTimeout(function() {
+      $('slider_flash').style.display="none";
+    }, 500);
+  }
 }
 
 // ----------------------------------------

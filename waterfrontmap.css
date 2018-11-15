@@ -95,6 +95,40 @@ html {
   font-weight:'bold';
 }
 
+#slider_flash{
+  position:absolute;
+  top:-5px;
+  width:200px;
+  height:200px;
+  opacity:.6;
+  right:-50px;
+  border-radius:200px;
+  z-index:1;
+  transition: all 500ms ease-in;/* Shutter speed */
+   -webkit-transform:scale(.01);
+}
+
+#flash_circ_outer{
+  background-color:rgba(150,150,150,1);
+  /*box-shadow: 0px 0px 50px 25px rgba(150,150,150,1);*/
+  border-radius:200px;
+  height:100%;
+  width:100%;
+}
+
+#flash_circ_inner{
+  background-color:rgba(200,200,200,1);
+  border-radius:200px;
+  position:absolute;
+  top:20%;
+  box-shadow: 0 0 0 0 rgba(200, 200, 200, 1);
+  left:20%;
+  height:60%;
+  width:60%;
+  -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+@-webkit-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}}
+
 #flashdiv {
   opacity: 0;
   transition: all 10ms ease-in;/* Shutter speed */
@@ -412,7 +446,7 @@ button {
   font-size: 13px;
   display: inline-block;
   right:-420px;
-  top:50px;
+  top:40px;
   position:absolute;
   overflow: hidden;
   z-index:10;
@@ -574,7 +608,7 @@ width:330px;
   position:absolute;
   top:6px;
   font-size: 16px;
-  z-index:1;
+  z-index:10;
 }
 
 #infobarprint {
@@ -797,6 +831,10 @@ margin-bottom:-1px;
   border: 1px solid rgba(0,0,0,0.4);
 }
 
+.button-flat {
+  padding:5px;
+  cursor: pointer;
+}
 
 .general-button {
   cursor: pointer;
@@ -867,11 +905,22 @@ margin-bottom:-1px;
 }
 .small-bar-button{
   position:relative;
-  top:-20px;
+  top:-17.5px;
   margin:10px;
+  float:right;
+  z-index:10;
   display:inline-block;
 }
 
+.smalltext{
+  font-size:10px;
+  position:absolute;
+  bottom:-10px;
+  text-align:center;
+  width:40px;
+  left:50%;
+  margin-left:-20px;
+}
 #legendinfobutton{
   border-top-left-radius:30px;
   border-top-right-radius:30px;
