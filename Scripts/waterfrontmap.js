@@ -412,7 +412,7 @@ map.addLayer({
 }, 'water2','Percent of Families Below Poverty Line');
 
 // ICON OPACITY FOR ALL BULK STORAGE SITES
-var iconop = .65;
+var iconop = 1;
 
 map.addLayer({
   "id": "Bulk Storage Sites",
@@ -420,7 +420,7 @@ map.addLayer({
   "source": "vector_data",
   "source-layer": 'TRI_converted',
   "layout": {
-    "icon-image": "mh_toxic3",
+    "icon-image": "mh_toxic_simple",
     "icon-allow-overlap": true,
     "text-allow-overlap": true,
     "visibility": 'none',
@@ -435,7 +435,7 @@ map.addLayer({
   "source": "vector_data",
   "source-layer": 'MOSF_converted',
   "layout": {
-    "icon-image": "mh_oil3",
+    "icon-image": "mh_oil_simple",
     "icon-allow-overlap": true,
     "text-allow-overlap": true,
     "visibility": 'none',
@@ -450,7 +450,7 @@ map.addLayer({
   "source": "vector_data",
   "source-layer": 'CBS_converted',
   "layout": {
-    "icon-image": "mh_chem3",
+    "icon-image": "mh_chem_simple",
     "icon-allow-overlap": true,
     "text-allow-overlap": true,
     "visibility": 'none',
@@ -465,7 +465,7 @@ map.addLayer({
   "source": "vector_data",
   "source-layer": 'SUPERFUND2_converted',
   "layout": {
-    "icon-image": "mh_super3",
+    "icon-image": "mh_super_simple",
     "icon-allow-overlap": true,
     "text-allow-overlap": true,
     "visibility": 'none',
