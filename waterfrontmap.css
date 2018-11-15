@@ -724,8 +724,10 @@ margin-bottom:-1px;
   width: 35px;
   z-index:3;
   margin:0 0;
-  top:7.5px;
-  left:5px;
+  /*top:7.5px;
+  left:5px;*/
+  left:2.5px;
+  top:5px;
   padding:0px;
   margin:0px;
   border: 2.5px solid rgba(255,255,255,0);
@@ -862,7 +864,25 @@ margin-bottom:-1px;
   top:2px;
   right:5px;
   /*right: 10px;*/
+}
+.small-bar-button{
+  position:relative;
+  top:-20px;
+  margin:10px;
+  display:inline-block;
+}
 
+#legendinfobutton{
+  border-top-left-radius:30px;
+  border-top-right-radius:30px;
+  height:30px;
+  padding:5px;
+  position:absolute;
+  top:-40px;
+  right:0px;
+  border:1px solid rgba(0,0,0,0.4);
+  border-bottom:1px solid rgba(255,255,255,1);
+  background-color:white;
 }
 #legendexitbutton{
   top:10px;
