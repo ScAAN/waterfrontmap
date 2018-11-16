@@ -497,7 +497,7 @@ for (var s = 0; s < symbol_list.length; s++) {
       "icon-opacity":iconop,
       "text-color":"#FFFFFF",
       "text-halo-color":"#444444",
-      "text-halo-width":5
+      "text-halo-width":8
     },
     "filter": ["==", "SITE_NAME", symbol]
   },'point');
