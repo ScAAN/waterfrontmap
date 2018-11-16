@@ -135,7 +135,8 @@ html {
   left:7.5px;
   top:6.5px;
   width:21px;
-  display:none;
+  visibility:hidden;
+  display:block;
   height:21px;
   background-color:rgba(0,0,0,0);
   box-shadow: 0 0 0 0px rgba(0, 0, 0, 1);

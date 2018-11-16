@@ -39,7 +39,7 @@ function slider_pulse(string){
 
 function button_pulse(string){
   if (string=="start"){
-    $('infoimgpulse').style.display="block";
+    $('infoimgpulse').style.visibility="visible";
   } else if (string="stop"){
     $('infoimgpulse').style.display="none";
   }
