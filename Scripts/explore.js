@@ -11,7 +11,7 @@
 var global_last_point = [0, 0];
 
 function query_point(e){
-  // on click query point, display info, and draw marker
+  // on click query point, display info, and draw markers
 
   // pointer
   map.getCanvas().style.cursor = 'pointer';
@@ -72,7 +72,8 @@ function show_explore_info(queried){
     var divtext = '';
     if ((typeof data[dataKey] != 'undefined') && ((data[dataKey]>0 && isNaN(data[dataKey])==0) || layerName.includes("Zoning"))){
       if (layerName.includes("Zoning")) {
-          divtext =  '' + layerName + ':<b> ' + (data[dataKey]) + ' (NYC Zoning code: ' +(data['ZONEDIST']) +')</b>';
+          var codelink = '<a href="https://www.google.com/search?q=nyc+zoning+code+' +  (data['ZONEDIST']) + '"> Code: ' +  (data['ZONEDIST'])  + ' </a>';
+          divtext =  '' + layerName + ':<b> ' + (data[dataKey]) + ' (' + codelink + ')</b> ';
       } else if (layerName.includes("Percent")) {
         divtext =  '' + layerName + ':<b> ' +  Math.round(data[dataKey]) + '%'+'</b>';
       } else if (layerName.includes("Income")) {
