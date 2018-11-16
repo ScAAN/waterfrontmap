@@ -126,6 +126,10 @@ map.on('load', function () {
     "type": "geojson",
     "data": "./Data/SeaLevelRise2020.geojson"
   });
+  map.addSource('combinedbulk', {
+    "type": "geojson",
+    "data": "./Data/bulkstorage_converted.json"
+  });
 
 
     // display marker for geocoder, this is a symbol (marker-15)
@@ -411,68 +415,93 @@ map.addLayer({
   "filter": ["==",'% of Families Below Poverty Level',-10]
 }, 'water2','Percent of Families Below Poverty Line');
 
+
+/*
+map.addLayer({
+  "id": "BSScombined",
+  "type": "symbol",
+  "source": "combinedbulk",
+  "layout": {
+    "icon-image": {
+      "property": "SITE_NAME",
+      "type": "categorical",
+      "stops":[
+        ['TRI', 'mh_toxic_simple'],
+        ['CBS', 'mh_chem_simple'],
+        ['MOSF', 'mh_oil_simple'],
+        ['SUPERFUND2', 'mh_super_simple']
+      ]
+    },
+    "icon-allow-overlap": true,
+    "text-allow-overlap": true,
+    "visibility": 'visible',
+    "icon-size":{
+      "property": "NUMBER_OF_SITES",
+      "type":"interval",
+      "stops":[
+        [0, .01],
+        [1, .25],
+        [2, .30],
+        [5, .35],
+        [10, .40],
+        [20, .50],
+        [51, .60],
+        [100, .80]
+      ]
+    },
+    "text-field":"{NUM_SITES_STRING}",
+    "text-size":12
+  },
+  "paint":{
+    "icon-opacity":iconop,
+    "text-color":"#FFFFFF",
+    "text-halo-color":"#000000",
+    "text-halo-width":5}
+},'point');*/
+
 // ICON OPACITY FOR ALL BULK STORAGE SITES
 var iconop = 1;
+var symbol_list = ["TRI","CBS","MOSF","SUPERFUND2"];
 
-map.addLayer({
-  "id": "Bulk Storage Sites",
-  "type": "symbol",
-  "source": "vector_data",
-  "source-layer": 'TRI_converted',
-  "layout": {
-    "icon-image": "mh_toxic_simple",
-    "icon-allow-overlap": true,
-    "text-allow-overlap": true,
-    "visibility": 'none',
-    "icon-size":.25,
-  },
-  "paint":{"icon-opacity":iconop}
-},'point');
-
-map.addLayer({
-  "id": "MOSF",
-  "type": "symbol",
-  "source": "vector_data",
-  "source-layer": 'MOSF_converted',
-  "layout": {
-    "icon-image": "mh_oil_simple",
-    "icon-allow-overlap": true,
-    "text-allow-overlap": true,
-    "visibility": 'none',
-    "icon-size":.25,
-  },
-  "paint":{"icon-opacity":iconop}
-},'point');
-
-map.addLayer({
-  "id": "CBS",
-  "type": "symbol",
-  "source": "vector_data",
-  "source-layer": 'CBS_converted',
-  "layout": {
-    "icon-image": "mh_chem_simple",
-    "icon-allow-overlap": true,
-    "text-allow-overlap": true,
-    "visibility": 'none',
-    "icon-size":.25,
-  },
-  "paint":{"icon-opacity":iconop}
-},'point');
-
-map.addLayer({
-  "id": "SUPERFUND2",
-  "type": "symbol",
-  "source": "vector_data",
-  "source-layer": 'SUPERFUND2_converted',
-  "layout": {
-    "icon-image": "mh_super_simple",
-    "icon-allow-overlap": true,
-    "text-allow-overlap": true,
-    "visibility": 'none',
-    "icon-size":.25,
-  },
-  "paint":{"icon-opacity":iconop}
-},'point');
+// ADD BULK LAYERS specified by "symbol_list" to map
+for (var s = 0; s < symbol_list.length; s++) {
+  symbol = symbol_list[s];
+  console.log(symbol)
+  map.addLayer({
+    "id": symbol,
+    "type": "symbol",
+    "source": "combinedbulk",
+    "layout": {
+      "icon-image": "marker_" + symbol,
+      "icon-allow-overlap": true,
+      "text-allow-overlap": true,
+      "visibility": 'none',
+      "icon-size":{
+        "property": "NUMBER_OF_SITES",
+        "type":"interval",
+        "stops":[
+          [0, .01],
+          [1, .25],
+          [2, .30],
+          [5, .35],
+          [10, .40],
+          [20, .50],
+          [51, .60],
+          [100, .80]
+        ]
+      },
+      "text-field":"{NUM_SITES_STRING}",
+      "text-size":12
+    },
+    "paint":{
+      "icon-opacity":iconop,
+      "text-color":"#FFFFFF",
+      "text-halo-color":"#000000",
+      "text-halo-width":5
+    },
+    "filter": ["==", "SITE_NAME", symbol]
+  },'point');
+}
 
 map.addLayer({
   "id": "Sea Level Rise 2050",
@@ -482,7 +511,7 @@ map.addLayer({
     "fill-color": "#03a9f4",
     "fill-opacity": 0
   }
-},'water2','Bulk Storage Sites','SUPERUND2','CBS','MOSF');
+},'water2','TRI','SUPERUND2','CBS','MOSF');
 
 map.addLayer({
   "id": "Sea Level Rise 2020",
@@ -492,7 +521,7 @@ map.addLayer({
     "fill-color": "#3f51b5",
     "fill-opacity": 0
   }
-},'water2','Bulk Storage Sites','SUPERUND2','CBS','MOSF');
+},'water2','TRI','SUPERUND2','CBS','MOSF');
 
 
 map.addLayer({
@@ -508,7 +537,7 @@ map.addLayer({
     "line-color": "#000000",
     "line-width": 3
   }
-},'Bulk Storage Sites','SUPERUND2','CBS','MOSF');
+},'TRI','SUPERUND2','CBS','MOSF');
 
 map.addLayer({
   "id": "SMIA-buffer",
@@ -524,7 +553,7 @@ map.addLayer({
     "line-width": 2,
     "line-dasharray": [1, 3]
   }
-},'Bulk Storage Sites','SUPERUND2','CBS','MOSF');
+},'TRI','SUPERUND2','CBS','MOSF');
 
 /*
 map.addLayer({
@@ -548,7 +577,7 @@ map.addLayer({
 ]
 }
 }
-},'SMIA','SMIA-buffer','Bulk Storage Sites','SUPERUND2','CBS','MOSF');
+},'SMIA','SMIA-buffer','TRI','SUPERUND2','CBS','MOSF');
 */
 
 // display marker for SMIAs
@@ -573,7 +602,7 @@ map.addLayer({
     "fill-color": "#000000",
     "fill-opacity": 0
   }
-},'Bulk Storage Sites','SUPERUND2','CBS','MOSF');
+},'TRI','SUPERUND2','CBS','MOSF');
 
 map.addLayer({
   "id": "SMIAhover",
@@ -585,7 +614,7 @@ map.addLayer({
     "fill-opacity": .5,
   },
   "filter": ["==", "SMIA_Name", ""]
-},'Bulk Storage Sites','SUPERUND2','CBS','MOSF','SMIAnumbers');
+},'TRI','SUPERUND2','CBS','MOSF','SMIAnumbers');
 
 map.addLayer({
   "id": "Hurricane Evacuation Zones",

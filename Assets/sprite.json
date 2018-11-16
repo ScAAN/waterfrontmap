@@ -4,168 +4,196 @@
     "pixelRatio": 1,
     "width": 16,
     "x": 724,
-    "y": 125
+    "y": 225
   },
   "diag-4": {
     "height": 4,
     "pixelRatio": 1,
     "width": 4,
     "x": 796,
-    "y": 125
+    "y": 225
   },
   "diag-4-thin": {
     "height": 4,
     "pixelRatio": 1,
     "width": 4,
     "x": 444,
-    "y": 225
+    "y": 325
   },
   "diag-6": {
     "height": 6,
     "pixelRatio": 1,
     "width": 6,
     "x": 432,
-    "y": 225
+    "y": 325
   },
   "diag-6-sym": {
     "height": 6,
     "pixelRatio": 1,
     "width": 6,
     "x": 438,
-    "y": 225
+    "y": 325
   },
   "diag-64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 500,
-    "y": 125
+    "y": 225
   },
   "diag-8": {
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
     "x": 788,
-    "y": 125
+    "y": 225
   },
   "hatch-16": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
     "x": 740,
-    "y": 125
+    "y": 225
   },
   "hatch-16-3": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
     "x": 756,
-    "y": 125
+    "y": 225
   },
   "hatch-16-old": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
     "x": 772,
-    "y": 125
+    "y": 225
   },
   "hatch-16-thin": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
     "x": 400,
-    "y": 225
+    "y": 325
   },
   "hatch-32": {
     "height": 32,
     "pixelRatio": 1,
     "width": 32,
     "x": 692,
-    "y": 125
+    "y": 225
   },
   "hatch-64": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 564,
-    "y": 125
+    "y": 225
   },
   "hatch-64-box": {
     "height": 64,
     "pixelRatio": 1,
     "width": 64,
     "x": 628,
-    "y": 125
+    "y": 225
   },
   "hatch-8": {
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
     "x": 416,
-    "y": 225
+    "y": 325
   },
   "hatch-8-clean": {
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
     "x": 424,
-    "y": 225
+    "y": 325
   },
-  "mh_chem3": {
+  "marker_CBS": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
     "x": 0,
     "y": 125
   },
-  "mh_chem_simple": {
+  "marker_MOSF": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
     "x": 100,
     "y": 125
   },
-  "mh_oil3": {
+  "marker_SUPERFUND2": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
     "x": 200,
     "y": 125
   },
-  "mh_oil_simple": {
+  "marker_TRI": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
     "x": 300,
     "y": 125
+  },
+  "mh_chem3": {
+    "height": 100,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 200,
+    "y": 0
+  },
+  "mh_chem_simple": {
+    "height": 100,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 300,
+    "y": 0
+  },
+  "mh_oil3": {
+    "height": 100,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 0,
+    "y": 225
+  },
+  "mh_oil_simple": {
+    "height": 100,
+    "pixelRatio": 1,
+    "width": 100,
+    "x": 100,
+    "y": 225
   },
   "mh_super3": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
     "x": 200,
-    "y": 0
+    "y": 225
   },
   "mh_super_simple": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
     "x": 300,
-    "y": 0
+    "y": 225
   },
   "mh_toxic3": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
     "x": 0,
-    "y": 225
+    "y": 325
   },
   "mh_toxic_simple": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
     "x": 100,
-    "y": 225
+    "y": 325
   },
   "noun_location_border_empty": {
     "height": 125,
@@ -186,48 +214,48 @@
     "pixelRatio": 1,
     "width": 100,
     "x": 200,
-    "y": 225
+    "y": 325
   },
   "number-2": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
     "x": 300,
-    "y": 225
+    "y": 325
   },
   "number-3": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
-    "x": 0,
-    "y": 325
+    "x": 400,
+    "y": 125
   },
   "number-4": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
-    "x": 100,
-    "y": 325
+    "x": 500,
+    "y": 125
   },
   "number-5": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
-    "x": 200,
-    "y": 325
+    "x": 600,
+    "y": 125
   },
   "number-6": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
-    "x": 300,
-    "y": 325
+    "x": 700,
+    "y": 125
   },
   "number-7": {
     "height": 100,
     "pixelRatio": 1,
     "width": 100,
     "x": 400,
-    "y": 125
+    "y": 225
   }
 }

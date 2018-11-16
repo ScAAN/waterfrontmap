@@ -86,7 +86,7 @@ function menuinit(){
           // if this wasn't active make it active now
           this.className = 'active';
           if (clickedLayer=="Bulk Storage Sites") {
-            toggle_bulk(['Bulk Storage Sites','MOSF','CBS','SUPERFUND2'])
+            toggle_bulk(['TRI','MOSF','CBS','SUPERFUND2'])
             if (nonbulk_active()==false){update_legend("Bulk Storage Sites")}
             if (nonbulk_active()==true){bulk_legend(true)}
           } else {
@@ -148,7 +148,7 @@ function nonbulk_active(){
 }
 
 function toggle_bulk(layers) {
-  var alllayers = ['Bulk Storage Sites','MOSF','CBS','SUPERFUND2'];
+  var alllayers = ['TRI','MOSF','CBS','SUPERFUND2'];
   for (i=0;i<alllayers.length;i++){
     layername = alllayers[i];
     map.setLayoutProperty(layername, 'visibility', 'none');
@@ -172,8 +172,8 @@ function bulk_indiv(divname){
   if ($(divname).className.includes('target')){
     $(divname).className = $(divname).className.replace(" target", "");
     $(divname).style.display="none";
-    if (divname.includes("Bulk Storage Sites")){
-      map.setLayoutProperty('Bulk Storage Sites', 'visibility', 'visible');
+    if (divname.includes("TRI")){
+      map.setLayoutProperty('TRI', 'visibility', 'visible');
     } else if (divname.includes("MOSF")){
       map.setLayoutProperty('MOSF', 'visibility', 'visible');
     } else if (divname.includes("CBS")){
@@ -186,8 +186,8 @@ function bulk_indiv(divname){
       $(divname).className += ' target';
     }
     $(divname).style.display="block";
-    if (divname.includes("Bulk Storage Sites")){
-      map.setLayoutProperty('Bulk Storage Sites', 'visibility', 'none');
+    if (divname.includes("TRI")){
+      map.setLayoutProperty('TRI', 'visibility', 'none');
     } else if (divname.includes("MOSF")){
       map.setLayoutProperty('MOSF', 'visibility', 'none');
     } else if (divname.includes("CBS")){

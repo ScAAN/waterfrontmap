@@ -59,7 +59,7 @@ function story_display_page(storypage){
   // var bulks = storyvars[storypage]['bulkLayers'].split(",")
   var bulkstring = storyvars[storypage]["bulkLayers"].split(",");
   if (storyvars[storypage]["pageLayer"]=="Bulk Storage Sites"){
-    bulkstring = ['Bulk Storage Sites','MOSF','CBS','SUPERFUND2'];
+    bulkstring = ['TRI','MOSF','CBS','SUPERFUND2'];
   }
   toggle_bulk(bulkstring)
   if (bulkstring!="None" && storyvars[storypage]["pageLayer"]!="Bulk Storage Sites"){
@@ -81,7 +81,7 @@ function smia_hover_toggle(hover,click,name_only){
   if (typeof name_only == 'undefined'){
     name_only=false
   }
-  
+
   // turn of listeners and remove info
   map.off('click',smia_click)
   map.off('mousemove',smia_displayname)
