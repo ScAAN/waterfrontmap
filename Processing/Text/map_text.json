@@ -434,7 +434,7 @@
                 "pageZoom": 10
             },
             {
-                "bulkLayers": "Bulk Storage Sites,MOSF,CBS,SUPERFUND2",
+                "bulkLayers": "TRI,MOSF,CBS,SUPERFUND2",
                 "pageIdx": 1,
                 "pageLat": -73.9978,
                 "pageLayer": "Hurricane Storm Surge Zones",
@@ -456,7 +456,7 @@
                 "pageZoom": 10
             },
             {
-                "bulkLayers": "None",
+                "bulkLayers": "TRI,MOSF,CBS,SUPERFUND2",
                 "pageIdx": 3,
                 "pageLat": -73.97256593,
                 "pageLayer": "Percent People of Color",
@@ -467,7 +467,7 @@
                 "pageZoom": 12
             },
             {
-                "bulkLayers": "None",
+                "bulkLayers": "TRI,MOSF,CBS,SUPERFUND2",
                 "pageIdx": 3,
                 "pageLat": -73.93480043,
                 "pageLayer": "Percent People of Color",
@@ -489,7 +489,7 @@
                 "pageZoom": 12
             },
             {
-                "bulkLayers": "None",
+                "bulkLayers": "TRI,MOSF,CBS,SUPERFUND2",
                 "pageIdx": 3,
                 "pageLat": -74.23091193,
                 "pageLayer": "Percent People of Color",
@@ -500,7 +500,7 @@
                 "pageZoom": 12
             },
             {
-                "bulkLayers": "None",
+                "bulkLayers": "TRI,MOSF,CBS,SUPERFUND2",
                 "pageIdx": 3,
                 "pageLat": -74.00743616,
                 "pageLayer": "Percent People of Color",
@@ -511,7 +511,7 @@
                 "pageZoom": 12
             },
             {
-                "bulkLayers": "None",
+                "bulkLayers": "TRI,MOSF,CBS,SUPERFUND2",
                 "pageIdx": 3,
                 "pageLat": -73.89398759,
                 "pageLayer": "Percent People of Color",
@@ -533,7 +533,7 @@
                 "pageZoom": 12
             },
             {
-                "bulkLayers": "None",
+                "bulkLayers": "TRI,MOSF,CBS,SUPERFUND2",
                 "pageIdx": 3,
                 "pageLat": -74.01499945,
                 "pageLayer": "Percent People of Color",
@@ -544,7 +544,7 @@
                 "pageZoom": 12
             },
             {
-                "bulkLayers": "Bulk Storage Sites",
+                "bulkLayers": "TRI",
                 "pageIdx": 3,
                 "pageLat": -74.01499945,
                 "pageLayer": "Hurricane Storm Surge Zones",
@@ -555,7 +555,7 @@
                 "pageZoom": 12
             },
             {
-                "bulkLayers": "None",
+                "bulkLayers": "TRI,MOSF,CBS,SUPERFUND2",
                 "pageIdx": 3,
                 "pageLat": -74.13713364,
                 "pageLayer": "Percent People of Color",
