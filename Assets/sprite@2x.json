@@ -3,7 +3,7 @@
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 432,
+    "x": 464,
     "y": 325
   },
   "diag-4": {
@@ -17,21 +17,21 @@
     "height": 4,
     "pixelRatio": 1,
     "width": 4,
-    "x": 556,
+    "x": 588,
     "y": 325
   },
   "diag-6": {
     "height": 6,
     "pixelRatio": 1,
     "width": 6,
-    "x": 544,
+    "x": 576,
     "y": 325
   },
   "diag-6-sym": {
     "height": 6,
     "pixelRatio": 1,
     "width": 6,
-    "x": 550,
+    "x": 582,
     "y": 325
   },
   "diag-64": {
@@ -52,7 +52,7 @@
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 448,
+    "x": 480,
     "y": 325
   },
   "dot-32": {
@@ -61,6 +61,13 @@
     "width": 32,
     "x": 756,
     "y": 225
+  },
+  "dot-32-l": {
+    "height": 32,
+    "pixelRatio": 1,
+    "width": 32,
+    "x": 400,
+    "y": 325
   },
   "dot-64": {
     "height": 64,
@@ -73,35 +80,35 @@
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 464,
+    "x": 496,
     "y": 325
   },
   "hatch-16-3": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 480,
+    "x": 512,
     "y": 325
   },
   "hatch-16-old": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 496,
+    "x": 528,
     "y": 325
   },
   "hatch-16-thin": {
     "height": 16,
     "pixelRatio": 1,
     "width": 16,
-    "x": 512,
+    "x": 544,
     "y": 325
   },
   "hatch-32": {
     "height": 32,
     "pixelRatio": 1,
     "width": 32,
-    "x": 400,
+    "x": 432,
     "y": 325
   },
   "hatch-64": {
@@ -122,14 +129,14 @@
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 528,
+    "x": 560,
     "y": 325
   },
   "hatch-8-clean": {
     "height": 8,
     "pixelRatio": 1,
     "width": 8,
-    "x": 536,
+    "x": 568,
     "y": 325
   },
   "marker_CBS": {
