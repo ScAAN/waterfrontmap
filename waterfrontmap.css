@@ -129,6 +129,21 @@ html {
 }
 @-webkit-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}}
 
+#infoimgpulse{
+  position:absolute;
+  z-index:99;
+  left:7.5px;
+  top:6.5px;
+  width:21px;
+  display:none;
+  height:21px;
+  background-color:rgba(0,0,0,0);
+  box-shadow: 0 0 0 0px rgba(0, 0, 0, 1);
+  -webkit-animation: pulse2 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+@-webkit-keyframes pulse2 {to {box-shadow: 0 0 0 10px rgba(232, 76, 61, 0);}}
+
+
 #flashdiv {
   opacity: 0;
   transition: all 10ms ease-in;/* Shutter speed */

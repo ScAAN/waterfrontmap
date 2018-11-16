@@ -32,7 +32,16 @@ function slider_pulse(string){
     $('slider_flash').style.webkitTransform="scale(.1)";
     setTimeout(function() {
       $('slider_flash').style.display="none";
+      button_pulse("start")
     }, 500);
+  }
+}
+
+function button_pulse(string){
+  if (string=="start"){
+    $('infoimgpulse').style.display="block";
+  } else if (string="stop"){
+    $('infoimgpulse').style.display="none";
   }
 }
 

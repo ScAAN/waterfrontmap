@@ -87,9 +87,9 @@
       <!-- THIS IS THE LEGEND AND LEGEND PLACEHOLDER -->
       <div id='general_legend' class='legend overlay-box' style='display:block'>
         <div id="legendinfobutton">
-          <div id='legendbutton' class='small-button general-button' style='border-radius:5px;display: inline-block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
+          <div id='legendbutton' class='small-button general-button' style='border-radius:5px;display: inline-block; cursor: pointer; z-index: 10;' onclick="(function(){show_legend_info();button_pulse('stop');})();">
             <span class="tooltiptext" style="width:60px;margin-left:-30px;">data info</span>
-            <span class='small-button-inside' style="height:35px;width:35px"><img class="marker" style="left:2.5px;top:2.5px;" src="Assets/images/mh_info_empty.svg"></img> <span>
+            <span class='small-button-inside' style="height:35px;width:35px"><img class="marker" style="left:2.5px;top:2.5px;" src="Assets/images/mh_info_empty.svg"></img><span id="infoimgpulse"></span><span>
             </div>
         </div>
         <div style="text-align:right">
