@@ -55,6 +55,7 @@ function story_display_page(storypage){
 
   // switch to layer, turn off all tabs selected for cleanliness
   changeTab("None")
+  make_layer_visible(storyvars[storypage]["pageLayer"])
   // add bulkLayers
   // var bulks = storyvars[storypage]['bulkLayers'].split(",")
   var bulkstring = storyvars[storypage]["bulkLayers"].split(",");
@@ -69,7 +70,6 @@ function story_display_page(storypage){
     bulk_legend(false)
   }
   $('toggler-Bulk Storage Sites').className = '';
-  make_layer_visible(storyvars[storypage]["pageLayer"])
 
   // display information about story page
   $('storybox').innerHTML = '<p><big><strong>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '</br></br>' + storyvars[storypage]["pageText"] + jumptext + '</p>';
