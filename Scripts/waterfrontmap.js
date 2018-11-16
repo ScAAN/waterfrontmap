@@ -466,7 +466,6 @@ var symbol_list = ["TRI","CBS","MOSF","SUPERFUND2"];
 // ADD BULK LAYERS specified by "symbol_list" to map
 for (var s = 0; s < symbol_list.length; s++) {
   symbol = symbol_list[s];
-  console.log(symbol)
   map.addLayer({
     "id": symbol,
     "type": "symbol",

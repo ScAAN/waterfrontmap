@@ -29,6 +29,8 @@ function print_map(){
     var print_date = new Date();
     $('print_date').innerHTML = '<p>Downloaded: <small>' + print_date + '</small></p>';
     $('infobarprint').style.display="block";
+    $('legendinfobutton').style.visibility="hidden";
+
     // add back attribution
     $('drawn_attribution').style.display="block";
     $('print_container').style.display="block";
@@ -37,6 +39,7 @@ function print_map(){
     $('myscreenshot').height = loadheight + 'px';
     $('myscreenshot').innerHTML = '<img src="Assets/images/loadloop.gif" style="margin-top:100px;" height=' + loadheight + 'px/>';
     $('screenshot_txt').innerHTML = "capturing current map view . . .</br>";
+
 
     // start attempting to render map controls
     html2canvas(document.getElementById("test_container"),{backgroundColor:null},{allowTaint:false},{useCORS:true}).then(function(canvas) {
@@ -79,6 +82,7 @@ function print_map(){
            // hide print infobar, drawn attribution and show print buttons
            $('infobarprint').style.display="none";
            $('drawn_attribution').style.display="none";
+           $('legendinfobutton').style.visibility="visible";
            $('printbuttons').style.visibility="visible";
            // reset file name input box
            // and add one to it for every time a screen is captured
