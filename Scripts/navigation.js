@@ -241,7 +241,7 @@ function show_legend_info(){
 
 
 function make_layer_visible(clickedLayer) {
-
+  var hatchop = .7;
   for (var otherLayerName in toggleableLegendIds) {
 
     if (otherLayerName != clickedLayer) {
@@ -289,8 +289,8 @@ function make_layer_visible(clickedLayer) {
       map.setPaintProperty('Sea Level Rise 2050','fill-opacity',1);
     } else if (clickedLayer.includes("Percent") || clickedLayer.includes("Median Household Income") || clickedLayer.includes("Heat Vulnerability Index")) {
       map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
-      map.setPaintProperty(clickedLayer + " Hatch", 'fill-opacity', 1);
-      if (clickedLayer == "Percent Uninsured"){map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', 1)}
+      map.setPaintProperty(clickedLayer + " Hatch", 'fill-opacity', hatchop);
+      if (clickedLayer == "Percent Uninsured"){map.setPaintProperty("Percent Uninsured Unreliable", 'fill-opacity', hatchop)}
     } else {
       map.setPaintProperty(clickedLayer, 'fill-opacity', 1);
     }

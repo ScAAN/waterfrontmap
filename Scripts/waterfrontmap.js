@@ -206,7 +206,7 @@ map.on('load', function () {
       "interactive": true
     },'road-label-sm');
 
-    var col_park ="#cbd3cb";//"#c5d6c5";//"#e0e0e0";//"#9dc69d";
+    var col_park ="#d2dbd2";//"#cbd3cb";//"#c5d6c5";//"#e0e0e0";//"#9dc69d";
 
     map.addLayer({
       "id": "water_pattern",
@@ -218,7 +218,7 @@ map.on('load', function () {
       },
       "paint": {
         "fill-pattern": "dot-32-s",
-        "fill-opacity":.3
+        "fill-opacity":.15//.3
       },
       "metadata": {
         "mapbox:group": "1444850923457.5469"
@@ -403,7 +403,7 @@ map.addLayer({
   "source-layer": "reduced_census",
   "layout": {"visibility":'visible'},
   "paint": {
-    "fill-opacity": 1,
+    "fill-opacity": 0,
     "fill-pattern": "diag-64"
   },
   "filter": ["==",'Perc_POC_P003009',-10]
@@ -893,7 +893,7 @@ map.addLayer({
 },
 "paint": {
     "fill-pattern":"dot-32",
-    "fill-opacity":.4
+    "fill-opacity":.3//.4
 },
 "metadata": {
     "mapbox:group": "1444850963394.812"
