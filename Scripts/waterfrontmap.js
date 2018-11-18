@@ -176,8 +176,8 @@ map.on('load', function () {
       },
       "paint": {
         "line-color": "#8da5aa",
-        "line-offset": 1.5,
-        "line-width": 1.5
+        "line-offset": 1,
+        "line-width": 1
       },
       "metadata": {
         "mapbox:group": "1444850923457.5469"
@@ -197,8 +197,8 @@ map.on('load', function () {
       },
       "paint": {
         "line-color": "#eeeeee",
-        "line-offset":1,
-        "line-width": 1
+        "line-offset":.5,
+        "line-width": .5
       },
       "metadata": {
         "mapbox:group": "1444850923457.5469"
