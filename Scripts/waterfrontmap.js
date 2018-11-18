@@ -155,13 +155,77 @@ map.on('load', function () {
         "visibility": "visible"
       },
       "paint": {
-        "fill-color": "#d6d6d6"
+        /*#b3d0d6*/
+        "fill-color": "#c5d3d6",
+        "fill-outline-color":"#FFFFFF"//"#8da5aa"
       },
       "metadata": {
         "mapbox:group": "1444850923457.5469"
       },
       "interactive": true
     },'road-label-sm');
+
+    map.addLayer({
+      "id": "water_line",
+      "type": "line",
+      "source": "mapbox://mapbox.mapbox-streets-v6",
+      "source-layer": "water",
+      "layout": {
+        "line-join": "bevel",
+        "line-cap": "butt"
+      },
+      "paint": {
+        "line-color": "#8da5aa",
+        "line-offset": 2,
+        "line-width": 2
+      },
+      "metadata": {
+        "mapbox:group": "1444850923457.5469"
+      },
+      "interactive": true
+    },'road-label-sm');
+
+
+    map.addLayer({
+      "id": "water_line2",
+      "type": "line",
+      "source": "mapbox://mapbox.mapbox-streets-v6",
+      "source-layer": "water",
+      "layout": {
+        "line-join": "bevel",
+        "line-cap": "butt"
+      },
+      "paint": {
+        "line-color": "#eeeeee",
+        "line-offset":1,
+        "line-width": 1
+      },
+      "metadata": {
+        "mapbox:group": "1444850923457.5469"
+      },
+      "interactive": true
+    },'road-label-sm');
+
+    var col_park ="#cbd3cb";//"#c5d6c5";//"#e0e0e0";//"#9dc69d";
+
+    map.addLayer({
+      "id": "water3",
+      "type": "fill",
+      "source": "mapbox://mapbox.mapbox-streets-v6",
+      "source-layer": "water",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-pattern": "dot-32-s",
+        "fill-opacity":.3
+      },
+      "metadata": {
+        "mapbox:group": "1444850923457.5469"
+      },
+      "interactive": true
+    },'road-label-sm');
+
 
     map.addSource('vector_data', {
       type: 'vector',
@@ -182,18 +246,32 @@ map.on('load', function () {
     map.removeLayer("road-label-sm");
     map.removeLayer("road-label-med");
     map.removeLayer("road-label-large");
+    // remove nj labels
+    //map.removeLayer("place-town");
+    map.removeLayer("place_label_city_large_s");
+    map.removeLayer("place_label_city_medium_s");
+    map.removeLayer("place_label_city_small_s");
+    map.removeLayer("place_label_city_large_n");
+    map.removeLayer("place_label_city_medium_n");
+    map.removeLayer("place_label_city_small_n");
+    map.removeLayer("place_label_other");
     // restrict labels to new York
     //map.setFilter('state_label',["!=",'Perc_POC_P003009',null])
 
 
-    /*
+
     //trying to get rid of labels outside of new york
     var maplayers = map.getStyle().layers;
     var layerIds = maplayers.map(function (layer) {
-    if (layer.id.includes("label")){
+    //if (layer.id.includes("label")||layer.id.includes("place")||layer.id.includes("town")){
     return layer.id;
-  }
-});
+    //}
+    });
+    console.log(layerIds)
+/*
+"place-town"
+"place-city-lg-s"
+"place-city-sm"
 
 var labelIds = layerIds.filter(function (el) {
 return el != null;
@@ -216,6 +294,18 @@ map.addLayer({
 },'water')
 */
 
+
+var zyellow = '#f9e9d9';
+var zorange = "#d7834a";
+var zred = '#D74B6A';
+var zpurple = '#9B507B';
+var zgreen ="#728c6a";//'#227f58';
+var zother = '#666666';
+var zoutline = zyellow;
+var zoutline2 = '#edc2a8';
+var zoutline3 = zoutline2;
+
+
 map.addLayer({
   "id": "Zoning",
   "type": "fill",
@@ -228,24 +318,24 @@ map.addLayer({
       'property': 'human_readable_zone',
       'type': 'categorical',
       "stops": [
-        ['Residential', '#E17C05'],
-        ['New York City Parks', '#E17C05'],
-        ['Manufacturing', '#E17C05'],
-        ['Commercial', '#E17C05'],
-        ['Mixed manufacturing and residential', '#EDAD08'],
-        ['Battery Park City', '#E17C05']
+        ['Residential', zoutline2],
+        ['New York City Parks', zoutline],
+        ['Manufacturing', zoutline3],
+        ['Commercial', zoutline3],
+        ['Mixed manufacturing and residential', zoutline],
+        ['Battery Park City', zoutline]
       ]
     },
     "fill-color": {
       'property': 'human_readable_zone',
       'type': 'categorical',
       "stops": [
-        ['Residential', '#EDAD08'],
-        ['New York City Parks', '#0F8554'],
-        ['Manufacturing', '#94346E'],
-        ['Commercial', '#CC503E'],
-        ['Mixed manufacturing and residential', '#E17C05'],
-        ['Battery Park City', '#666666']
+        ['Residential', zyellow],
+        ['New York City Parks', zgreen],
+        ['Manufacturing', zpurple],
+        ['Commercial', zred],
+        ['Mixed manufacturing and residential', zorange],
+        ['Battery Park City', zother]
       ]
     }
   }
@@ -270,7 +360,7 @@ map.addLayer({
       ]
     }
   }
-}, 'water2');
+}, 'Zoning');
 
 map.addLayer({
   "id": "Percent People of Color",
@@ -304,7 +394,7 @@ map.addLayer({
       ]
     }
   }
-}, 'water2');
+}, 'Zoning');
 
 map.addLayer({
   "id": "Percent People of Color Hatch",
@@ -317,7 +407,7 @@ map.addLayer({
     "fill-pattern": "diag-64"
   },
   "filter": ["==",'Perc_POC_P003009',-10]
-}, 'water2','Percent People of Color');
+}, 'Zoning','Percent People of Color');
 
 
 map.addLayer({
@@ -352,7 +442,7 @@ map.addLayer({
       ]
     }
   }
-}, 'water2');
+}, 'Zoning');
 
 map.addLayer({
   "id": "Median Household Income Hatch",
@@ -365,7 +455,7 @@ map.addLayer({
     "fill-pattern": "diag-64"
   },
   "filter": ["==",'Median Household Income',-10]
-}, 'water2','Median Household Income');
+}, 'Zoning','Median Household Income');
 
 
 map.addLayer({
@@ -400,7 +490,7 @@ map.addLayer({
       ]
     }
   }
-}, 'water2');
+}, 'Zoning');
 
 map.addLayer({
   "id": "Percent of Families Below Poverty Line Hatch",
@@ -413,7 +503,7 @@ map.addLayer({
     "fill-pattern": "diag-64"
   },
   "filter": ["==",'% of Families Below Poverty Level',-10]
-}, 'water2','Percent of Families Below Poverty Line');
+}, 'Zoning','Percent of Families Below Poverty Line');
 
 
 /*
@@ -507,21 +597,38 @@ map.addLayer({
   "type": "fill",
   "source": "sealevel2050",
   "paint": {
-    "fill-color": "#03a9f4",
+    "fill-color": "#0284A8",
     "fill-opacity": 0
   }
-},'water2','TRI','SUPERUND2','CBS','MOSF');
+},'Zoning','TRI','SUPERUND2','CBS','MOSF');
 
 map.addLayer({
   "id": "Sea Level Rise 2020",
   "type": "fill",
   "source": "sealevel2020",
   "paint": {
-    "fill-color": "#3f51b5",
+    "fill-color": "#02547D",
     "fill-opacity": 0
   }
-},'water2','TRI','SUPERUND2','CBS','MOSF');
+},'Zoning','TRI','SUPERUND2','CBS','MOSF');
 
+
+
+map.addLayer({
+  "id": "SMIA2",
+  "type": "line",
+  "source": "vector_data",
+  "source-layer": 'smia',
+  "layout": {
+    "line-join": "round",
+    "line-cap": "butt"
+  },
+  "paint": {
+    "line-color": "#FFFFFF",
+    "line-gap-width": 3,
+    "line-width": 1
+  }
+},'TRI','SUPERUND2','CBS','MOSF');
 
 map.addLayer({
   "id": "SMIA",
@@ -530,13 +637,14 @@ map.addLayer({
   "source-layer": 'smia',
   "layout": {
     "line-join": "round",
-    "line-cap": "round"
+    "line-cap": "butt"
   },
   "paint": {
     "line-color": "#000000",
     "line-width": 3
   }
 },'TRI','SUPERUND2','CBS','MOSF');
+
 
 map.addLayer({
   "id": "SMIA-buffer",
@@ -637,7 +745,7 @@ map.addLayer({
       ]
     }
   }
-}, 'water2');
+}, 'Zoning');
 
 
 map.addLayer({
@@ -674,7 +782,7 @@ map.addLayer({
       ]
     }
   }
-}, 'water2');
+}, 'Zoning');
 
 map.addLayer({
   "id": "Percent Uninsured Unreliable",
@@ -686,7 +794,7 @@ map.addLayer({
     "fill-pattern": "hatch-64"
   },
   "filter": ["==","unreliable",1]
-}, 'water2','Percent Uninsured');
+}, 'Zoning','Percent Uninsured');
 
 map.addLayer({
   "id": "Percent Uninsured Hatch",
@@ -698,7 +806,7 @@ map.addLayer({
     "fill-pattern": "diag-64"
   },
   "filter": ["==","perc_uninsured",-10]
-}, 'water2','Percent Uninsured');
+}, 'Zoning','Percent Uninsured');
 
 map.addLayer({
   "id": "Heat Vulnerability Index",
@@ -732,7 +840,7 @@ map.addLayer({
       ]
     }
   }
-}, 'water2');
+}, 'Zoning');
 
 map.addLayer({
   "id": "Heat Vulnerability Index Hatch",
@@ -744,7 +852,54 @@ map.addLayer({
     "fill-pattern": "diag-64"
   },
   "filter": ["==","HVI_score",-10]
-}, 'water2','HVI');
+}, 'Zoning','HVI');
+
+map.addLayer({
+  "id": "parks_recolor",
+"type": "fill",
+"source": "mapbox://mapbox.mapbox-streets-v6",
+"source-layer": "landuse",
+"filter": [
+    "==",
+    "class",
+    "park"
+],
+"layout": {
+    "visibility": "visible"
+},
+"paint": {
+    "fill-color":col_park//"#c5d6c5",//"#9dc69d",//"#c5d6c5",
+    //"fill-outline-color":"#8da5aa"//"#629162" //"#b3d6b4"
+},
+"metadata": {
+    "mapbox:group": "1444850963394.812"
+},
+"interactive": true
+},'Zoning');
+
+
+map.addLayer({
+  "id": "parks_pattern",
+"type": "fill",
+"source": "mapbox://mapbox.mapbox-streets-v6",
+"source-layer": "landuse",
+"filter": [
+    "==",
+    "class",
+    "park"
+],
+"layout": {
+    "visibility": "visible"
+},
+"paint": {
+    "fill-pattern":"dot-32",
+    "fill-opacity":.4
+},
+"metadata": {
+    "mapbox:group": "1444850963394.812"
+},
+"interactive": true
+},'Zoning');
 
 // call map_init here so we know when all layers are loaded!
 // (since map.loaded and map._loaded don't work)
