@@ -147,7 +147,7 @@ map.on('load', function () {
     });
 
     map.addLayer({
-      "id": "water2",
+      "id": "water_recolor",
       "type": "fill",
       "source": "mapbox://mapbox.mapbox-streets-v6",
       "source-layer": "water",
@@ -156,7 +156,7 @@ map.on('load', function () {
       },
       "paint": {
         /*#b3d0d6*/
-        "fill-color": "#c5d3d6",
+        "fill-color": "#c5d3d6",//"#b4c3c6",
         "fill-outline-color":"#FFFFFF"//"#8da5aa"
       },
       "metadata": {
@@ -166,7 +166,7 @@ map.on('load', function () {
     },'road-label-sm');
 
     map.addLayer({
-      "id": "water_line",
+      "id": "waterline_outer",
       "type": "line",
       "source": "mapbox://mapbox.mapbox-streets-v6",
       "source-layer": "water",
@@ -176,8 +176,8 @@ map.on('load', function () {
       },
       "paint": {
         "line-color": "#8da5aa",
-        "line-offset": 2,
-        "line-width": 2
+        "line-offset": 1.5,
+        "line-width": 1.5
       },
       "metadata": {
         "mapbox:group": "1444850923457.5469"
@@ -187,7 +187,7 @@ map.on('load', function () {
 
 
     map.addLayer({
-      "id": "water_line2",
+      "id": "waterline_inner",
       "type": "line",
       "source": "mapbox://mapbox.mapbox-streets-v6",
       "source-layer": "water",
@@ -209,7 +209,7 @@ map.on('load', function () {
     var col_park ="#cbd3cb";//"#c5d6c5";//"#e0e0e0";//"#9dc69d";
 
     map.addLayer({
-      "id": "water3",
+      "id": "water_pattern",
       "type": "fill",
       "source": "mapbox://mapbox.mapbox-streets-v6",
       "source-layer": "water",
@@ -339,7 +339,7 @@ map.addLayer({
       ]
     }
   }
-}, 'water2');
+}, 'water_recolor');
 
 map.addLayer({
   "id": "Hurricane Storm Surge Zones",

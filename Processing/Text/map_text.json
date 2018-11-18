@@ -193,8 +193,8 @@
             "91% &#8211 100%"
         ],
         "slr_color": [
-            "#3f51b5",
-            "#03a9f4"
+            "#02547D",
+            "#0284A8"
         ],
         "slr_entry": [
             "Sea level rise 2020s<br/>(100-year floodplain)",
@@ -229,19 +229,19 @@
             "26% &#8211 30%"
         ],
         "zoning_color": [
-            "#EDAD08",
-            "#0F8554",
-            "#94346E",
-            "#CC503E",
-            "#E17C05",
+            "#9B507B",
+            "#D74B6A",
+            "#d7834a",
+            "#f9e9d9",
+            "#728c6a",
             "#666666"
         ],
         "zoning_entry": [
-            "Residential",
-            "NYC Parks",
             "Manufacturing",
             "Commercial",
             "Mixed manufacturing<br/>and residential",
+            "Residential",
+            "NYC Parks",
             "Other"
         ]
     },
