@@ -43,7 +43,7 @@
           <div id="myscreenshot" style="vertical-align:middle;"></div>
           <canvas id="my_canvas" style="display:none;"></canvas>
           <!--<div id="printexit" style="color:white;background-color:rgba(255,0,0,.9);display:inline-block;width:150px;font-size:32px;" onclick="(function(){$('print_container').style.display='none'})();">exit</div>-->
-          <div id="printexit" onclick="(function(){$('print_container').style.display='none'})();"><img src="Assets/images/share_x.svg" height="40px"/></div>
+          <div id="printexit" class="exit-button" onclick="(function(){$('print_container').style.display='none'})();"></div>
           <div id="printbuttons" style="visibility:hidden;">
             <p class="spacer"></p>
             <div id="share_download" class="share-button" onclick="savefile()"><img class="share-icon" src="Assets/images/share_download.svg" height="30px"/></div>
@@ -107,13 +107,17 @@
 
       <!-- EXPLORE CONTENT  -->
       <div id='explorebox' class='box-content text-info-box overlay-box link-restyle'>
+        <div class="exit-button exit-button-small" onclick='showinfobox(event,"None")'></div>
         <div> <p>Click the map to explore a neighborhood, or search with the bar below. </p></div>
         <div id='geocoder' class='geocoder'></div>
         <div id='map-overlay-info' class='map-overlay-info'></div>
       </div>
 
       <!-- STORY CONTENT  -->
-      <div id='storybox' class='box-content text-info-box overlay-box story-box link-restyle'></div>
+      <div id='storybox' class='box-content text-info-box overlay-box story-box link-restyle'>
+        <div class="exit-button exit-button-small" onclick="showinfobox(event,'None')"></div>
+        <div id="storybox_text"></div>
+      </div>
       <div id='smiainfoboxempty' class='smiainfobox'></div>
 
 
@@ -325,11 +329,21 @@
   <!-- INFO CONTENT  -->
   <div id="aboutoverlay" style="cursor:pointer;display:none" class="overlayed" onclick="hideaboutbox()"></div>
   <div id='aboutbox' style="cursor:pointer;display:none" class='box-content text-info-box overlay-box link-restyle' onclick="hideaboutbox()">
-    <div>
-      <p><small>  The Waterfront Justice Project Interactive Map is a collaborative effort between the New York City Environmental Justice Alliance (NYC-EJA) and the Scientist Action and Advocacy Network (ScAAN), aiming to visualize maps created by NYC-EJA through its Waterfront Justice Project (WJP).
+    <div class="exit-button" onclick='hideaboutbox()'></div>
+    <div class="about-section">
+      <h5>about the map</h5>
+      <p><small>
+        The Waterfront Justice Project Interactive Map is a collaborative effort between the New York City Environmental Justice Alliance (NYC-EJA) and the Scientist Action and Advocacy Network (ScAAN), aiming to visualize maps created by NYC-EJA through its Waterfront Justice Project (WJP).
         <br/><br/>The WJP is a research and advocacy campaign focusing on community resiliency that seeks to reduce potential toxic exposures and public health risks associated with climate change in the City’s industrial waterfront. The WJP produces original maps to draw attention to climate vulnerabilities, while simultaneously calling for proactive local policy changes and highlighting the need for more in-depth research. The series of maps document land use, environmental hazards, and demographic and socio-economic indicators in relation to Significant Maritime Industrial Areas (SMIAs) and hurricane storm surge zones. These maps have informed NYC-EJAs community-driven campaign to educate government agencies, local business-owners, and the general public on the need to introduce community resilience and climate adaptation strategies in the industrial waterfront.
-        <br/><br/>The code for this map was created by <a href="https://github.com/billbrod">Bill Broderick</a>, <a href="https://github.com/MaijaHonig">Maija Honig</a>, and <a href="https://github.com/jsaliani92">Julian Nader Saliani</a> and <a href="https://github.com/ScAAN/waterfrontmap/graphs/contributors">other contributors</a> using <a href="https://www.mapbox.com/help/define-mapbox-gl-js/">mapbox-gl-js</a> with icons from the <a href="https://thenounproject.com/coquet_adrien/">Adrien Coquet</a> at the noun project. It is licensed with a MIT license, and source code can be viewed on <a href ="https://github.com/ScAAN/waterfrontmap">our github</a>. The maps were created by Bill Broderick, Maija Honig, Julian Nader Saliani and Eddie Bautista, Jalisa Gilmore, & Annel Hernandez. Thanks for visiting and feel free to let us know how we're doing with feedback!</small></p>
-      </div>
+      </small></p>
+    </div>
+    <div class="about-section" style="width:6%;"></div>
+    <div class="about-section">
+      <h5>about the creators</h5>
+      <p><small>
+        The code for this map was created by <a href="https://github.com/billbrod">Bill Broderick</a>, <a href="https://github.com/MaijaHonig">Maija Honig</a>, and <a href="https://github.com/jsaliani92">Julian Nader Saliani</a> and <a href="https://github.com/ScAAN/waterfrontmap/graphs/contributors">other contributors</a> using <a href="https://www.mapbox.com/help/define-mapbox-gl-js/">mapbox-gl-js</a> with icons from the <a href="https://thenounproject.com/coquet_adrien/">Adrien Coquet</a> at the noun project. It is licensed with a MIT license, and source code can be viewed on <a href ="https://github.com/ScAAN/waterfrontmap">our github</a>. The maps were created by Bill Broderick, Maija Honig, Julian Nader Saliani and Eddie Bautista, Jalisa Gilmore, & Annel Hernandez. Thanks for visiting and feel free to let us know how we're doing with feedback!
+      </small></p>
+      <div class="spacer-big"></div>
       <div style="text-align:center;">
         <div style= 'display:inline-block;width:45%;margin:auto;text-align:center;'>
           <img src="Assets/images/nycejalliance.png" alt="ScAAN" style="height:60px;margin-left:auto;margin-right:auto;display:block;vertical-align:middle">
@@ -337,11 +351,13 @@
           </p>
         </div>
         <div style= 'display:inline-block;width:45%;margin:auto;text-align:center;'>
-          <img src="Assets/images/scaan.png" alt="ScAAN" style="height:30px;margin-left:auto;margin-right:auto;display:block;vertical-align:middle">
+          <img src="Assets/images/scaan.png" alt="ScAAN" style="height:30px;margin-bottom:20px;margin-left:auto;margin-right:auto;display:block;vertical-align:middle">
           <p style="font-size: 0.7em;"><a href="http://scaan.net">ScAAN</a> is a New York-based group of scientists who use their expertise in partnership with organizations that are creating positive social change.
           </p>
         </div>
       </div>
+    </div>
+      <div class="spacer-big"></div>
       <div class="spacer-big"></div>
       <div class= "large-button fb-button" style="width:70%;margin:auto;display:block" onclick="window.open('https://goo.gl/forms/Zt5tsufRS9us7Tbu2', '_blank');">
         Feedback

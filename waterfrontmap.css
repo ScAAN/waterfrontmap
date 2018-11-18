@@ -173,25 +173,6 @@ html {
   padding-left:10px;
 }
 
-#printexit {
-  color:white;
-  background-color:rgba(200,200,200,1);
-  display:inline-block;
-  width:40px;
-  height:40px;
-  position:absolute;
-  top:10px;
-  right:10px;
-  font-size:32px;
-  border-radius:3px;
-  cursor:pointer;
-}
-
-#printexit:hover {
-  background-color:rgba(100,100,100,1);
-  color:rgba(200,200,200,1);
-}
-
 /*-------------------*
 *  Body and headings *
 * -------------------*/
@@ -222,6 +203,13 @@ h4{
   line-height: 1em;
   font-weight:normal;
 }
+h5{
+    font-size: 24px;
+    margin: 0 0 10px;
+    line-height: 1em;
+    font-weight:normal;
+}
+
 
 p {
   font-size: 0.85em;
@@ -541,6 +529,14 @@ width:60%;
 left:20%;
 top:10%;
 z-index:99;
+padding:30px;
+padding-bottom:15px;
+}
+
+.about-section{
+  display:inline-block;
+  width:46%;
+  vertical-align: top;
 }
 
 .link-restyle{}
@@ -647,6 +643,32 @@ width:330px;
 /*-------------------*
 *    Buttons         *
 * -------------------*/
+.exit-button{
+  top:10px;
+  right:10px;
+  z-index:2;
+  position:absolute;
+  height:30px;
+  width:30px;
+  cursor:pointer;
+  border-radius:3px;
+  background-color:rgba(200,200,200,1);
+  background-image:url("Assets/images/share_x.svg");
+  background-size:30px 30px;
+}
+
+.exit-button-small{
+  background-size:20px 20px;
+  height:20px;
+  width:20px;
+  top:7.5px;
+  right:7.5px;
+}
+
+.exit-button:hover{
+  background-color:rgba(150,150,150,1);
+}
+
 .share-button {
   color:white;
   display:inline-block;
@@ -948,19 +970,6 @@ margin-bottom:-1px;
   border:1px solid rgba(0,0,0,0.4);
   border-bottom:1px solid rgba(255,255,255,1);
   background-color:white;
-}
-#legendexitbutton{
-  top:10px;
-  right:10px;
-  z-index:2;
-  position:absolute;
-  height:20px;
-  width:20px;
-  cursor:pointer;
-  background-color:rgba(200,200,200,1);
-}
-#legendexitbutton:hover{
-  background-color:rgba(150,150,150,1);
 }
 .print-button {
   position: absolute;
