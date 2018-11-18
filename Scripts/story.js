@@ -69,7 +69,7 @@ function story_display_page(storypage){
   } else {
     bulk_legend(false)
   }
-  $('toggler-Bulk Storage Sites').className = '';
+  //$('toggler-Bulk Storage Sites').className = '';
 
   // display information about story page
   $('storybox').innerHTML = '<p><big><strong>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '</br></br>' + storyvars[storypage]["pageText"] + jumptext + '</p>';

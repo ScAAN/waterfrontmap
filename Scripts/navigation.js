@@ -157,6 +157,7 @@ function nonbulk_active(){
 }
 
 function toggle_bulk(layers) {
+  $("toggler-Bulk Storage Sites").className='';
   var alllayers = ['TRI','MOSF','CBS','SUPERFUND2'];
   for (i=0;i<alllayers.length;i++){
     layername = alllayers[i];
@@ -168,6 +169,7 @@ function toggle_bulk(layers) {
   }
 
   if (layers!='None') {
+    $("toggler-Bulk Storage Sites").className='active';
     for (i=0;i<layers.length;i++){
       layername = layers[i];
       map.setLayoutProperty(layername, 'visibility', 'visible');
