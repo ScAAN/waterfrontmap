@@ -28,6 +28,9 @@ function query_point(e){
   queried[0].geometry.coordinates = current_point;
   queried[0].geometry.type = "Point";
 
+  // display coordinates in geocoder
+  updategeocoder(coords);
+
   // set 'single-point' marker to be at point coordinates
   map.getSource('single-point').setData(queried[0].geometry);
   // for debugging: display clicked coordinate
@@ -82,7 +85,7 @@ function show_explore_info(queried){
         divtext =  '' + layerName + ':<b> ' + Math.round(data[dataKey])+'</b>';
       }
     } else {
-      if (layerName.includes("Bulk")) {
+      if (layerName.includes("Bulk")||layerName.includes("FEMA Sea Level Rise")) {
         // do nothing
       } else {
         divtext =  '' + layerName + ':<b> ' + '---'+'</b>';
@@ -92,4 +95,9 @@ function show_explore_info(queried){
   }
   divtext = '<small>"</small>--<small>": no data or not enough data</small>'
   document.getElementById('map-overlay-info').innerHTML = document.getElementById('map-overlay-info').innerHTML + '<div>' + divtext + '</div>';
+}
+
+
+function updategeocoder(coords){
+  $('geocoder_input').value=coords.lat + " , " + coords.lng;
 }

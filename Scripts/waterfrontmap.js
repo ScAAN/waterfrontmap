@@ -89,6 +89,13 @@ geocoder.on('result', function(e) {
   map.getSource('single-point').setData(e.result.geometry);
 });
 
+// give the geocoder input an id (so we can update it later)
+var inputs = document.getElementsByTagName('input');
+for ( var index = 0; index < inputs.length; ++index) {
+  if (inputs[index].id !="download_name_input"){
+    inputs[index].id="geocoder_input"
+  }
+}
 
 // check if map style is loaded
 map.on('style.load', () => {

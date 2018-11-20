@@ -22,7 +22,7 @@
   <!------------------------->
   <!-- Overwrite default geocoder control style -->
   <style>
-  .mapboxgl-ctrl-geocoder { position:relative;left:-9px;min-width:105%;margin:0 auto; }
+  .mapboxgl-ctrl-geocoder { position:relative;left:-9px;min-width:105%;margin:0 auto;border: 2px solid rgba(0,0,0,.1);box-shadow:0 0 0 0 white;}
   .testprint{height:500px;}
   </style>
 
@@ -118,11 +118,11 @@
       <div id='legendinfo' class='legend-info overlay-box link-restyle'></div>
 
       <!-- EXPLORE CONTENT  -->
-      <div id='explorebox' class='box-content text-info-box overlay-box link-restyle'>
+      <div id='explorebox' class='box-content text-info-box overlay-box'>
         <div class="exit-button exit-button-small" onclick='showinfobox(event,"None")'></div>
         <div> <p>Click the map to explore a neighborhood, or search with the bar below. </p></div>
         <div id='geocoder' class='geocoder'></div>
-        <div id='map-overlay-info' class='map-overlay-info'></div>
+        <div id='map-overlay-info' class='map-overlay-info link-restyle'></div>
       </div>
 
       <!-- STORY CONTENT  -->
