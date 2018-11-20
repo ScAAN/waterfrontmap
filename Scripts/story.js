@@ -8,6 +8,11 @@ Contains:
 - which_smia (display SMIA info on hover)
 */
 
+// make number strings 2 digits
+function pad(d) {
+    return (d < 10) ? '0' + d.toString() : d.toString();
+}
+
 // next page function
 function story_next_page(){
   global_page = global_page+1;
@@ -38,7 +43,7 @@ function story_display_page(storypage){
   // show the next and back buttons
   $('nextbutton').style.display = "block";
   $('backbutton').style.display = "block";
-
+  $('story_counter').style.display = "block";
 
   // allow users to jump to a SMIA by clicking on it (if pageIdx is zero)
   var jumptext = "";
@@ -72,7 +77,10 @@ function story_display_page(storypage){
   //$('toggler-Bulk Storage Sites').className = '';
 
   // display information about story page
-  $('storybox_text').innerHTML = '<p><big><strong>' + storyvars[storypage]["pageTitle"] + '</big></strong>' + '</br></br>' + storyvars[storypage]["pageText"] + jumptext + '</p>';
+  //$('story_counter').innerHTML =  pad(storypage+1) + "<big>/</big> " + story_text["global_max_page"];
+  $('story_currentp').innerHTML = pad(storypage+1);
+  $('story_maxp').innerHTML = story_text["global_max_page"];
+  $('storybox_text').innerHTML = '<p><big><cust>' + storyvars[storypage]["pageTitle"] + '</cust></big>' + '</br></br>' + storyvars[storypage]["pageText"] + jumptext + '</p>';
 }
 
 

@@ -389,6 +389,7 @@ function showinfobox(evt,boxname){
   // kill story button
   $('nextbutton').style.display = 'none';
   $('backbutton').style.display = 'none';
+  $('story_counter').style.display = 'none';
 
   // clear explore box
   var blankgeojson = {

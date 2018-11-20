@@ -9,12 +9,38 @@ html {
     height: 100%;
 }
 
+cust {
+  /*
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  */
+}
+
 .text-stroke {
   text-shadow:
 -1px -1px 0 white,
 1px -1px 0 white,
 -1px 1px 0 white,
 1px 1px 0 white;
+}
+
+.wjp-logo{
+  top:0px;
+  line-height:.95;
+  margin:10px;
+  margin-top:-14px;
+  display:inline-block;
+  color:black;
+  position:relative;
+  vertical-align:top;
+  font-size:14px;
+  font-weight: 600;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+}
+.wjp-logo big{
+  font-size:26px;
 }
 
 .smiainfobox {
@@ -671,6 +697,7 @@ width:330px;
 
 .share-button {
   color:white;
+  position:relative;
   display:inline-block;
   width:40px;
   height:40px;
@@ -686,8 +713,34 @@ width:330px;
 
 .share-button:hover {
   transition: all 0.371s cubic-bezier(0.4,0,0.2,1);
-  background-color:rgba(150,150,150,1);
+  background-color:rgba(90,90,90,1);
 }
+
+.share-button:hover .tooltiptext {
+  visibility: visible;
+  opacity:1;
+}
+
+.share-button .tooltiptext{
+  visibility: hidden;
+  opacity:0;
+  font-size: 12px;
+  background-color: rgba(0,0,0,.8);
+  color: #ffffff;
+  text-align:center;
+  padding: 5px 0;
+  border-radius:5px;
+  transition: all 0.371s cubic-bezier(0.4,0,0.2,1);
+  position:absolute;
+  z-index:3;
+  width: 120px;
+  bottom:-30px;
+  left: 50%;
+  border:0px;
+  line-height:1;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
 
 .share-icon {
   padding-top:5px;
@@ -740,6 +793,11 @@ width:330px;
   text-align:center;
   box-shadow: 1px 1px 2px 2px rgb(0,0,0,.1);
   border: 1px solid rgba(0,0,0,0.4);
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .relative-button-text::after {
@@ -826,11 +884,22 @@ margin-bottom:-1px;
   right:37.5px;
 }
 
+#story_counter {
+  position: absolute;
+  width: 25px;
+  height: 20px;
+  top: 50px;
+  /*left: 280px;*/
+  left:370px;
+  display:none;
+}
+
+
 .next-button {
   position: absolute;
   width: 35px;
   height: 35px;
-  top: 140px;
+  top: 160px;
   /*left: 280px;*/
   left:370px;
   display: none;
@@ -839,7 +908,7 @@ margin-bottom:-1px;
   position: absolute;
   width: 35px;
   height: 35px;
-  top: 75px;
+  top: 95px;
   /*left: 280px;*/
   left:370px;
   display: none;
@@ -943,9 +1012,9 @@ margin-bottom:-1px;
 }
 .small-bar-button{
   position:relative;
-  top:-17.5px;
+  top:-20px;
   margin:10px;
-  float:right;
+  /*float:right;*/
   z-index:10;
   display:inline-block;
 }

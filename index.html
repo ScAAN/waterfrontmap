@@ -46,14 +46,26 @@
           <div id="printexit" class="exit-button" onclick="(function(){$('print_container').style.display='none'})();"></div>
           <div id="printbuttons" style="visibility:hidden;">
             <p class="spacer"></p>
-            <div id="share_download" class="share-button" onclick="savefile()"><img class="share-icon" src="Assets/images/share_download.svg" height="30px"/></div>
+            <div id="share_download" class="share-button" onclick="savefile()">
+              <div class="tooltiptext">download file</div>
+              <img class="share-icon" src="Assets/images/share_download.svg" height="30px"/>
+            </div>
             <div id="share_download_name" style="height:40px;">
               <span style="display:block;text-align:left;"><small style="padding-left:5px;">Download file name:</small><span>
               <div style="display:block"><input id="download_name_input" name="input" placeholder="WJPscreenshot0"></input><span>.png</span></div>
             </div>
-            <div class="share-button" onclick="sharevia('facebook')"><img class="share-icon" src="Assets/images/share_facebook_white_100.svg" height="30px"/></div>
-            <div class="share-button" onclick="sharevia('twitter')"><img class="share-icon" src="Assets/images/share_twitter_white.svg" height="30px"/></div>
-            <div class="share-button" onclick="sharevia('email')"><img class="share-icon" src="Assets/images/share_email_simple.svg" height="30px"/></div>
+            <div class="share-button" onclick="sharevia('facebook')">
+                <div class="tooltiptext">share to facebook</div>
+                <img class="share-icon" src="Assets/images/share_facebook_white_100.svg" height="30px"/>
+            </div>
+            <div class="share-button" onclick="sharevia('twitter')">
+              <div class="tooltiptext">share to twitter</div>
+              <img class="share-icon" src="Assets/images/share_twitter_white.svg" height="30px"/>
+            </div>
+            <div class="share-button" onclick="sharevia('email')">
+              <div class="tooltiptext">share by email</div>
+              <img class="share-icon" src="Assets/images/share_email_simple.svg" height="30px"/>
+            </div>
           </div>
         </div>
     </div>
@@ -173,9 +185,6 @@
               <h4 style='font-size:1.5em'>Welcome to the Waterfront Justice Project Map!</h4><br/>
               Thank you for visiting the Waterfront Justice Project Interactive Map. This is a collaboration between NYC-EJA and ScAAN, aiming to visualize maps created by NYC-EJA’s Waterfront Justice Project. View the static NYC-EJA maps in their <a href="https://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true">peer reviewed paper</a>. We’re currently under construction so information may not be 100% accurate. Feel free to leave feedback and let us know how we’re doing (about &rarr; feedback).</br></br>
             </p>
-              <!--
-            <div style="text-align:center;"><span style='vertical-align:middle;'><img style: style='height:30vh;' src="Assets/images/demo.gif"></img></span></div>
-            -->
             <div style="text-align:center;">
               <img id="load_gif" style="height:30vh;position:absolute;" src="Assets/images/loadloop.gif"></img>
               <img id="load_png" style="height:30vh;" src="Assets/images/loadmap.png"></img>
@@ -272,7 +281,7 @@
     <!------------------------->
 
     <div id='infobar'>
-      <div class="text-stroke" style="font-size:18px;bottom:20px;line-height:1;margin:10px;display:inline-block;color:black;position:relative;vertical-align:top;">
+      <div class="text-stroke wjp-logo">
         <big>W</big>aterfront </br><big>J</big>ustice <big>P</big>roject
       </div>
       <div id='storybutton' class='mode-button general-button relative-button' onclick='showinfobox(event,"storybox")'>
@@ -331,7 +340,7 @@
   <div id='aboutbox' style="cursor:pointer;display:none" class='box-content text-info-box overlay-box link-restyle' onclick="hideaboutbox()">
     <div class="exit-button" onclick='hideaboutbox()'></div>
     <div class="about-section">
-      <h5>about the map</h5>
+      <h5><cust>about the map</cust></h5>
       <p><small>
         The Waterfront Justice Project Interactive Map is a collaborative effort between the New York City Environmental Justice Alliance (NYC-EJA) and the Scientist Action and Advocacy Network (ScAAN), aiming to visualize maps created by NYC-EJA through its Waterfront Justice Project (WJP).
         <br/><br/>The WJP is a research and advocacy campaign focusing on community resiliency that seeks to reduce potential toxic exposures and public health risks associated with climate change in the City’s industrial waterfront. The WJP produces original maps to draw attention to climate vulnerabilities, while simultaneously calling for proactive local policy changes and highlighting the need for more in-depth research. The series of maps document land use, environmental hazards, and demographic and socio-economic indicators in relation to Significant Maritime Industrial Areas (SMIAs) and hurricane storm surge zones. These maps have informed NYC-EJAs community-driven campaign to educate government agencies, local business-owners, and the general public on the need to introduce community resilience and climate adaptation strategies in the industrial waterfront.
@@ -339,7 +348,7 @@
     </div>
     <div class="about-section" style="width:6%;"></div>
     <div class="about-section">
-      <h5>about the creators</h5>
+      <h5><cust>about the creators</cust></h5>
       <p><small>
         The code for this map was created by <a href="https://github.com/billbrod">Bill Broderick</a>, <a href="https://github.com/MaijaHonig">Maija Honig</a>, and <a href="https://github.com/jsaliani92">Julian Nader Saliani</a> and <a href="https://github.com/ScAAN/waterfrontmap/graphs/contributors">other contributors</a> using <a href="https://www.mapbox.com/help/define-mapbox-gl-js/">mapbox-gl-js</a> with icons from the <a href="https://thenounproject.com/coquet_adrien/">Adrien Coquet</a> at the noun project. It is licensed with a MIT license, and source code can be viewed on <a href ="https://github.com/ScAAN/waterfrontmap">our github</a>. The maps were created by Bill Broderick, Maija Honig, Julian Nader Saliani and Eddie Bautista, Jalisa Gilmore, & Annel Hernandez. Thanks for visiting and feel free to let us know how we're doing with feedback!
       </small></p>
@@ -370,6 +379,12 @@
     <!--      BUTTONS        -->
     <!------------------------->
 
+    <div id="story_counter" class="overlay-box">
+      <span id="story_currentp" style="font-size:18px;position:absolute;left:2px;top:2px"></span>
+      <span style="position:absolute;left:40%;top:7px;transform: rotate(35deg);font-size: 32px;color: rgba(0,0,0,.5);"> | </span>
+      <span id="story_maxp" style="font-size:16px;position:absolute;right:2px;bottom:2px;color: rgba(0,0,0,.5);"></span>
+    </div>
+
     <!-- NEXT BUTTON  -->
     <div id='nextbutton' class='next-button general-button button-fill' onclick='story_next_page()'>
       <span class='tooltiptext'>next</span>
@@ -386,11 +401,6 @@
       </span>
     </div>
 
-  <!--LEGEND BUTTON
-  <div id='legendbutton' class='legend-button small-button general-button button-fill' style='width:80px;border-radius:5px;display: inline-block; cursor: pointer; z-index: 10;' onclick='show_legend_info()'>
-    <span class='small-button-inside' style='width:80px;border-radius:5px;'><img style="height:35px;margin-left:-2px;" src="Assets/images/mh_map_info4.svg"></img> <span>
-    </div>
-  -->
 </div>
 </div>
 
