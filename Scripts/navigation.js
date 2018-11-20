@@ -415,6 +415,7 @@ function showinfobox(evt,boxname){
       story_display_page(global_page)
     } else if (evt.currentTarget.id.includes("explore")) {
       // turn on point querying listener
+      $('geocoder_input').value = '';
       map.on('click',query_point);
       smia_hover_toggle(true,false,true)
     } else if (evt.currentTarget.id.includes("about")) {

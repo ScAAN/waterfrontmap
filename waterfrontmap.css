@@ -551,9 +551,9 @@ button {
 }
 
 #aboutbox {
-width:60%;
-left:20%;
-top:10%;
+width:70%;
+left:15%;
+top:7.5%;
 z-index:99;
 padding:30px;
 padding-bottom:15px;
@@ -596,7 +596,7 @@ width:330px;
 }
 
 
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 840px) {
     #menu {
         width: 140px;
     }

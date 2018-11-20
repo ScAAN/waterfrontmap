@@ -85,7 +85,8 @@ geocoder.on('result', function(e) {
   var point = map.project([e.result.center[0], e.result.center[1]]);
   var queried = map.queryRenderedFeatures(point);
   // show the explore box and draw marker
-  show_explore_info(queried)
+  // neighborhood is equal to whatever mapbox/OSM label the result 
+  show_explore_info(queried,e.result.text)
   map.getSource('single-point').setData(e.result.geometry);
 });
 
@@ -693,6 +694,29 @@ map.addLayer({
 }
 },'SMIA','SMIA-buffer','TRI','SUPERUND2','CBS','MOSF');
 */
+
+// render neighborhood but leave it invisible with opacity=0
+map.addLayer({
+       "id": "Neighborhood",
+       "type": "fill",
+       "source": "vector_data",
+       "source-layer":"Neighborhood_Map",
+     "layout": {"visibility":'visible'},
+       "paint": {
+       "fill-opacity": 0,
+       "fill-color": {
+         'property': 'borough',
+           'type': 'categorical',
+           "stops": [
+         ['Brooklyn', '#aeffd1'],
+       ['Staten Island', '#233c95'],
+         ['Queens', '#a7d6eb'],
+         ['Manhattan', '#ffda8e'],
+       ['Bronx', '#f4af1f']
+           ]
+       }
+       }
+   }, 'water');
 
 // display marker for SMIAs
 map.addLayer({

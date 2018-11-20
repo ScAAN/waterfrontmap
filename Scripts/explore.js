@@ -18,9 +18,15 @@ function query_point(e){
 
   // query rendered features based on click
   var queried = map.queryRenderedFeatures(e.point)
+  // if theres nothing to query then fill queried with junk
+  if (typeof queried[0] == 'undefined'){
+    queried = {};
+    queried[0] = {};
+    queried[0].geometry = {};
+  }
 
   // show point information
-  show_explore_info(queried)
+  show_explore_info(queried,get_neighborhood(e))
 
   // get point longitude and lattitude
   var coords = e.lngLat;
@@ -49,11 +55,19 @@ function query_point(e){
   global_last_point = current_point;
 }
 
-function show_explore_info(queried){
+function show_explore_info(queried,neighborhood){
   // show info from points queried by marker
 
   // empty innerHTML so we can add to it!
   $('map-overlay-info').innerHTML = '';
+
+  var divtext = neighborhood;
+  document.getElementById('map-overlay-info').innerHTML = document.getElementById('map-overlay-info').innerHTML + '<div><h4>' + divtext + '</h4></div>';
+  // if the neighborhood is undefined theres probably no map data either
+  // so exit early and don't display data!
+  if (neighborhood=="No data"){
+    return neighborhood
+  }
 
   // unnest query object
   var arrObj = queried.map(a => a.properties);
@@ -97,7 +111,24 @@ function show_explore_info(queried){
   document.getElementById('map-overlay-info').innerHTML = document.getElementById('map-overlay-info').innerHTML + '<div>' + divtext + '</div>';
 }
 
-
+// update geocoder to have coordinates of marker
 function updategeocoder(coords){
   $('geocoder_input').value=coords.lat + " , " + coords.lng;
+}
+
+// get neighborhood to display in explore box
+function get_neighborhood(e){
+  var whichneighborhood = map.queryRenderedFeatures(e.point, {layers: ['Neighborhood']});
+  var whichsmia = map.queryRenderedFeatures(e.point, {layers: ['SMIAfill']});
+  if (whichsmia.length > 0) {
+    // display SMIA if clicked on SMIA instead of neighborhood
+    var myplace = 'SMIA # ' + vsmia[whichsmia[0].properties.SMIA_Name]["number"] + ',  ' + whichsmia[0].properties.SMIA_Name;
+  } else if (typeof whichneighborhood[0] != 'undefined') {
+    // display neighborhood
+    var myplace = whichneighborhood[0].properties.neighborhood; //+ ', ' + whichneighborhood[0].properties.borough;
+  } else {
+    // if theres no data then don't display anthing later...
+    var myplace = "No data"
+  }
+  return myplace
 }
