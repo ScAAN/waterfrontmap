@@ -126,19 +126,6 @@ map.on('load', function () {
     }
   });
 
-  map.addSource('sealevel2050', {
-    "type": "geojson",
-    "data": "./Data/SeaLevelRise2050.geojson"
-  });
-  map.addSource('sealevel2020', {
-    "type": "geojson",
-    "data": "./Data/SeaLevelRise2020.geojson"
-  });
-  map.addSource('combinedbulk', {
-    "type": "geojson",
-    "data": "./Data/bulkstorage_converted.json"
-  });
-
 
     // display marker for geocoder, this is a symbol (marker-15)
     map.addLayer({
@@ -518,7 +505,8 @@ map.addLayer({
 map.addLayer({
   "id": "BSScombined",
   "type": "symbol",
-  "source": "combinedbulk",
+      "source": "vector_data",
+      "source-layer": "bulkstorage_converted",
   "layout": {
     "icon-image": {
       "property": "SITE_NAME",
@@ -567,7 +555,8 @@ for (var s = 0; s < symbol_list.length; s++) {
   map.addLayer({
     "id": symbol,
     "type": "symbol",
-    "source": "combinedbulk",
+      "source": "vector_data",
+      "source-layer": "bulkstorage_converted",
     "layout": {
       "icon-image": "marker_" + symbol,
       "icon-allow-overlap": true,
@@ -603,7 +592,8 @@ for (var s = 0; s < symbol_list.length; s++) {
 map.addLayer({
   "id": "Sea Level Rise 2050",
   "type": "fill",
-  "source": "sealevel2050",
+  "source": "vector_data",
+  "source-layer": "SeaLevelRise2050",
   "paint": {
     "fill-color": "#0284A8",
     "fill-opacity": 0
@@ -613,7 +603,8 @@ map.addLayer({
 map.addLayer({
   "id": "Sea Level Rise 2020",
   "type": "fill",
-  "source": "sealevel2020",
+  "source": "vector_data",
+  "source-layer": "SeaLevelRise2020",
   "paint": {
     "fill-color": "#02547D",
     "fill-opacity": 0
