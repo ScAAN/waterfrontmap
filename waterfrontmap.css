@@ -612,7 +612,7 @@ width:330px;
     }
 }
 
-@media screen and (min-width: 930px) {
+@media screen and (min-width: 840px) {
     .largetooltip {
         display:none !important;
     }
