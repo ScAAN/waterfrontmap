@@ -78,7 +78,7 @@
             "shortname": "Percent below poverty line",
             "source": "US Census 2010, divided by census tract, downloaded from <a href=\"https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml\">US Census Bureau</a>",
             "tab": "Demographics",
-            "text": "People below poverty level are disproportionally present near SMIAs. In fact of the total X million low-income population in NYC. 1.6 million live in census tracts that are vulnerable to hurricane storm surge, and 283,000 live in census tracts that are both vulnerable to storm surge and fall within a half-mile of SMIAs. "
+            "text": "People below poverty level are disproportionally present near SMIAs. In addition, approximately 283,000 low-income people, defined as those living below 200% of the poverty level, live in census tracts that are vulnerable to storm surge and that fall within half a mile to the SMIAs"
         },
         "Zoning": {
             "dataName": "human_readable_zone",
@@ -473,7 +473,7 @@
                 "pageLayer": "Percent People of Color",
                 "pageLng": 40.73043814,
                 "pageSMIA": 2,
-                "pageText": "Newtown Creek, at over 780 acres the city\u2019s largest SMIA, abuts portions of the Greenpoint, Williamsburg, Long Island City, and Maspeth industrial areas. The waterfront area is characterized by heavy industry and municipal facilities, many of which are water-dependent. (<a href=\"https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf\">Source: VISION 2020</a>)",
+                "pageText": "Newtown Creek, at over 780 acres the city\u2019s largest SMIA, is adjacent to portions of the Greenpoint, Williamsburg, Long Island City, and Maspeth industrial areas. The waterfront area is characterized by heavy industry and municipal facilities, many of which are water-dependent. (<a href=\"https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf\">Source: VISION 2020</a>)",
                 "pageTitle": "SMIA #2, Newtown Creek",
                 "pageZoom": 12
             },
@@ -484,7 +484,7 @@
                 "pageLayer": "Hurricane Storm Surge Zones",
                 "pageLng": 40.73043814,
                 "pageSMIA": 2,
-                "pageText": "Moreover, in the Newtown Creek SMIA, there are potentially vulnerable bulk storage sites. Shown is the location of NY State DEC regulated Class 2 Superfund Sites -- sites determined to pose significant threat to public health or the environment & requiring immediate action. Of the total 43 sites in NYC, 8 of them (or 19%) are both vulnerable to storm surge and located within half a mile of the Newtown Creek SMIA. ",
+                "pageText": "Moreover, in the Newtown Creek SMIA, there are potentially vulnerable bulk storage sites. Shown is the location of NY State DEC regulated Class 2 Superfund Sites -- sites determined to pose significant threat to public health or the environment & requiring immediate action. NYC-EJA analysis found that of the total 43 sites in NYC, 8 of them (or 19%) are both vulnerable to storm surge and located within half a mile of the Newtown Creek SMIA.",
                 "pageTitle": "Superfund class 2 sites in Newtown Creek",
                 "pageZoom": 12
             },
@@ -517,7 +517,7 @@
                 "pageLayer": "Percent People of Color",
                 "pageLng": 40.80730644,
                 "pageSMIA": 5,
-                "pageText": "The South Bronx SMIA is more than 850 acres in size, stretching from Port Morris on the Harlem River to Hunts Point on the East River. Wholesale trade is the dominant industry. The SMIA is home to the city\\'s produce distribution center at Hunts Point, the Fulton Fish market, and other food distributors. (<a href=\"https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf\">Source: VISION 2020</a>)",
+                "pageText": "The South Bronx SMIA is more than 850 acres in size, stretching from Port Morris on the Harlem River to Hunts Point on the East River. Wholesale trade is the dominant industry. The SMIA is home to the city's produce distribution center at Hunts Point, the Fulton Fish market, and other food distributors. (<a href=\"https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf\">Source: VISION 2020</a>)",
                 "pageTitle": "SMIA #5, South Bronx",
                 "pageZoom": 12
             },
@@ -528,7 +528,7 @@
                 "pageLayer": "Hurricane Storm Surge Zones",
                 "pageLng": 40.80730644,
                 "pageSMIA": 5,
-                "pageText": "In the South Bronx SMIA, of particular note are the locations of NY State DEC regulated active chemical bulk and major oil storage facilities. These facilities store hazardous substances or have the capacity to store 400,000 gallons of oil. Of the 171 facilities in NYC, 18 of them or 11% are both vulnerable to storm surge and located within half a mile of the South Bronx SMIA. Currently the <a href=\"http://www.dec.ny.gov/chemical/97067.html\">NYC Industrial Waterfront Project</a> is working to help implement polution prevention, toxics reduction and climate adaption strategies with the goal of making the South Bronx industrial waterfront sustainable and climate resilient.",
+                "pageText": "In the South Bronx SMIA, of particular note are the locations of NY State DEC regulated active chemical bulk and major oil storage facilities. These facilities store hazardous substances or have the capacity to store 400,000 gallons of oil. NYC-EJA\u2019s analysis found that of the 171 facilities in NYC, 18 of them or 11% are both vulnerable to storm surge and located within half a mile of the South Bronx SMIA. <a href=\"http://www.dec.ny.gov/chemical/97067.html\">The NYC Industrial Water Project</a> was an effort to improve sustainability and climate resiliency in the South Bronx community and industrial waterfront. NYC-EJA, the New York State Department of Environmental Conservation, and the New York State Pollution Prevention Institute worked together with local Hunts Point companies to promote pollution prevention and climate adaption strategies.",
                 "pageTitle": "Toxic sites in South Bronx",
                 "pageZoom": 12
             },
@@ -539,7 +539,7 @@
                 "pageLayer": "Percent People of Color",
                 "pageLng": 40.65844208,
                 "pageSMIA": 6,
-                "pageText": "Nearly 600 acres, the Sunset Park SMIA extends from Erie Basin to Owl\\'s Head, an area characterized by water-dependent facilities, concentrations  of  industrial  activity,  well-buffered  manufacturing  districts,  and  vacant  sites  and  brownfields  of  significant  size.  A  small portion of the SMIA abuts the Gowanus Canal, a waterway that was designated a Superfund Site in 2010. (<a href=\"https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf\">Source: VISION 2020</a>)",
+                "pageText": "Nearly 600 acres, the Sunset Park SMIA extends from Erie Basin to owl's Head, an area characterized by water-dependent facilities, concentrations  of  industrial  activity,  well-buffered  manufacturing  districts,  and  vacant  sites  and  brownfields  of  significant  size.  A  small portion of the SMIA is adjacent to the Gowanus Canal, a waterway that was designated a Superfund Site in 2010. (<a href=\"https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/vision-2020-cwp/vision2020/appendix_b.pdf\">Source: VISION 2020</a>)",
                 "pageTitle": "SMIA #6, Sunset Park ",
                 "pageZoom": 12
             },
@@ -550,7 +550,7 @@
                 "pageLayer": "Hurricane Storm Surge Zones",
                 "pageLng": 40.65844208,
                 "pageSMIA": 6,
-                "pageText": "Furthermore, the Sunset park SMIA contains potentially vulnerable  facilites containg toxic chemicals. Shown is the location of facilities reporting chemicals in the Toxics Release Inventory under the US EPA Emergency Planning and Community Right-to-Know Act. Of the 234 TRI Reporters in NYC, 17 of them or 7% are both vulnerable to storm surge and located within half a mile of the Sunset Park SMIA. Currently <a href=\"https://www.rand.org/jie/infrastructure-resilience-environment/projects/grasp.html\">RAND and NYC-EJA</a> is taking a grassroots research-to-action approach to improve community resiliency in Sunset Park. ",
+                "pageText": "Furthermore, the Sunset park SMIA contains potentially vulnerable facilities containing toxic chemicals. Shown is the location of facilities reporting chemicals in the Toxics Release Inventory under the US EPA Emergency Planning and Community Right-to-Know Act. NYC-EJA\u2019s analysis found that of the 234 TRI Reporters in NYC, 17 of them or 7% are both vulnerable to storm surge and located within half a mile of the Sunset Park SMIA. <a href=\"https://www.rand.org/jie/infrastructure-resilience-environment/projects/grasp.html\">Grassroots Research to Action in Sunset Park</a> or GRASP is a collaboration between NYC-EJA, UPROSE, the Rand Corporation and Lifeline Group to support community-based actions that look to reduce contamination associated with industrial waterfronts and understand public health risks. Currently, GRASP is involved in a multi-year research project in Sunset Park working with small local businesses, specifically auto shops repair businesses. The goal is to understand the public health risks of auto shop products that may be released into the environment during an extreme weather event to build climate and business resiliency in Sunset Park",
                 "pageTitle": "Toxic sites in Sunset Park",
                 "pageZoom": 12
             },
