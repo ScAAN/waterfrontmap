@@ -78,9 +78,6 @@ general_request.onload = function() {
   vsmia = requested_text["smia"];
   legend_text = requested_text["legend"];
 
-  // //uncomment when reordering is enabled (first remake vector data)
-  reorder_smia(true);
-
   // do processing, but don't include the none layer or Null layers
   for (const prop in vlayer) {
     if (prop!="None" && vlayer[prop]["tab"]!="Removed") {
@@ -110,14 +107,20 @@ general_request.onload = function() {
   storyvars = story_text["data"];
   pageSMIAIdx = story_text["SMIA_first_page"];
   global_max_page = story_text["global_max_page"]-1;
+
+  // //uncomment when reordering is enabled (first remake vector data)
+  reorder_smia(true);
+
   map_init(1);
 }
 
 // renumber SMIAs if necessary
 function reorder_smia(reorder_true){
   if (reorder_true==true){
+    var tempidx = pageSMIAIdx;
     for (smia_name in vsmia){
       if (smia_name !="Introduction"){
+        pageSMIAIdx[vsmia[smia_name]["new_number"]] = tempidx[vsmia[smia_name]["number"]];
         vsmia[smia_name]["number"] = vsmia[smia_name]["new_number"];
       }
     }
