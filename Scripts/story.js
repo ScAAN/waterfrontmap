@@ -134,14 +134,15 @@ function smia_click(e){
   // if the mouse has clicked on a SMIA then get its number and jump to it
   if (whichsmia.length > 0){
     // Get the number of the clicked SMIA
-    var smiaNum = vsmia[whichsmia[0].properties.SMIA_Name]["number"]-1;
+    var smiaNum = vsmia[whichsmia[0].properties.SMIA_Name]["number"];
 
     // Remember to turn off listeners and highlight effect after you zoom
     smia_hover_toggle(false,false,false)
 
     // Go to the first page on which this SMIA appears
-    var jumppage = pageSMIAIdx[smiaNum]+1;
+    var jumppage = pageSMIAIdx[smiaNum];
     if (jumppage !=0){
+      console.log(jumppage)
       global_page = jumppage;
       story_display_page(global_page);
     }

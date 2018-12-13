@@ -117,10 +117,12 @@ general_request.onload = function() {
 // renumber SMIAs if necessary
 function reorder_smia(reorder_true){
   if (reorder_true==true){
-    var tempidx = pageSMIAIdx;
+    var tempidx = pageSMIAIdx.slice(0);
     for (smia_name in vsmia){
       if (smia_name !="Introduction"){
-        pageSMIAIdx[vsmia[smia_name]["new_number"]] = tempidx[vsmia[smia_name]["number"]];
+        var old_num = vsmia[smia_name]["number"];
+        var new_num = vsmia[smia_name]["new_number"];
+        pageSMIAIdx[new_num] = tempidx[old_num];
         vsmia[smia_name]["number"] = vsmia[smia_name]["new_number"];
       }
     }
