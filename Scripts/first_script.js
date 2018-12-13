@@ -32,8 +32,6 @@ function map_init(num){
     $('loading_message').innerHTML='<br/>click anywhere to continue';
     $('wipbox').style.cursor = 'pointer';
     $('wipoverlay').style.cursor = 'pointer';
-    // //uncomment when reordering is enabled (first remake vector data)
-    //reorder_smia(true)
   }
 }
 
@@ -66,11 +64,22 @@ var toggleableLegendIds={}, toggleableLayerIds={}, dataNames={}, exploreIdOrder=
 var vlayer, vsmia, vlegend;
 var storyvars, pageSMIAIdx, global_max_page;
 
+var reorder_flag= true;
+if (reorder_flag==true){
+  var global_iconname = "{IconR}";
+} else {
+  var global_iconname = "{Icon}";
+}
+
+
 general_request.onload = function() {
   var requested_text = general_request.response;
   vlayer = requested_text["layer"];
   vsmia = requested_text["smia"];
   legend_text = requested_text["legend"];
+
+  // //uncomment when reordering is enabled (first remake vector data)
+  reorder_smia(true);
 
   // do processing, but don't include the none layer or Null layers
   for (const prop in vlayer) {
@@ -109,13 +118,27 @@ function reorder_smia(reorder_true){
   if (reorder_true==true){
     for (smia_name in vsmia){
       if (smia_name !="Introduction"){
-        var img = vsmia[smia_name]["number"];
-        var new_num = vsmia[smia_name]["new_number"];
-        var imgid = 'smiaimg' + img.toString();
-        var imgsrc = "Assets/all_sprites/number-" + new_num + ".svg";
-        $(imgid).src = imgsrc;
-        vsmia[smia_name]["number"] = new_num;
+        vsmia[smia_name]["number"] = vsmia[smia_name]["new_number"];
       }
     }
   }
+  // now build legend in correct order
+  for (i=0;i<8;i++){
+    for (smia_name in vsmia){
+      if (smia_name !="Introduction"){
+        if ( vsmia[smia_name]["number"]==i){
+          var smia_lab = smia_name;
+          if (smia_name=="Staten Island West Shore"){
+            smia_lab ="Staten I. West Shore";
+          }
+          var bigdiv = document.createElement('div');
+          bigdiv.innerHTML = '<div style="float:right;text-align:right"><div style="display:inline-block;line-height:100%">' + smia_lab + '</div><span style="vertical-align:middle;margin-bottom:10px;position:relative;bottom:0px;left:15px;margin-left:10px;"><img class="marker" style="height:20px;" src="Assets/all_sprites/number-' + i + '.svg"></img></span></div>';
+          $('legendHTML_Highlight').appendChild(bigdiv);
+          }
+      }
+    }
+  }
+  tempdiv = document.createElement('div');
+  tempdiv.innerHTML = "<div style='text-align:right'><span style='background-color: #ffffff'></span></div>";
+  $('legendHTML_Highlight').appendChild(tempdiv)
 }

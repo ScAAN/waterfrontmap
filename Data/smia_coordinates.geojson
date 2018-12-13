@@ -6,7 +6,7 @@
       "Number": 1,
       "Name":"Brooklyn Navy Yard",
       "Icon":"number-1",
-      "IconR":"number-2"
+      "IconR":"number-3"
     },
     "geometry": {
       "type": "Point",
@@ -19,7 +19,7 @@
       "Number": 2,
       "Name":"Newtown Creek",
       "Icon":"number-2",
-      "IconR":"number-3"
+      "IconR":"number-2"
     },
     "geometry": {
       "type": "Point",

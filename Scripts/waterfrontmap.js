@@ -716,7 +716,7 @@ map.addLayer({
   "source-layer": "smia_coordinates",
   "type": "symbol",
   "layout": {
-    "icon-image": "{Icon}",
+    "icon-image": global_iconname,
     "icon-size":.35,
     "visibility":"none"
   }
