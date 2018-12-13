@@ -290,7 +290,7 @@ map.addLayer({
 */
 
 
-var zyellow = '#f9e9d9';
+var zyellow = '#f6f4d0'//'#f9e9d9';
 var zorange = "#d7834a";
 var zred = '#D74B6A';
 var zpurple = '#9B507B';
