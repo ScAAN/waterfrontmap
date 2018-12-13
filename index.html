@@ -383,6 +383,7 @@
 -->
 
 <!--First load essential functions and text, then everything else -->
+<script src='Scripts/tabletop.min.js'></script>
 <script id="first_loaded" src='Scripts/first_script.js'></script>
 <script >
   var myscript = document.querySelector('#first_loaded');
@@ -396,6 +397,7 @@
     load_script("Scripts/html2canvas.min.js",map_init(1))
     load_script("Scripts/filesaver.min.js",map_init(1))
     load_script("Scripts/sharemap.js",map_init(1))
+    window.addEventListener('DOMContentLoaded', ttinit);
   }
 </script>
 

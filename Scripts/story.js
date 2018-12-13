@@ -142,7 +142,6 @@ function smia_click(e){
     // Go to the first page on which this SMIA appears
     var jumppage = pageSMIAIdx[smiaNum];
     if (jumppage !=0){
-      console.log(jumppage)
       global_page = jumppage;
       story_display_page(global_page);
     }

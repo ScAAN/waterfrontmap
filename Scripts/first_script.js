@@ -53,17 +53,34 @@ function load_script(url, completeCallback) {
 */
 
 // request the general text
+// now outdated due to implementing google sheets with tabletop
+/*
 var general_requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/map_text.json';
 var general_request = new XMLHttpRequest();
 general_request.open('GET', general_requestURL);
 general_request.responseType = 'json';
 general_request.send();
+general_request.onload = function() {
+  var requested_text = general_request.response;
+  console.log(requested_text)
+  //request_processing(requested_text)
+}
+*/
 
-// now do some processing
+
+// get text from google sheets via tabletop
+var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1u3npfNWjwQl6uyFmSp9pwsJrGEn_bcBkErLjIw9J-z8/edit?usp=sharing';
+function ttinit() {
+  Tabletop.init( { key: 'https://docs.google.com/spreadsheets/d/1u3npfNWjwQl6uyFmSp9pwsJrGEn_bcBkErLjIw9J-z8/edit?usp=sharing',
+                   callback: tabletop_callback} )
+}
+
+// now declare some global variables
 var toggleableLegendIds={}, toggleableLayerIds={}, dataNames={}, exploreIdOrder=[];
 var vlayer, vsmia, vlegend;
 var storyvars, pageSMIAIdx, global_max_page;
 
+// tell waterfrontmap.js the correct icons for SMIA numbers
 var reorder_flag= true;
 if (reorder_flag==true){
   var global_iconname = "{IconR}";
@@ -71,13 +88,66 @@ if (reorder_flag==true){
   var global_iconname = "{Icon}";
 }
 
+// process the text from tabletop into the same format as from an XML request
+function tabletop_callback(data,tabletop){
+  // make requesty
+  var layer = squish_tabletop(data["layer"]["elements"],"id");
+  var smia = squish_tabletop(data["smia"]["elements"],"name");
+  var legend = squish_tabletop(data["legend"]["elements"],"vari");
+  var story = squish_story(data["story"]["elements"],smia);
+  var requested={};
+  requested["layer"]=layer;
+  requested["smia"]=smia;
+  requested["legend"]=legend;
+  requested["story"]=story;
+  console.log(requested)
+  request_processing(requested)
+}
 
-general_request.onload = function() {
-  var requested_text = general_request.response;
+// squish tabletop data to become a flatter object
+function squish_tabletop(elements,name){
+  var newobj={};
+  for (i=0;i<elements.length;i++){
+    if (name=="vari"){
+      var temparray =  Object.values(elements[i]).slice();
+      temparray = temparray.filter(Boolean);
+      temparray.shift();
+      newobj[elements[i][name]] =temparray;
+    } else {
+      newobj[elements[i][name]] = elements[i];
+    }
+  }
+  return newobj
+}
+
+// squish and process the story
+function squish_story(elements,smia){
+  var newobj={};
+  newobj["global_max_page"] = elements.length;
+  newobj["data"] = [];
+  newobj["SMIA_first_page"] = new Array(8);
+  for (i=0;i<elements.length;i++){
+    newobj["data"][i] = elements[i];
+    newobj["data"][i]["pageZoom"] = smia[newobj["data"][i]["pageSMIA"]]["zoom"]
+    newobj["data"][i]["pageLat"] = smia[newobj["data"][i]["pageSMIA"]]["lat"]
+    newobj["data"][i]["pageLng"] = smia[newobj["data"][i]["pageSMIA"]]["lng"]
+    if (i>0){
+      if (newobj["data"][i]["pageSMIA"]!=newobj["data"][i-1]["pageSMIA"]){
+        smianum = smia[newobj["data"][i]["pageSMIA"]]["number"].slice();
+        if (typeof(newobj["SMIA_first_page"][smianum])=="undefined"){
+            newobj["SMIA_first_page"][smianum] = i;
+        }
+      }
+    }
+  }
+  return newobj
+}
+
+// process the map text into useful variables
+function request_processing(requested_text){
   vlayer = requested_text["layer"];
   vsmia = requested_text["smia"];
   legend_text = requested_text["legend"];
-
   // do processing, but don't include the none layer or Null layers
   for (const prop in vlayer) {
     if (prop!="None" && vlayer[prop]["tab"]!="Removed") {
@@ -113,6 +183,7 @@ general_request.onload = function() {
 
   map_init(1);
 }
+
 
 // renumber SMIAs if necessary
 function reorder_smia(reorder_true){
