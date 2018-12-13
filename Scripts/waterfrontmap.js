@@ -290,14 +290,14 @@ map.addLayer({
 */
 
 
-var zyellow = '#f6f4d0'//'#f9e9d9';
+var zyellow = '#EDC353';//'#f6f4d0'//'#f9e9d9';
 var zorange = "#d7834a";
 var zred = '#D74B6A';
 var zpurple = '#9B507B';
 var zgreen ="#728c6a";//'#227f58';
 var zother = '#666666';
 var zoutline = zyellow;
-var zoutline2 = '#edc2a8';
+var zoutline2 = '#ED9751';//'#edc2a8';
 var zoutline3 = zoutline2;
 
 
