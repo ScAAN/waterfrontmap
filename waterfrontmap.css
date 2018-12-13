@@ -610,6 +610,9 @@ width:330px;
     .relative-button-text {
         display:none !important;
     }
+    .relative-button-inside {
+        display:none !important;
+    }
 }
 
 @media screen and (min-width: 840px) {
@@ -681,6 +684,7 @@ width:330px;
   background-color:rgba(200,200,200,1);
   background-image:url("Assets/images/share_x.svg");
   background-size:30px 30px;
+  transition: all 0.1s cubic-bezier(0.4,0,0.2,1);
 }
 
 .exit-button-small{
@@ -765,12 +769,6 @@ width:330px;
   height:35px;
   width:auto;
 }
-
-.relative-button.active .small-button-inside {
-  background-color:  #78909C;
-}
-.relative-button.active:hover .small-button-inside{background-color: #9E9E9E;}
-
 .relative-button-inside {
   margin:5px;
   position:relative;
@@ -809,6 +807,7 @@ width:330px;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
 
 .relative-button-text::after {
   position:absolute;
@@ -934,7 +933,7 @@ margin-bottom:-1px;
   border-radius:50px;
   display:inline-block;
   position:relative;
-  z-index:2;
+  z-index:3;
   transition: all 0.371s cubic-bezier(0.4,0,0.2,1);
 }
 
@@ -957,13 +956,40 @@ margin-bottom:-1px;
   cursor: pointer;
   z-index:1;
 }
-
+/*
 .general-button:hover .relative-button-text { background-color: #CACFD2; box-shadow:inset 0px 0px 0px 5px white;}
 .general-button:hover .relative-button-text::after {
   background-color: #CACFD2;
   border-top: 4.75px solid white;
   border-bottom: 4.75px solid white;
   height:20px;
+}
+*/
+.relative-button-inside {
+  box-shadow: inset 0 0 0 0 rgba(0,0,0,.2);
+  position:absolute;
+  transition: all ease 0.1s;
+  z-index:2;
+  top: 8px;
+  height: 20px;
+  left: 20px;
+  width: 70px;
+}
+
+.relative-button.active .small-button-inside {background-color:rgba(204,207,207,1);}
+.relative-button:active .small-button-inside{background-color: #9E9E9E;}
+.relative-button.active:hover .small-button-inside{background-color: rgba(178,190,193,1);}
+
+.relative-button.active:hover .relative-button-inside{
+  box-shadow: inset 100px 0 0 0 rgba(0,40,50,.3);
+  transition: none;
+  transition: all ease 0.4s;
+}
+
+.general-button:hover .relative-button-inside {
+  box-shadow: inset 100px 0 0 0 rgba(0,15,15,.2);
+  transition: none;
+  transition: all ease 0.4s;
 }
 .general-button:hover .small-button-inside { background-color: #CACFD2; }
 .general-button:active .small-button-inside {background-color: #9E9E9E; }
@@ -977,7 +1003,7 @@ margin-bottom:-1px;
   padding: 5px 0;
   border-radius:50px;
   position:absolute;
-  z-index:3;
+  z-index:4;
   width: 40px;
   top: 90%;
   left: 50%;
