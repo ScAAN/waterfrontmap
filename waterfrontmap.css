@@ -708,12 +708,22 @@ width:330px;
   font-size:30px;
   opacity:1;
   margin:5px;
-  background-color:rgba(0,0,0,1);
+  background-color:rgba(255,255,255,1);
+  border:2px solid rgba(0,0,0,1);
 }
 
-.share-button:hover {
+.share-button:hover .share-button-inner {
   transition: all 0.371s cubic-bezier(0.4,0,0.2,1);
-  background-color:rgba(0,0,0,.6);
+  background-color:rgba(0,0,0,.15);
+}
+
+.share-button-inner {
+  border-radius:30px;
+  height:45px;
+  width:45px;
+  left:5px;
+  top:5px;
+  position:absolute;
 }
 
 .share-button:hover .tooltiptext {
