@@ -237,47 +237,6 @@ map.on('load', function () {
 	url: 'mapbox://billbrod.data'
     })
 
-    // remove poi and road labels
-    map.removeLayer("road-label-sm");
-    map.removeLayer("road-label-med");
-    map.removeLayer("road-label-large");
-    // remove nj labels
-    //map.removeLayer("place-town");
-    map.removeLayer("place_label_city_large_s");
-    map.removeLayer("place_label_city_medium_s");
-    map.removeLayer("place_label_city_small_s");
-    map.removeLayer("place_label_city_large_n");
-    map.removeLayer("place_label_city_medium_n");
-    map.removeLayer("place_label_city_small_n");
-    map.removeLayer("place_label_other");
-    // restrict labels to new York
-    //map.setFilter('state_label',["!=",'Perc_POC_P003009',null])
-
-
-
-    //trying to get rid of labels outside of new york
-    var maplayers = map.getStyle().layers;
-    var layerIds = maplayers.map(function (layer) {
-    //if (layer.id.includes("label")||layer.id.includes("place")||layer.id.includes("town")){
-    return layer.id;
-    //}
-    });
-    console.log(layerIds)
-/*
-"place-town"
-"place-city-lg-s"
-"place-city-sm"
-
-var labelIds = layerIds.filter(function (el) {
-return el != null;
-});
-
-for (i=0;i<labelIds.length;i++){
-//map.setFilter(labelIds[i],["==",['has', 'Perc_POC_P003009'],true])
-}
-
-*/
-
 // Add a background pattern
 /*
 map.addLayer({
@@ -922,6 +881,33 @@ map.addLayer({
 },
 "interactive": true
 },'Zoning');
+
+// make neighborhood labels more salient
+var plnobj={};
+plnobj["base"]=1;
+plnobj["stops"]= new Array(2);
+plnobj["stops"][0] = [0,0];
+plnobj["stops"][1] = [12,1];
+map.setPaintProperty('place_label_neighborhood','text-halo-width',1.5)
+map.setPaintProperty('place_label_neighborhood','text-halo-blur',0)
+map.setPaintProperty('place_label_neighborhood','text-opacity',plnobj)
+// move neighborhood labels on top
+map.moveLayer("place_label_neighborhood")
+
+//get ride of excess labels
+var maplayers = map.getStyle().layers;
+var layerIds = maplayers.map(function (layer) {
+  if ((layer.id.includes("label"))&&(layer.id!='place_label_neighborhood')){
+    return layer.id;
+  }
+});
+layerIds = layerIds.filter(Boolean);
+layerIds.push('poi-parks-scalerank1')
+layerIds.push('poi-scalerank1')
+for (i=0;i<layerIds.length;i++){
+  map.removeLayer(layerIds[i])
+}
+console.log(layerIds)
 
 // call map_init here so we know when all layers are loaded!
 // (since map.loaded and map._loaded don't work)

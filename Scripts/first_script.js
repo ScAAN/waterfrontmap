@@ -62,7 +62,6 @@ general_request.responseType = 'json';
 general_request.send();
 general_request.onload = function() {
   var requested_text = general_request.response;
-  console.log(requested_text)
   //request_processing(requested_text)
 }
 */
@@ -100,7 +99,6 @@ function tabletop_callback(data,tabletop){
   requested["smia"]=smia;
   requested["legend"]=legend;
   requested["story"]=story;
-  console.log(requested)
   request_processing(requested)
 }
 
