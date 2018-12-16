@@ -15,7 +15,6 @@ function hidewip(){
   if (global_pageloaded==1){
     $('wipbox').style.display = 'none';
     $('wipoverlay').style.display = 'none';
-    slider_pulse("start");
   }
 }
 
@@ -28,6 +27,16 @@ function hideaboutbox(){
 function slider_pulse(string){
   if (string=="start"){
     $('slider_flash').style.webkitTransform="scale(1)";
+    $('infoimgpulse').style.visibility="visible";
+    setTimeout(function() {
+      stop_slider();
+    }, 3000);
+} else if (string="stop"){
+  stop_slider();
+}
+  /*
+  if (string=="start"){
+    $('slider_flash').style.webkitTransform="scale(1)";
   } else if (string="stop"){
     $('slider_flash').style.webkitTransform="scale(.1)";
     setTimeout(function() {
@@ -35,6 +44,16 @@ function slider_pulse(string){
       button_pulse("start")
     }, 500);
   }
+  */
+}
+
+function stop_slider(){
+  $('slider_flash').style.webkitTransform="scale(.1)";
+  setTimeout(function() {
+    $('slider_flash').style.webkitTransform="scale(.01)";
+    $('slider_flash').style.display="none";
+    $('infoimgpulse').style.display="none";
+  }, 500);
 }
 
 function button_pulse(string){
@@ -415,6 +434,7 @@ function showinfobox(evt,boxname){
       story_display_page(global_page)
     } else if (evt.currentTarget.id.includes("explore")) {
       // turn on point querying listener
+      slider_pulse("start");
       $('geocoder_input').value = '';
       map.on('click',query_point);
       smia_hover_toggle(true,false,true)

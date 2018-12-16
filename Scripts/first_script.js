@@ -26,7 +26,9 @@ function map_init(num){
     global_pageloaded = 1;
     // make default layer visible and initialize menu
     menuinit();
-    make_layer_visible("Percent People of Color");
+    //make_layer_visible("Percent People of Color");
+    $('storybutton').click();
+    
     // hide loading screen
     $('load_gif').style.visibility='hidden';
     $('loading_message').innerHTML='<br/>click anywhere to continue';
