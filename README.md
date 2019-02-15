@@ -3,39 +3,13 @@ A collaboration between [NYC-EJA](http://www.nyc-eja.org/) and [ScAAN](http://sc
 Mapping weather, human industry, and social demographics of SMIAs.    
 
 [**CURRENT MAP**](http://scaan.net/waterfrontmap/) //
+[**FEEDBACK**](https://docs.google.com/forms/d/e/1FAIpQLSdLk8yvCCXT2nSOYlmBfkYXnPkRCpsYjNQWkWgdCgHwmcBTrQ/viewform) //
 [**EJA MAPS**](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true) //
-[**EJA-WJP INFORMATION**](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)   
+[**EJA-WJP INFORMATION**](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)     
+     
    
    
 <img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/images/demo.gif" width="350" height="350">
-
-#### Work in progress
-<details><summary>Recent changes</summary>
-   
-- [x] (11/9) Adressing comments and bugs -Maija
-- [x] (10/5) Visuals and explore fix -Maija
-- [x] (9/30) Various bugfixes -Maija       
-
-</details>
-
-<details><summary>Open issues</summary>
-
-- [ ] Mapbox icons disappearing bug
-- [ ] Change data names to be the same in vector data
-- [ ] There is some kind of typo in vector data causing `Error at Actor.recieve`
-- [ ] Update all sources (double-check sources, re-download and re-process data)
-
-</details>
-
-<details><summary>Feature wish list</summary>  
-
-- [ ] Make python script executable (see [this](https://medium.com/dreamcatcher-its-blog/making-an-stand-alone-executable-from-a-python-script-using-pyinstaller-d1df9170e263) to make the executeable and [this](https://stackoverflow.com/questions/47692213/reducing-size-of-pyinstaller-exe) to reduce the size)  
-- [ ] Pay for icons ([here](https://thenounproject.com/coquet_adrien/))   
-- [ ] Automate data conversion to vector   
-- [ ] New data ([Future High Tide With sea level rise](https://www1.nyc.gov/site/planning/data-maps/open-data.page#waterfront), [FEMA flood insurance](http://www.region2coastal.com/view-flood-maps-data/view-preliminary-flood-map-data/), post irene flooding, sandy impacted zones, manufacturing zoning districts (1-3), total population)   
-- [ ] [Comment any extra ideas here](https://docs.google.com/document/d/1FwlZTbRV0J3WiBpiMt1InUbtlwiGd-douNtTXKUXKMo/edit)
-
-</details>
 
 #### How to use
 <details><summary> How to add data to the map </summary>
@@ -73,30 +47,10 @@ map.addLayer({
 
 </details>
 
-<details><summary> How to update story mode </summary>
-   
-We now have a story mode. This works by reading in the information stored in the csv file `Processing\Text\story_text.csv`, converting it to a json file (`Processing\Text\story_text.json`) which is then hosted on github and read. To use this:    
 
-1. Enter your story into `story_text.csv`, each line is a page, with the specified SMIA (`pageSMIA`), layer (`pageLayer`), title (`pageTitle`), and description text (`pageText`). Please be careful to put exact layer names in the layer field, and specify SMIA's with a number from 0-7 where 0 is a zoomed out view of all the SMIAs.   
-2. Save this csv, make sure it is in `Processing\Text\` and it is a normal csv   
-3. Run `Processing\text_conversion_small.py`   
-4. Push changes to github or upload `story_text.json` manually   
-5. Wait for the raw file to refresh (~5 minutes)   
-6. Finished! Of course, if there are any typos in the layer names or SMIA numbers in your csv file, strange things might start to happen. Make sure to always check for typos. The most common one is a typo in the layer names which are case sensitive.    
+<details><summary> How to update map text </summary>
+Edit the map text using the instructions on [our google sheet](https://docs.google.com/spreadsheets/d/1u3npfNWjwQl6uyFmSp9pwsJrGEn_bcBkErLjIw9J-z8/edit#gid=734073463).
 
-</details>
-
-<details><summary> How to update layer and SMIA text</summary>
-   
-Information text for layers and SMIAs is now updated through `Processing\Text\general_text.json`. Update this json by editing `Processing\Text\layer_text.csv` and `Processing\Text\smia_text.csv` and converting with `Processing\text_conversion_small.py`. To use this:
-
-1. To control layer information: enter your layer info into `layer_text.csv`, each line is a layer with a layer id (`id`), legend id (`legend`), description text (`text`), and source text (`source`)  
-2. To control SMIA information: using `smia_text.csv` enter the smia name (`name`), number (`number`) and hover box description (`description`)   
-3. Save these csvs, make sure they are in `Processing\Text\`  
-4. Run `Processing\text_conversion_small.py`   
-5. Push changes to github or upload `general_text.json` manually   
-6. Wait for the raw file to refresh (~5 minutes)   
-7. Finished! As with the story, make sure to check for typos.   
 
 </details>
 
