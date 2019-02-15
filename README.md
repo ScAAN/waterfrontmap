@@ -15,7 +15,7 @@ A collaboration between [NYC-EJA](http://www.nyc-eja.org/) and [ScAAN](http://sc
    
    
 <br/>
-<img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/images/demo.gif" width="350" height="291">
+<img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/images/demo.gif">
 
 #### How to use
 <details><summary> How to add data to the map </summary>
