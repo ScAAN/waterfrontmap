@@ -1,4 +1,4 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoiYmlsbGJyb2QiLCJhIjoiY2o5N21wOWV5MDFlYjJ5bGd4aW9jZWwxNiJ9.LpT502DJ1ruuPRLp3AW_ow';
+mapboxgl.accessToken = 'pk.eyJ1IjoiamdpbG1vcmU5MSIsImEiOiJjanIxNmxwMm4wOW9iNDlycGFwajZqbWs4In0.5rSo323U6EC7Z6XtBFl--w';
 
 //http://fuzzytolerance.info/blog/2016/07/01/Printing-Mapbox-GL-JS-maps-in-Firefox/
 // Firefox won't print a GL map unless preserveDrawingBuffer is set to true
@@ -224,7 +224,7 @@ map.on('load', function () {
 
     map.addSource('vector_data', {
       type: 'vector',
-      url: 'mapbox://billbrod.data'
+      url: 'mapbox://jgilmore91.data'
     })
 
     // from
@@ -234,7 +234,7 @@ map.on('load', function () {
     // sure why that works, but whatever
     map.addSource('vector_data-hover', {
 	type: 'vector',
-	url: 'mapbox://billbrod.data'
+	url: 'mapbox://jgilmore91.data'
     })
 
 // Add a background pattern
