@@ -43,11 +43,8 @@ map.addLayer({
   }
 },'water2','Bulk Storage Sites','SUPERUND2','CBS','MOSF');
 ```
-6. Add the name and information of your layer in `layer_text.csv`. See the already filled out fields for how to fill this out.   
-7. If your layer is just filled colors you can add legend information to `legend_text.csv` (each line of text goes in entry, and each corresponding color goes in color). Otherwise you'll have to make the legend yourself in HTML and add an if statement for it (see the bulk storage layer as an example). Make sure that the `legend` field in `layer_text.csv` matches the name you use in `legend_text.csv`.   
-8. Run `text_conversion_small.py` to turn these csv into a json file   
-9. Push to github to update the text     
-10. That should be it! But it probably won't be. Common issues are in the geojson geography and data typing.
+6. Add the name and information of your layer in [our google sheet](https://docs.google.com/spreadsheets/d/1u3npfNWjwQl6uyFmSp9pwsJrGEn_bcBkErLjIw9J-z8/edit#gid=734073463) in the layer and legend sheets. See the already filled out fields for how to fill this out.
+7. That should be it! But it probably won't be. Common issues are in the geojson geography and data typing.
 
 
 
