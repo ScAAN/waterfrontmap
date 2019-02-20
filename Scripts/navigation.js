@@ -232,12 +232,16 @@ function bulk_indiv(divname){
 function bulk_legend(value) {
   if (value==true){
     $('legendHTML_bulk').style.display = 'block';
+    $('bulklegendtext').innerHTML = "Click on the legend symbols to toggle bulk storage sites, locations with multiple sites are denoted by numbers.";
+    $('bulktitle').style = "text-align:center";
     if (nonbulk_active()==true){
       if ($('legendinfo').style.display.includes("block")){
         $('legendinfo').style.right='370px';
       }
     }
   } else {
+    $('bulklegendtext').innerHTML = "&nbsp";
+    $('bulktitle').style = "";
     $('legendinfo').style.right='190px';
     $('legendHTML_bulk').style.display = 'none';
   }
