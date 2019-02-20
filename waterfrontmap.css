@@ -17,6 +17,30 @@ cust {
   */
 }
 
+.map-logo {
+  border-radius:0;
+  height: 48px;
+  position:relative;
+  z-index:5;
+  margin-left:3px;
+  margin-top:0px;
+  margin-right:0px;
+}
+
+.logo-container{
+  bottom:20px;
+  vertical-align:top;
+  position:relative;
+  display:inline-block;
+  margin:10px;
+  height:35px;
+  width:auto;
+  z-index:1;
+  margin-left:0px;
+  margin-right:-10px;
+}
+
+
 .text-stroke {
   text-shadow:
 -1px -1px 0 white,
@@ -596,7 +620,7 @@ width:330px;
 }
 
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 900px) {
     #menu {
         width: 140px;
     }
@@ -615,7 +639,7 @@ width:330px;
     }
 }
 
-@media screen and (min-width: 840px) {
+@media screen and (min-width: 900px) {
     .largetooltip {
         display:none !important;
     }
