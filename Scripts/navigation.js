@@ -26,15 +26,18 @@ function hideaboutbox(){
 
 function slider_pulse(string){
   if (string=="start"){
-    $('slider_flash').style.webkitTransform="scale(1)";
+    setTimeout(function() {
+      $('slider_flash').style.webkitTransform="scale(1)";
+    }, 300);
     /*
     $('infoimgpulse').style.visibility="visible";
     setTimeout(function() {
       stop_slider();
     }, 3000);*/
 } else if (string="stop"){
+  /*
   button_pulse("start")
-  /*setTimeout(function() {
+  setTimeout(function() {
     button_pulse("stop")
   }, 3000);*/
   stop_slider();
@@ -431,7 +434,15 @@ function showinfobox(evt,boxname){
   smia_hover_toggle(false,false)
 
   // hide right slider
-  $('rightslider').style.display="none";
+  // hide slider pulse after exploring
+  if (($('slider_flash').style.webkitTransform).includes("scale(1)")){
+    slider_pulse("stop")
+    setTimeout(function() {
+      $('sliderbox').style.right="-100px";
+    }, 300);
+  } else {
+    $('sliderbox').style.right="-100px";
+  }
 
   if (killallboxes!=1) {
     // show the current box and make it active!
@@ -449,7 +460,7 @@ function showinfobox(evt,boxname){
       $('geocoder_input').value = '';
       map.on('click',query_point);
       smia_hover_toggle(true,false,true)
-      $('rightslider').style.display="inline-block";
+      $('sliderbox').style.right="0px";
     } else if (evt.currentTarget.id.includes("about")) {
       // show overlay
       $('aboutoverlay').style.display="block";

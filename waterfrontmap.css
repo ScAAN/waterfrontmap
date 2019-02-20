@@ -496,9 +496,15 @@ button {
   background:   #283747;
 }
 
+#sliderbox{
+  position:relative;
+  right:-100px;
+  transition: all 0.3s ease-in-out;
+}
+
 #rightslider {
   font-size: 13px;
-  display: none;
+  display: inline-block;
   right:-420px;
   top:40px;
   position:absolute;
