@@ -461,7 +461,7 @@ button {
   padding-left:25px;
   border-radius: 3px;
   width: 430px;
-  min-height:60px;
+  min-height:65px;
   border: 1px solid rgba(0,0,0,0.4);
   line-height:1;
 }
@@ -498,7 +498,7 @@ button {
 
 #rightslider {
   font-size: 13px;
-  display: inline-block;
+  display: none;
   right:-420px;
   top:40px;
   position:absolute;
@@ -1098,7 +1098,7 @@ margin-bottom:-1px;
   padding:5px;
   position:absolute;
   top:-40px;
-  right:0px;
+  right:-1px;
   border:1px solid rgba(0,0,0,0.4);
   border-bottom:1px solid rgba(255,255,255,1);
   background-color:white;
