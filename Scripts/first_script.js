@@ -28,7 +28,7 @@ function map_init(num){
     menuinit();
     //make_layer_visible("Percent People of Color");
     $('storybutton').click();
-    
+
     // hide loading screen
     $('load_gif').style.visibility='hidden';
     $('loading_message').innerHTML='<br/>click anywhere to continue';
@@ -70,9 +70,9 @@ general_request.onload = function() {
 
 
 // get text from google sheets via tabletop
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1u3npfNWjwQl6uyFmSp9pwsJrGEn_bcBkErLjIw9J-z8/edit?usp=sharing';
+var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1tqZK6W6Cg4wyv6ilOsychAVpVDT8BGFK0K9Uq4dQrx0/edit?usp=sharing';
 function ttinit() {
-  Tabletop.init( { key: 'https://docs.google.com/spreadsheets/d/1u3npfNWjwQl6uyFmSp9pwsJrGEn_bcBkErLjIw9J-z8/edit?usp=sharing',
+  Tabletop.init( { key: publicSpreadsheetUrl,
                    callback: tabletop_callback} )
 }
 
