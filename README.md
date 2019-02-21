@@ -3,7 +3,7 @@
 															
 
 [**CURRENT MAP**](http://scaan.net/waterfrontmap/) //
-[**FEEDBACK**](https://docs.google.com/forms/d/e/1FAIpQLSdLk8yvCCXT2nSOYlmBfkYXnPkRCpsYjNQWkWgdCgHwmcBTrQ/viewform) //
+[**FEEDBACK**](https://docs.google.com/forms/d/1Xs21EJ8iMgG8qLajjeDTHOLbdCwhIkQgcNWo6rMrmys/viewform?ts=5c6c2dfa&edit_requested=true#responses) //
 [**EJA MAPS**](http://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true) //
 [**EJA-WJP INFORMATION**](http://www.nyc-eja.org/campaigns/waterfront-justice-project/)     
      
@@ -18,6 +18,16 @@ A collaboration between [NYC-EJA](http://www.nyc-eja.org/) and [ScAAN](http://sc
 <img src="https://github.com/ScAAN/waterfrontmap/blob/master/Assets/images/demo.gif">
 
 #### How to use
+
+<details><summary> Required packages </summary>
+	
+- Jonathan Soma's [`tabletop.js`](https://github.com/jsoma/tabletop)
+- Eli Grey's [`FileSaver.js`](https://github.com/eligrey/FileSaver.js/)
+- Niklas von Hertzen's [`html2canvas.js`](https://html2canvas.hertzen.com/)
+- [`meyerweb CSS reset`](https://meyerweb.com/eric/tools/css/reset/). 
+
+</details>
+
 <details><summary> How to add data to the map </summary>
    
 A very bare bones guide which assumes some familiarity with mapbox and python.   
@@ -43,7 +53,7 @@ map.addLayer({
   }
 },'water2','Bulk Storage Sites','SUPERUND2','CBS','MOSF');
 ```
-6. Add the name and information of your layer in [our google sheet](https://docs.google.com/spreadsheets/d/1u3npfNWjwQl6uyFmSp9pwsJrGEn_bcBkErLjIw9J-z8/edit#gid=734073463) in the layer and legend sheets. See the already filled out fields for how to fill this out.
+6. Add the name and information of your layer in [our google sheet](https://docs.google.com/spreadsheets/d/1tqZK6W6Cg4wyv6ilOsychAVpVDT8BGFK0K9Uq4dQrx0/edit?usp=sharing) in the layer and legend sheets. See the already filled out fields for how to fill this out.
 7. That should be it! But it probably won't be. Common issues are in the geojson geography and data typing.
 
 
@@ -53,7 +63,7 @@ map.addLayer({
 
 <details><summary> How to update map text </summary>   
      
-Edit the map text using the instructions on [our google sheet](https://docs.google.com/spreadsheets/d/1u3npfNWjwQl6uyFmSp9pwsJrGEn_bcBkErLjIw9J-z8/edit#gid=734073463).
+Edit the map text using the instructions on [our google sheet](https://docs.google.com/spreadsheets/d/1tqZK6W6Cg4wyv6ilOsychAVpVDT8BGFK0K9Uq4dQrx0/edit?usp=sharing).
      
 
 
@@ -75,6 +85,7 @@ Sprites are icons and patterns used by mapbox, but mapbox only has a limited cat
 </details>
 
 #### Resources and tutorials
+
 <details><summary>mapbox-gl-js</summary>
 
 - [choropleth tutorial](https://www.mapbox.com/help/choropleth-studio-gl-pt-1/)   
