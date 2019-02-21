@@ -18,10 +18,14 @@ function hidewip(){
   }
 }
 
-function hideaboutbox(){
-  $('aboutbox').style.display = 'none';
-  $('aboutoverlay').style.display = 'none';
-  showinfobox([],"none")
+function showabout(){
+  $('aboutoverlay').style.display="block";
+  $('aboutbox').style.display="block";
+}
+
+function hideabout(){
+  $('aboutoverlay').style.display="none";
+  $('aboutbox').style.display="none";
 }
 
 function slider_pulse(string){
