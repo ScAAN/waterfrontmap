@@ -907,7 +907,6 @@ layerIds.push('poi-scalerank1')
 for (i=0;i<layerIds.length;i++){
   map.removeLayer(layerIds[i])
 }
-console.log(layerIds)
 
 // call map_init here so we know when all layers are loaded!
 // (since map.loaded and map._loaded don't work)

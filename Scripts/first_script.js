@@ -128,9 +128,20 @@ function squish_story(elements,smia){
   newobj["SMIA_first_page"] = new Array(8);
   for (i=0;i<elements.length;i++){
     newobj["data"][i] = elements[i];
-    newobj["data"][i]["pageZoom"] = smia[newobj["data"][i]["pageSMIA"]]["zoom"]
-    newobj["data"][i]["pageLat"] = smia[newobj["data"][i]["pageSMIA"]]["lat"]
-    newobj["data"][i]["pageLng"] = smia[newobj["data"][i]["pageSMIA"]]["lng"]
+    newobj["data"][i]["pageZoom"] = smia[newobj["data"][i]["pageSMIA"]]["zoom"];
+    newobj["data"][i]["pageLat"] = smia[newobj["data"][i]["pageSMIA"]]["lat"];
+    newobj["data"][i]["pageLng"] = smia[newobj["data"][i]["pageSMIA"]]["lng"];
+
+    // specify bulk layers from check boxes
+    var layersstring ="";
+    var site_list = ["TRI","CBS","MOSF","SUPERFUND2"];
+    for (var s = 0; s < site_list.length; s++) {
+      var sitename = site_list[s];
+      if (newobj["data"][i][sitename].includes("1")){layersstring = commaappend(layersstring,sitename);}
+    }
+    if (layersstring==""){layersstring="None"}
+    newobj["data"][i]["bulkLayers"] = layersstring
+
     if (i>0){
       if (newobj["data"][i]["pageSMIA"]!=newobj["data"][i-1]["pageSMIA"]){
         smianum = smia[newobj["data"][i]["pageSMIA"]]["number"].slice();
@@ -141,6 +152,12 @@ function squish_story(elements,smia){
     }
   }
   return newobj
+}
+
+function commaappend(string,appendage){
+  if (string!==""){appendage = ","+appendage;}
+  var newstring = string+appendage;
+  return newstring
 }
 
 // process the map text into useful variables
@@ -174,7 +191,7 @@ function request_processing(requested_text){
 
   // story processing
   story_text = requested_text["story"];
-  storyvars = story_text["data"];
+  storyvars = story_text["data"]; console.log(storyvars)
   pageSMIAIdx = story_text["SMIA_first_page"];
   global_max_page = story_text["global_max_page"]-1;
 
