@@ -30,6 +30,7 @@ function story_prev_page(){
 // display page function
 function story_display_page(storypage){
   //specify flying options and fly
+
   var flyopts = {
     zoom: storyvars[storypage]["pageZoom"],
     pitch:0,
@@ -38,7 +39,13 @@ function story_display_page(storypage){
     speed:.5,
     curve: 1,
   }
-  map.flyTo(flyopts)
+
+  // easing looks nicer when zoomed out and flying looks nicer when zoomed in
+  if (storyvars[storypage]["pageSMIA"]>0){
+    map.flyTo(flyopts)
+  } else {
+    map.easeTo(flyopts)
+  }
 
   // show the next and back buttons
   $('nextbutton').style.display = "block";
