@@ -239,11 +239,11 @@ function bulk_indiv(divname){
   }
 }
 
-
 function bulk_legend(value) {
+  console.log($('bulklegendtext').innerHTML)
   if (value==true){
-    $('legendHTML_bulk').style.display = 'block';
     $('bulklegendtext').innerHTML = "Click on the legend symbols to toggle bulk storage sites, locations with multiple sites are denoted by numbers.";
+    $('legendHTML_bulk').style.display = 'block';
     $('bulktitle').style = "text-align:center";
     if (nonbulk_active()==true){
       if ($('legendinfo').style.display.includes("block")){
