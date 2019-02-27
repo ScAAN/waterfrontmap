@@ -112,8 +112,8 @@ function menuinit(){
           this.className = '';
           if (clickedLayer=="Bulk Storage Sites") {
             toggle_bulk("None")
-            bulk_legend(false)
             if (nonbulk_active()==false){update_legend("None")}
+            bulk_legend(false)
           } else {
             make_layer_visible('None')
             if ($("toggler-Bulk Storage Sites").className=='active'){
@@ -129,8 +129,8 @@ function menuinit(){
             if (nonbulk_active()==false){update_legend("Bulk Storage Sites")}
             if (nonbulk_active()==true){bulk_legend(true)}
           } else {
-            if ($("toggler-Bulk Storage Sites").className=='active'){bulk_legend(true)}
             make_layer_visible(clickedLayer)
+            if ($("toggler-Bulk Storage Sites").className=='active'){bulk_legend(true)}
           }
         }
       };
@@ -186,6 +186,7 @@ function nonbulk_active(){
   return flag
 }
 
+// put the layers in layers on (including "None") and all other layers off
 function toggle_bulk(layers) {
   $("toggler-Bulk Storage Sites").className='';
   var alllayers = ['TRI','MOSF','CBS','SUPERFUND2'];
@@ -209,40 +210,25 @@ function toggle_bulk(layers) {
   }
 }
 
+// every time it triggers turn symbol on and off
 function bulk_indiv(divname){
+  var symbol_list = ["TRI","CBS","MOSF","SUPERFUND2"];
   if ($(divname).className.includes('target')){
     $(divname).className = $(divname).className.replace(" target", "");
     $(divname).style.display="none";
-    if (divname.includes("TRI")){
-      map.setLayoutProperty('TRI', 'visibility', 'visible');
-    } else if (divname.includes("MOSF")){
-      map.setLayoutProperty('MOSF', 'visibility', 'visible');
-    } else if (divname.includes("CBS")){
-      map.setLayoutProperty('CBS', 'visibility', 'visible');
-    } else if (divname.includes("SUPERFUND2")){
-      map.setLayoutProperty('SUPERFUND2', 'visibility', 'visible');
-    }
+    map.setLayoutProperty(divname, 'visibility', 'visible');
   } else {
     if ($(divname).className.includes("target")==false){
       $(divname).className += ' target';
     }
     $(divname).style.display="block";
-    if (divname.includes("TRI")){
-      map.setLayoutProperty('TRI', 'visibility', 'none');
-    } else if (divname.includes("MOSF")){
-      map.setLayoutProperty('MOSF', 'visibility', 'none');
-    } else if (divname.includes("CBS")){
-      map.setLayoutProperty('CBS', 'visibility', 'none');
-    } else if (divname.includes("SUPERFUND2")){
-      map.setLayoutProperty('SUPERFUND2', 'visibility', 'none');
-    }
+    map.setLayoutProperty(divname, 'visibility', 'none');
   }
 }
 
 function bulk_legend(value) {
-  console.log($('bulklegendtext').innerHTML)
   if (value==true){
-    $('bulklegendtext').innerHTML = "Click on the legend symbols to toggle bulk storage sites, locations with multiple sites are denoted by numbers.";
+    $('bulklegendtext').style.display='block';
     $('legendHTML_bulk').style.display = 'block';
     $('bulktitle').style = "text-align:center";
     if (nonbulk_active()==true){
@@ -251,7 +237,7 @@ function bulk_legend(value) {
       }
     }
   } else {
-    $('bulklegendtext').innerHTML = "&nbsp";
+    $('bulklegendtext').style.display='none';
     $('bulktitle').style = "";
     $('legendinfo').style.right='190px';
     $('legendHTML_bulk').style.display = 'none';
@@ -349,6 +335,9 @@ function update_legend(layername){
 
   // legend title
   $('legend_placeholder').innerHTML = '<h4>' + layername + '</h4>';
+
+  // remove bulk message
+  $('bulklegendtext').style.display='none';
 
   // bulk legend is special
   if (layername == 'Bulk Storage Sites'){
