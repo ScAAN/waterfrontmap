@@ -30,10 +30,14 @@ function map_init(num){
     $('storybutton').click();
 
     // hide loading screen
+  //  $('loading_message').innerHTML='<br/>...loading complete!';
+    hidewip()
+    /*
     $('load_gif').style.visibility='hidden';
     $('loading_message').innerHTML='<br/>click anywhere to continue';
     $('wipbox').style.cursor = 'pointer';
     $('wipoverlay').style.cursor = 'pointer';
+    */
   }
 }
 
