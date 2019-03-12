@@ -907,7 +907,7 @@ margin-bottom:-1px;
   background-color: rgba(0,0,0,1);
 }
 
-.marker2:hover {
+.legendrow:hover .marker2{
   transition: all 0.371s cubic-bezier(0.4,0,0.2,1);
   background-color: rgba(0,0,0,.1);
 }
@@ -921,6 +921,7 @@ margin-bottom:-1px;
   padding:0px;
   margin:0 auto;
   right:37.5px;
+  cursor:pointer;
 }
 
 #story_counter {
