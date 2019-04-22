@@ -185,23 +185,26 @@
 
       <!-- WIP overlay and box-->
       <div id="wipoverlay" class="overlayed" onclick='hidewip()'></div>
-      <!--
-      <div id="wipbox" class="overlay-box instructions link-restyle" style="z-index:99;font: 16px 'Helvetica Neue', Helvetica, sans-serif;" onclick='hidewip()' >
+
+      <div id="wipbox" class="overlay-box instructions link-restyle" style="z-index:99;font: 16px 'Helvetica Neue', Helvetica, sans-serif;left:15%;width:70%;" onclick='hidewip()' >
         <div style='margin:0 30px auto;display:inline-block;font-size:1em;line-height:1'>
-          <div style='margin:00 auto;margin-top:25px;  '>
+          <div style='margin:00 auto;margin-top:25px;line-height:1.5;text-align:center;  '>
             <p>
-              <h4 style='font-size:1.5em'>Welcome to the Waterfront Justice Project Map!</h4><br/>
-              Thank you for visiting the Waterfront Justice Project Interactive Map. This is a collaboration between NYC-EJA and ScAAN, aiming to visualize maps created by NYC-EJA’s Waterfront Justice Project. View the static NYC-EJA maps in their <a href="https://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true">peer reviewed paper</a>. Feel free to leave feedback and let us know how we’re doing (about &rarr; feedback).</br></br>
+              <h4 style='font-size:1.5em;'>Welcome to the Waterfront Justice Project Map!</h4><br/>
+            </p>
+            <p style="text-align:center;">
+              Thanks for visiting! This is a collaboration between <a href="http://www.nyc-eja.org/">NYC-EJA</a> and <a href="http://scaan.net">ScAAN</a>, visualizing maps created by NYC-EJA’s Waterfront Justice Project. View the static NYC-EJA maps in their <a href="https://www.tandfonline.com/doi/full/10.1080/13549839.2014.949644?scroll=top&needAccess=true">peer reviewed paper</a>. Feel free to leave <a href=https://docs.google.com/forms/d/1Xs21EJ8iMgG8qLajjeDTHOLbdCwhIkQgcNWo6rMrmys/viewform?ts=5c6c2dfa&edit_requested=true#responses>feedback</a> and let us know how we’re doing.</br></br>
             </p>
             <div style="text-align:center;">
+              <img id="click_gif" style="height:30vh;position:absolute;visibility:hidden;" src="Assets/images/clickgif.gif"></img>
               <img id="load_gif" style="height:30vh;position:absolute;" src="Assets/images/loadloop.gif"></img>
               <img id="load_png" style="height:30vh;" src="Assets/images/loadmap.png"></img>
            </div>
-            <h4 id="loading_message" style='font-size:1.5em;text-align:center;'><br/>loading...</h4>
+            <p id="loading_message" style='text-align:center;'>map loading...</p>
           </div>
           </div>
         </div>
-      -->
+      <!--
         <div id="wipbox" class="overlay-box instructions link-restyle" style="border-radius:500px;width:40vh;height:40vh;top:25vh;margin:0 auto;z-index:99;margin-left:-20vh;left:50%;font: 16px 'Helvetica Neue', Helvetica, sans-serif;" >
           <div style='margin:auto;margin-top:2.5vh;display:inline-block;font-size:1em;line-height:1;width:100%;'>
             <div style='margin:00 auto;width:100%;'>
@@ -212,6 +215,7 @@
             </div>
             </div>
           </div>
+                -->
       </div>
 
 

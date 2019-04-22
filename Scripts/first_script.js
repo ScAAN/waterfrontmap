@@ -30,14 +30,18 @@ function map_init(num){
     $('storybutton').click();
 
     // hide loading screen
-  //  $('loading_message').innerHTML='<br/>...loading complete!';
-    hidewip()
-    /*
+    //$('loading_message').innerHTML='<br/>...loading complete!';
+    //hidewip()
+
     $('load_gif').style.visibility='hidden';
-    $('loading_message').innerHTML='<br/>click anywhere to continue';
+
+    $('loading_message').innerHTML='click to continue';
     $('wipbox').style.cursor = 'pointer';
     $('wipoverlay').style.cursor = 'pointer';
-    */
+
+    setTimeout(function() {
+      $('click_gif').style.visibility="visible";
+    }, 500);
   }
 }
 
