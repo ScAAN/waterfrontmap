@@ -21,13 +21,25 @@ function map_capture(){
   }, 10*2+45+20);
 }
 
+//https://stackoverflow.com/questions/3066586/get-string-in-yyyymmdd-format-from-js-date-object
+Date.prototype.mdy = function() {
+  var mm = this.getMonth() + 1; // getMonth() is zero-based
+  var dd = this.getDate();
+
+  return [(mm>9 ? '' : '0') + mm,
+          (dd>9 ? '' : '0') + dd,
+          this.getFullYear()
+         ].join('-');
+};
+
 // get the map canvas and control canvas and merge them into a saveable canvases
 function print_map(){
     // show print overlay, loading screen, hide download button
     // make special print header that shows date downloaded, eja and scan logos
     $('printbuttons').style.visibility="hidden";
     var print_date = new Date();
-    $('print_date').innerHTML = '<p>Downloaded: <small>' + print_date + '</small></p>';
+    $('print_text').innerHTML ="&copy NYC-EJA and ScAAN, downloaded from http://scaan.net/waterfrontmap/ on " + print_date.mdy();
+    //$('print_date').innerHTML = '<p>Downloaded: <small>' + print_date + '</small></p>';
     $('infobarprint').style.display="block";
     $('legendinfobutton').style.visibility="hidden";
 
