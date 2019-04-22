@@ -893,6 +893,7 @@ map.setPaintProperty('place_label_neighborhood','text-halo-blur',0)
 map.setPaintProperty('place_label_neighborhood','text-opacity',plnobj)
 // move neighborhood labels on top
 map.moveLayer("place_label_neighborhood")
+map.moveLayer("point")
 
 //get ride of excess labels
 var maplayers = map.getStyle().layers;
