@@ -112,3 +112,15 @@ Sprites are icons and patterns used by mapbox, but mapbox only has a limited cat
 
 
 </details>
+
+
+#### Troubleshooting
+
+<details><summary> General troubleshooting </summary>
+	
+	
+If the map webpage fails to load, first check if [mapbox](https://status.mapbox.com/), [google API](https://www.google.com/appsstatus#hl=en&v=status), or [github pages](https://www.githubstatus.com/) are down. Then, check your browser and OS version, and submit [feedback](https://docs.google.com/forms/d/1Xs21EJ8iMgG8qLajjeDTHOLbdCwhIkQgcNWo6rMrmys/viewform?ts=5c6c2dfa&edit_requested=true#responses) to us. Please include your OS version, browser version and a description of the issue. 
+	
+</details>
+
+
