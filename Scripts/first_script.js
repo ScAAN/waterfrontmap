@@ -62,26 +62,49 @@ function load_script(url, completeCallback) {
 - Manually specify which layers belong in which tabs (toggleableLayerIds)
 */
 
-// request the general text
-// now outdated due to implementing google sheets with tabletop
-/*
-var general_requestURL = 'https://raw.githubusercontent.com/ScAAN/waterfrontmap/master/Processing/Text/map_text.json';
-var general_request = new XMLHttpRequest();
-general_request.open('GET', general_requestURL);
-general_request.responseType = 'json';
-general_request.send();
-general_request.onload = function() {
-  var requested_text = general_request.response;
-  //request_processing(requested_text)
-}
-*/
-
-
-// get text from google sheets via tabletop
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1tqZK6W6Cg4wyv6ilOsychAVpVDT8BGFK0K9Uq4dQrx0/edit?usp=sharing';
+// request the general text. Papaparse can only parse one sheet at a time, so we
+// have to get each sheet separately, then combine them at the end.
+//
+// url for the whole spreadsheet document, broken in two where the sheet gid
+// goes
+var base_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQheGoTdUsQND0HODg7h1PYdjqV8QDJnUZlv-fJzeMv6kwZhLAKwXRbawlgLOyTSj1B61gpKlYME5Xk/pub?gid="
+var base_url_end = "&single=true&output=csv"
+// then these are the gids for the different sheets
+var layer = '559568406'
+var smia = '1786892701'
+var legend = '1724734492'
+var story = '0'
 function ttinit() {
-  Tabletop.init( { key: publicSpreadsheetUrl,
-                   callback: tabletop_callback} )
+  data = {}
+  // this use of Promise inspired by https://stackoverflow.com/questions/47901255/wait-for-two-or-more-files-to-load-with-papa-parse
+  // makes sure that we've parsed each of the separate sheets, placing them into data,
+  // before calling tabletop_callback
+  Promise.all([layer, smia, legend, story].map(
+    url=> new Promise(
+      (resolve,reject)=>
+      Papa.parse(`${base_url}${url}${base_url_end}`,
+                 {
+                   header: true,
+                   download: true,
+                   complete: function (result) {
+                     resolve(result.data)
+                   },
+                   error:reject
+                 }
+                )))).then(
+                  function (results) {
+                    // combine the data from each sheet into the format tabletop_callback
+                    // expects,
+                    data['layer'] = results[0]
+                    data['smia'] = results[1]
+                    data['legend'] = results[2]
+                    data['story'] = results[3]
+                    tabletop_callback(data)
+                  }
+                )
+         .catch(
+           err=>console.warn("Something went wrong:", err)
+         )
 }
 
 // now declare some global variables
@@ -100,10 +123,10 @@ if (reorder_flag==true){
 // process the text from tabletop into the same format as from an XML request
 function tabletop_callback(data,tabletop){
   // make requesty
-  var layer = squish_tabletop(data["layer"]["elements"],"id");
-  var smia = squish_tabletop(data["smia"]["elements"],"name");
-  var legend = squish_tabletop(data["legend"]["elements"],"vari");
-  var story = squish_story(data["story"]["elements"],smia);
+  var layer = squish_tabletop(data["layer"],"id");
+  var smia = squish_tabletop(data["smia"],"name");
+  var legend = squish_tabletop(data["legend"],"vari");
+  var story = squish_story(data["story"],smia);
   var requested={};
   requested["layer"]=layer;
   requested["smia"]=smia;
