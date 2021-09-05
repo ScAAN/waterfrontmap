@@ -21,7 +21,7 @@ A collaboration between [NYC-EJA](http://www.nyc-eja.org/) and [ScAAN](http://sc
 
 <details><summary> Required packages </summary>
 	
-- Jonathan Soma's [`tabletop.js`](https://github.com/jsoma/tabletop)
+- [`Papa parse`](https://github.com/mholt/PapaParse)
 - Eli Grey's [`FileSaver.js`](https://github.com/eligrey/FileSaver.js/)
 - Niklas von Hertzen's [`html2canvas.js`](https://html2canvas.hertzen.com/)
 - [`meyerweb CSS reset`](https://meyerweb.com/eric/tools/css/reset/). 
